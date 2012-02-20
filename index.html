@@ -1,24 +1,31 @@
-<!doctype html>
 <html>
 <head>
-  <title>Test</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <title>Fonteasy</title>
+  <link rel="stylesheet" type="text/css" href="main.css"/>
+  <script type="text/javascript" src="jquery.js"></script>
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <script type="text/javascript" src="main.js"></script>
-  <link rel="stylesheet" href="styles.css" type="text/css" media="screen">
 </head>
 <body>
-	<div class="fontEasy">
-		<div class="left_column">
-			<h3>FontEasy</h3>
-			<div class="description">
-				<p>A superb WordPress plugin for adding awesome fonts to your website.</p>
-			</div>
-		</div>
-		<div id="fontListContainer">
-			<div id="fontList"></div>
-		</div>
-		<div class="loading"></div>
-	</div>
+  <h1>Fonteasy</h1>
+  <hr/>
+  <h3>Selectors</h3>
+  <ul class="selectors-group">
+    <li><a href="#selector1" rel="abel">h1, h2, .quote</a></li>
+    <li><a href="#selector2" rel="acme">strong, blockquote</a></li>
+    <li><a href="#selector3" rel="exo">.awesome, .custom</a></li>
+  </ul>
+  <form>
+    <input type="text" id="new-selector" placeholder="New selector name..."/>
+    <button class="add-selector">Add Selector</button>
+
+    <ul class="selectors"></ul>
+    <div class="font-list-wrap">
+      <div class="font-list"></div>
+    </div>
+    <div class="loading"></div>
+    <input type="submit"/>
+  </form>
+  <div class="log"></div>
 </body>
 </html>
