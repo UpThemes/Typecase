@@ -20,7 +20,16 @@ $(document).ready(function(){
   });
 
   $("form").submit(function(e){
-    
+    clearLog();
+    log("Font: " + $('input:radio[name=font]:checked').val() + " (" + $('input:radio[name=font]:checked').attr("id") + ")");
+    var chosenSelectors = "";
+    $(".selectors li").each(function(i){
+      if (i == 0)
+        chosenSelectors = chosenSelectors + $(this).find("span").text();
+      else
+        chosenSelectors = chosenSelectors + ", " + $(this).find("span").text();
+    });
+    log("Selectors: " + chosenSelectors);
     e.preventDefault();
   });
 });
@@ -45,6 +54,10 @@ var log = function(e) {
     $(".log").append("<div>"+e+"</div>");
 }
 
+var clearLog = function() {
+  $(".log").html("");
+}
+
 google.load("webfont", "1");
   
   google.setOnLoadCallback(function() {
@@ -66,7 +79,7 @@ google.load("webfont", "1");
 
         if(!$("body").hasClass("wf-"+family_class+"-n4-active")){
           $('.font-list').append("<style type='text/css'> ."+family_class+"{ font-family: '"+this+"'; } </style>");
-          $('.font-list').append("<label for='"+family_class+"' class='"+family_class+"'><input type='radio' name='font' id='"+family_class+"' value='"+family_class+"'/><div>"+FontEasy.previewText+"<span>"+this+"</span></div></label>");
+          $('.font-list').append("<label for='"+family_class+"' class='"+family_class+"'><input type='radio' name='font' id='"+family_class+"' value='"+this+"'/><div>"+FontEasy.previewText+"<span>"+this+"</span></div></label>");
         }
       });
       
