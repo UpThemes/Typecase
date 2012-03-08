@@ -2,25 +2,28 @@
 
 * {
   -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   position: relative;
   vertical-align: middle;
 }
 
 body {
-  margin:50px;
+  padding:0 10px;
 }
 
 .clear {clear:both;}
 
-.font-list {
-  float:left;
+.font-list-wrap {
+  overflow:hidden;
   width:100%;
+  margin-bottom:-1px;
+}
+
+.font-list {
   background:#fbfbfb;
   overflow:hidden;
+  padding-bottom:2px;
   border-radius:0 0 4px 4px;
-  padding-bottom:1px;
 
   .font {
     line-height:60px;
@@ -28,6 +31,7 @@ body {
     border-bottom:solid 1px #eee;
     margin-top:-1px;
     margin-bottom:-1px;
+    top:1px;
 
     &:last-child {
       border-radius:0 0 4px 4px;
@@ -38,8 +42,9 @@ body {
       float:left;
       color:#333;
       padding-left:15px;
-      font-family:"American Typewriter";
       white-space:nowrap;
+      width:100%;
+      overflow:hidden;
     }
 
     .font-meta {
@@ -63,6 +68,7 @@ body {
         float:right;
         list-style:none;
         opacity:.5;
+        -webkit-transition: all 200ms linear;
 
         li {
           float:left;
@@ -138,12 +144,31 @@ body {
             background:url("assets/icons.png") -64px 0;
           }
         }
+
+        a.disabled {
+          opacity:.5;
+          background-color:white;
+          cursor:default;
+
+          &:hover {
+            box-shadow:0 0 0 1px rgba(#000,.3) inset;
+          }
+        }
       }
     }
 
     &:hover {
       background:white;
       cursor:pointer;
+
+      .font-meta {
+        background:white;
+        background:-webkit-linear-gradient(left, rgba(#fff,0) 0%,rgba(#fff,1) 20%);
+      }
+
+      .font-actions {
+        opacity:1;
+      }
     }
 
     &.active {
@@ -178,6 +203,7 @@ body {
   width:30%;
   border-left:solid 1px #d6d6d6;
   padding:15px;
+  margin-left:-1px;
 
   h2 {
     margin:0;
@@ -308,7 +334,7 @@ body {
 
 #your-collection {
   overflow:hidden;
-  margin:20px 0;
+  margin:10px 0;
 
   .header {
     background-color:#85c052;
@@ -318,17 +344,18 @@ body {
     }
   }
 
-  .font-list {
+  .font-list-wrap {
     width:70%;
+    float:left;
     border-right:solid 1px #d6d6d6;
-    margin-right:-1px;
-    border-radius:0;
 
     .font {
-
+      border-right:solid 1px #d6d6d6;
+      margin-right:-1px;
+      border-radius:0;
 
       &:last-child {
-        border-radius:0;
+        border-radius:0 0 0 4px;
       }
     }
   }
@@ -346,13 +373,11 @@ body {
     }
   }
 
-  .font-list-wrap {
-    overflow:hidden;
-  }
-
   .font-list {
     border-radius:0;
     padding-bottom:0;
+    overflow:auto;
+    height:244px;
 
     .font {
       
@@ -416,7 +441,7 @@ body {
     }
   }
 
-  a[href="#more"] {
+  a[href="#more-fonts"] {
     display:block;
     border-top:solid 1px #d4d4d4;
     background-image:-webkit-linear-gradient(#fafafa,#ededed);
@@ -428,6 +453,7 @@ body {
     font-weight:bold;
     text-decoration:none;
     border-radius:0 0 4px 4px;
+    margin-top:-1px;
 
     span {
       border-bottom:solid 1px #a5a5a5;

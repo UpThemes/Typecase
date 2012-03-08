@@ -2,8 +2,11 @@
 <head>
   <title>Fonteasy</title>
   <link rel="stylesheet" type="text/css" href="main.css">
-  <script type="text/javascript" scr="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js.js"></script>
-  <script type="text/javascript" scr="main.js"></script>
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript" src="log.js"></script>
+  <script type="text/javascript" src="equalheight.js"></script>
+  <script type="text/javascript" src="main.js"></script>
 </head>
 <body>
   <div id="your-collection">
@@ -13,53 +16,13 @@
     <div class="content-wrap">
       <div class="font-list-wrap">
         <div class="font-list">
-          <div class="font">
-            <div class="font-sample">The quick brown fox jumps over the lazy dog.</div>
-            <div class="font-meta">
-              <div class="font-name">Noteworthy</div>
-              <ul class="font-actions">
-                <li><a href="#delete"><span></span></a></li>
-              </ul><!--/.font-actions-->
-            </div><!--/.font-meta-->
-            <div class="clear"></div>
-          </div><!--/.font-->
-          <div class="font active">
-            <div class="font-sample">The quick brown fox jumps over the lazy dog.</div>
-            <div class="font-meta">
-              <div class="font-name">Noteworthy</div>
-              <ul class="font-actions">
-                <li><a href="#delete"><span></span></a></li>
-              </ul><!--/.font-actions-->
-            </div><!--/.font-meta-->
-            <div class="clear"></div>
-          </div><!--/.font-->
-          <div class="font">
-            <div class="font-sample">The quick brown fox jumps over the lazy dog.</div>
-            <div class="font-meta">
-              <div class="font-name">Noteworthy</div>
-              <ul class="font-actions">
-                <li><a href="#delete"><span></span></a></li>
-              </ul><!--/.font-actions-->
-            </div><!--/.font-meta-->
-            <div class="clear"></div>
-          </div><!--/.font-->
-          <div class="font">
-            <div class="font-sample">The quick brown fox jumps over the lazy dog.</div>
-            <div class="font-meta">
-              <div class="font-name">Noteworthy</div>
-              <ul class="font-actions">
-                <li><a href="#delete"><span></span></a></li>
-              </ul><!--/.font-actions-->
-            </div><!--/.font-meta-->
-            <div class="clear"></div>
-          </div><!--/.font-->
+
         </div><!--/.font-list-->
       </div><!--/.font-list-wrap-->
       <div class="sidebar">
          <h2>Selectors</h2>
         <ul class="selectors">
           <li>strong<a href="#delete"><span></span></a></li>
-          <li>blockquote<a href="#delete"><span></span></a></li>
           <li class="add-new">
             <input type="text" name="new-selector" id="new-selector" placeholder="New Selector..."/>
           </li>
@@ -87,57 +50,10 @@
     <div class="content-wrap">
       <div class="font-list-wrap">
         <div class="font-list">
-          <div class="font">
-            <div class="font-sample">The quick brown fox jumps over the lazy dog.</div>
-            <div class="font-meta">
-              <div class="font-name">Noteworthy</div>
-              <ul class="font-actions">
-                <li><a href="#edit"><span></span></a></li>
-                <li><a href="#preview"><span></span></a></li>
-                <li><a href="#add"><span></span></a></li>
-              </ul><!--/.font-actions-->
-            </div><!--/.font-meta-->
-            <div class="clear"></div>
-          </div><!--/.font-->
-          <div class="font active">
-            <div class="font-sample">The quick brown fox jumps over the lazy dog.</div>
-            <div class="font-meta">
-              <div class="font-name">Noteworthy</div>
-              <ul class="font-actions">
-                <li><a href="#edit"><span></span></a></li>
-                <li><a href="#preview"><span></span></a></li>
-                <li><a href="#add"><span></span></a></li>
-              </ul><!--/.font-actions-->
-            </div><!--/.font-meta-->
-            <div class="clear"></div>
-          </div><!--/.font-->
-          <div class="font">
-            <div class="font-sample">The quick brown fox jumps over the lazy dog.</div>
-            <div class="font-meta">
-              <div class="font-name">Noteworthy</div>
-              <ul class="font-actions">
-                <li><a href="#edit"><span></span></a></li>
-                <li><a href="#preview"><span></span></a></li>
-                <li><a href="#add"><span></span></a></li>
-              </ul><!--/.font-actions-->
-            </div><!--/.font-meta-->
-            <div class="clear"></div>
-          </div><!--/.font-->
-          <div class="font">
-            <div class="font-sample">The quick brown fox jumps over the lazy dog.</div>
-            <div class="font-meta">
-              <div class="font-name">Noteworthy</div>
-              <ul class="font-actions">
-                <li><a href="#edit"><span></span></a></li>
-                <li><a href="#preview"><span></span></a></li>
-                <li><a href="#add"><span></span></a></li>
-              </ul><!--/.font-actions-->
-            </div><!--/.font-meta-->
-            <div class="clear"></div>
-          </div><!--/.font-->
+          
         </div><!--/.font-list-->
       </div><!--/.font-list-wrap-->
-      <a href="#more"><span>Browse More Fonts</span></a>
+      <a href="#more-fonts"><span>Browse More Fonts</span></a>
     </div><!--/.content-wrap-->
   </div><!--/#available-fonts-->
 </body>
