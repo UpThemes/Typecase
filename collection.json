@@ -1,0 +1,12 @@
+[ 
+  {
+    "font":"abel",
+    "selectors":[".abel",".selector1"],
+    "weights":["normal","bold"]
+  },
+  {
+    "font":"acme",
+    "selectors":[".acme",".selector2"],
+    "weights":["normal","italic"]
+  }
+]
