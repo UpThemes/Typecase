@@ -31,7 +31,7 @@ $(document).ready(function(){
 
 });
 
-/*
+
 
 google.load("webfont", "1");
   
@@ -98,5 +98,3 @@ google.setOnLoadCallback(function() {
     e.preventDefault();
   });
 });
-
-  */
