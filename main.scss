@@ -1,4 +1,5 @@
 @import "normalize";
+@import "compass/css3";
 
 * {
   -moz-box-sizing: border-box;
@@ -19,6 +20,53 @@ body {
   overflow:hidden;
   width:100%;
   margin-bottom:-1px;
+}
+
+.no-fonts {
+  text-align:center;
+  padding-top:60px;
+
+  h2 {
+    color:#666;
+    text-shadow:0 1px 1px #fff;
+    margin-bottom:10px;
+  }
+
+  h4 {
+    color:#999;
+    text-shadow:0 1px 1px #fff;
+    font-weight:normal;
+    font-size:14px;
+    margin:0;
+  }
+
+  span.add {
+    cursor:pointer;
+    display:inline-block;
+    width:16px;
+    height:16px;
+    margin:4px;
+    top:-2px;
+    border-radius:8px;
+    text-decoration:none;
+    @include background-image(linear-gradient(rgba(#000,0),rgba(#000,.3)));
+    box-shadow:0 0 0 1px rgba(#000,.3) inset;
+    background-color:#74b741;
+    -webkit-transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+
+    &:hover {
+      box-shadow:0 0 0 1px rgba(#000,.3) inset,
+                 0 0 0 5px rgba(#74b741,.25);
+    }
+
+    span {
+      display:block;
+      width:16px;
+      height:16px;
+      background:url("assets/icons.png") 0 0;
+    }
+  }
 }
 
 .font-list {
@@ -56,6 +104,7 @@ body {
       right:0;
       background:#fbfbfb;
       background:-webkit-linear-gradient(left, rgba(#fbfbfb,0) 0%,rgba(#fbfbfb,1) 20%);
+      background:-moz-linear-gradient(left, rgba(#fbfbfb,0) 0%,rgba(#fbfbfb,1) 20%);
 
       .font-name {
         float:left;
@@ -71,10 +120,10 @@ body {
         list-style:none;
         opacity:.5;
         -webkit-transition: all 200ms linear;
+        -moz-transition: all 200ms linear;
 
         li {
-          float:left;
-          margin-left:10px;
+          display:inline-block;
         }
 
         a {
@@ -83,10 +132,12 @@ body {
           height:16px;
           border-radius:8px;
           top:22px;
+          margin-left:10px;
           text-decoration:none;
-          background-image:-webkit-linear-gradient(rgba(#000,0),rgba(#000,.3));
+          @include background-image(linear-gradient(rgba(#000,0),rgba(#000,.3)));
           box-shadow:0 0 0 1px rgba(#000,.3) inset;
           -webkit-transition: all 200ms linear;
+          -moz-transition: all 200ms linear;
 
           span {
             display:block;
@@ -122,6 +173,7 @@ body {
         }
 
         a[href$="preview"] {
+          display:none;
           background-color:#6f94da;
 
           &:hover {
@@ -135,6 +187,7 @@ body {
         }
 
         a[href$="edit"] {
+          display:none;
           background-color:#eac526;
 
           &:hover {
@@ -166,6 +219,7 @@ body {
       .font-meta {
         background:white;
         background:-webkit-linear-gradient(left, rgba(#fff,0) 0%,rgba(#fff,1) 20%);
+      background:-moz-linear-gradient(left, rgba(#fff,0) 0%,rgba(#fff,1) 20%);
       }
 
       .font-actions {
@@ -183,6 +237,7 @@ body {
         z-index:2;
         background:white;
         background:-webkit-linear-gradient(left, rgba(#fff,0) 0%,rgba(#fff,1) 20%);
+      background:-moz-linear-gradient(left, rgba(#fff,0) 0%,rgba(#fff,1) 20%);
 
         .font-actions {
           opacity:1;
@@ -223,7 +278,7 @@ body {
     }
   }
 
-  .selectors {
+  #selectors {
     margin:0;
     padding:0;
     list-style:none;
@@ -233,8 +288,10 @@ body {
     li {
       float:left;
       clear:left;
+      max-width:100%;
+      overflow:hidden;
       background:#fbfbfb;
-      background-image:-webkit-linear-gradient(#fbfbfb,#ececec);
+      @include background-image(linear-gradient(#fbfbfb,#ececec));
       border-radius:25px;
       margin:5px 0;
       height:28px;
@@ -282,6 +339,7 @@ body {
         display:block;
         margin-top:-14px;
         -webkit-transition:all 250ms linear;
+        -moz-transition: all 250ms linear;
 
         span {
           background:url("assets/icons.png") -16px 0;
@@ -318,7 +376,7 @@ body {
 
 .header {
   border-radius:4px 4px 0 0;
-  background-image:-webkit-linear-gradient(rgba(#000,0),rgba(#000,.2));
+  @include background-image(linear-gradient(rgba(#000,0),rgba(#000,.2)));
   box-shadow:0 0 20px rgba(#000,.2) inset,
              0 0 0 1px rgba(#000,.3) inset;
 
@@ -350,6 +408,8 @@ body {
     width:70%;
     float:left;
     border-right:solid 1px #d6d6d6;
+
+    .font-list {display:none;}
 
     .font {
       border-right:solid 1px #d6d6d6;
@@ -394,7 +454,7 @@ body {
     overflow:hidden;
     box-shadow:0 0 0 1px rgba(#000,.2) inset;
     background-color:#c1c1c1;
-    background-image:-webkit-linear-gradient(rgba(#000,0),rgba(#000,.2));
+    @include background-image(linear-gradient(rgba(#000,0),rgba(#000,.2)));
 
     input[type="text"] {
       width:93%;
@@ -421,11 +481,13 @@ body {
       text-align:center;
       background-color:#4077cd;
       background:url("assets/icons.png") center -46px,-webkit-linear-gradient(#6691da,#2f5abb);
+      background:url("assets/icons.png") center -46px,-moz-linear-gradient(#6691da,#2f5abb);
       box-shadow:0 0 0 1px #1b44ab,
                  0 2px 0 rgba(#fff,.4),
                  0 1px 1px rgba(#fff,.2) inset;
       border-radius:0 2px 2px 0;
       -webkit-transition:all 100ms linear;
+      -moz-transition: all 100ms linear;
 
       &:hover {
         box-shadow:0 0 0 1px #1b44ab,
@@ -436,6 +498,7 @@ body {
 
       &:active {
         background:url("assets/icons.png") center -46px,-webkit-linear-gradient(bottom,#4f7bd1,#2f5abb);
+        background:url("assets/icons.png") center -46px,-moz-linear-gradient(bottom,#4f7bd1,#2f5abb);
         box-shadow:0 0 0 1px #133a9c,
                    0 2px 0 rgba(#fff,.4),
                    0 1px 1px rgba(#000,.3) inset;
@@ -446,7 +509,7 @@ body {
   a[href="#more-fonts"] {
     display:block;
     border-top:solid 1px #d4d4d4;
-    background-image:-webkit-linear-gradient(#fafafa,#ededed);
+    @include background-image(linear-gradient(#fafafa,#ededed));
     height:40px;
     line-height:40px;
     text-align:center;
@@ -462,7 +525,7 @@ body {
     }
 
     &:hover {
-      background-image:-webkit-linear-gradient(#fff,#f5f5f5);
+      @include background-image(linear-gradient(#fff,#f5f5f5));
 
       span {
         border-color:#999;

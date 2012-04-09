@@ -13,18 +13,23 @@
     </div><!--/.header-->
     <div class="content-wrap">
       <div class="font-list-wrap">
+        <div class="no-fonts">
+          <h2>You have no fonts in your Library!</h2>
+          <h4>Browse below and click <span class="add"><span></span></span> to add fonts to your library.</h4>
+        </div>
         <div class="font-list">
-
         </div><!--/.font-list-->
       </div><!--/.font-list-wrap-->
       <div class="sidebar">
          <h2>Selectors</h2>
-        <ul class="selectors">
+        <ul id="selectors">
           <li>strong<a href="#delete"><span></span></a></li>
           <li class="add-new">
-            <input type="text" name="new-selector" id="new-selector" placeholder="New Selector..."/>
+            <form id="new-selector-form">
+              <input type="text" name="new-selector" id="new-selector" placeholder="New Selector..."/>
+            </form>
           </li>
-        </ul><!--/.selectors-->
+        </ul><!--/#selectors-->
         <h2>Included Styles</h2>
         <label for="style-1">
           <input type="checkbox" name="style" id="style-1"/>Normal
