@@ -841,7 +841,6 @@ body {
 /* line 296, main.scss */
 .sidebar #selectors li {
   float: left;
-  clear: left;
   max-width: 100%;
   overflow: hidden;
   background: #fbfbfb;
@@ -853,6 +852,7 @@ body {
   background-image: linear-gradient(#fbfbfb, #ececec);
   border-radius: 25px;
   margin: 5px 0;
+  margin-right: 5px;
   height: 28px;
   line-height: 28px;
   text-indent: 5px;
@@ -871,13 +871,14 @@ body {
 /* line 323, main.scss */
 .sidebar #selectors li.add-new {
   max-width: 100%;
+  clear: left;
   width: 126px;
   padding: 0 3px;
   margin-bottom: 20px;
   -webkit-transition: all 200ms linear;
   -moz-transition: all 200ms linear;
 }
-/* line 332, main.scss */
+/* line 333, main.scss */
 .sidebar #selectors li input[type="text"] {
   border-radius: 22px;
   border: none;
@@ -896,7 +897,7 @@ body {
   -webkit-transition: all 200ms linear;
   -moz-transition: all 200ms linear;
 }
-/* line 352, main.scss */
+/* line 353, main.scss */
 .sidebar #selectors li a[href$="delete"] {
   opacity: .5;
   position: absolute;
@@ -906,7 +907,7 @@ body {
   -webkit-transition: all 250ms linear;
   -moz-transition: all 250ms linear;
 }
-/* line 361, main.scss */
+/* line 362, main.scss */
 .sidebar #selectors li a[href$="delete"] span {
   background: url("assets/icons.png") -16px 0;
   background-color: #999;
@@ -917,18 +918,18 @@ body {
   text-decoration: none;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25) inset;
 }
-/* line 372, main.scss */
+/* line 373, main.scss */
 .sidebar #selectors li a[href$="delete"]:hover {
   opacity: .75;
 }
-/* line 379, main.scss */
+/* line 380, main.scss */
 .sidebar label {
   display: block;
   font-size: 12px;
   color: #333;
   margin: 10px;
 }
-/* line 385, main.scss */
+/* line 386, main.scss */
 .sidebar label input {
   margin-right: 5px;
   width: 10px;
@@ -936,7 +937,7 @@ body {
   top: 1px;
 }
 
-/* line 394, main.scss */
+/* line 395, main.scss */
 .header {
   border-radius: 4px 4px 0 0;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.2)));
@@ -947,7 +948,7 @@ body {
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2) inset, 0 0 0 1px rgba(0, 0, 0, 0.3) inset;
 }
-/* line 400, main.scss */
+/* line 401, main.scss */
 .header h1 {
   margin: 0;
   font-size: 16px;
@@ -959,57 +960,57 @@ body {
   text-indent: 15px;
 }
 
-/* line 412, main.scss */
+/* line 413, main.scss */
 #your-collection {
   overflow: hidden;
   margin: 10px 0;
 }
-/* line 416, main.scss */
+/* line 417, main.scss */
 #your-collection .header {
   background-color: #85c052;
 }
-/* line 424, main.scss */
+/* line 425, main.scss */
 #your-collection .font-list-wrap {
   width: 70%;
   float: left;
   border-right: solid 1px #d6d6d6;
 }
-/* line 429, main.scss */
+/* line 430, main.scss */
 #your-collection .font-list-wrap .font-list {
   display: none;
 }
-/* line 431, main.scss */
+/* line 432, main.scss */
 #your-collection .font-list-wrap .font {
   border-right: solid 1px #d6d6d6;
   margin-right: -1px;
   border-radius: 0;
 }
-/* line 436, main.scss */
+/* line 437, main.scss */
 #your-collection .font-list-wrap .font:hover:last-child, #your-collection .font-list-wrap .font.active:last-child {
   border-radius: 0 0 4px 4px;
 }
 
-/* line 443, main.scss */
+/* line 444, main.scss */
 #available-fonts {
   overflow: hidden;
   margin: 20px 0;
 }
-/* line 447, main.scss */
+/* line 448, main.scss */
 #available-fonts .header {
   background-color: #4077cd;
 }
-/* line 455, main.scss */
+/* line 456, main.scss */
 #available-fonts .font-list {
   border-radius: 0;
   padding-bottom: 0;
   overflow: auto;
   height: 244px;
 }
-/* line 463, main.scss */
+/* line 464, main.scss */
 #available-fonts .font-list .font:last-child {
   border-radius: 0;
 }
-/* line 469, main.scss */
+/* line 470, main.scss */
 #available-fonts #search {
   padding: 5px 5px;
   overflow: hidden;
@@ -1022,7 +1023,7 @@ body {
   background-image: -ms-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
 }
-/* line 476, main.scss */
+/* line 477, main.scss */
 #available-fonts #search input[type="text"] {
   width: 93%;
   float: left;
@@ -1032,7 +1033,7 @@ body {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1) inset;
   border-radius: 2px 0 0 2px;
 }
-/* line 488, main.scss */
+/* line 489, main.scss */
 #available-fonts #search input[type="submit"] {
   width: 7%;
   float: left;
@@ -1056,11 +1057,11 @@ body {
   -webkit-transition: all 100ms linear;
   -moz-transition: all 100ms linear;
 }
-/* line 508, main.scss */
+/* line 509, main.scss */
 #available-fonts #search input[type="submit"]:hover {
   box-shadow: 0 0 0 1px #1b44ab, 0 2px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2) inset, 0 0 0 28px rgba(255, 255, 255, 0.1) inset;
 }
-/* line 515, main.scss */
+/* line 516, main.scss */
 #available-fonts #search input[type="submit"]:active {
   background: url("assets/icons.png") center -46px, -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #4f7bd1), color-stop(100%, #2f5abb));
   background: url("assets/icons.png") center -46px, -webkit-linear-gradient(bottom, #4f7bd1, #2f5abb);
@@ -1070,7 +1071,7 @@ body {
   background: url("assets/icons.png") center -46px, linear-gradient(bottom, #4f7bd1, #2f5abb);
   box-shadow: 0 0 0 1px #133a9c, 0 2px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.3) inset;
 }
-/* line 524, main.scss */
+/* line 525, main.scss */
 #available-fonts a[href="#more-fonts"] {
   display: block;
   border-top: solid 1px #d4d4d4;
@@ -1090,11 +1091,11 @@ body {
   border-radius: 0 0 4px 4px;
   margin-top: -1px;
 }
-/* line 538, main.scss */
+/* line 539, main.scss */
 #available-fonts a[href="#more-fonts"] span {
   border-bottom: solid 1px #a5a5a5;
 }
-/* line 542, main.scss */
+/* line 543, main.scss */
 #available-fonts a[href="#more-fonts"]:hover {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #f5f5f5));
   background-image: -webkit-linear-gradient(#ffffff, #f5f5f5);
@@ -1103,7 +1104,7 @@ body {
   background-image: -ms-linear-gradient(#ffffff, #f5f5f5);
   background-image: linear-gradient(#ffffff, #f5f5f5);
 }
-/* line 545, main.scss */
+/* line 546, main.scss */
 #available-fonts a[href="#more-fonts"]:hover span {
   border-color: #999;
 }

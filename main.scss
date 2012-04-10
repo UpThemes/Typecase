@@ -295,13 +295,13 @@ body {
 
     li {
       float:left;
-      clear:left;
       max-width:100%;
       overflow:hidden;
       background:#fbfbfb;
       @include background-image(linear-gradient(#fbfbfb,#ececec));
       border-radius:25px;
       margin:5px 0;
+      margin-right:5px;
       height:28px;
       line-height:28px;
       text-indent:5px;
@@ -322,6 +322,7 @@ body {
 
       &.add-new {
         max-width:100%;
+        clear:left;
         width:126px;
         padding:0 3px;
         margin-bottom:20px;
