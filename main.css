@@ -526,7 +526,7 @@ table {
 /* line 11, main.scss */
 body {
   padding: 0 10px;
-  width: 900px;
+  max-width: 1024px;
   margin: 0 auto;
 }
 
@@ -545,7 +545,7 @@ body {
 /* line 25, main.scss */
 .no-fonts {
   text-align: center;
-  padding-top: 60px;
+  padding: 40px 0 50px 0;
 }
 /* line 29, main.scss */
 .no-fonts h2 {
@@ -631,8 +631,13 @@ body {
   position: absolute;
   right: 0;
   background: #fbfbfb;
-  background: -webkit-linear-gradient(left, rgba(251, 251, 251, 0) 0%, #fbfbfb 20%);
-  background: -moz-linear-gradient(left, rgba(251, 251, 251, 0) 0%, #fbfbfb 20%);
+  background-color: transparent;
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, rgba(251, 251, 251, 0)), color-stop(20%, #fbfbfb));
+  background-image: -webkit-linear-gradient(left, rgba(251, 251, 251, 0) 0%, #fbfbfb 20%);
+  background-image: -moz-linear-gradient(left, rgba(251, 251, 251, 0) 0%, #fbfbfb 20%);
+  background-image: -o-linear-gradient(left, rgba(251, 251, 251, 0) 0%, #fbfbfb 20%);
+  background-image: -ms-linear-gradient(left, rgba(251, 251, 251, 0) 0%, #fbfbfb 20%);
+  background-image: linear-gradient(left, rgba(251, 251, 251, 0) 0%, #fbfbfb 20%);
 }
 /* line 109, main.scss */
 .font-list .font .font-meta .font-name {
@@ -748,8 +753,13 @@ body {
 /* line 219, main.scss */
 .font-list .font:hover .font-meta {
   background: white;
-  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, white 20%);
-  background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, white 20%);
+  background-color: transparent;
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(20%, #ffffff));
+  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 20%);
+  background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 20%);
+  background-image: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 20%);
+  background-image: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 20%);
+  background-image: linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 20%);
 }
 /* line 225, main.scss */
 .font-list .font:hover .font-actions {
@@ -760,21 +770,25 @@ body {
   background: white;
   border-color: #d6d6d6;
   z-index: 1;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
 /* line 236, main.scss */
 .font-list .font.active .font-meta {
   z-index: 2;
-  background: white;
-  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, white 20%);
-  background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, white 20%);
+  background: transparent;
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(20%, #ffffff));
+  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 20%);
+  background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 20%);
+  background-image: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 20%);
+  background-image: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 20%);
+  background-image: linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 20%);
 }
-/* line 242, main.scss */
+/* line 241, main.scss */
 .font-list .font.active .font-meta .font-actions {
   opacity: 1;
 }
 
-/* line 250, main.scss */
+/* line 249, main.scss */
 .content-wrap {
   background: #f6f6f6;
   border: solid 1px #d6d6d6;
@@ -783,8 +797,9 @@ body {
   overflow: hidden;
 }
 
-/* line 258, main.scss */
+/* line 257, main.scss */
 .sidebar {
+  display: none;
   float: left;
   width: 30%;
   border-left: solid 1px #d6d6d6;
@@ -816,6 +831,14 @@ body {
   padding: 5px 1px;
 }
 /* line 288, main.scss */
+.sidebar #selectors .new-selector-width {
+  font-size: 13px;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  float: left;
+}
+/* line 296, main.scss */
 .sidebar #selectors li {
   float: left;
   clear: left;
@@ -832,20 +855,29 @@ body {
   margin: 5px 0;
   height: 28px;
   line-height: 28px;
-  padding: 0 28px 0 3px;
-  text-indent: 10px;
+  text-indent: 5px;
   color: #555;
   font-size: 13px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 -1px 1px 1px rgba(0, 0, 0, 0.1) inset, 0 1px 0 1px rgba(255, 255, 255, 0.5) inset, 0 2px 4px -1px rgba(0, 0, 0, 0.2);
 }
-/* line 309, main.scss */
+/* line 316, main.scss */
+.sidebar #selectors li .selector-name {
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  border-right: solid 30px transparent;
+}
+/* line 323, main.scss */
 .sidebar #selectors li.add-new {
   max-width: 100%;
-  width: 125px;
+  width: 126px;
+  padding: 0 3px;
   margin-bottom: 20px;
+  -webkit-transition: all 200ms linear;
+  -moz-transition: all 200ms linear;
 }
-/* line 315, main.scss */
+/* line 332, main.scss */
 .sidebar #selectors li input[type="text"] {
   border-radius: 22px;
   border: none;
@@ -854,27 +886,27 @@ body {
   top: 3px;
   height: 22px;
   padding: 3px 22px 2px 7px;
-  width: 119px;
+  width: 120px;
+  max-width: 100%;
   color: #555;
   border: solid 1px #ccc;
   box-shadow: 1px 0 0 rgba(255, 255, 255, 0.25), 0 1px 2px rgba(0, 0, 0, 0.1) inset;
   outline: none;
   background: white url("assets/icons.png") right -24px;
+  -webkit-transition: all 200ms linear;
+  -moz-transition: all 200ms linear;
 }
-/* line 332, main.scss */
+/* line 352, main.scss */
 .sidebar #selectors li a[href$="delete"] {
   opacity: .5;
-  top: 50%;
-  right: 0px;
   position: absolute;
-  padding: 6px;
-  float: right;
+  right: 6px;
+  top: 6px;
   display: block;
-  margin-top: -14px;
   -webkit-transition: all 250ms linear;
   -moz-transition: all 250ms linear;
 }
-/* line 344, main.scss */
+/* line 361, main.scss */
 .sidebar #selectors li a[href$="delete"] span {
   background: url("assets/icons.png") -16px 0;
   background-color: #999;
@@ -885,18 +917,18 @@ body {
   text-decoration: none;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25) inset;
 }
-/* line 355, main.scss */
+/* line 372, main.scss */
 .sidebar #selectors li a[href$="delete"]:hover {
   opacity: .75;
 }
-/* line 362, main.scss */
+/* line 379, main.scss */
 .sidebar label {
   display: block;
   font-size: 12px;
   color: #333;
   margin: 10px;
 }
-/* line 368, main.scss */
+/* line 385, main.scss */
 .sidebar label input {
   margin-right: 5px;
   width: 10px;
@@ -904,7 +936,7 @@ body {
   top: 1px;
 }
 
-/* line 377, main.scss */
+/* line 394, main.scss */
 .header {
   border-radius: 4px 4px 0 0;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.2)));
@@ -915,7 +947,7 @@ body {
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2) inset, 0 0 0 1px rgba(0, 0, 0, 0.3) inset;
 }
-/* line 383, main.scss */
+/* line 400, main.scss */
 .header h1 {
   margin: 0;
   font-size: 16px;
@@ -927,57 +959,57 @@ body {
   text-indent: 15px;
 }
 
-/* line 395, main.scss */
+/* line 412, main.scss */
 #your-collection {
   overflow: hidden;
   margin: 10px 0;
 }
-/* line 399, main.scss */
+/* line 416, main.scss */
 #your-collection .header {
   background-color: #85c052;
 }
-/* line 407, main.scss */
+/* line 424, main.scss */
 #your-collection .font-list-wrap {
   width: 70%;
   float: left;
   border-right: solid 1px #d6d6d6;
 }
-/* line 412, main.scss */
+/* line 429, main.scss */
 #your-collection .font-list-wrap .font-list {
   display: none;
 }
-/* line 414, main.scss */
+/* line 431, main.scss */
 #your-collection .font-list-wrap .font {
   border-right: solid 1px #d6d6d6;
   margin-right: -1px;
   border-radius: 0;
 }
-/* line 419, main.scss */
-#your-collection .font-list-wrap .font:last-child {
-  border-radius: 0 0 0 4px;
+/* line 436, main.scss */
+#your-collection .font-list-wrap .font:hover:last-child, #your-collection .font-list-wrap .font.active:last-child {
+  border-radius: 0 0 4px 4px;
 }
 
-/* line 426, main.scss */
+/* line 443, main.scss */
 #available-fonts {
   overflow: hidden;
   margin: 20px 0;
 }
-/* line 430, main.scss */
+/* line 447, main.scss */
 #available-fonts .header {
   background-color: #4077cd;
 }
-/* line 438, main.scss */
+/* line 455, main.scss */
 #available-fonts .font-list {
   border-radius: 0;
   padding-bottom: 0;
   overflow: auto;
   height: 244px;
 }
-/* line 446, main.scss */
+/* line 463, main.scss */
 #available-fonts .font-list .font:last-child {
   border-radius: 0;
 }
-/* line 452, main.scss */
+/* line 469, main.scss */
 #available-fonts #search {
   padding: 5px 5px;
   overflow: hidden;
@@ -990,7 +1022,7 @@ body {
   background-image: -ms-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
 }
-/* line 459, main.scss */
+/* line 476, main.scss */
 #available-fonts #search input[type="text"] {
   width: 93%;
   float: left;
@@ -1000,7 +1032,7 @@ body {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1) inset;
   border-radius: 2px 0 0 2px;
 }
-/* line 471, main.scss */
+/* line 488, main.scss */
 #available-fonts #search input[type="submit"] {
   width: 7%;
   float: left;
@@ -1013,24 +1045,32 @@ body {
   border: none;
   text-align: center;
   background-color: #4077cd;
+  background: url("assets/icons.png") center -46px, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #6691da), color-stop(100%, #2f5abb));
   background: url("assets/icons.png") center -46px, -webkit-linear-gradient(#6691da, #2f5abb);
   background: url("assets/icons.png") center -46px, -moz-linear-gradient(#6691da, #2f5abb);
+  background: url("assets/icons.png") center -46px, -o-linear-gradient(#6691da, #2f5abb);
+  background: url("assets/icons.png") center -46px, -ms-linear-gradient(#6691da, #2f5abb);
+  background: url("assets/icons.png") center -46px, linear-gradient(#6691da, #2f5abb);
   box-shadow: 0 0 0 1px #1b44ab, 0 2px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2) inset;
   border-radius: 0 2px 2px 0;
   -webkit-transition: all 100ms linear;
   -moz-transition: all 100ms linear;
 }
-/* line 492, main.scss */
+/* line 508, main.scss */
 #available-fonts #search input[type="submit"]:hover {
   box-shadow: 0 0 0 1px #1b44ab, 0 2px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2) inset, 0 0 0 28px rgba(255, 255, 255, 0.1) inset;
 }
-/* line 499, main.scss */
+/* line 515, main.scss */
 #available-fonts #search input[type="submit"]:active {
+  background: url("assets/icons.png") center -46px, -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #4f7bd1), color-stop(100%, #2f5abb));
   background: url("assets/icons.png") center -46px, -webkit-linear-gradient(bottom, #4f7bd1, #2f5abb);
   background: url("assets/icons.png") center -46px, -moz-linear-gradient(bottom, #4f7bd1, #2f5abb);
+  background: url("assets/icons.png") center -46px, -o-linear-gradient(bottom, #4f7bd1, #2f5abb);
+  background: url("assets/icons.png") center -46px, -ms-linear-gradient(bottom, #4f7bd1, #2f5abb);
+  background: url("assets/icons.png") center -46px, linear-gradient(bottom, #4f7bd1, #2f5abb);
   box-shadow: 0 0 0 1px #133a9c, 0 2px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.3) inset;
 }
-/* line 509, main.scss */
+/* line 524, main.scss */
 #available-fonts a[href="#more-fonts"] {
   display: block;
   border-top: solid 1px #d4d4d4;
@@ -1050,11 +1090,11 @@ body {
   border-radius: 0 0 4px 4px;
   margin-top: -1px;
 }
-/* line 523, main.scss */
+/* line 538, main.scss */
 #available-fonts a[href="#more-fonts"] span {
   border-bottom: solid 1px #a5a5a5;
 }
-/* line 527, main.scss */
+/* line 542, main.scss */
 #available-fonts a[href="#more-fonts"]:hover {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #f5f5f5));
   background-image: -webkit-linear-gradient(#ffffff, #f5f5f5);
@@ -1063,7 +1103,7 @@ body {
   background-image: -ms-linear-gradient(#ffffff, #f5f5f5);
   background-image: linear-gradient(#ffffff, #f5f5f5);
 }
-/* line 530, main.scss */
+/* line 545, main.scss */
 #available-fonts a[href="#more-fonts"]:hover span {
   border-color: #999;
 }
