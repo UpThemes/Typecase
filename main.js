@@ -12,7 +12,7 @@ $( document ).ready( function(){
   $( "#your-collection" ).on( "click", ".font", $( this ), activateFont );
 
   function addFont( e ) { $( e.target ).trigger( "addFont" );saveFonts();e.preventDefault(); }
-  function removeFont( e ) { $( e.target ).trigger( "removeFont" );saveFonts();e.preventDefault(); }
+  function removeFont( e ) { $( e.target ).trigger( "removeFont" );e.preventDefault(); }
 
   function addSelector( e ) { $( e.target ).trigger( "addSelector" );saveFonts();e.preventDefault(); }
   function removeSelector( e ) { $( e.target ).trigger( "removeSelector" );saveFonts();e.preventDefault(); }
@@ -73,7 +73,7 @@ $( document ).ready( function(){
 
     $( _this ).closest( ".font" ).slideUp( function(){
 
-      $( _this ).closest( ".font" ).remove();
+      $(this).remove();
 
       if ( isActive ) {
         if ( isFirst ) {
@@ -93,6 +93,7 @@ $( document ).ready( function(){
         $( "#your-collection" ).find( ".no-fonts" ).fadeIn();
       }
 
+      saveFonts();
     });
     $( "#available-fonts .font-list .font."+$( _this ).closest( ".font" ).find( ".font-sample span" ).prop( "class" )+" a[href='#add']" ).removeClass( "disabled" );
 
