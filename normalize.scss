@@ -6,38 +6,44 @@
  * Corrects block display not defined in IE6/7/8/9 & FF3
  */
 
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-nav,
-section,
-summary {
-    display: block;
+#fonteasy {
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    nav,
+    section,
+    summary {
+        display: block;
+    }
 }
 
 /*
  * Corrects inline-block display not defined in IE6/7/8/9 & FF3
  */
 
-audio,
-canvas,
-video {
-    display: inline-block;
-    *display: inline;
-    *zoom: 1;
+#fonteasy {
+    audio,
+    canvas,
+    video {
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+    }
 }
 
 /*
  * Prevents modern browsers from displaying 'audio' without controls
  */
 
-audio:not([controls]) {
-    display: none;
+#fonteasy {
+    audio:not([controls]) {
+        display: none;
+    }
 }
 
 /*
@@ -45,8 +51,10 @@ audio:not([controls]) {
  * Known issue: no IE6 support
  */
 
-[hidden] {
-    display: none;
+#fonteasy {
+    [hidden] {
+        display: none;
+    }
 }
 
 
@@ -61,7 +69,7 @@ audio:not([controls]) {
  *    www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
  */
 
-html {
+html #fonteasy {
     font-size: 100%; /* 1 */
     -webkit-text-size-adjust: 100%; /* 2 */
     -ms-text-size-adjust: 100%; /* 2 */
@@ -71,11 +79,11 @@ html {
  * Addresses font-family inconsistency between 'textarea' and other form elements.
  */
 
-html,
-button,
-input,
-select,
-textarea {
+html #fonteasy,
+#fonteasy button,
+#fonteasy input,
+#fonteasy select,
+#fonteasy textarea {
     font-family: sans-serif;
 }
 
@@ -83,7 +91,7 @@ textarea {
  * Addresses margins handled incorrectly in IE6/7
  */
 
-body {
+body #fonteasy {
     margin: 0;
 }
 
@@ -96,7 +104,7 @@ body {
  * Addresses outline displayed oddly in Chrome
  */
 
-a:focus {
+#fonteasy a:focus {
     outline: thin dotted;
 }
 
@@ -105,49 +113,11 @@ a:focus {
  * people.opera.com/patrickl/experiments/keyboard/test
  */
 
-a:hover,
-a:active {
-    outline: 0;
-}
-
-
-/* =============================================================================
-   Typography
-   ========================================================================== */
-
-/*
- * Addresses font sizes and margins set differently in IE6/7
- * Addresses font sizes within 'section' and 'article' in FF4+, Chrome, S5
- */
-
-h1 {
-    font-size: 2em;
-    margin: 0.67em 0;
-}
-
-h2 {
-    font-size: 1.5em;
-    margin: 0.83em 0;
-}
-
-h3 {
-    font-size: 1.17em;
-    margin: 1em 0;
-}
-
-h4 {
-    font-size: 1em;
-    margin: 1.33em 0;
-}
-
-h5 {
-    font-size: 0.83em;
-    margin: 1.67em 0;
-}
-
-h6 {
-    font-size: 0.75em;
-    margin: 2.33em 0;
+#fonteasy {
+    a:hover,
+    a:active {
+        outline: 0;
+    }
 }
 
 /*
@@ -192,8 +162,8 @@ mark {
  * Addresses margins set differently in IE6/7
  */
 
-p,
-pre {
+#fonteasy p,
+#fonteasy pre {
     margin: 1em 0;
 }
 
@@ -249,19 +219,19 @@ small {
  * gist.github.com/413930
  */
 
-sub,
-sup {
+#fonteasy sub,
+#fonteasy sup {
     font-size: 75%;
     line-height: 0;
     position: relative;
     vertical-align: baseline;
 }
 
-sup {
+#fonteasy sup {
     top: -0.5em;
 }
 
-sub {
+#fonteasy sub {
     bottom: -0.25em;
 }
 
@@ -274,33 +244,33 @@ sub {
  * Addresses margins set differently in IE6/7
  */
 
-dl,
-menu,
-ol,
-ul {
-    margin: 1em 0;
+#fonteasy dl,
+#fonteasy menu,
+#fonteasy ol,
+#fonteasy ul {
+    margin:0;
 }
 
-dd {
-    margin: 0 0 0 40px;
+#fonteasy dd {
+    margin:0;
 }
 
 /*
  * Addresses paddings set differently in IE6/7
  */
 
-menu,
-ol,
-ul {
-    padding: 0 0 0 40px;
+#fonteasy menu,
+#fonteasy ol,
+#fonteasy ul {
+    padding: 0;
 }
 
 /*
  * Corrects list images handled incorrectly in IE7
  */
 
-nav ul,
-nav ol {
+#fonteasy nav ul,
+#fonteasy nav ol {
     list-style: none;
     list-style-image: none;
 }
@@ -316,7 +286,7 @@ nav ol {
  *    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
  */
 
-img {
+#fonteasy img {
     border: 0; /* 1 */
     -ms-interpolation-mode: bicubic; /* 2 */
 }
@@ -325,7 +295,7 @@ img {
  * Corrects overflow displayed oddly in IE9
  */
 
-svg:not(:root) {
+#fonteasy svg:not(:root) {
     overflow: hidden;
 }
 
@@ -338,7 +308,7 @@ svg:not(:root) {
  * Addresses margin not present in IE6/7/8/9, S5, O11
  */
 
-figure {
+#fonteasy figure {
     margin: 0;
 }
 
@@ -351,7 +321,7 @@ figure {
  * Corrects margin displayed oddly in IE6/7
  */
 
-form {
+#fonteasy form {
     margin: 0;
 }
 
@@ -359,7 +329,7 @@ form {
  * Define consistent border, margin, and padding
  */
 
-fieldset {
+#fonteasy fieldset {
     border: 1px solid #c0c0c0;
     margin: 0 2px;
     padding: 0.35em 0.625em 0.75em;
@@ -371,7 +341,7 @@ fieldset {
  * 3. Corrects alignment displayed oddly in IE6/7
  */
 
-legend {
+#fonteasy legend {
     border: 0; /* 1 */
     padding: 0;
     white-space: normal; /* 2 */
@@ -384,10 +354,10 @@ legend {
  * 3. Improves appearance and consistency in all browsers
  */
 
-button,
-input,
-select,
-textarea {
+#fonteasy button,
+#fonteasy input,
+#fonteasy select,
+#fonteasy textarea {
     font-size: 100%; /* 1 */
     margin: 0; /* 2 */
     vertical-align: baseline; /* 3 */

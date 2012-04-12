@@ -4,58 +4,57 @@
   <link rel="stylesheet" type="text/css" href="main.css">
   <script type="text/javascript" src="jquery.js"></script>
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script src="https://raw.github.com/garand/Sticky/master/jquery.sticky.js"></script>
   <script type="text/javascript" src="main.js"></script>
 </head>
 <body>
-  <div id="your-collection">
-    <div class="header">
-      <h1>Your Collection</h1>
-    </div><!--/.header-->
-    <div class="content-wrap">
-      <div class="no-fonts">
-        <h2>You have no fonts in your Library!</h2>
-        <h4>Browse below and click <span class="add"><span></span></span> to add fonts to your library.</h4>
-      </div><!--/.no-fonts-->
-      <div class="font-list-wrap">
-        <div class="font-list">
-        </div><!--/.font-list-->
-      </div><!--/.font-list-wrap-->
-      <div class="sidebar">
-        <h2>Selectors</h2>
-        <ul id="selectors">
-          <span class="new-selector-width"></span>
-          <li class="add-new">
-            <form id="new-selector-form">
-              <input type="text" name="new-selector" id="new-selector" placeholder="New Selector..."/>
-            </form>
-          </li>
-        </ul><!--/#selectors-->
-        <h2>Included Styles</h2>
-        <label for="style-1">
-          <input type="checkbox" name="style" id="style-1"/>Normal
-        </label>
-        <label for="style-2">
-          <input type="checkbox" name="style" id="style-2" checked="true"/>Bold
-        </label>
-      </div><!--/.sidebar-->
-    </div><!--/.content-wrap-->
-  </div><!--/#your-collection-->
-  <div id="available-fonts">
-    <div class="header">
-      <h1>Available Fonts</h1>
-    </div><!--/.header-->
-    <form id="search">
-      <input type="text" name="search-input" id="search-input" placeholder="Search Google Web Font Library..."/>
-      <input type="submit" value=""/>
-    </form><!--/#search-->
-    <div class="content-wrap">
-      <div class="font-list-wrap">
-        <div class="font-list">
-          
-        </div><!--/.font-list-->
-      </div><!--/.font-list-wrap-->
-      <a href="#more-fonts"><span>Browse More Fonts</span></a>
-    </div><!--/.content-wrap-->
-  </div><!--/#available-fonts-->
+  <div id="fonteasy">
+    <div id="your-collection">
+      <div class="header">
+        <h1>Your Collection</h1>
+      </div><!--/.header-->
+      <div class="content-wrap">
+        <div class="no-fonts">
+          <h2>You have no fonts in your Library!</h2>
+          <h4>Browse below and click <span class="add"><span></span></span> to add fonts to your library.</h4>
+        </div><!--/.no-fonts-->
+        <div class="font-list-wrap">
+          <div class="font-list">
+          </div><!--/.font-list-->
+        </div><!--/.font-list-wrap-->
+        <div class="sidebar">
+          <h2>Selectors</h2>
+          <ul id="selectors">
+            <span class="new-selector-width"></span>
+            <li class="add-new">
+              <form id="new-selector-form">
+                <input type="text" name="new-selector" id="new-selector" placeholder="New Selector..."/>
+                <input type="submit" value=""/>
+              </form>
+            </li>
+          </ul><!--/#selectors-->
+          <h2>Included Variants</h2>
+          <form id="variants-form">
+          </form>
+        </div><!--/.sidebar-->
+      </div><!--/.content-wrap-->
+    </div><!--/#your-collection-->
+    <div id="available-fonts">
+      <div class="header">
+        <h1>Available Fonts</h1>
+      </div><!--/.header-->
+      <form id="search">
+        <input type="text" name="search-input" id="search-input" placeholder="Search Google Web Font Library..."/>
+        <input type="submit" value=""/>
+      </form><!--/#search-->
+      <div class="content-wrap">
+        <div class="font-list-wrap">
+          <div class="font-list">
+          </div><!--/.font-list-->
+        </div><!--/.font-list-wrap-->
+        <a href="#more-fonts"><span>Browse More Fonts</span></a>
+      </div><!--/.content-wrap-->
+    </div><!--/#available-fonts-->
+  </div><!--/#fonteasy-->
 </body>
 </html>
