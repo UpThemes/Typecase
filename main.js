@@ -12,13 +12,13 @@ $( document ).ready( function(){
   $( "#your-collection" ).on( "click", ".font", $( this ), activateFont );
 
   function addFont( e ) { $( e.target ).trigger( "addFont" );saveFonts();e.preventDefault(); }
-  function removeFont( e ) { $( e.target ).trigger( "removeFont" );e.preventDefault(); }
+  function removeFont( e ) { $( e.target ).trigger( "removeFont" );saveFonts();e.preventDefault(); }
 
-  function addSelector( e ) { $( e.target ).trigger( "addSelector" );e.preventDefault(); }
-  function removeSelector( e ) { $( e.target ).trigger( "removeSelector" );e.preventDefault(); }
+  function addSelector( e ) { $( e.target ).trigger( "addSelector" );saveFonts();e.preventDefault(); }
+  function removeSelector( e ) { $( e.target ).trigger( "removeSelector" );saveFonts();e.preventDefault(); }
 
   function adjustSelectorBox( e ) { $( e.target ).trigger( "adjustSelectorBox" ); }
-  function toggleVariant( e ) { $( e.target ).trigger( "toggleVariant" ); }
+  function toggleVariant( e ) { $( e.target ).trigger( "toggleVariant" );saveFonts(); }
 
   function activateFont( e ) { $( e.target ).trigger( "activateFont" );e.preventDefault(); }
 
@@ -125,7 +125,7 @@ $( document ).ready( function(){
     _this = e.target;
     var removedSelector = "|" + $( _this ).closest( "li" ).find(".selector-name").text();
 
-    $( _this ).closest( "li" ).fadeOut( function(){ $( _this ).remove() });
+    $( _this ).closest( "li" ).fadeOut( function(){ $(this).remove() });
 
     var newSelectors = $( "#your-collection .font.active" ).attr("data-selectors");
     newSelectors = newSelectors.replace(removedSelector,"");
