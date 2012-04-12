@@ -1,391 +1,4 @@
-/* =============================================================================
-   HTML5 display definitions
-   ========================================================================== */
-/*
- * Corrects block display not defined in IE6/7/8/9 & FF3
- */
-/* line 19, normalize.scss */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-nav,
-section,
-summary {
-  display: block;
-}
-
-/*
- * Corrects inline-block display not defined in IE6/7/8/9 & FF3
- */
-/* line 29, normalize.scss */
-audio,
-canvas,
-video {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
-}
-
-/*
- * Prevents modern browsers from displaying 'audio' without controls
- */
-/* line 39, normalize.scss */
-audio:not([controls]) {
-  display: none;
-}
-
-/*
- * Addresses styling for 'hidden' attribute not present in IE7/8/9, FF3, S4
- * Known issue: no IE6 support
- */
-/* line 48, normalize.scss */
-[hidden] {
-  display: none;
-}
-
-/* =============================================================================
-   Base
-   ========================================================================== */
-/*
- * 1. Corrects text resizing oddly in IE6/7 when body font-size is set using em units
- *    http://clagnut.com/blog/348/#c790
- * 2. Prevents iOS text size adjust after orientation change, without disabling user zoom
- *    www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
- */
-/* line 64, normalize.scss */
-html {
-  font-size: 100%;
-  /* 1 */
-  -webkit-text-size-adjust: 100%;
-  /* 2 */
-  -ms-text-size-adjust: 100%;
-  /* 2 */
-}
-
-/*
- * Addresses font-family inconsistency between 'textarea' and other form elements.
- */
-/* line 78, normalize.scss */
-html,
-button,
-input,
-select,
-textarea {
-  font-family: sans-serif;
-}
-
-/*
- * Addresses margins handled incorrectly in IE6/7
- */
-/* line 86, normalize.scss */
-body {
-  margin: 0;
-}
-
-/* =============================================================================
-   Links
-   ========================================================================== */
-/*
- * Addresses outline displayed oddly in Chrome
- */
-/* line 99, normalize.scss */
-a:focus {
-  outline: thin dotted;
-}
-
-/*
- * Improves readability when focused and also mouse hovered in all browsers
- * people.opera.com/patrickl/experiments/keyboard/test
- */
-/* line 109, normalize.scss */
-a:hover,
-a:active {
-  outline: 0;
-}
-
-/* =============================================================================
-   Typography
-   ========================================================================== */
-/*
- * Addresses font sizes and margins set differently in IE6/7
- * Addresses font sizes within 'section' and 'article' in FF4+, Chrome, S5
- */
-/* line 123, normalize.scss */
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-
-/* line 128, normalize.scss */
-h2 {
-  font-size: 1.5em;
-  margin: 0.83em 0;
-}
-
-/* line 133, normalize.scss */
-h3 {
-  font-size: 1.17em;
-  margin: 1em 0;
-}
-
-/* line 138, normalize.scss */
-h4 {
-  font-size: 1em;
-  margin: 1.33em 0;
-}
-
-/* line 143, normalize.scss */
-h5 {
-  font-size: 0.83em;
-  margin: 1.67em 0;
-}
-
-/* line 148, normalize.scss */
-h6 {
-  font-size: 0.75em;
-  margin: 2.33em 0;
-}
-
-/*
- * Addresses styling not present in IE7/8/9, S5, Chrome
- */
-/* line 157, normalize.scss */
-abbr[title] {
-  border-bottom: 1px dotted;
-}
-
-/*
- * Addresses style set to 'bolder' in FF3+, S4/5, Chrome
-*/
-/* line 166, normalize.scss */
-b,
-strong {
-  font-weight: bold;
-}
-
-/* line 170, normalize.scss */
-blockquote {
-  margin: 1em 40px;
-}
-
-/*
- * Addresses styling not present in S5, Chrome
- */
-/* line 178, normalize.scss */
-dfn {
-  font-style: italic;
-}
-
-/*
- * Addresses styling not present in IE6/7/8/9
- */
-/* line 186, normalize.scss */
-mark {
-  background: #ff0;
-  color: #000;
-}
-
-/*
- * Addresses margins set differently in IE6/7
- */
-/* line 196, normalize.scss */
-p,
-pre {
-  margin: 1em 0;
-}
-
-/*
- * Corrects font family set oddly in IE6, S4/5, Chrome
- * en.wikipedia.org/wiki/User:Davidgothberg/Test59
- */
-/* line 208, normalize.scss */
-pre,
-code,
-kbd,
-samp {
-  font-family: monospace, serif;
-  _font-family: 'courier new', monospace;
-  font-size: 1em;
-}
-
-/*
- * Improves readability of pre-formatted text in all browsers
- */
-/* line 218, normalize.scss */
-pre {
-  white-space: pre;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-
-/*
- * 1. Addresses CSS quotes not supported in IE6/7
- * 2. Addresses quote property not supported in S4
- */
-/* 1 */
-/* line 231, normalize.scss */
-q {
-  quotes: none;
-}
-
-/* 2 */
-/* line 238, normalize.scss */
-q:before,
-q:after {
-  content: '';
-  content: none;
-}
-
-/* line 243, normalize.scss */
-small {
-  font-size: 75%;
-}
-
-/*
- * Prevents sub and sup affecting line-height in all browsers
- * gist.github.com/413930
- */
-/* line 253, normalize.scss */
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-/* line 260, normalize.scss */
-sup {
-  top: -0.5em;
-}
-
-/* line 264, normalize.scss */
-sub {
-  bottom: -0.25em;
-}
-
-/* =============================================================================
-   Lists
-   ========================================================================== */
-/*
- * Addresses margins set differently in IE6/7
- */
-/* line 280, normalize.scss */
-dl,
-menu,
-ol,
-ul {
-  margin: 1em 0;
-}
-
-/* line 284, normalize.scss */
-dd {
-  margin: 0 0 0 40px;
-}
-
-/*
- * Addresses paddings set differently in IE6/7
- */
-/* line 294, normalize.scss */
-menu,
-ol,
-ul {
-  padding: 0 0 0 40px;
-}
-
-/*
- * Corrects list images handled incorrectly in IE7
- */
-/* line 303, normalize.scss */
-nav ul,
-nav ol {
-  list-style: none;
-  list-style-image: none;
-}
-
-/* =============================================================================
-   Embedded content
-   ========================================================================== */
-/*
- * 1. Removes border when inside 'a' element in IE6/7/8/9, FF3
- * 2. Improves image quality when scaled in IE7
- *    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
- */
-/* line 319, normalize.scss */
-img {
-  border: 0;
-  /* 1 */
-  -ms-interpolation-mode: bicubic;
-  /* 2 */
-}
-
-/*
- * Corrects overflow displayed oddly in IE9
- */
-/* line 328, normalize.scss */
-svg:not(:root) {
-  overflow: hidden;
-}
-
-/* =============================================================================
-   Figures
-   ========================================================================== */
-/*
- * Addresses margin not present in IE6/7/8/9, S5, O11
- */
-/* line 341, normalize.scss */
-figure {
-  margin: 0;
-}
-
-/* =============================================================================
-   Forms
-   ========================================================================== */
-/*
- * Corrects margin displayed oddly in IE6/7
- */
-/* line 354, normalize.scss */
-form {
-  margin: 0;
-}
-
-/*
- * Define consistent border, margin, and padding
- */
-/* line 362, normalize.scss */
-fieldset {
-  border: 1px solid #c0c0c0;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
-}
-
-/*
- * 1. Corrects color not being inherited in IE6/7/8/9
- * 2. Corrects text not wrapping in FF3 
- * 3. Corrects alignment displayed oddly in IE6/7
- */
-/* line 374, normalize.scss */
-legend {
-  border: 0;
-  /* 1 */
-  padding: 0;
-  white-space: normal;
-  /* 2 */
-  *margin-left: -7px;
-  /* 3 */
-}
-
-/*
- * 1. Corrects font size not being inherited in all browsers
- * 2. Addresses margins set differently in IE6/7, FF3+, S5, Chrome
- * 3. Improves appearance and consistency in all browsers
- */
-/* line 390, normalize.scss */
+/* line 4, normalize.scss */
 button,
 input,
 select,
@@ -403,7 +16,7 @@ textarea {
 /*
  * Addresses FF3/4 setting line-height on 'input' using !important in the UA stylesheet
  */
-/* line 402, normalize.scss */
+/* line 16, normalize.scss */
 button,
 input {
   line-height: normal;
@@ -416,7 +29,7 @@ input {
  * 3. Removes inner spacing in IE7 without affecting normal text inputs
  *    Known issue: inner spacing remains in IE6
  */
-/* line 416, normalize.scss */
+/* line 30, normalize.scss */
 button,
 input[type="button"],
 input[type="reset"],
@@ -432,7 +45,7 @@ input[type="submit"] {
 /*
  * Re-set default cursor for disabled elements
  */
-/* line 427, normalize.scss */
+/* line 41, normalize.scss */
 button[disabled],
 input[disabled] {
   cursor: default;
@@ -444,7 +57,7 @@ input[disabled] {
  * 3. Removes excess padding in IE7
       Known issue: excess padding remains in IE6
  */
-/* line 439, normalize.scss */
+/* line 53, normalize.scss */
 input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
@@ -461,7 +74,7 @@ input[type="radio"] {
  * 1. Addresses appearance set to searchfield in S5, Chrome
  * 2. Addresses box-sizing set to border-box in S5, Chrome (include -moz to future-proof)
  */
-/* line 451, normalize.scss */
+/* line 65, normalize.scss */
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
@@ -474,7 +87,7 @@ input[type="search"] {
 /*
  * Removes inner padding and search cancel button in S5, Chrome on OS X
  */
-/* line 463, normalize.scss */
+/* line 77, normalize.scss */
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
@@ -484,7 +97,7 @@ input[type="search"]::-webkit-search-cancel-button {
  * Removes inner padding and border in FF3+
  * www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/
  */
-/* line 473, normalize.scss */
+/* line 87, normalize.scss */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
@@ -495,7 +108,7 @@ input::-moz-focus-inner {
  * 1. Removes default vertical scrollbar in IE6/7/8/9
  * 2. Improves readability and alignment in all browsers
  */
-/* line 483, normalize.scss */
+/* line 97, normalize.scss */
 textarea {
   overflow: auto;
   /* 1 */
@@ -503,66 +116,48 @@ textarea {
   /* 2 */
 }
 
-/* =============================================================================
-   Tables
-   ========================================================================== */
-/*
- * Remove most spacing between table cells
- */
-/* line 497, normalize.scss */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
 /* line 4, main.scss */
-* {
+#fonteasy {
+  max-width: 980px;
+}
+/* line 8, main.scss */
+#fonteasy * {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   position: relative;
   vertical-align: middle;
 }
-
-/* line 11, main.scss */
-body {
-  padding: 0 10px;
-  max-width: 1024px;
-  margin: 0 auto;
-}
-
-/* line 17, main.scss */
-.clear {
+/* line 15, main.scss */
+#fonteasy .clear {
   clear: both;
 }
-
-/* line 19, main.scss */
-.font-list-wrap {
+/* line 17, main.scss */
+#fonteasy .font-list-wrap {
   overflow: hidden;
   width: 100%;
   margin-bottom: -1px;
 }
-
-/* line 25, main.scss */
-.no-fonts {
+/* line 23, main.scss */
+#fonteasy .no-fonts {
   text-align: center;
   padding: 40px 0 50px 0;
 }
-/* line 29, main.scss */
-.no-fonts h2 {
+/* line 27, main.scss */
+#fonteasy .no-fonts h2 {
   color: #666;
   text-shadow: 0 1px 1px #fff;
   margin-bottom: 10px;
 }
-/* line 35, main.scss */
-.no-fonts h4 {
+/* line 33, main.scss */
+#fonteasy .no-fonts h4 {
   color: #999;
   text-shadow: 0 1px 1px #fff;
   font-weight: normal;
   font-size: 14px;
   margin: 0;
 }
-/* line 43, main.scss */
-.no-fonts span.add {
+/* line 41, main.scss */
+#fonteasy .no-fonts span.add {
   cursor: pointer;
   display: inline-block;
   width: 16px;
@@ -582,27 +177,26 @@ body {
   -webkit-transition: all 200ms linear;
   -moz-transition: all 200ms linear;
 }
-/* line 58, main.scss */
-.no-fonts span.add:hover {
+/* line 56, main.scss */
+#fonteasy .no-fonts span.add:hover {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset, 0 0 0 5px rgba(116, 183, 65, 0.25);
 }
-/* line 63, main.scss */
-.no-fonts span.add span {
+/* line 61, main.scss */
+#fonteasy .no-fonts span.add span {
   display: block;
   width: 16px;
   height: 16px;
   background: url("assets/icons.png") 0 0;
 }
-
-/* line 72, main.scss */
-.font-list {
+/* line 70, main.scss */
+#fonteasy .font-list {
   background: #fbfbfb;
   overflow: hidden;
   padding-bottom: 2px;
   border-radius: 0 0 4px 4px;
 }
-/* line 78, main.scss */
-.font-list .font {
+/* line 76, main.scss */
+#fonteasy .font-list .font {
   line-height: 60px;
   border-top: solid 1px #eee;
   border-bottom: solid 1px #eee;
@@ -610,12 +204,12 @@ body {
   margin-bottom: -1px;
   top: 1px;
 }
-/* line 86, main.scss */
-.font-list .font:last-child {
+/* line 84, main.scss */
+#fonteasy .font-list .font:last-child {
   border-radius: 0 0 4px 4px;
 }
-/* line 90, main.scss */
-.font-list .font .font-sample {
+/* line 88, main.scss */
+#fonteasy .font-list .font .font-sample {
   font-size: 20px;
   float: left;
   color: #333;
@@ -624,8 +218,8 @@ body {
   width: 100%;
   overflow: hidden;
 }
-/* line 100, main.scss */
-.font-list .font .font-meta {
+/* line 98, main.scss */
+#fonteasy .font-list .font .font-meta {
   float: right;
   padding: 0 15px 0 50px;
   position: absolute;
@@ -639,15 +233,15 @@ body {
   background-image: -ms-linear-gradient(left, rgba(251, 251, 251, 0) 0%, #fbfbfb 20%);
   background-image: linear-gradient(left, rgba(251, 251, 251, 0) 0%, #fbfbfb 20%);
 }
-/* line 109, main.scss */
-.font-list .font .font-meta .font-name {
+/* line 107, main.scss */
+#fonteasy .font-list .font .font-meta .font-name {
   float: left;
   color: #aaa;
   font-size: 12px;
   margin-right: 5px;
 }
-/* line 116, main.scss */
-.font-list .font .font-meta .font-actions {
+/* line 114, main.scss */
+#fonteasy .font-list .font .font-meta .font-actions {
   margin: 0;
   padding: 0;
   float: right;
@@ -656,12 +250,12 @@ body {
   -webkit-transition: all 200ms linear;
   -moz-transition: all 200ms linear;
 }
-/* line 125, main.scss */
-.font-list .font .font-meta .font-actions li {
+/* line 123, main.scss */
+#fonteasy .font-list .font .font-meta .font-actions li {
   display: inline-block;
 }
-/* line 129, main.scss */
-.font-list .font .font-meta .font-actions a {
+/* line 127, main.scss */
+#fonteasy .font-list .font .font-meta .font-actions a {
   display: block;
   width: 16px;
   height: 16px;
@@ -679,79 +273,79 @@ body {
   -webkit-transition: all 200ms linear;
   -moz-transition: all 200ms linear;
 }
-/* line 142, main.scss */
-.font-list .font .font-meta .font-actions a span {
+/* line 140, main.scss */
+#fonteasy .font-list .font .font-meta .font-actions a span {
   display: block;
   width: 16px;
   height: 16px;
 }
-/* line 149, main.scss */
-.font-list .font .font-meta .font-actions a[href$="delete"] {
+/* line 147, main.scss */
+#fonteasy .font-list .font .font-meta .font-actions a[href$="delete"] {
   background-color: #c93e3e;
 }
-/* line 152, main.scss */
-.font-list .font .font-meta .font-actions a[href$="delete"]:hover {
+/* line 150, main.scss */
+#fonteasy .font-list .font .font-meta .font-actions a[href$="delete"]:hover {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset, 0 0 0 5px rgba(201, 62, 62, 0.25);
 }
-/* line 157, main.scss */
-.font-list .font .font-meta .font-actions a[href$="delete"] span {
+/* line 155, main.scss */
+#fonteasy .font-list .font .font-meta .font-actions a[href$="delete"] span {
   background: url("assets/icons.png") -16px 0;
 }
-/* line 162, main.scss */
-.font-list .font .font-meta .font-actions a[href$="add"] {
+/* line 160, main.scss */
+#fonteasy .font-list .font .font-meta .font-actions a[href$="add"] {
   background-color: #74b741;
 }
-/* line 165, main.scss */
-.font-list .font .font-meta .font-actions a[href$="add"]:hover {
+/* line 163, main.scss */
+#fonteasy .font-list .font .font-meta .font-actions a[href$="add"]:hover {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset, 0 0 0 5px rgba(116, 183, 65, 0.25);
 }
-/* line 170, main.scss */
-.font-list .font .font-meta .font-actions a[href$="add"] span {
+/* line 168, main.scss */
+#fonteasy .font-list .font .font-meta .font-actions a[href$="add"] span {
   background: url("assets/icons.png") 0 0;
 }
-/* line 175, main.scss */
-.font-list .font .font-meta .font-actions a[href$="preview"] {
+/* line 173, main.scss */
+#fonteasy .font-list .font .font-meta .font-actions a[href$="preview"] {
   display: none;
   background-color: #6f94da;
 }
-/* line 179, main.scss */
-.font-list .font .font-meta .font-actions a[href$="preview"]:hover {
+/* line 177, main.scss */
+#fonteasy .font-list .font .font-meta .font-actions a[href$="preview"]:hover {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset, 0 0 0 5px rgba(111, 148, 218, 0.25);
 }
-/* line 184, main.scss */
-.font-list .font .font-meta .font-actions a[href$="preview"] span {
+/* line 182, main.scss */
+#fonteasy .font-list .font .font-meta .font-actions a[href$="preview"] span {
   background: url("assets/icons.png") -48px 0;
 }
-/* line 189, main.scss */
-.font-list .font .font-meta .font-actions a[href$="edit"] {
+/* line 187, main.scss */
+#fonteasy .font-list .font .font-meta .font-actions a[href$="edit"] {
   display: none;
   background-color: #eac526;
 }
-/* line 193, main.scss */
-.font-list .font .font-meta .font-actions a[href$="edit"]:hover {
+/* line 191, main.scss */
+#fonteasy .font-list .font .font-meta .font-actions a[href$="edit"]:hover {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset, 0 0 0 5px rgba(234, 197, 38, 0.25);
 }
-/* line 198, main.scss */
-.font-list .font .font-meta .font-actions a[href$="edit"] span {
+/* line 196, main.scss */
+#fonteasy .font-list .font .font-meta .font-actions a[href$="edit"] span {
   background: url("assets/icons.png") -64px 0;
 }
-/* line 203, main.scss */
-.font-list .font .font-meta .font-actions a.disabled {
+/* line 201, main.scss */
+#fonteasy .font-list .font .font-meta .font-actions a.disabled {
   opacity: .5;
   background-color: white;
   cursor: default;
 }
-/* line 208, main.scss */
-.font-list .font .font-meta .font-actions a.disabled:hover {
+/* line 206, main.scss */
+#fonteasy .font-list .font .font-meta .font-actions a.disabled:hover {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset;
 }
-/* line 215, main.scss */
-.font-list .font:hover {
+/* line 213, main.scss */
+#fonteasy .font-list .font:hover {
   background: white;
   cursor: pointer;
 }
-/* line 219, main.scss */
-.font-list .font:hover .font-meta {
+/* line 217, main.scss */
+#fonteasy .font-list .font:hover .font-meta {
   background: white;
   background-color: transparent;
   background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(20%, #ffffff));
@@ -761,19 +355,19 @@ body {
   background-image: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 20%);
   background-image: linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 20%);
 }
-/* line 225, main.scss */
-.font-list .font:hover .font-actions {
+/* line 223, main.scss */
+#fonteasy .font-list .font:hover .font-actions {
   opacity: 1;
 }
-/* line 230, main.scss */
-.font-list .font.active {
+/* line 228, main.scss */
+#fonteasy .font-list .font.active {
   background: white;
   border-color: #d6d6d6;
   z-index: 1;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
-/* line 236, main.scss */
-.font-list .font.active .font-meta {
+/* line 234, main.scss */
+#fonteasy .font-list .font.active .font-meta {
   z-index: 2;
   background: transparent;
   background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(20%, #ffffff));
@@ -783,22 +377,20 @@ body {
   background-image: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 20%);
   background-image: linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 20%);
 }
-/* line 241, main.scss */
-.font-list .font.active .font-meta .font-actions {
+/* line 239, main.scss */
+#fonteasy .font-list .font.active .font-meta .font-actions {
   opacity: 1;
 }
-
-/* line 249, main.scss */
-.content-wrap {
+/* line 247, main.scss */
+#fonteasy .content-wrap {
   background: #f6f6f6;
   border: solid 1px #d6d6d6;
   border-top: none;
   border-radius: 0 0 4px 4px;
   overflow: hidden;
 }
-
-/* line 257, main.scss */
-.sidebar {
+/* line 255, main.scss */
+#fonteasy .sidebar {
   display: none;
   float: left;
   width: 30%;
@@ -806,40 +398,40 @@ body {
   padding: 15px;
   margin-left: -1px;
 }
-/* line 265, main.scss */
-.sidebar h2 {
+/* line 263, main.scss */
+#fonteasy .sidebar h2 {
   margin: 0;
   font-weight: normal;
   color: #555;
   font-size: 16px;
   border-bottom: solid 1px #fbfbfb;
 }
-/* line 272, main.scss */
-.sidebar h2:after {
+/* line 270, main.scss */
+#fonteasy .sidebar h2:after {
   content: "";
   display: block;
   height: 0;
   margin-top: 5px;
   border-bottom: solid 1px #e2e2e2;
 }
-/* line 281, main.scss */
-.sidebar #selectors {
+/* line 279, main.scss */
+#fonteasy .sidebar #selectors {
   margin: 0;
   padding: 0;
   list-style: none;
   overflow: hidden;
   padding: 5px 1px;
 }
-/* line 288, main.scss */
-.sidebar #selectors .new-selector-width {
+/* line 286, main.scss */
+#fonteasy .sidebar #selectors .new-selector-width {
   font-size: 13px;
   display: block;
   height: 0;
   overflow: hidden;
   float: left;
 }
-/* line 296, main.scss */
-.sidebar #selectors li {
+/* line 294, main.scss */
+#fonteasy .sidebar #selectors li {
   float: left;
   max-width: 100%;
   overflow: hidden;
@@ -861,15 +453,15 @@ body {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 -1px 1px 1px rgba(0, 0, 0, 0.1) inset, 0 1px 0 1px rgba(255, 255, 255, 0.5) inset, 0 2px 4px -1px rgba(0, 0, 0, 0.2);
 }
-/* line 316, main.scss */
-.sidebar #selectors li .selector-name {
+/* line 314, main.scss */
+#fonteasy .sidebar #selectors li .selector-name {
   display: inline-block;
   width: 100%;
   overflow: hidden;
   border-right: solid 30px transparent;
 }
-/* line 323, main.scss */
-.sidebar #selectors li.add-new {
+/* line 321, main.scss */
+#fonteasy .sidebar #selectors li.add-new {
   max-width: 100%;
   clear: left;
   width: 126px;
@@ -878,8 +470,8 @@ body {
   -webkit-transition: all 200ms linear;
   -moz-transition: all 200ms linear;
 }
-/* line 333, main.scss */
-.sidebar #selectors li input[type="text"] {
+/* line 331, main.scss */
+#fonteasy .sidebar #selectors li input[type="text"] {
   border-radius: 22px;
   border: none;
   font-size: 13px;
@@ -897,8 +489,8 @@ body {
   -webkit-transition: all 200ms linear;
   -moz-transition: all 200ms linear;
 }
-/* line 353, main.scss */
-.sidebar #selectors li a[href$="delete"] {
+/* line 351, main.scss */
+#fonteasy .sidebar #selectors li a[href$="delete"] {
   opacity: .5;
   position: absolute;
   right: 6px;
@@ -907,8 +499,8 @@ body {
   -webkit-transition: all 250ms linear;
   -moz-transition: all 250ms linear;
 }
-/* line 362, main.scss */
-.sidebar #selectors li a[href$="delete"] span {
+/* line 360, main.scss */
+#fonteasy .sidebar #selectors li a[href$="delete"] span {
   background: url("assets/icons.png") -16px 0;
   background-color: #999;
   display: block;
@@ -918,27 +510,26 @@ body {
   text-decoration: none;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25) inset;
 }
-/* line 373, main.scss */
-.sidebar #selectors li a[href$="delete"]:hover {
+/* line 371, main.scss */
+#fonteasy .sidebar #selectors li a[href$="delete"]:hover {
   opacity: .75;
 }
-/* line 380, main.scss */
-.sidebar label {
+/* line 378, main.scss */
+#fonteasy .sidebar label {
   display: block;
   font-size: 12px;
   color: #333;
   margin: 10px;
 }
-/* line 386, main.scss */
-.sidebar label input {
+/* line 384, main.scss */
+#fonteasy .sidebar label input {
   margin-right: 5px;
   width: 10px;
   position: relative;
   top: 1px;
 }
-
-/* line 395, main.scss */
-.header {
+/* line 393, main.scss */
+#fonteasy .header {
   border-radius: 4px 4px 0 0;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.2)));
   background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
@@ -948,8 +539,8 @@ body {
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2) inset, 0 0 0 1px rgba(0, 0, 0, 0.3) inset;
 }
-/* line 401, main.scss */
-.header h1 {
+/* line 399, main.scss */
+#fonteasy .header h1 {
   margin: 0;
   font-size: 16px;
   height: 40px;
@@ -959,59 +550,57 @@ body {
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
   text-indent: 15px;
 }
-
-/* line 413, main.scss */
-#your-collection {
+/* line 411, main.scss */
+#fonteasy #your-collection {
   overflow: hidden;
   margin: 10px 0;
 }
-/* line 417, main.scss */
-#your-collection .header {
+/* line 415, main.scss */
+#fonteasy #your-collection .header {
   background-color: #85c052;
 }
-/* line 425, main.scss */
-#your-collection .font-list-wrap {
+/* line 423, main.scss */
+#fonteasy #your-collection .font-list-wrap {
   width: 70%;
   float: left;
   border-right: solid 1px #d6d6d6;
 }
-/* line 430, main.scss */
-#your-collection .font-list-wrap .font-list {
+/* line 428, main.scss */
+#fonteasy #your-collection .font-list-wrap .font-list {
   display: none;
 }
-/* line 432, main.scss */
-#your-collection .font-list-wrap .font {
+/* line 430, main.scss */
+#fonteasy #your-collection .font-list-wrap .font {
   border-right: solid 1px #d6d6d6;
   margin-right: -1px;
   border-radius: 0;
 }
-/* line 437, main.scss */
-#your-collection .font-list-wrap .font:hover:last-child, #your-collection .font-list-wrap .font.active:last-child {
+/* line 435, main.scss */
+#fonteasy #your-collection .font-list-wrap .font:hover:last-child, #fonteasy #your-collection .font-list-wrap .font.active:last-child {
   border-radius: 0 0 4px 4px;
 }
-
-/* line 444, main.scss */
-#available-fonts {
+/* line 442, main.scss */
+#fonteasy #available-fonts {
   overflow: hidden;
   margin: 20px 0;
 }
-/* line 448, main.scss */
-#available-fonts .header {
+/* line 446, main.scss */
+#fonteasy #available-fonts .header {
   background-color: #4077cd;
 }
-/* line 456, main.scss */
-#available-fonts .font-list {
+/* line 454, main.scss */
+#fonteasy #available-fonts .font-list {
   border-radius: 0;
   padding-bottom: 0;
   overflow: auto;
   height: 244px;
 }
-/* line 464, main.scss */
-#available-fonts .font-list .font:last-child {
+/* line 462, main.scss */
+#fonteasy #available-fonts .font-list .font:last-child {
   border-radius: 0;
 }
-/* line 470, main.scss */
-#available-fonts #search {
+/* line 468, main.scss */
+#fonteasy #available-fonts #search {
   padding: 5px 5px;
   overflow: hidden;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2) inset;
@@ -1023,8 +612,8 @@ body {
   background-image: -ms-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
 }
-/* line 477, main.scss */
-#available-fonts #search input[type="text"] {
+/* line 475, main.scss */
+#fonteasy #available-fonts #search input[type="text"] {
   width: 93%;
   float: left;
   padding: 6px;
@@ -1033,8 +622,8 @@ body {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1) inset;
   border-radius: 2px 0 0 2px;
 }
-/* line 489, main.scss */
-#available-fonts #search input[type="submit"] {
+/* line 487, main.scss */
+#fonteasy #available-fonts #search input[type="submit"] {
   width: 7%;
   float: left;
   padding: 6px;
@@ -1057,12 +646,12 @@ body {
   -webkit-transition: all 100ms linear;
   -moz-transition: all 100ms linear;
 }
-/* line 509, main.scss */
-#available-fonts #search input[type="submit"]:hover {
+/* line 507, main.scss */
+#fonteasy #available-fonts #search input[type="submit"]:hover {
   box-shadow: 0 0 0 1px #1b44ab, 0 2px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2) inset, 0 0 0 28px rgba(255, 255, 255, 0.1) inset;
 }
-/* line 516, main.scss */
-#available-fonts #search input[type="submit"]:active {
+/* line 514, main.scss */
+#fonteasy #available-fonts #search input[type="submit"]:active {
   background: url("assets/icons.png") center -46px, -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #4f7bd1), color-stop(100%, #2f5abb));
   background: url("assets/icons.png") center -46px, -webkit-linear-gradient(bottom, #4f7bd1, #2f5abb);
   background: url("assets/icons.png") center -46px, -moz-linear-gradient(bottom, #4f7bd1, #2f5abb);
@@ -1071,8 +660,8 @@ body {
   background: url("assets/icons.png") center -46px, linear-gradient(bottom, #4f7bd1, #2f5abb);
   box-shadow: 0 0 0 1px #133a9c, 0 2px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.3) inset;
 }
-/* line 525, main.scss */
-#available-fonts a[href="#more-fonts"] {
+/* line 523, main.scss */
+#fonteasy #available-fonts a[href="#more-fonts"] {
   display: block;
   border-top: solid 1px #d4d4d4;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fafafa), color-stop(100%, #ededed));
@@ -1091,12 +680,12 @@ body {
   border-radius: 0 0 4px 4px;
   margin-top: -1px;
 }
-/* line 539, main.scss */
-#available-fonts a[href="#more-fonts"] span {
+/* line 537, main.scss */
+#fonteasy #available-fonts a[href="#more-fonts"] span {
   border-bottom: solid 1px #a5a5a5;
 }
-/* line 543, main.scss */
-#available-fonts a[href="#more-fonts"]:hover {
+/* line 541, main.scss */
+#fonteasy #available-fonts a[href="#more-fonts"]:hover {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #f5f5f5));
   background-image: -webkit-linear-gradient(#ffffff, #f5f5f5);
   background-image: -moz-linear-gradient(#ffffff, #f5f5f5);
@@ -1104,7 +693,7 @@ body {
   background-image: -ms-linear-gradient(#ffffff, #f5f5f5);
   background-image: linear-gradient(#ffffff, #f5f5f5);
 }
-/* line 546, main.scss */
-#available-fonts a[href="#more-fonts"]:hover span {
+/* line 544, main.scss */
+#fonteasy #available-fonts a[href="#more-fonts"]:hover span {
   border-color: #999;
 }
