@@ -1019,11 +1019,15 @@ body {
   overflow: auto;
   height: 244px;
 }
-/* line 512, main.scss */
+/* line 510, main.scss */
+#fonteasy #available-fonts .font-list#search-results {
+  display: none;
+}
+/* line 514, main.scss */
 #fonteasy #available-fonts .font-list .font:last-child {
   border-radius: 0;
 }
-/* line 518, main.scss */
+/* line 520, main.scss */
 #fonteasy #available-fonts #search {
   padding: 5px 5px;
   overflow: hidden;
@@ -1036,7 +1040,7 @@ body {
   background-image: -ms-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
 }
-/* line 525, main.scss */
+/* line 527, main.scss */
 #fonteasy #available-fonts #search input[type="text"] {
   width: 93%;
   float: left;
@@ -1046,7 +1050,7 @@ body {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1) inset;
   border-radius: 2px 0 0 2px;
 }
-/* line 537, main.scss */
+/* line 539, main.scss */
 #fonteasy #available-fonts #search input[type="submit"] {
   width: 7%;
   float: left;
@@ -1070,11 +1074,11 @@ body {
   -webkit-transition: all 100ms linear;
   -moz-transition: all 100ms linear;
 }
-/* line 557, main.scss */
+/* line 559, main.scss */
 #fonteasy #available-fonts #search input[type="submit"]:hover {
   box-shadow: 0 0 0 1px #1b44ab, 0 2px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2) inset, 0 0 0 28px rgba(255, 255, 255, 0.1) inset;
 }
-/* line 564, main.scss */
+/* line 566, main.scss */
 #fonteasy #available-fonts #search input[type="submit"]:active {
   background: url("assets/icons.png") center -46px, -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #4f7bd1), color-stop(100%, #2f5abb));
   background: url("assets/icons.png") center -46px, -webkit-linear-gradient(bottom, #4f7bd1, #2f5abb);
@@ -1084,7 +1088,7 @@ body {
   background: url("assets/icons.png") center -46px, linear-gradient(bottom, #4f7bd1, #2f5abb);
   box-shadow: 0 0 0 1px #133a9c, 0 2px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.3) inset;
 }
-/* line 573, main.scss */
+/* line 575, main.scss */
 #fonteasy #available-fonts a[href="#more-fonts"] {
   display: block;
   border-top: solid 1px #d4d4d4;
@@ -1104,11 +1108,11 @@ body {
   border-radius: 0 0 4px 4px;
   margin-top: -1px;
 }
-/* line 587, main.scss */
+/* line 589, main.scss */
 #fonteasy #available-fonts a[href="#more-fonts"] span {
   border-bottom: solid 1px #a5a5a5;
 }
-/* line 591, main.scss */
+/* line 593, main.scss */
 #fonteasy #available-fonts a[href="#more-fonts"]:hover {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #f5f5f5));
   background-image: -webkit-linear-gradient(#ffffff, #f5f5f5);
@@ -1117,7 +1121,7 @@ body {
   background-image: -ms-linear-gradient(#ffffff, #f5f5f5);
   background-image: linear-gradient(#ffffff, #f5f5f5);
 }
-/* line 594, main.scss */
+/* line 596, main.scss */
 #fonteasy #available-fonts a[href="#more-fonts"]:hover span {
   border-color: #999;
 }

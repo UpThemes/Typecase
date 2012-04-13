@@ -507,6 +507,8 @@ body {
       overflow:auto;
       height:244px;
 
+      &#search-results {display:none;}
+
       .font {
         
         &:last-child {
