@@ -571,12 +571,16 @@ body {
   margin-top: -1px;
   margin-bottom: -1px;
   top: 1px;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -ms-user-select: none;
 }
-/* line 92, main.scss */
+/* line 96, main.scss */
 #fonteasy .font-list .font:last-child {
   border-radius: 0 0 4px 4px;
 }
-/* line 96, main.scss */
+/* line 100, main.scss */
 #fonteasy .font-list .font .font-sample {
   font-size: 20px;
   float: left;
@@ -586,7 +590,7 @@ body {
   width: 100%;
   overflow: hidden;
 }
-/* line 106, main.scss */
+/* line 110, main.scss */
 #fonteasy .font-list .font .font-meta {
   float: right;
   padding: 0 15px 0 50px;
@@ -601,14 +605,14 @@ body {
   background-image: -ms-linear-gradient(left, rgba(251, 251, 251, 0) 0%, #fbfbfb 20%);
   background-image: linear-gradient(left, rgba(251, 251, 251, 0) 0%, #fbfbfb 20%);
 }
-/* line 115, main.scss */
+/* line 119, main.scss */
 #fonteasy .font-list .font .font-meta .font-name {
   float: left;
   color: #aaa;
   font-size: 12px;
   margin-right: 5px;
 }
-/* line 122, main.scss */
+/* line 126, main.scss */
 #fonteasy .font-list .font .font-meta .active-arrow {
   display: none;
   width: 45px;
@@ -624,7 +628,7 @@ body {
   -moz-transform: scaleX(0.3);
   font-family: "Lucida Grande","Lucida Sans";
 }
-/* line 138, main.scss */
+/* line 142, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions {
   margin: 0;
   padding: 0;
@@ -634,11 +638,11 @@ body {
   -webkit-transition: all 200ms linear;
   -moz-transition: all 200ms linear;
 }
-/* line 147, main.scss */
+/* line 151, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions li {
   display: inline-block;
 }
-/* line 151, main.scss */
+/* line 155, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a {
   display: block;
   width: 16px;
@@ -657,78 +661,78 @@ body {
   -webkit-transition: all 200ms linear;
   -moz-transition: all 200ms linear;
 }
-/* line 164, main.scss */
+/* line 168, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a span {
   display: block;
   width: 16px;
   height: 16px;
 }
-/* line 171, main.scss */
+/* line 175, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a[href$="delete"] {
   background-color: #c93e3e;
 }
-/* line 174, main.scss */
+/* line 178, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a[href$="delete"]:hover {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset, 0 0 0 5px rgba(201, 62, 62, 0.25);
 }
-/* line 179, main.scss */
+/* line 183, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a[href$="delete"] span {
   background: url("assets/icons.png") -16px 0;
 }
-/* line 184, main.scss */
+/* line 188, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a[href$="add"] {
   background-color: #74b741;
 }
-/* line 187, main.scss */
+/* line 191, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a[href$="add"]:hover {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset, 0 0 0 5px rgba(116, 183, 65, 0.25);
 }
-/* line 192, main.scss */
+/* line 196, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a[href$="add"] span {
   background: url("assets/icons.png") 0 0;
 }
-/* line 197, main.scss */
+/* line 201, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a[href$="preview"] {
   display: none;
   background-color: #6f94da;
 }
-/* line 201, main.scss */
+/* line 205, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a[href$="preview"]:hover {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset, 0 0 0 5px rgba(111, 148, 218, 0.25);
 }
-/* line 206, main.scss */
+/* line 210, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a[href$="preview"] span {
   background: url("assets/icons.png") -48px 0;
 }
-/* line 211, main.scss */
+/* line 215, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a[href$="edit"] {
   display: none;
   background-color: #eac526;
 }
-/* line 215, main.scss */
+/* line 219, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a[href$="edit"]:hover {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset, 0 0 0 5px rgba(234, 197, 38, 0.25);
 }
-/* line 220, main.scss */
+/* line 224, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a[href$="edit"] span {
   background: url("assets/icons.png") -64px 0;
 }
-/* line 225, main.scss */
+/* line 229, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a.disabled {
   opacity: .5;
   background-color: white;
   cursor: default;
 }
-/* line 230, main.scss */
+/* line 234, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a.disabled:hover {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset;
 }
-/* line 237, main.scss */
+/* line 241, main.scss */
 #fonteasy .font-list .font:hover {
   background: white;
   cursor: pointer;
 }
-/* line 241, main.scss */
+/* line 245, main.scss */
 #fonteasy .font-list .font:hover .font-meta {
   background: white;
   background-color: transparent;
@@ -739,22 +743,22 @@ body {
   background-image: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 20%);
   background-image: linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 20%);
 }
-/* line 247, main.scss */
+/* line 251, main.scss */
 #fonteasy .font-list .font:hover .font-actions {
   opacity: 1;
 }
-/* line 252, main.scss */
+/* line 256, main.scss */
 #fonteasy .font-list .font.active {
   background: white;
   border-color: #d6d6d6;
   z-index: 10;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
-/* line 258, main.scss */
+/* line 262, main.scss */
 #fonteasy .font-list .font.active .active-arrow {
   display: block;
 }
-/* line 260, main.scss */
+/* line 264, main.scss */
 #fonteasy .font-list .font.active .font-meta {
   z-index: 2;
   background: transparent;
@@ -765,11 +769,11 @@ body {
   background-image: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 20%);
   background-image: linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 20%);
 }
-/* line 265, main.scss */
+/* line 269, main.scss */
 #fonteasy .font-list .font.active .font-meta .font-actions {
   opacity: 1;
 }
-/* line 273, main.scss */
+/* line 277, main.scss */
 #fonteasy .content-wrap {
   background: #f6f6f6;
   border: solid 1px #d6d6d6;
@@ -777,7 +781,7 @@ body {
   border-radius: 0 0 4px 4px;
   overflow: hidden;
 }
-/* line 281, main.scss */
+/* line 285, main.scss */
 #fonteasy .sidebar {
   display: none;
   float: left;
@@ -786,7 +790,7 @@ body {
   padding: 15px;
   margin-left: -1px;
 }
-/* line 289, main.scss */
+/* line 293, main.scss */
 #fonteasy .sidebar h2 {
   margin: 0;
   font-weight: normal;
@@ -794,7 +798,7 @@ body {
   font-size: 16px;
   border-bottom: solid 1px #fbfbfb;
 }
-/* line 296, main.scss */
+/* line 300, main.scss */
 #fonteasy .sidebar h2:after {
   content: "";
   display: block;
@@ -802,7 +806,7 @@ body {
   margin-top: 5px;
   border-bottom: solid 1px #e2e2e2;
 }
-/* line 305, main.scss */
+/* line 309, main.scss */
 #fonteasy .sidebar #selectors {
   margin: 0;
   padding: 0;
@@ -810,7 +814,7 @@ body {
   overflow: hidden;
   padding: 5px 1px;
 }
-/* line 312, main.scss */
+/* line 316, main.scss */
 #fonteasy .sidebar #selectors .new-selector-width {
   font-size: 13px;
   display: block;
@@ -818,7 +822,7 @@ body {
   overflow: hidden;
   float: left;
 }
-/* line 320, main.scss */
+/* line 324, main.scss */
 #fonteasy .sidebar #selectors li {
   float: left;
   max-width: 100%;
@@ -841,14 +845,14 @@ body {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 -1px 1px 1px rgba(0, 0, 0, 0.1) inset, 0 1px 0 1px rgba(255, 255, 255, 0.5) inset, 0 2px 3px -1px rgba(0, 0, 0, 0.2);
 }
-/* line 340, main.scss */
+/* line 344, main.scss */
 #fonteasy .sidebar #selectors li .selector-name {
   display: inline-block;
   width: 100%;
   overflow: hidden;
   border-right: solid 30px transparent;
 }
-/* line 347, main.scss */
+/* line 351, main.scss */
 #fonteasy .sidebar #selectors li.add-new {
   max-width: 100%;
   clear: left;
@@ -858,7 +862,7 @@ body {
   -webkit-transition: all 200ms linear;
   -moz-transition: all 200ms linear;
 }
-/* line 357, main.scss */
+/* line 361, main.scss */
 #fonteasy .sidebar #selectors li input[type="text"] {
   border-radius: 22px;
   border: none;
@@ -876,7 +880,7 @@ body {
   -webkit-transition: all 200ms linear;
   -moz-transition: all 200ms linear;
 }
-/* line 376, main.scss */
+/* line 380, main.scss */
 #fonteasy .sidebar #selectors li input[type="submit"] {
   position: absolute;
   top: 3px;
@@ -895,7 +899,7 @@ body {
   background: url("assets/icons.png") right -24px, -ms-linear-gradient(#fefefe, #e5e5e5);
   background: url("assets/icons.png") right -24px, linear-gradient(#fefefe, #e5e5e5);
 }
-/* line 390, main.scss */
+/* line 394, main.scss */
 #fonteasy .sidebar #selectors li input[type="submit"]:hover {
   background: url("assets/icons.png") right -24px, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(70%, #fefefe), color-stop(100%, #eeeeee));
   background: url("assets/icons.png") right -24px, -webkit-linear-gradient(#fefefe 70%, #eeeeee);
@@ -904,7 +908,7 @@ body {
   background: url("assets/icons.png") right -24px, -ms-linear-gradient(#fefefe 70%, #eeeeee);
   background: url("assets/icons.png") right -24px, linear-gradient(#fefefe 70%, #eeeeee);
 }
-/* line 394, main.scss */
+/* line 398, main.scss */
 #fonteasy .sidebar #selectors li input[type="submit"]:active {
   background: url("assets/icons.png") right -24px, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #efefef), color-stop(30%, #f3f3f3));
   background: url("assets/icons.png") right -24px, -webkit-linear-gradient(#efefef, #f3f3f3 30%);
@@ -913,7 +917,7 @@ body {
   background: url("assets/icons.png") right -24px, -ms-linear-gradient(#efefef, #f3f3f3 30%);
   background: url("assets/icons.png") right -24px, linear-gradient(#efefef, #f3f3f3 30%);
 }
-/* line 399, main.scss */
+/* line 403, main.scss */
 #fonteasy .sidebar #selectors li a[href$="delete"] {
   opacity: .5;
   position: absolute;
@@ -923,7 +927,7 @@ body {
   -webkit-transition: all 250ms linear;
   -moz-transition: all 250ms linear;
 }
-/* line 408, main.scss */
+/* line 412, main.scss */
 #fonteasy .sidebar #selectors li a[href$="delete"] span {
   background: url("assets/icons.png") -16px 0;
   background-color: #999;
@@ -934,29 +938,29 @@ body {
   text-decoration: none;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25) inset;
 }
-/* line 419, main.scss */
+/* line 423, main.scss */
 #fonteasy .sidebar #selectors li a[href$="delete"]:hover {
   opacity: .75;
 }
-/* line 426, main.scss */
+/* line 430, main.scss */
 #fonteasy .sidebar #variants-form {
   margin-top: 10px;
 }
-/* line 430, main.scss */
+/* line 434, main.scss */
 #fonteasy .sidebar label {
   display: block;
   font-size: 12px;
   color: #333;
   padding: 5px 10px;
 }
-/* line 436, main.scss */
+/* line 440, main.scss */
 #fonteasy .sidebar label input {
   margin-right: 5px;
   width: 10px;
   position: relative;
   top: 1px;
 }
-/* line 445, main.scss */
+/* line 449, main.scss */
 #fonteasy .header {
   border-radius: 4px 4px 0 0;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.2)));
@@ -967,7 +971,7 @@ body {
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2) inset, 0 0 0 1px rgba(0, 0, 0, 0.3) inset;
 }
-/* line 451, main.scss */
+/* line 455, main.scss */
 #fonteasy .header h1 {
   margin: 0;
   font-size: 16px;
@@ -978,60 +982,60 @@ body {
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
   text-indent: 15px;
 }
-/* line 463, main.scss */
+/* line 467, main.scss */
 #fonteasy #your-collection {
   overflow: hidden;
   margin: 10px 0;
 }
-/* line 467, main.scss */
+/* line 471, main.scss */
 #fonteasy #your-collection .header {
   background-color: #85c052;
 }
-/* line 475, main.scss */
+/* line 479, main.scss */
 #fonteasy #your-collection .font-list-wrap {
   width: 70%;
   float: left;
   border-right: solid 1px #d6d6d6;
 }
-/* line 480, main.scss */
+/* line 484, main.scss */
 #fonteasy #your-collection .font-list-wrap .font-list {
   display: none;
 }
-/* line 482, main.scss */
+/* line 486, main.scss */
 #fonteasy #your-collection .font-list-wrap .font {
   border-right: solid 1px #d6d6d6;
   margin-right: -1px;
   border-radius: 0;
 }
-/* line 487, main.scss */
+/* line 491, main.scss */
 #fonteasy #your-collection .font-list-wrap .font:hover:last-child, #fonteasy #your-collection .font-list-wrap .font.active:last-child {
   border-radius: 0 0 4px 4px;
 }
-/* line 494, main.scss */
+/* line 498, main.scss */
 #fonteasy #available-fonts {
   overflow: hidden;
   margin: 20px 0;
 }
-/* line 498, main.scss */
+/* line 502, main.scss */
 #fonteasy #available-fonts .header {
   background-color: #4077cd;
 }
-/* line 506, main.scss */
+/* line 510, main.scss */
 #fonteasy #available-fonts .font-list {
   border-radius: 0;
   padding-bottom: 0;
   overflow: auto;
   height: 244px;
 }
-/* line 512, main.scss */
+/* line 516, main.scss */
 #fonteasy #available-fonts .font-list#search-results {
   display: none;
 }
-/* line 516, main.scss */
+/* line 520, main.scss */
 #fonteasy #available-fonts .font-list .font:last-child {
   border-radius: 0;
 }
-/* line 522, main.scss */
+/* line 526, main.scss */
 #fonteasy #available-fonts #search {
   padding: 5px 5px;
   overflow: hidden;
@@ -1044,7 +1048,7 @@ body {
   background-image: -ms-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
 }
-/* line 529, main.scss */
+/* line 533, main.scss */
 #fonteasy #available-fonts #search input[type="text"] {
   width: 93%;
   float: left;
@@ -1054,7 +1058,7 @@ body {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1) inset;
   border-radius: 2px 0 0 2px;
 }
-/* line 541, main.scss */
+/* line 545, main.scss */
 #fonteasy #available-fonts #search input[type="submit"] {
   width: 7%;
   float: left;
@@ -1078,11 +1082,11 @@ body {
   -webkit-transition: all 100ms linear;
   -moz-transition: all 100ms linear;
 }
-/* line 561, main.scss */
+/* line 565, main.scss */
 #fonteasy #available-fonts #search input[type="submit"]:hover {
   box-shadow: 0 0 0 1px #1b44ab, 0 2px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2) inset, 0 0 0 28px rgba(255, 255, 255, 0.1) inset;
 }
-/* line 568, main.scss */
+/* line 572, main.scss */
 #fonteasy #available-fonts #search input[type="submit"]:active {
   background: url("assets/icons.png") center -46px, -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #4f7bd1), color-stop(100%, #2f5abb));
   background: url("assets/icons.png") center -46px, -webkit-linear-gradient(bottom, #4f7bd1, #2f5abb);
@@ -1092,7 +1096,7 @@ body {
   background: url("assets/icons.png") center -46px, linear-gradient(bottom, #4f7bd1, #2f5abb);
   box-shadow: 0 0 0 1px #133a9c, 0 2px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.3) inset;
 }
-/* line 577, main.scss */
+/* line 581, main.scss */
 #fonteasy #available-fonts a[href="#more-fonts"] {
   display: block;
   border-top: solid 1px #d4d4d4;
@@ -1112,11 +1116,11 @@ body {
   border-radius: 0 0 4px 4px;
   margin-top: -1px;
 }
-/* line 591, main.scss */
+/* line 595, main.scss */
 #fonteasy #available-fonts a[href="#more-fonts"] span {
   border-bottom: solid 1px #a5a5a5;
 }
-/* line 595, main.scss */
+/* line 599, main.scss */
 #fonteasy #available-fonts a[href="#more-fonts"]:hover {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #f5f5f5));
   background-image: -webkit-linear-gradient(#ffffff, #f5f5f5);
@@ -1125,7 +1129,7 @@ body {
   background-image: -ms-linear-gradient(#ffffff, #f5f5f5);
   background-image: linear-gradient(#ffffff, #f5f5f5);
 }
-/* line 598, main.scss */
+/* line 602, main.scss */
 #fonteasy #available-fonts a[href="#more-fonts"]:hover span {
   border-color: #999;
 }

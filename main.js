@@ -2,6 +2,7 @@ $( document ).ready( function(){
 
   $( "#your-collection" ).on( "click", "a[href='#delete']", $( this ), removeFont );
   $( "#available-fonts" ).on( "click", "a[href='#add']", $( this ), addFont );
+  $( "#available-fonts" ).on( "dblclick", ".font", $( this ), addFont );
 
   $( "#selectors" ).on( "click", "a[href='#delete']", $( this ), removeSelector );
   $( "#selectors" ).on( "submit", "#new-selector-form", $( this ), addSelector );
@@ -30,15 +31,18 @@ $( document ).ready( function(){
   
   $( "#available-fonts" ).bind( "addFont" , function( e ){
   
-    if ( !$( e.target ).closest( "a" ).hasClass( "disabled" ) ) {
+    _this = $( e.target ).closest( ".font" );
+    console.log(_this);
+
+    if ( !_this.find( "a[href='#add']" ).hasClass( "disabled" ) ) {
       $( "#your-collection" ).find( ".no-fonts" ).hide();
-      $( "#your-collection" ).find( ".font-list" ).show().append( $( e.target ).closest( ".font" ).clone() )
+      $( "#your-collection" ).find( ".font-list" ).show().append( _this.clone() )
                                       .find( ".font:last-child" )
                                       .hide().find( ".font-actions" )
                                       .html( "<li><a href='#delete'><span></span></a></li>" )
                                       .closest( ".font" )
                                       .slideDown();
-      $( e.target ).closest( "a" ).addClass( "disabled" ); 
+      _this.find( "a[href='#add']" ).addClass( "disabled" ); 
 
       if ( $( "#your-collection .font-list .font" ).length > 0 ) {
         $( "#your-collection .sidebar" ).fadeIn();
@@ -312,6 +316,18 @@ function setDefaultVariant(availableVariants) {
     defaultVariant = "900";
 
   return defaultVariant;
+}
+
+function disableSelection(element) {
+  if (typeof element.onselectstart != 'undefined') {
+      element.onselectstart = function() { return false; };
+  }
+  else if (typeof element.style.MozUserSelect != 'undefined') {
+    element.style.MozUserSelect = 'none';
+  } 
+  else {
+    element.onmousedown = function() { return false; };
+  }
 }
 
 var FontEasy = {
