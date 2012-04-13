@@ -3,12 +3,17 @@
   <title>Fonteasy</title>
   <link rel="stylesheet" type="text/css" href="main.css">
   <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="json2.js"></script>
+  <script type="text/javascript" src="selectivizr-min.js"></script>
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <script type="text/javascript" src="log.js"></script>
   <script type="text/javascript" src="main.js"></script>
 </head>
 <body>
   <div id="fonteasy">
+    <div class="ie-col-test">
+      
+    </div>
     <div id="your-collection">
       <div class="header">
         <h1>Your Collection</h1>
@@ -25,18 +30,20 @@
         <div class="sidebar">
           <h2>Selectors</h2>
           <ul id="selectors">
-            <span class="new-selector-width"></span>
             <li class="add-new">
               <form id="new-selector-form">
                 <input type="text" name="new-selector" id="new-selector" placeholder="New Selector..."/>
-                <input type="submit" value=""/>
+                <input type="submit" id="submit-selector" value=""/>
               </form>
             </li>
+            <span class="new-selector-width"></span>
           </ul><!--/#selectors-->
+          <div class="clear"></div>
           <h2>Included Variants</h2>
           <form id="variants-form">
           </form>
         </div><!--/.sidebar-->
+        <div class="clear"></div>
       </div><!--/.content-wrap-->
     </div><!--/#your-collection-->
     <div id="available-fonts">
@@ -45,7 +52,7 @@
       </div><!--/.header-->
       <form id="search">
         <input type="text" name="search-input" id="search-input" placeholder="Search Google Web Font Library..."/>
-        <input type="submit" value=""/>
+        <input type="submit" id="search-submit" value=""/>
       </form><!--/#search-->
       <div class="content-wrap">
         <div class="font-list-wrap">
@@ -58,7 +65,7 @@
           <div class="font-list" id="search-results">
           </div><!--/.font-list#search-results-->
         </div><!--/.font-list-wrap-->
-        <a href="#more-fonts"><span>Browse More Fonts</span></a>
+        <a class="more-fonts"><span>Browse More Fonts</span></a>
       </div><!--/.content-wrap-->
     </div><!--/#available-fonts-->
   </div><!--/#fonteasy-->

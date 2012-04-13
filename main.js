@@ -1,10 +1,10 @@
 $( document ).ready( function(){
 
-  $( "#your-collection" ).on( "click", "a[href='#delete']", $( this ), removeFont );
-  $( "#available-fonts" ).on( "click", "a[href='#add']", $( this ), addFont );
+  $( "#your-collection" ).on( "click", "a.delete", $( this ), removeFont );
+  $( "#available-fonts" ).on( "click", "a.add", $( this ), addFont );
   $( "#available-fonts" ).on( "dblclick", ".font", $( this ), addFont );
 
-  $( "#selectors" ).on( "click", "a[href='#delete']", $( this ), removeSelector );
+  $( "#selectors" ).on( "click", "a.delete", $( this ), removeSelector );
   $( "#selectors" ).on( "submit", "#new-selector-form", $( this ), addSelector );
 
   $( "#selectors" ).on( "keyup", "#new-selector", $( this ), adjustSelectorBox );
@@ -32,17 +32,16 @@ $( document ).ready( function(){
   $( "#available-fonts" ).bind( "addFont" , function( e ){
   
     _this = $( e.target ).closest( ".font" );
-    console.log(_this);
 
-    if ( !_this.find( "a[href='#add']" ).hasClass( "disabled" ) ) {
+    if ( !_this.find( "a.add" ).hasClass( "disabled" ) ) {
       $( "#your-collection" ).find( ".no-fonts" ).hide();
       $( "#your-collection" ).find( ".font-list" ).show().append( _this.clone() )
                                       .find( ".font:last-child" )
                                       .hide().find( ".font-actions" )
-                                      .html( "<li><a href='#delete'><span></span></a></li>" )
+                                      .html( "<li><a class='delete'><span></span></a></li>" )
                                       .closest( ".font" )
                                       .slideDown();
-      _this.find( "a[href='#add']" ).addClass( "disabled" ); 
+      _this.find( "a.add" ).addClass( "disabled" ); 
 
       if ( $( "#your-collection .font-list .font" ).length > 0 ) {
         $( "#your-collection .sidebar" ).fadeIn();
@@ -77,7 +76,7 @@ $( document ).ready( function(){
           $("#your-collection .font:last-child").click();
         }
         else {
-          $("#your-collection .font:nth-child(" + removedIndex + ")").click();
+          $("#your-collection .font:nth-child(" + (removedIndex + 1) + ")").click();
         }
       }
 
@@ -89,7 +88,8 @@ $( document ).ready( function(){
 
       saveFonts();
     });
-    $( "#available-fonts .font-list#loaded-fonts .font."+$( _this ).closest( ".font" ).find( ".font-sample span" ).prop( "class" )+" a[href='#add']" ).removeClass( "disabled" );
+
+    $( "#available-fonts .font-list#loaded-fonts .font."+$( _this ).closest( ".font" ).find( ".font-sample span" ).prop( "class" )+" a.add" ).removeClass( "disabled" );
 
     e.preventDefault();
 
@@ -103,7 +103,7 @@ $( document ).ready( function(){
     if (newSelectorName.length > 0) {
       $(this).find("#new-selector").val("");
 
-      $("<li><span class='selector-name'>" + newSelectorName + "</span><a href='#delete'><span></span></a></li>").insertBefore("li.add-new").closest("li");
+      $("<li><span class='selector-name'>" + newSelectorName + "</span><a class='delete'><span></span></a></li>").insertBefore("li.add-new").closest("li");
       $( _this ).closest("ul").find("li:last-child").prev().hide().fadeIn();
 
       var currentSelectors = $( "#your-collection .font.active" ).attr("data-selectors") + "|" + newSelectorName;
@@ -139,10 +139,9 @@ $( document ).ready( function(){
 
     var newWidth = $(_this).closest("#selectors").find(".new-selector-width").width() + 35;
 
-    if ( newWidth < 127 ) newWidth = 127;
+    if ( newWidth < 135 ) newWidth = 125;
 
-    $(_this).css({width:newWidth+"px"},100); 
-    $(_this).closest("li").css({width:newWidth+6+"px"},100);
+    $(_this).closest("li").css({width:newWidth+10+"px"},100);
 
   });
 
@@ -185,7 +184,7 @@ $( document ).ready( function(){
           var defaultVariant = setDefaultVariant(FontEasy.masterFontList.items[i].variants);
           
           fontResults.push(FontEasy.masterFontList.items[i].family + ":" + defaultVariant);
-          matchedFonts += "<div class='font "+family_class+"' data-selectors='|."+family_class+"' data-variants='"+variants+"' data-name='"+FontEasy.masterFontList.items[i].family+"'><style type='text/css'> .font-sample span."+family_class+" { font-family: '"+FontEasy.masterFontList.items[i].family+"'; } </style><div class='font-sample'><span class='"+family_class+"'>"+FontEasy.previewText+"</span></div><div class='font-meta'><div class='font-name'>"+FontEasy.masterFontList.items[i].family+"</div><ul class='font-actions'><li><a href='#edit'><span></span></a></li><li><a href='#preview'><span></span></a></li><li><a href='#add'><span></span></a></li></ul><!--/.font-actions--><div class='active-arrow'>&#9654;</div><!--/.active-arrow--></div><!--/.font-meta--><div class='clear'></div></div><!--/.font-->";
+          matchedFonts += "<div class='font "+family_class+"' data-selectors='|."+family_class+"' data-variants='"+variants+"' data-name='"+FontEasy.masterFontList.items[i].family+"'><style type='text/css'> .font-sample span."+family_class+" { font-family: '"+FontEasy.masterFontList.items[i].family+"'; } </style><div class='font-sample'><span class='"+family_class+"'>"+FontEasy.previewText+"</span></div><div class='font-meta'><ul class='font-actions'><li><a class='edit'><span></span></a></li><li><a class='preview'><span></span></a></li><li><a class='add'><span></span></a></li></ul><!--/.font-actions--><div class='font-name'>"+FontEasy.masterFontList.items[i].family+"</div><div class='active-arrow'>&#9654;</div><!--/.active-arrow--></div><!--/.font-meta--><div class='clear'></div></div><!--/.font-->";
         }
       }
 
@@ -236,7 +235,7 @@ $( document ).ready( function(){
 
       $.each(selectors,function(){
         if (this.length !== 0)
-          selectorMarkup += "<li><span class='selector-name'>" + this + "</span><a href='#delete'><span></span></a></li>";
+          selectorMarkup += "<li><span class='selector-name'>" + this + "</span><a class='delete'><span></span></a></li>";
       });
 
       var i = 1;
@@ -288,6 +287,12 @@ $( document ).ready( function(){
   });
 
 });
+
+function setEqualHeight() {
+  var highestCol = Math.max($("#your-collection .font-list-wrap").height(),$("#your-collection .sidebar").height());
+  $("#your-collection .font-list-wrap").height(highestCol);
+  $("#your-collection .sidebar").height(highestCol);
+}
 
 function setDefaultVariant(availableVariants) {
   var defaultVariant = "";
@@ -355,7 +360,7 @@ google.setOnLoadCallback( function() {
         $.each(this[1],function(){
           variants += "|" + this + "-1";
         });
-        $( '#available-fonts .font-list#loaded-fonts' ).append( "<div class='font "+family_class+"' data-selectors='|."+family_class+"' data-variants='"+variants+"' data-name='"+this[0]+"'><style type='text/css'> .font-sample span."+family_class+" { font-family: '"+this[0]+"'; } </style><div class='font-sample'><span class='"+family_class+"'>"+FontEasy.previewText+"</span></div><div class='font-meta'><div class='font-name'>"+this[0]+"</div><ul class='font-actions'><li><a href='#edit'><span></span></a></li><li><a href='#preview'><span></span></a></li><li><a href='#add'><span></span></a></li></ul><!--/.font-actions--><div class='active-arrow'>&#9654;</div><!--/.active-arrow--></div><!--/.font-meta--><div class='clear'></div></div><!--/.font-->" );
+        $( '#available-fonts .font-list#loaded-fonts' ).append( "<div class='font "+family_class+"' data-selectors='|."+family_class+"' data-variants='"+variants+"' data-name='"+this[0]+"'><style type='text/css'> .font-sample span."+family_class+" { font-family: '"+this[0]+"'; } </style><div class='font-sample'><span class='"+family_class+"'>"+FontEasy.previewText+"</span></div><div class='font-meta'><ul class='font-actions'><li><a class='edit'><span></span></a></li><li><a class='preview'><span></span></a></li><li><a class='add'><span></span></a></li></ul><!--/.font-actions--><div class='font-name'>"+this[0]+"</div><div class='active-arrow'>&#9654;</div><!--/.active-arrow--></div><!--/.font-meta--><div class='clear'></div></div><!--/.font-->" );
       }
     });
     
@@ -419,7 +424,7 @@ google.setOnLoadCallback( function() {
           fontFamilyNames.push(fontName + ":" + defaultVariant);
           var family_class = fontName.replace( / /g, '_' ).toLowerCase();
           family_class = family_class.replace("|active","");
-          $( '#your-collection .font-list' ).append( "<div class='font "+family_class+isActive+"' data-selectors='"+this[1]+"' data-variants='"+this[2]+"' data-name='"+fontName+"'><style type='text/css'> .font-sample span."+family_class+" { font-family: '"+fontName+"'; } </style><div class='font-sample'><span class='"+family_class+"'>"+FontEasy.previewText+"</span></div><div class='font-meta'><div class='font-name'>"+fontName+"</div><ul class='font-actions'><li><a href='#delete'><span></span></a></li></ul><!--/.font-actions--><div class='active-arrow'>&#9654;</div><!--/.active-arrow--></div><!--/.font-meta--><div class='clear'></div></div><!--/.font-->" );
+          $( '#your-collection .font-list' ).append( "<div class='font "+family_class+isActive+"' data-selectors='"+this[1]+"' data-variants='"+this[2]+"' data-name='"+fontName+"'><style type='text/css'> .font-sample span."+family_class+" { font-family: '"+fontName+"'; } </style><div class='font-sample'><span class='"+family_class+"'>"+FontEasy.previewText+"</span></div><div class='font-meta'><ul class='font-actions'><li><a class='delete'><span></span></a></li></ul><!--/.font-actions--><div class='font-name'>"+fontName+"</div><div class='active-arrow'>&#9654;</div><!--/.active-arrow--></div><!--/.font-meta--><div class='clear'></div></div><!--/.font-->" );
           $( '#your-collection .font.active' ).click();
         });
 
@@ -429,7 +434,7 @@ google.setOnLoadCallback( function() {
 
         $( "#your-collection .font" ).each(function(){
           var fontName = $(this).attr("data-name").replace( / /g, '_' ).toLowerCase();
-          $( "#available-fonts .font." + fontName ).find("a[href='#add']").addClass("disabled");
+          $( "#available-fonts .font." + fontName ).find("a.add").addClass("disabled");
         });
 
         WebFont.load( {
@@ -446,12 +451,12 @@ google.setOnLoadCallback( function() {
     loadUserData();
   });
 
-  $( "a[href='#more-fonts']" ).click( function( e ){
+  $( "a.more-fonts" ).click( function( e ){
     loadFonts();
     $( "#available-fonts .font-list#loaded-fonts" ).animate( {scrollTop:$( "#available-fonts .font-list#loaded-fonts" ).prop( "scrollHeight" )});
     $( "#your-collection .font" ).each(function(){
       var fontName = $(this).attr("data-name").replace( / /g, '_' ).toLowerCase();
-      $( "#available-fonts .font." + fontName ).find("a[href='#add']").addClass("disabled");
+      $( "#available-fonts .font." + fontName ).find("a.add").addClass("disabled");
     });
     e.preventDefault();
   });

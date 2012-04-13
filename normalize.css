@@ -67,21 +67,13 @@ html #fonteasy,
   font-family: sans-serif;
 }
 
-/*
- * Addresses margins handled incorrectly in IE6/7
- */
-/* line 94, normalize.scss */
-body #fonteasy {
-  margin: 0;
-}
-
 /* =============================================================================
    Links
    ========================================================================== */
 /*
  * Addresses outline displayed oddly in Chrome
  */
-/* line 107, normalize.scss */
+/* line 98, normalize.scss */
 #fonteasy a:focus {
   outline: thin dotted;
 }
@@ -90,7 +82,7 @@ body #fonteasy {
  * Improves readability when focused and also mouse hovered in all browsers
  * people.opera.com/patrickl/experiments/keyboard/test
  */
-/* line 118, normalize.scss */
+/* line 109, normalize.scss */
 #fonteasy a:hover, #fonteasy a:active {
   outline: 0;
 }
@@ -98,7 +90,7 @@ body #fonteasy {
 /*
  * Addresses styling not present in IE7/8/9, S5, Chrome
  */
-/* line 127, normalize.scss */
+/* line 118, normalize.scss */
 abbr[title] {
   border-bottom: 1px dotted;
 }
@@ -106,13 +98,13 @@ abbr[title] {
 /*
  * Addresses style set to 'bolder' in FF3+, S4/5, Chrome
 */
-/* line 136, normalize.scss */
+/* line 127, normalize.scss */
 b,
 strong {
   font-weight: bold;
 }
 
-/* line 140, normalize.scss */
+/* line 131, normalize.scss */
 blockquote {
   margin: 1em 40px;
 }
@@ -120,7 +112,7 @@ blockquote {
 /*
  * Addresses styling not present in S5, Chrome
  */
-/* line 148, normalize.scss */
+/* line 139, normalize.scss */
 dfn {
   font-style: italic;
 }
@@ -128,7 +120,7 @@ dfn {
 /*
  * Addresses styling not present in IE6/7/8/9
  */
-/* line 156, normalize.scss */
+/* line 147, normalize.scss */
 mark {
   background: #ff0;
   color: #000;
@@ -137,7 +129,7 @@ mark {
 /*
  * Addresses margins set differently in IE6/7
  */
-/* line 166, normalize.scss */
+/* line 157, normalize.scss */
 #fonteasy p,
 #fonteasy pre {
   margin: 1em 0;
@@ -147,7 +139,7 @@ mark {
  * Corrects font family set oddly in IE6, S4/5, Chrome
  * en.wikipedia.org/wiki/User:Davidgothberg/Test59
  */
-/* line 178, normalize.scss */
+/* line 169, normalize.scss */
 pre,
 code,
 kbd,
@@ -160,7 +152,7 @@ samp {
 /*
  * Improves readability of pre-formatted text in all browsers
  */
-/* line 188, normalize.scss */
+/* line 179, normalize.scss */
 pre {
   white-space: pre;
   white-space: pre-wrap;
@@ -172,20 +164,20 @@ pre {
  * 2. Addresses quote property not supported in S4
  */
 /* 1 */
-/* line 201, normalize.scss */
+/* line 192, normalize.scss */
 q {
   quotes: none;
 }
 
 /* 2 */
-/* line 208, normalize.scss */
+/* line 199, normalize.scss */
 q:before,
 q:after {
   content: '';
   content: none;
 }
 
-/* line 213, normalize.scss */
+/* line 204, normalize.scss */
 small {
   font-size: 75%;
 }
@@ -194,7 +186,7 @@ small {
  * Prevents sub and sup affecting line-height in all browsers
  * gist.github.com/413930
  */
-/* line 223, normalize.scss */
+/* line 214, normalize.scss */
 #fonteasy sub,
 #fonteasy sup {
   font-size: 75%;
@@ -203,12 +195,12 @@ small {
   vertical-align: baseline;
 }
 
-/* line 230, normalize.scss */
+/* line 221, normalize.scss */
 #fonteasy sup {
   top: -0.5em;
 }
 
-/* line 234, normalize.scss */
+/* line 225, normalize.scss */
 #fonteasy sub {
   bottom: -0.25em;
 }
@@ -219,7 +211,7 @@ small {
 /*
  * Addresses margins set differently in IE6/7
  */
-/* line 250, normalize.scss */
+/* line 241, normalize.scss */
 #fonteasy dl,
 #fonteasy menu,
 #fonteasy ol,
@@ -227,7 +219,7 @@ small {
   margin: 0;
 }
 
-/* line 254, normalize.scss */
+/* line 245, normalize.scss */
 #fonteasy dd {
   margin: 0;
 }
@@ -235,7 +227,7 @@ small {
 /*
  * Addresses paddings set differently in IE6/7
  */
-/* line 264, normalize.scss */
+/* line 255, normalize.scss */
 #fonteasy menu,
 #fonteasy ol,
 #fonteasy ul {
@@ -245,7 +237,7 @@ small {
 /*
  * Corrects list images handled incorrectly in IE7
  */
-/* line 273, normalize.scss */
+/* line 264, normalize.scss */
 #fonteasy nav ul,
 #fonteasy nav ol {
   list-style: none;
@@ -260,7 +252,7 @@ small {
  * 2. Improves image quality when scaled in IE7
  *    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
  */
-/* line 289, normalize.scss */
+/* line 280, normalize.scss */
 #fonteasy img {
   border: 0;
   /* 1 */
@@ -271,7 +263,7 @@ small {
 /*
  * Corrects overflow displayed oddly in IE9
  */
-/* line 298, normalize.scss */
+/* line 289, normalize.scss */
 #fonteasy svg:not(:root) {
   overflow: hidden;
 }
@@ -282,7 +274,7 @@ small {
 /*
  * Addresses margin not present in IE6/7/8/9, S5, O11
  */
-/* line 311, normalize.scss */
+/* line 302, normalize.scss */
 #fonteasy figure {
   margin: 0;
 }
@@ -293,7 +285,7 @@ small {
 /*
  * Corrects margin displayed oddly in IE6/7
  */
-/* line 324, normalize.scss */
+/* line 315, normalize.scss */
 #fonteasy form {
   margin: 0;
 }
@@ -301,7 +293,7 @@ small {
 /*
  * Define consistent border, margin, and padding
  */
-/* line 332, normalize.scss */
+/* line 323, normalize.scss */
 #fonteasy fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
@@ -313,7 +305,7 @@ small {
  * 2. Corrects text not wrapping in FF3 
  * 3. Corrects alignment displayed oddly in IE6/7
  */
-/* line 344, normalize.scss */
+/* line 335, normalize.scss */
 #fonteasy legend {
   border: 0;
   /* 1 */
@@ -329,7 +321,7 @@ small {
  * 2. Addresses margins set differently in IE6/7, FF3+, S5, Chrome
  * 3. Improves appearance and consistency in all browsers
  */
-/* line 360, normalize.scss */
+/* line 351, normalize.scss */
 #fonteasy button,
 #fonteasy input,
 #fonteasy select,
@@ -347,7 +339,7 @@ small {
 /*
  * Addresses FF3/4 setting line-height on 'input' using !important in the UA stylesheet
  */
-/* line 372, normalize.scss */
+/* line 363, normalize.scss */
 button,
 input {
   line-height: normal;
@@ -360,7 +352,7 @@ input {
  * 3. Removes inner spacing in IE7 without affecting normal text inputs
  *    Known issue: inner spacing remains in IE6
  */
-/* line 386, normalize.scss */
+/* line 377, normalize.scss */
 button,
 input[type="button"],
 input[type="reset"],
@@ -376,7 +368,7 @@ input[type="submit"] {
 /*
  * Re-set default cursor for disabled elements
  */
-/* line 397, normalize.scss */
+/* line 388, normalize.scss */
 button[disabled],
 input[disabled] {
   cursor: default;
@@ -388,7 +380,7 @@ input[disabled] {
  * 3. Removes excess padding in IE7
       Known issue: excess padding remains in IE6
  */
-/* line 409, normalize.scss */
+/* line 400, normalize.scss */
 input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
@@ -405,7 +397,7 @@ input[type="radio"] {
  * 1. Addresses appearance set to searchfield in S5, Chrome
  * 2. Addresses box-sizing set to border-box in S5, Chrome (include -moz to future-proof)
  */
-/* line 421, normalize.scss */
+/* line 412, normalize.scss */
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
@@ -418,7 +410,7 @@ input[type="search"] {
 /*
  * Removes inner padding and search cancel button in S5, Chrome on OS X
  */
-/* line 433, normalize.scss */
+/* line 424, normalize.scss */
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
@@ -428,7 +420,7 @@ input[type="search"]::-webkit-search-cancel-button {
  * Removes inner padding and border in FF3+
  * www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/
  */
-/* line 443, normalize.scss */
+/* line 434, normalize.scss */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
@@ -439,7 +431,7 @@ input::-moz-focus-inner {
  * 1. Removes default vertical scrollbar in IE6/7/8/9
  * 2. Improves readability and alignment in all browsers
  */
-/* line 453, normalize.scss */
+/* line 444, normalize.scss */
 textarea {
   overflow: auto;
   /* 1 */
@@ -453,7 +445,7 @@ textarea {
 /*
  * Remove most spacing between table cells
  */
-/* line 467, normalize.scss */
+/* line 458, normalize.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
