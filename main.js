@@ -8,6 +8,8 @@ $( document ).ready( function(){
 
   $( "#selectors" ).on( "keyup", "#new-selector", $( this ), adjustSelectorBox );
   $( "#variants-form" ).on( "click", "input[type='checkbox']", $( this ), toggleVariant );
+  
+  $( "#search" ).on( "keyup", "#search-input", $( this ), searchFonts );
 
   $( "#your-collection" ).on( "click", ".font", $( this ), activateFont );
 
@@ -19,6 +21,8 @@ $( document ).ready( function(){
 
   function adjustSelectorBox( e ) { $( e.target ).trigger( "adjustSelectorBox" ); }
   function toggleVariant( e ) { $( e.target ).trigger( "toggleVariant" );saveFonts(); }
+  
+  function searchFonts( e ) { $( e.target ).trigger( "searchFonts" ); }
 
   function activateFont( e ) { $( e.target ).trigger( "activateFont" );e.preventDefault(); }
 
@@ -48,20 +52,6 @@ $( document ).ready( function(){
     }
     
   });
-
-  /*$( fonts ).each( function( i ) { //fonts is the object literal to search through
-
-    var matchingFonts = {};
-
-    for( i = 0; i < fonts.length; ++i ) { //iterate through all fonts
-      if( fonts[i].match( ui.item ) ) { //if a font matches the search term, add it to an array of matching fonts
-        matchingFonts[] = locales[i].match;
-      }
-    };
-
-    return matchingFonts; // return matching font as an object literal
-
-  });*/
 
   $( "#your-collection" ).bind( "removeFont" , function( e ){
 
@@ -166,6 +156,30 @@ $( document ).ready( function(){
     $( "#your-collection .font.active" ).attr("data-variants",variants);
 
   });
+  
+  $( "#search" ).bind( "searchFonts" , function( e ){
+
+    _this = e.target;
+
+    var tempFontList = $("#available-fonts .font-list").clone();
+    
+    $("#available-fonts").addClass('loading').find(".font-list").remove();
+
+    if ( $(_this).val().length > 3 ) {
+
+      var matchingFonts = {};
+
+      for( i = 0; i < FontEasy.masterFontList.items.length; ++i ) { //iterate through all fonts
+        if( FontEasy.masterFontList.items[i].family.match($('#search-input').val() ) ) { //if a font matches the search term, add it to an array of matching fonts
+          console.log(FontEasy.masterFontList.items[i].family);
+        }
+      }
+    }
+    else if ( $(_this).val().length === 0 ) {
+      // console.log(tempFontList);
+      // $("#available-fonts .font-list-wrap").html(tempFontList);
+    }
+  });
 
   $( "#your-collection" ).bind( "activateFont" , function( e ){
 
@@ -208,6 +222,7 @@ $( document ).ready( function(){
       $("#selectors").prepend(selectorMarkup);
       $("#variants-form").html(variantMarkup);
 
+      saveFonts();
     }
 
   });
@@ -216,10 +231,12 @@ $( document ).ready( function(){
 
     _this = e.target;
     var fontData = new Array();
-    var fontName,fontSelectors,fontVariants,i=0;
+    var fontName,fontSelectors,fontVariants,isActive="",i=0;
     
     $( "#your-collection .font" ).each(function(){
-      fontName = $(this).attr("data-name");
+      if ($(this).hasClass("active")) isActive = "|active";
+      else isActive = "";
+      fontName = $(this).attr("data-name") + isActive;
       fontSelectors = $(this).attr("data-selectors");
       fontVariants = $(this).attr("data-variants");
 
@@ -233,25 +250,29 @@ $( document ).ready( function(){
     });
 
     $.post("save.php", {json : fontData});
-    console.log(fontData);
+  });
 
+  $.getJSON( FontEasy.webFontURL, function( data ){
+    FontEasy.masterFontList = data;
   });
 
 });
 
+var FontEasy = {
+  fontList: false,
+  masterFontList: false,
+  previewText: "The quick brown fox jumps over the lazy dog.",
+  apiKey: "AIzaSyDJYYVPLT9JaoMPF8G5cFm1YjTZMjknizE",
+  start: 0,
+  show: 4
+}
+
+FontEasy.baseURL = "http://fonts.googleapis.com/css?text="+FontEasy.previewText+"&family=";
+FontEasy.webFontURL = "https://www.googleapis.com/webfonts/v1/webfonts?key="+FontEasy.apiKey+"&sort=alpha&callback=?";
+
 google.load( "webfont", "1" );
-  
+
 google.setOnLoadCallback( function() {
-  var FontEasy = {
-    fontList: false,
-    previewText: "The quick brown fox jumps over the lazy dog.",
-    apiKey: "AIzaSyDJYYVPLT9JaoMPF8G5cFm1YjTZMjknizE",
-    start: 0,
-    show: 4
-  }
-  
-  FontEasy.baseURL = "http://fonts.googleapis.com/css?text="+FontEasy.previewText+"&family=";
-  FontEasy.webFontURL = "https://www.googleapis.com/webfonts/v1/webfonts?key="+FontEasy.apiKey+"&sort=alpha&callback=?";
 
   var getGoogleFonts = function( fontFamilies ){
     $( fontFamilies).each( function( i ){
@@ -271,16 +292,18 @@ google.setOnLoadCallback( function() {
 
   
   var populateFontList = function( data ){
-    if( data )
+    if( data ){
       FontEasy.fontList = data;
+    }
   }
   
   var loadFonts = function( fontFamilies ){
+    
     position = $( ".font-list" ).scrollTop();
 
     if( !fontFamilies )
       fontFamilies = FontEasy.fontList;
-
+ 
     if( fontFamilies.kind == "webfonts#webfontList" ){
       var fontFamilies = [];
 
@@ -306,7 +329,7 @@ google.setOnLoadCallback( function() {
   var loadUserData = function() {
     $.getJSON("fonts.json", function(fontData) {
       var jsonData = JSON.stringify(fontData);
-      console.log(jsonData);
+      var isActive = "";
 
       if (fontData) {
         var fontFamilyNames = new Array();
@@ -314,13 +337,16 @@ google.setOnLoadCallback( function() {
         $.each(fontData,function(){
           fontFamilyNames.push(this[0]);
           var family_class = this[0].replace( / /g, '_' ).toLowerCase();
-          $( '#your-collection .font-list' ).append( "<div class='font "+family_class+"' data-selectors='"+this[1]+"' data-variants='"+this[2]+"' data-name='"+this[0]+"'><style type='text/css'> .font-sample span."+family_class+" { font-family: '"+this[0]+"'; } </style><div class='font-sample'><span class='"+family_class+"'>"+FontEasy.previewText+"</span></div><div class='font-meta'><div class='font-name'>"+this[0]+"</div><ul class='font-actions'><li><a href='#delete'><span></span></a></li></ul><!--/.font-actions--><div class='active-arrow'>&#9654;</div><!--/.active-arrow--></div><!--/.font-meta--><div class='clear'></div></div><!--/.font-->" );
+          if (family_class.indexOf("|active") >= 0) isActive = " active";
+          else isActive = "";
+          family_class = family_class.replace("|active","");
+          $( '#your-collection .font-list' ).append( "<div class='font "+family_class+isActive+"' data-selectors='"+this[1]+"' data-variants='"+this[2]+"' data-name='"+this[0].replace("|active","")+"'><style type='text/css'> .font-sample span."+family_class+" { font-family: '"+this[0].replace("|active","")+"'; } </style><div class='font-sample'><span class='"+family_class+"'>"+FontEasy.previewText+"</span></div><div class='font-meta'><div class='font-name'>"+this[0].replace("|active","")+"</div><ul class='font-actions'><li><a href='#delete'><span></span></a></li></ul><!--/.font-actions--><div class='active-arrow'>&#9654;</div><!--/.active-arrow--></div><!--/.font-meta--><div class='clear'></div></div><!--/.font-->" );
+          $( '#your-collection .font.active' ).click();
         });
 
         $( "#your-collection" ).find( ".no-fonts" ).hide();
         $( "#your-collection" ).find( ".font-list" ).show();
         $( "#your-collection" ).find( ".sidebar" ).show();
-        $( "#your-collection .font-list .font:first-child" ).click();
 
         $( "#your-collection .font" ).each(function(){
           var fontName = $(this).attr("data-name").replace( / /g, '_' ).toLowerCase();

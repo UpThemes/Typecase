@@ -1,6 +1,12 @@
 @import "normalize";
 @import "compass/css3";
 
+body {
+  padding:0 10px;
+  max-width:1024px;
+  margin:0 auto;
+}
+
 #fonteasy {
   padding:0 10px;
   max-width:1024px;

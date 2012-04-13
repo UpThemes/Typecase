@@ -473,39 +473,46 @@ table {
 }
 
 /* line 4, main.scss */
+body {
+  padding: 0 10px;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+/* line 10, main.scss */
 #fonteasy {
   padding: 0 10px;
   max-width: 1024px;
   margin: 0 auto;
 }
-/* line 9, main.scss */
+/* line 15, main.scss */
 #fonteasy * {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   position: relative;
   vertical-align: middle;
 }
-/* line 16, main.scss */
+/* line 22, main.scss */
 #fonteasy .clear {
   clear: both;
 }
-/* line 18, main.scss */
+/* line 24, main.scss */
 #fonteasy .font-list-wrap {
   width: 100%;
   margin-bottom: -1px;
 }
-/* line 23, main.scss */
+/* line 29, main.scss */
 #fonteasy .no-fonts {
   text-align: center;
   padding: 40px 0 50px 0;
 }
-/* line 27, main.scss */
+/* line 33, main.scss */
 #fonteasy .no-fonts h2 {
   color: #666;
   text-shadow: 0 1px 1px #fff;
   margin-bottom: 10px;
 }
-/* line 33, main.scss */
+/* line 39, main.scss */
 #fonteasy .no-fonts h4 {
   color: #999;
   text-shadow: 0 1px 1px #fff;
@@ -513,7 +520,7 @@ table {
   font-size: 14px;
   margin: 0;
 }
-/* line 41, main.scss */
+/* line 47, main.scss */
 #fonteasy .no-fonts span.add {
   cursor: pointer;
   display: inline-block;
@@ -534,25 +541,25 @@ table {
   -webkit-transition: all 200ms linear;
   -moz-transition: all 200ms linear;
 }
-/* line 56, main.scss */
+/* line 62, main.scss */
 #fonteasy .no-fonts span.add:hover {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset, 0 0 0 5px rgba(116, 183, 65, 0.25);
 }
-/* line 61, main.scss */
+/* line 67, main.scss */
 #fonteasy .no-fonts span.add span {
   display: block;
   width: 16px;
   height: 16px;
   background: url("assets/icons.png") 0 0;
 }
-/* line 70, main.scss */
+/* line 76, main.scss */
 #fonteasy .font-list {
   background: #fbfbfb;
   padding-bottom: 2px;
   border-radius: 0 0 4px 4px;
   overflow: hidden;
 }
-/* line 76, main.scss */
+/* line 82, main.scss */
 #fonteasy .font-list .font {
   line-height: 60px;
   border-top: solid 1px #eee;
@@ -561,11 +568,11 @@ table {
   margin-bottom: -1px;
   top: 1px;
 }
-/* line 84, main.scss */
+/* line 90, main.scss */
 #fonteasy .font-list .font:last-child {
   border-radius: 0 0 4px 4px;
 }
-/* line 88, main.scss */
+/* line 94, main.scss */
 #fonteasy .font-list .font .font-sample {
   font-size: 20px;
   float: left;
@@ -575,7 +582,7 @@ table {
   width: 100%;
   overflow: hidden;
 }
-/* line 98, main.scss */
+/* line 104, main.scss */
 #fonteasy .font-list .font .font-meta {
   float: right;
   padding: 0 15px 0 50px;
@@ -590,14 +597,14 @@ table {
   background-image: -ms-linear-gradient(left, rgba(251, 251, 251, 0) 0%, #fbfbfb 20%);
   background-image: linear-gradient(left, rgba(251, 251, 251, 0) 0%, #fbfbfb 20%);
 }
-/* line 107, main.scss */
+/* line 113, main.scss */
 #fonteasy .font-list .font .font-meta .font-name {
   float: left;
   color: #aaa;
   font-size: 12px;
   margin-right: 5px;
 }
-/* line 114, main.scss */
+/* line 120, main.scss */
 #fonteasy .font-list .font .font-meta .active-arrow {
   display: none;
   width: 45px;
@@ -613,7 +620,7 @@ table {
   -moz-transform: scaleX(0.3);
   font-family: "Lucida Grande","Lucida Sans";
 }
-/* line 130, main.scss */
+/* line 136, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions {
   margin: 0;
   padding: 0;
@@ -623,11 +630,11 @@ table {
   -webkit-transition: all 200ms linear;
   -moz-transition: all 200ms linear;
 }
-/* line 139, main.scss */
+/* line 145, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions li {
   display: inline-block;
 }
-/* line 143, main.scss */
+/* line 149, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a {
   display: block;
   width: 16px;
@@ -646,78 +653,78 @@ table {
   -webkit-transition: all 200ms linear;
   -moz-transition: all 200ms linear;
 }
-/* line 156, main.scss */
+/* line 162, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a span {
   display: block;
   width: 16px;
   height: 16px;
 }
-/* line 163, main.scss */
+/* line 169, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a[href$="delete"] {
   background-color: #c93e3e;
 }
-/* line 166, main.scss */
+/* line 172, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a[href$="delete"]:hover {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset, 0 0 0 5px rgba(201, 62, 62, 0.25);
 }
-/* line 171, main.scss */
+/* line 177, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a[href$="delete"] span {
   background: url("assets/icons.png") -16px 0;
 }
-/* line 176, main.scss */
+/* line 182, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a[href$="add"] {
   background-color: #74b741;
 }
-/* line 179, main.scss */
+/* line 185, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a[href$="add"]:hover {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset, 0 0 0 5px rgba(116, 183, 65, 0.25);
 }
-/* line 184, main.scss */
+/* line 190, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a[href$="add"] span {
   background: url("assets/icons.png") 0 0;
 }
-/* line 189, main.scss */
+/* line 195, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a[href$="preview"] {
   display: none;
   background-color: #6f94da;
 }
-/* line 193, main.scss */
+/* line 199, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a[href$="preview"]:hover {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset, 0 0 0 5px rgba(111, 148, 218, 0.25);
 }
-/* line 198, main.scss */
+/* line 204, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a[href$="preview"] span {
   background: url("assets/icons.png") -48px 0;
 }
-/* line 203, main.scss */
+/* line 209, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a[href$="edit"] {
   display: none;
   background-color: #eac526;
 }
-/* line 207, main.scss */
+/* line 213, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a[href$="edit"]:hover {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset, 0 0 0 5px rgba(234, 197, 38, 0.25);
 }
-/* line 212, main.scss */
+/* line 218, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a[href$="edit"] span {
   background: url("assets/icons.png") -64px 0;
 }
-/* line 217, main.scss */
+/* line 223, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a.disabled {
   opacity: .5;
   background-color: white;
   cursor: default;
 }
-/* line 222, main.scss */
+/* line 228, main.scss */
 #fonteasy .font-list .font .font-meta .font-actions a.disabled:hover {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset;
 }
-/* line 229, main.scss */
+/* line 235, main.scss */
 #fonteasy .font-list .font:hover {
   background: white;
   cursor: pointer;
 }
-/* line 233, main.scss */
+/* line 239, main.scss */
 #fonteasy .font-list .font:hover .font-meta {
   background: white;
   background-color: transparent;
@@ -728,22 +735,22 @@ table {
   background-image: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 20%);
   background-image: linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 20%);
 }
-/* line 239, main.scss */
+/* line 245, main.scss */
 #fonteasy .font-list .font:hover .font-actions {
   opacity: 1;
 }
-/* line 244, main.scss */
+/* line 250, main.scss */
 #fonteasy .font-list .font.active {
   background: white;
   border-color: #d6d6d6;
   z-index: 10;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
-/* line 250, main.scss */
+/* line 256, main.scss */
 #fonteasy .font-list .font.active .active-arrow {
   display: block;
 }
-/* line 252, main.scss */
+/* line 258, main.scss */
 #fonteasy .font-list .font.active .font-meta {
   z-index: 2;
   background: transparent;
@@ -754,11 +761,11 @@ table {
   background-image: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 20%);
   background-image: linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 20%);
 }
-/* line 257, main.scss */
+/* line 263, main.scss */
 #fonteasy .font-list .font.active .font-meta .font-actions {
   opacity: 1;
 }
-/* line 265, main.scss */
+/* line 271, main.scss */
 #fonteasy .content-wrap {
   background: #f6f6f6;
   border: solid 1px #d6d6d6;
@@ -766,7 +773,7 @@ table {
   border-radius: 0 0 4px 4px;
   overflow: hidden;
 }
-/* line 273, main.scss */
+/* line 279, main.scss */
 #fonteasy .sidebar {
   display: none;
   float: left;
@@ -775,7 +782,7 @@ table {
   padding: 15px;
   margin-left: -1px;
 }
-/* line 281, main.scss */
+/* line 287, main.scss */
 #fonteasy .sidebar h2 {
   margin: 0;
   font-weight: normal;
@@ -783,7 +790,7 @@ table {
   font-size: 16px;
   border-bottom: solid 1px #fbfbfb;
 }
-/* line 288, main.scss */
+/* line 294, main.scss */
 #fonteasy .sidebar h2:after {
   content: "";
   display: block;
@@ -791,7 +798,7 @@ table {
   margin-top: 5px;
   border-bottom: solid 1px #e2e2e2;
 }
-/* line 297, main.scss */
+/* line 303, main.scss */
 #fonteasy .sidebar #selectors {
   margin: 0;
   padding: 0;
@@ -799,7 +806,7 @@ table {
   overflow: hidden;
   padding: 5px 1px;
 }
-/* line 304, main.scss */
+/* line 310, main.scss */
 #fonteasy .sidebar #selectors .new-selector-width {
   font-size: 13px;
   display: block;
@@ -807,7 +814,7 @@ table {
   overflow: hidden;
   float: left;
 }
-/* line 312, main.scss */
+/* line 318, main.scss */
 #fonteasy .sidebar #selectors li {
   float: left;
   max-width: 100%;
@@ -830,14 +837,14 @@ table {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 -1px 1px 1px rgba(0, 0, 0, 0.1) inset, 0 1px 0 1px rgba(255, 255, 255, 0.5) inset, 0 2px 3px -1px rgba(0, 0, 0, 0.2);
 }
-/* line 332, main.scss */
+/* line 338, main.scss */
 #fonteasy .sidebar #selectors li .selector-name {
   display: inline-block;
   width: 100%;
   overflow: hidden;
   border-right: solid 30px transparent;
 }
-/* line 339, main.scss */
+/* line 345, main.scss */
 #fonteasy .sidebar #selectors li.add-new {
   max-width: 100%;
   clear: left;
@@ -847,7 +854,7 @@ table {
   -webkit-transition: all 200ms linear;
   -moz-transition: all 200ms linear;
 }
-/* line 349, main.scss */
+/* line 355, main.scss */
 #fonteasy .sidebar #selectors li input[type="text"] {
   border-radius: 22px;
   border: none;
@@ -865,7 +872,7 @@ table {
   -webkit-transition: all 200ms linear;
   -moz-transition: all 200ms linear;
 }
-/* line 368, main.scss */
+/* line 374, main.scss */
 #fonteasy .sidebar #selectors li input[type="submit"] {
   position: absolute;
   top: 3px;
@@ -884,7 +891,7 @@ table {
   background: url("assets/icons.png") right -24px, -ms-linear-gradient(#fefefe, #e5e5e5);
   background: url("assets/icons.png") right -24px, linear-gradient(#fefefe, #e5e5e5);
 }
-/* line 382, main.scss */
+/* line 388, main.scss */
 #fonteasy .sidebar #selectors li input[type="submit"]:hover {
   background: url("assets/icons.png") right -24px, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(70%, #fefefe), color-stop(100%, #eeeeee));
   background: url("assets/icons.png") right -24px, -webkit-linear-gradient(#fefefe 70%, #eeeeee);
@@ -893,7 +900,7 @@ table {
   background: url("assets/icons.png") right -24px, -ms-linear-gradient(#fefefe 70%, #eeeeee);
   background: url("assets/icons.png") right -24px, linear-gradient(#fefefe 70%, #eeeeee);
 }
-/* line 386, main.scss */
+/* line 392, main.scss */
 #fonteasy .sidebar #selectors li input[type="submit"]:active {
   background: url("assets/icons.png") right -24px, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #efefef), color-stop(30%, #f3f3f3));
   background: url("assets/icons.png") right -24px, -webkit-linear-gradient(#efefef, #f3f3f3 30%);
@@ -902,7 +909,7 @@ table {
   background: url("assets/icons.png") right -24px, -ms-linear-gradient(#efefef, #f3f3f3 30%);
   background: url("assets/icons.png") right -24px, linear-gradient(#efefef, #f3f3f3 30%);
 }
-/* line 391, main.scss */
+/* line 397, main.scss */
 #fonteasy .sidebar #selectors li a[href$="delete"] {
   opacity: .5;
   position: absolute;
@@ -912,7 +919,7 @@ table {
   -webkit-transition: all 250ms linear;
   -moz-transition: all 250ms linear;
 }
-/* line 400, main.scss */
+/* line 406, main.scss */
 #fonteasy .sidebar #selectors li a[href$="delete"] span {
   background: url("assets/icons.png") -16px 0;
   background-color: #999;
@@ -923,29 +930,29 @@ table {
   text-decoration: none;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25) inset;
 }
-/* line 411, main.scss */
+/* line 417, main.scss */
 #fonteasy .sidebar #selectors li a[href$="delete"]:hover {
   opacity: .75;
 }
-/* line 418, main.scss */
+/* line 424, main.scss */
 #fonteasy .sidebar #variants-form {
   margin-top: 10px;
 }
-/* line 422, main.scss */
+/* line 428, main.scss */
 #fonteasy .sidebar label {
   display: block;
   font-size: 12px;
   color: #333;
   padding: 5px 10px;
 }
-/* line 428, main.scss */
+/* line 434, main.scss */
 #fonteasy .sidebar label input {
   margin-right: 5px;
   width: 10px;
   position: relative;
   top: 1px;
 }
-/* line 437, main.scss */
+/* line 443, main.scss */
 #fonteasy .header {
   border-radius: 4px 4px 0 0;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.2)));
@@ -956,7 +963,7 @@ table {
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2) inset, 0 0 0 1px rgba(0, 0, 0, 0.3) inset;
 }
-/* line 443, main.scss */
+/* line 449, main.scss */
 #fonteasy .header h1 {
   margin: 0;
   font-size: 16px;
@@ -967,56 +974,56 @@ table {
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
   text-indent: 15px;
 }
-/* line 455, main.scss */
+/* line 461, main.scss */
 #fonteasy #your-collection {
   overflow: hidden;
   margin: 10px 0;
 }
-/* line 459, main.scss */
+/* line 465, main.scss */
 #fonteasy #your-collection .header {
   background-color: #85c052;
 }
-/* line 467, main.scss */
+/* line 473, main.scss */
 #fonteasy #your-collection .font-list-wrap {
   width: 70%;
   float: left;
   border-right: solid 1px #d6d6d6;
 }
-/* line 472, main.scss */
+/* line 478, main.scss */
 #fonteasy #your-collection .font-list-wrap .font-list {
   display: none;
 }
-/* line 474, main.scss */
+/* line 480, main.scss */
 #fonteasy #your-collection .font-list-wrap .font {
   border-right: solid 1px #d6d6d6;
   margin-right: -1px;
   border-radius: 0;
 }
-/* line 479, main.scss */
+/* line 485, main.scss */
 #fonteasy #your-collection .font-list-wrap .font:hover:last-child, #fonteasy #your-collection .font-list-wrap .font.active:last-child {
   border-radius: 0 0 4px 4px;
 }
-/* line 486, main.scss */
+/* line 492, main.scss */
 #fonteasy #available-fonts {
   overflow: hidden;
   margin: 20px 0;
 }
-/* line 490, main.scss */
+/* line 496, main.scss */
 #fonteasy #available-fonts .header {
   background-color: #4077cd;
 }
-/* line 498, main.scss */
+/* line 504, main.scss */
 #fonteasy #available-fonts .font-list {
   border-radius: 0;
   padding-bottom: 0;
   overflow: auto;
   height: 244px;
 }
-/* line 506, main.scss */
+/* line 512, main.scss */
 #fonteasy #available-fonts .font-list .font:last-child {
   border-radius: 0;
 }
-/* line 512, main.scss */
+/* line 518, main.scss */
 #fonteasy #available-fonts #search {
   padding: 5px 5px;
   overflow: hidden;
@@ -1029,7 +1036,7 @@ table {
   background-image: -ms-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
 }
-/* line 519, main.scss */
+/* line 525, main.scss */
 #fonteasy #available-fonts #search input[type="text"] {
   width: 93%;
   float: left;
@@ -1039,7 +1046,7 @@ table {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1) inset;
   border-radius: 2px 0 0 2px;
 }
-/* line 531, main.scss */
+/* line 537, main.scss */
 #fonteasy #available-fonts #search input[type="submit"] {
   width: 7%;
   float: left;
@@ -1063,11 +1070,11 @@ table {
   -webkit-transition: all 100ms linear;
   -moz-transition: all 100ms linear;
 }
-/* line 551, main.scss */
+/* line 557, main.scss */
 #fonteasy #available-fonts #search input[type="submit"]:hover {
   box-shadow: 0 0 0 1px #1b44ab, 0 2px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2) inset, 0 0 0 28px rgba(255, 255, 255, 0.1) inset;
 }
-/* line 558, main.scss */
+/* line 564, main.scss */
 #fonteasy #available-fonts #search input[type="submit"]:active {
   background: url("assets/icons.png") center -46px, -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #4f7bd1), color-stop(100%, #2f5abb));
   background: url("assets/icons.png") center -46px, -webkit-linear-gradient(bottom, #4f7bd1, #2f5abb);
@@ -1077,7 +1084,7 @@ table {
   background: url("assets/icons.png") center -46px, linear-gradient(bottom, #4f7bd1, #2f5abb);
   box-shadow: 0 0 0 1px #133a9c, 0 2px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.3) inset;
 }
-/* line 567, main.scss */
+/* line 573, main.scss */
 #fonteasy #available-fonts a[href="#more-fonts"] {
   display: block;
   border-top: solid 1px #d4d4d4;
@@ -1097,11 +1104,11 @@ table {
   border-radius: 0 0 4px 4px;
   margin-top: -1px;
 }
-/* line 581, main.scss */
+/* line 587, main.scss */
 #fonteasy #available-fonts a[href="#more-fonts"] span {
   border-bottom: solid 1px #a5a5a5;
 }
-/* line 585, main.scss */
+/* line 591, main.scss */
 #fonteasy #available-fonts a[href="#more-fonts"]:hover {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #f5f5f5));
   background-image: -webkit-linear-gradient(#ffffff, #f5f5f5);
@@ -1110,7 +1117,7 @@ table {
   background-image: -ms-linear-gradient(#ffffff, #f5f5f5);
   background-image: linear-gradient(#ffffff, #f5f5f5);
 }
-/* line 588, main.scss */
+/* line 594, main.scss */
 #fonteasy #available-fonts a[href="#more-fonts"]:hover span {
   border-color: #999;
 }
