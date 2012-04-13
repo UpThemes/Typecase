@@ -162,6 +162,7 @@ $( document ).ready( function(){
     _this = e.target;
 
     $("#available-fonts .font-list#loaded-fonts").hide();
+    $("#available-fonts .no-results").hide();
     $("#available-fonts .font-list#search-results").show();
     
     if ( $(_this).val().length > 1 ) {
@@ -172,10 +173,21 @@ $( document ).ready( function(){
       for( i = 0; i < FontEasy.masterFontList.items.length; ++i ) { //iterate through all fonts
         if( FontEasy.masterFontList.items[i].family.match($('#search-input').val() ) ) { //if a font matches the search term, add it to an array of matching fonts
           var family_class = FontEasy.masterFontList.items[i].family.replace( / /g, '_' ).toLowerCase();
-          var variants = FontEasy.masterFontList.items[i].variants;
-          fontResults.push(FontEasy.masterFontList.items[i].family);
+          var variants = "";
+          $.each(FontEasy.masterFontList.items[i].variants,function(){
+            variants += "|" + this + "-1";
+          });
+
+          var defaultVariant = setDefaultVariant(FontEasy.masterFontList.items[i].variants);
+          
+          fontResults.push(FontEasy.masterFontList.items[i].family + ":" + defaultVariant);
           matchedFonts += "<div class='font "+family_class+"' data-selectors='|."+family_class+"' data-variants='"+variants+"' data-name='"+FontEasy.masterFontList.items[i].family+"'><style type='text/css'> .font-sample span."+family_class+" { font-family: '"+FontEasy.masterFontList.items[i].family+"'; } </style><div class='font-sample'><span class='"+family_class+"'>"+FontEasy.previewText+"</span></div><div class='font-meta'><div class='font-name'>"+FontEasy.masterFontList.items[i].family+"</div><ul class='font-actions'><li><a href='#edit'><span></span></a></li><li><a href='#preview'><span></span></a></li><li><a href='#add'><span></span></a></li></ul><!--/.font-actions--><div class='active-arrow'>&#9654;</div><!--/.active-arrow--></div><!--/.font-meta--><div class='clear'></div></div><!--/.font-->";
         }
+      }
+
+      if (!matchedFonts) {
+        $("#available-fonts .font-list#search-results").hide();
+        $("#available-fonts .no-results").show();
       }
 
       WebFont.load( {
@@ -188,9 +200,11 @@ $( document ).ready( function(){
     else if ( $(_this).val().length === 0 ) {
       $("#available-fonts .font-list#loaded-fonts").show();
       $("#available-fonts .font-list#search-results").hide();
+      $("#available-fonts .no-results").hide();
     }
     else {
-      $("#available-fonts .font-list#search-results").html("No Results");
+      $("#available-fonts .font-list#search-results").hide();
+      $("#available-fonts .no-results").show();
     }
   });
 
@@ -271,6 +285,35 @@ $( document ).ready( function(){
 
 });
 
+function setDefaultVariant(availableVariants) {
+  var defaultVariant = "";
+
+  if ($.inArray("400",availableVariants) > -1)
+    defaultVariant = "400";
+  else if ($.inArray("regular",availableVariants) > -1)
+    defaultVariant = "regular";
+  else if ($.inArray("300",availableVariants) > -1)
+    defaultVariant = "300";
+  else if ($.inArray("500",availableVariants) > -1)
+    defaultVariant = "500";
+  else if ($.inArray("200",availableVariants) > -1)
+    defaultVariant = "200";
+  else if ($.inArray("600",availableVariants) > -1)
+    defaultVariant = "600";
+  else if ($.inArray("100",availableVariants) > -1)
+    defaultVariant = "100";
+  else if ($.inArray("bold",availableVariants) > -1)
+    defaultVariant = "bold";
+  else if ($.inArray("700",availableVariants) > -1)
+    defaultVariant = "700";
+  else if ($.inArray("800",availableVariants) > -1)
+    defaultVariant = "800";
+  else if ($.inArray("900",availableVariants) > -1)
+    defaultVariant = "900";
+
+  return defaultVariant;
+}
+
 var FontEasy = {
   fontList: false,
   masterFontList: false,
@@ -329,7 +372,8 @@ google.setOnLoadCallback( function() {
       var fontFamilyNames = new Array();
 
       $.each(fontFamilies,function(){
-        fontFamilyNames.push(this[0]);
+        var defaultVariant = setDefaultVariant(this[1]);
+        fontFamilyNames.push(this[0] + ":" + defaultVariant);
       });
 
       WebFont.load( {
@@ -348,12 +392,18 @@ google.setOnLoadCallback( function() {
         var fontFamilyNames = new Array();
 
         $.each(fontData,function(){
-          fontFamilyNames.push(this[0]);
-          var family_class = this[0].replace( / /g, '_' ).toLowerCase();
-          if (family_class.indexOf("|active") >= 0) isActive = " active";
+          var variants = this[2].split("|");
+          $.each(variants,function(i){
+            variants[i] = variants[i].slice(0,-2);
+          });
+          var defaultVariant = setDefaultVariant(variants);
+          if (this[0].indexOf("|active") >= 0) isActive = " active";
           else isActive = "";
+          var fontName = this[0].replace("|active","");
+          fontFamilyNames.push(fontName + ":" + defaultVariant);
+          var family_class = fontName.replace( / /g, '_' ).toLowerCase();
           family_class = family_class.replace("|active","");
-          $( '#your-collection .font-list' ).append( "<div class='font "+family_class+isActive+"' data-selectors='"+this[1]+"' data-variants='"+this[2]+"' data-name='"+this[0].replace("|active","")+"'><style type='text/css'> .font-sample span."+family_class+" { font-family: '"+this[0].replace("|active","")+"'; } </style><div class='font-sample'><span class='"+family_class+"'>"+FontEasy.previewText+"</span></div><div class='font-meta'><div class='font-name'>"+this[0].replace("|active","")+"</div><ul class='font-actions'><li><a href='#delete'><span></span></a></li></ul><!--/.font-actions--><div class='active-arrow'>&#9654;</div><!--/.active-arrow--></div><!--/.font-meta--><div class='clear'></div></div><!--/.font-->" );
+          $( '#your-collection .font-list' ).append( "<div class='font "+family_class+isActive+"' data-selectors='"+this[1]+"' data-variants='"+this[2]+"' data-name='"+fontName+"'><style type='text/css'> .font-sample span."+family_class+" { font-family: '"+fontName+"'; } </style><div class='font-sample'><span class='"+family_class+"'>"+FontEasy.previewText+"</span></div><div class='font-meta'><div class='font-name'>"+fontName+"</div><ul class='font-actions'><li><a href='#delete'><span></span></a></li></ul><!--/.font-actions--><div class='active-arrow'>&#9654;</div><!--/.active-arrow--></div><!--/.font-meta--><div class='clear'></div></div><!--/.font-->" );
           $( '#your-collection .font.active' ).click();
         });
 
