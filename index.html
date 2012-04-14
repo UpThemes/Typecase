@@ -1,31 +1,70 @@
 <html>
 <head>
   <title>Fonteasy</title>
-  <link rel="stylesheet" type="text/css" href="main.css"/>
+  <link rel="stylesheet" type="text/css" href="main.css">
   <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="json2.js"></script>
+  <script type="text/javascript" src="selectivizr-min.js"></script>
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript" src="log.js"></script>
   <script type="text/javascript" src="main.js"></script>
 </head>
 <body>
-  <h1>Fonteasy</h1>
-  <hr/>
-  <h3>Selectors</h3>
-  <ul class="selectors-group">
-    <li><a href="#selector1" rel="abel">h1, h2, .quote</a></li>
-    <li><a href="#selector2" rel="acme">strong, blockquote</a></li>
-    <li><a href="#selector3" rel="exo">.awesome, .custom</a></li>
-  </ul>
-  <form>
-    <input type="text" id="new-selector" placeholder="New selector name..."/>
-    <button class="add-selector">Add Selector</button>
-
-    <ul class="selectors"></ul>
-    <div class="font-list-wrap">
-      <div class="font-list"></div>
-    </div>
-    <div class="loading"></div>
-    <input type="submit"/>
-  </form>
-  <div class="log"></div>
+  <div id="fonteasy">
+    <div id="your-collection">
+      <div class="header">
+        <h1>Your Collection</h1>
+      </div><!--/.header-->
+      <div class="content-wrap">
+        <div class="no-fonts">
+          <h2>You have no fonts in your Library!</h2>
+          <h4>Browse below and click <span class="add"><span></span></span> to add fonts to your library.</h4>
+        </div><!--/.no-fonts-->
+        <div class="font-list-wrap">
+          <div class="font-list">
+          </div><!--/.font-list-->
+        </div><!--/.font-list-wrap-->
+        <div class="sidebar">
+          <h2>Selectors</h2>
+          <ul id="selectors">
+            <li class="add-new">
+              <form id="new-selector-form">
+                <input type="text" name="new-selector" id="new-selector" placeholder="New Selector..."/>
+                <input type="submit" id="submit-selector" value=""/>
+              </form>
+            </li>
+            <span class="new-selector-width"></span>
+          </ul><!--/#selectors-->
+          <div class="clear"></div>
+          <h2>Included Variants</h2>
+          <form id="variants-form">
+          </form>
+        </div><!--/.sidebar-->
+        <div class="clear"></div>
+      </div><!--/.content-wrap-->
+    </div><!--/#your-collection-->
+    <div id="available-fonts">
+      <div class="header">
+        <h1>Available Fonts</h1>
+      </div><!--/.header-->
+      <form id="search">
+        <input type="text" name="search-input" id="search-input" placeholder="Search Google Web Font Library..."/>
+        <input type="submit" id="search-submit" value=""/>
+      </form><!--/#search-->
+      <div class="content-wrap">
+        <div class="font-list-wrap">
+          <div class="no-results">
+            <h2>No Results!</h2>
+            <h4>There are no fonts with that name in the Google Font Library.</h4>
+          </div><!--/.no-results-->
+          <div class="font-list" id="loaded-fonts">
+          </div><!--/.font-list#loaded-fonts-->
+          <div class="font-list" id="search-results">
+          </div><!--/.font-list#search-results-->
+        </div><!--/.font-list-wrap-->
+        <a class="more-fonts"><span>Browse More Fonts</span></a>
+      </div><!--/.content-wrap-->
+    </div><!--/#available-fonts-->
+  </div><!--/#fonteasy-->
 </body>
 </html>
