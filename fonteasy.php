@@ -29,6 +29,8 @@ class FontEasy {
 			add_action('admin_menu',array($this,'admin_menu') );
 			add_action('wp_ajax_saveFonts',array($this,'ajax_save_fonts'));
 			add_action('wp_ajax_getFonts',array($this,'ajax_get_fonts'));
+		else:
+			add_action('wp_head',array($this,'display_frontend'));
 		endif;
 	}
 
@@ -49,7 +51,7 @@ class FontEasy {
 
 		$response_data = update_option('fonteasy_fonts',$fonts);
 
-		$response = json_encode( array( 'success' => true, 'fonts' => $response_data ) );
+		$response = json_encode( array( 'success' => $response_data ) );
 
 		header( "Content-Type: application/json" );
 		echo $response;
@@ -62,7 +64,9 @@ class FontEasy {
 
 		$fonts = get_option('fonteasy_fonts');
 
-		$response = json_encode( array( 'success' => true, 'fonts' => $fonts ) );
+		$gotten = $fonts ? true : false;
+
+		$response = json_encode( array( 'success' => $gotten, 'fonts' => $fonts ) );
 
 		header( "Content-Type: application/json" );
 		echo $response;
@@ -176,7 +180,75 @@ class FontEasy {
 EOT;
 
 	}
+	
+	function display_frontend(){
+		
+		$fonts = get_option('fonteasy_fonts');
+		
+		if( $fonts[0] ){
+
+			$apiUrl = "http://fonts.googleapis.com/css?family=";
+			$import_url = '';
+			$font_styles = '';
+			$font_weights = '';
+
+			foreach($fonts as $font){
+	
+				$family = explode("|",$font[0]);
+				$family = $family[0];
+				$selectors = substr( $font[1], 1);
+				$weights = substr( $font[2], 1);
+				
+				$weights = explode("|",$weights);
+
+				foreach( $weights as $i => $weight ){
+					$pos = strpos($weight, '-');
+					$weight = mb_substr($weight,0,$pos);
+					if($i>0)
+						$font_weights .= ",";
+					else
+						$font_weights .= ":";
+					$font_weights .= $weight;
+				}
+
+				if( $import_url != '' )
+					$import_url .= '|';
+
+				$import_url .= str_replace(" ","+",$family).$font_weights;
+
+				$selectors = explode("|",$selectors);
+
+				foreach( $selectors as $i => $selector){
+					if($i>0)
+						$font_styles .= ",";
+					$font_styles .= $selector;
+				}
+				
+				$font_styles .= "{ font-family: \"$family\"; }\n";
+
+			}
+
+			$import_fonts = "@import url($apiUrl$import_url);\n";
+			
+			echo "\n\n<!--====== FontEasy Font Declarations ======-->";
+			echo "\n<style type=\"text/css\">\n";
+			echo $import_fonts;
+			echo $font_styles;
+			echo "</style>\n";
+			echo "<!--==-- End FontEasy Font Declarations --==-->\n\n";
+
+		}
+		
+	}
 
 }
 
 $fonteasy = FontEasy::init();
+
+
+
+
+
+
+
+
