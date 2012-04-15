@@ -134,7 +134,7 @@ class Typecase {
 	function ui(){
 	
 		$title 							= __('Typecase','typecase');
-		$tagline 						= __('Beautiful webfonts for WordPress','typecase');
+		$tagline 						= __('Beautiful web fonts for WordPress','typecase');
 		$collection 				= __('Your Collection','typecase');
 		$nofonts 						= __('You have no fonts in your collection!','typecase');
 		$addfonts 					= sprintf( __('Browse the "Available Fonts" below and click %s to add fonts here.','typecase'), '<span class="add"><span></span></span>' );
@@ -237,8 +237,8 @@ class Typecase {
 		        <div class="font-list" id="search-results">
 		        </div><!--/.font-list#search-results-->
 		      </div><!--/.font-list-wrap-->
-		      <a class="more-fonts"><span>$showmorefonts</span></a>
 		    </div><!--/.content-wrap-->
+	      <a id="more-fonts" href=""><span>$showmorefonts</span></a>
 		  </div><!--/#available-fonts-->
 		</div><!--/#typecase-->
 EOT;

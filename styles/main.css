@@ -518,13 +518,13 @@ table {
 }
 /* line 61, ../sass/main.scss */
 #typecase #masthead h1 {
-  background-color: #222;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.5)));
-  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
-  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
-  background-image: -o-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
-  background-image: -ms-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+  background-color: #555;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.8)));
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+  background-image: -o-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+  background-image: -ms-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2) inset, 0 0 0 1px rgba(0, 0, 0, 0.3) inset;
   border-radius: 4px;
   padding: 20px;
@@ -545,7 +545,7 @@ table {
   font-family: "JournalRegular";
   font-size: 20px;
   margin-left: 20px;
-  font-weight: bold;
+  font-weight: normal;
 }
 /* line 89, ../sass/main.scss */
 #typecase #masthead #upthemes {
@@ -1014,24 +1014,25 @@ table {
 #typecase #your-collection header,
 #typecase #available-fonts header {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0) inset, 0 1px 0 rgba(255, 255, 255, 0.6) inset;
-  border: 1px solid #bbb;
+  border: 1px solid #ccc;
+  background-color: #fff;
 }
-/* line 530, ../sass/main.scss */
+/* line 531, ../sass/main.scss */
 #typecase #your-collection header h1,
 #typecase #available-fonts header h1 {
   color: #333;
 }
-/* line 535, ../sass/main.scss */
+/* line 536, ../sass/main.scss */
 #typecase header {
   border-radius: 4px 4px 0 0;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0.1)), color-stop(100%, rgba(0, 0, 0, 0.2)));
-  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
-  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
-  background-image: -o-linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
-  background-image: -ms-linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0.02)), color-stop(100%, rgba(0, 0, 0, 0.07)));
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.07));
+  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.07));
+  background-image: -o-linear-gradient(rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.07));
+  background-image: -ms-linear-gradient(rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.07));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.07));
 }
-/* line 539, ../sass/main.scss */
+/* line 540, ../sass/main.scss */
 #typecase header h1 {
   margin: 0;
   color: #fff;
@@ -1042,68 +1043,73 @@ table {
   text-shadow: 0 1px 0 white;
   text-indent: 15px;
 }
-/* line 551, ../sass/main.scss */
+/* line 552, ../sass/main.scss */
 #typecase #your-collection {
   overflow: hidden;
   margin: 0 0 10px;
 }
-/* line 555, ../sass/main.scss */
+/* line 556, ../sass/main.scss */
 #typecase #your-collection .font-list-wrap {
   float: left;
   width: 70%;
   border-right: solid 1px #ccc;
 }
-/* line 560, ../sass/main.scss */
+/* line 561, ../sass/main.scss */
 #typecase #your-collection .font-list-wrap .font-list {
   display: none;
 }
-/* line 562, ../sass/main.scss */
+/* line 563, ../sass/main.scss */
 #typecase #your-collection .font-list-wrap .font {
   border-radius: 0;
 }
-/* line 565, ../sass/main.scss */
+/* line 566, ../sass/main.scss */
 #typecase #your-collection .font-list-wrap .font:hover:last-child, #typecase #your-collection .font-list-wrap .font.active:last-child {
-  border-radius: 0 0 4px 4px;
+  border-radius: 0;
 }
-/* line 572, ../sass/main.scss */
+/* line 573, ../sass/main.scss */
 #typecase #available-fonts {
   overflow: hidden;
   margin: 0 0 10px;
 }
-/* line 576, ../sass/main.scss */
+/* line 577, ../sass/main.scss */
+#typecase #available-fonts header {
+  border-bottom-width: 0;
+}
+/* line 581, ../sass/main.scss */
 #typecase #available-fonts .font-list {
   border-radius: 0;
   padding-bottom: 0;
   overflow: auto;
 }
-/* line 581, ../sass/main.scss */
+/* line 586, ../sass/main.scss */
 #typecase #available-fonts .font-list#search-results {
   display: none;
 }
-/* line 582, ../sass/main.scss */
+/* line 587, ../sass/main.scss */
 #typecase #available-fonts .font-list#loaded-fonts {
   height: 492px;
 }
-/* line 586, ../sass/main.scss */
+/* line 591, ../sass/main.scss */
 #typecase #available-fonts .font-list .font:last-child {
   border-radius: 0;
 }
-/* line 592, ../sass/main.scss */
+/* line 597, ../sass/main.scss */
 #typecase #available-fonts #search {
   padding: 10px 10px;
   overflow: hidden;
   height: 48px;
-  border-top: 1px solid #666;
-  border-bottom: 1px solid #999;
-  background-color: #aaa;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0.28)), color-stop(100%, rgba(0, 0, 0, 0)));
-  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0));
-  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0));
-  background-image: -o-linear-gradient(rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0));
-  background-image: -ms-linear-gradient(rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0));
-  background-image: linear-gradient(rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0));
+  border: 1px solid #ccc;
+  border-top-width: 0;
+  background-color: #f9f9f9;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1) inset;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0.13)), color-stop(100%, rgba(0, 0, 0, 0.04)));
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.13), rgba(0, 0, 0, 0.04));
+  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.13), rgba(0, 0, 0, 0.04));
+  background-image: -o-linear-gradient(rgba(0, 0, 0, 0.13), rgba(0, 0, 0, 0.04));
+  background-image: -ms-linear-gradient(rgba(0, 0, 0, 0.13), rgba(0, 0, 0, 0.04));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.13), rgba(0, 0, 0, 0.04));
 }
-/* line 601, ../sass/main.scss */
+/* line 607, ../sass/main.scss */
 #typecase #available-fonts #search input#search-input {
   width: 100%;
   float: left;
@@ -1112,10 +1118,10 @@ table {
   line-height: 28px;
   font-size: 14px;
   border: none;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 2px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1) inset;
   border-radius: 2px;
 }
-/* line 615, ../sass/main.scss */
+/* line 621, ../sass/main.scss */
 #typecase #available-fonts #search input#search-submit {
   display: none;
   width: 7%;
@@ -1142,11 +1148,11 @@ table {
   -webkit-transition: all 100ms linear;
   -moz-transition: all 100ms linear;
 }
-/* line 638, ../sass/main.scss */
+/* line 644, ../sass/main.scss */
 #typecase #available-fonts #search input#search-submit:hover {
   box-shadow: 0 0 0 1px #1b44ab, 0 2px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2) inset, 0 0 0 28px rgba(255, 255, 255, 0.1) inset;
 }
-/* line 645, ../sass/main.scss */
+/* line 651, ../sass/main.scss */
 #typecase #available-fonts #search input#search-submit:active {
   background: url("../images/icons.png") center -46px, -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #4f7bd1), color-stop(100%, #2f5abb));
   background: url("../images/icons.png") center -46px, -webkit-linear-gradient(bottom, #4f7bd1, #2f5abb);
@@ -1156,44 +1162,41 @@ table {
   background: url("../images/icons.png") center -46px, linear-gradient(bottom, #4f7bd1, #2f5abb);
   box-shadow: 0 0 0 1px #133a9c, 0 2px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.3) inset;
 }
-/* line 654, ../sass/main.scss */
-#typecase #available-fonts a.more-fonts {
+/* line 661, ../sass/main.scss */
+#typecase #more-fonts {
   display: block;
-  border-top: solid 1px #d4d4d4;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fafafa), color-stop(100%, #ededed));
-  background-image: -webkit-linear-gradient(#fafafa, #ededed);
-  background-image: -moz-linear-gradient(#fafafa, #ededed);
-  background-image: -o-linear-gradient(#fafafa, #ededed);
-  background-image: -ms-linear-gradient(#fafafa, #ededed);
-  background-image: linear-gradient(#fafafa, #ededed);
-  height: 40px;
-  line-height: 40px;
+  border: 1px solid #0b84c2;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #179fe5), color-stop(100%, #0b84c2));
+  background-image: -webkit-linear-gradient(#179fe5, #0b84c2);
+  background-image: -moz-linear-gradient(#179fe5, #0b84c2);
+  background-image: -o-linear-gradient(#179fe5, #0b84c2);
+  background-image: -ms-linear-gradient(#179fe5, #0b84c2);
+  background-image: linear-gradient(#179fe5, #0b84c2);
   text-align: center;
+  padding: 10px;
   font-size: 12px;
-  color: #444;
+  color: #fff;
   font-weight: bold;
   text-decoration: none;
   border-radius: 0 0 4px 4px;
   margin-top: -1px;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.6);
 }
-/* line 668, ../sass/main.scss */
-#typecase #available-fonts a.more-fonts span {
-  border-bottom: solid 1px #a5a5a5;
+/* line 678, ../sass/main.scss */
+#typecase #more-fonts:hover {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #3ab3f2), color-stop(100%, #0b84c2));
+  background-image: -webkit-linear-gradient(#3ab3f2, #0b84c2);
+  background-image: -moz-linear-gradient(#3ab3f2, #0b84c2);
+  background-image: -o-linear-gradient(#3ab3f2, #0b84c2);
+  background-image: -ms-linear-gradient(#3ab3f2, #0b84c2);
+  background-image: linear-gradient(#3ab3f2, #0b84c2);
 }
-/* line 672, ../sass/main.scss */
-#typecase #available-fonts a.more-fonts:hover {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #f5f5f5));
-  background-image: -webkit-linear-gradient(#ffffff, #f5f5f5);
-  background-image: -moz-linear-gradient(#ffffff, #f5f5f5);
-  background-image: -o-linear-gradient(#ffffff, #f5f5f5);
-  background-image: -ms-linear-gradient(#ffffff, #f5f5f5);
-  background-image: linear-gradient(#ffffff, #f5f5f5);
+/* line 681, ../sass/main.scss */
+#typecase #more-fonts:active {
+  background: #0b84c2;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1) inset;
 }
-/* line 675, ../sass/main.scss */
-#typecase #available-fonts a.more-fonts:hover span {
-  border-color: #999;
-}
-/* line 682, ../sass/main.scss */
+/* line 687, ../sass/main.scss */
 #typecase #firsttimer {
   color: #343434;
   border-radius: 4px;
@@ -1205,7 +1208,7 @@ table {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 692, ../sass/main.scss */
+/* line 697, ../sass/main.scss */
 #typecase #firsttimer h1 {
   font-weight: normal;
   font-size: 40px;
@@ -1214,13 +1217,13 @@ table {
   text-align: center;
   background: url("../images/stripe.png") no-repeat bottom center;
 }
-/* line 701, ../sass/main.scss */
+/* line 706, ../sass/main.scss */
 #typecase #firsttimer .buttons {
   text-align: center;
   padding: 20px 0 0 0;
   clear: both;
 }
-/* line 706, ../sass/main.scss */
+/* line 711, ../sass/main.scss */
 #typecase #firsttimer .buttons a.btn {
   display: inline-block;
   border-radius: 4px;
@@ -1239,7 +1242,7 @@ table {
   font: bold 14px/14px Helvetica, Arial, Tahoma, Verdana, sans-serif;
   text-decoration: none;
 }
-/* line 719, ../sass/main.scss */
+/* line 724, ../sass/main.scss */
 #typecase #firsttimer .buttons a.btn:hover {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #4cc346), color-stop(100%, #017900));
   background-image: -webkit-linear-gradient(#4cc346, #017900);
@@ -1248,26 +1251,26 @@ table {
   background-image: -ms-linear-gradient(#4cc346, #017900);
   background-image: linear-gradient(#4cc346, #017900);
 }
-/* line 723, ../sass/main.scss */
+/* line 728, ../sass/main.scss */
 #typecase #firsttimer .buttons a.btn:active {
   box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.3);
   background-image: none;
   background-color: #027a00;
   color: rgba(255, 255, 255, 0.9);
 }
-/* line 732, ../sass/main.scss */
+/* line 737, ../sass/main.scss */
 #typecase #firsttimer .buttons small {
   display: block;
   margin-top: 5px;
   font: normal 11px/11px Helvetica, Arial, Tahoma, Verdana, sans-serif;
   color: rgba(0, 0, 0, 0.5);
 }
-/* line 741, ../sass/main.scss */
+/* line 746, ../sass/main.scss */
 #typecase #firsttimer ol {
   margin-left: 50px;
   margin-bottom: 40px;
 }
-/* line 745, ../sass/main.scss */
+/* line 750, ../sass/main.scss */
 #typecase #firsttimer ol li {
   font-size: 32px;
   list-style-position: outside;
@@ -1276,7 +1279,7 @@ table {
   float: left;
   line-height: 1em;
 }
-/* line 753, ../sass/main.scss */
+/* line 758, ../sass/main.scss */
 #typecase #firsttimer ol li .list-item {
   background-image: url("../images/circle_background.png");
   width: 57px;
@@ -1286,7 +1289,7 @@ table {
   top: -12px;
   display: block;
 }
-/* line 763, ../sass/main.scss */
+/* line 768, ../sass/main.scss */
 #typecase #firsttimer ol li strong {
   font-weight: normal;
   font-size: 26px;
@@ -1295,23 +1298,23 @@ table {
   display: block;
   line-height: 1em;
 }
-/* line 772, ../sass/main.scss */
+/* line 777, ../sass/main.scss */
 #typecase #firsttimer ol li:first-child {
   width: 36%;
 }
-/* line 776, ../sass/main.scss */
+/* line 781, ../sass/main.scss */
 #typecase #firsttimer ol li:first-child strong {
   padding-left: 10px;
 }
-/* line 780, ../sass/main.scss */
+/* line 785, ../sass/main.scss */
 #typecase #firsttimer ol li:first-child span {
   left: -52px;
 }
-/* line 786, ../sass/main.scss */
+/* line 791, ../sass/main.scss */
 #typecase #firsttimer ol li:nth-child(2n) {
   width: 36%;
 }
-/* line 789, ../sass/main.scss */
+/* line 794, ../sass/main.scss */
 #typecase #firsttimer ol li:nth-child(2n) .list-item {
   -webkit-transform: rotate(75deg);
   -moz-transform: rotate(75deg);
@@ -1319,7 +1322,7 @@ table {
   -o-transform: rotate(75deg);
   transform: rotate(75deg);
 }
-/* line 796, ../sass/main.scss */
+/* line 801, ../sass/main.scss */
 #typecase #firsttimer ol li:nth-child(3n) .list-item {
   -webkit-transform: rotate(155deg);
   -moz-transform: rotate(155deg);
@@ -1327,7 +1330,7 @@ table {
   -o-transform: rotate(155deg);
   transform: rotate(155deg);
 }
-/* line 799, ../sass/main.scss */
+/* line 804, ../sass/main.scss */
 #typecase #firsttimer ol li:nth-child(3n) strong {
   padding-right: 0;
 }

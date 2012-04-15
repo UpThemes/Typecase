@@ -473,7 +473,7 @@
 	    loadUserData();
 	  });
 	
-	  $( "a.more-fonts" ).click( function( e ){
+	  $( "#more-fonts" ).click( function( e ){
 	    loadFonts();
 	    $( "#available-fonts .font-list#loaded-fonts" ).animate( {scrollTop:$( "#available-fonts .font-list#loaded-fonts" ).prop( "scrollHeight" )});
 	    $( "#your-collection .font" ).each(function(){
