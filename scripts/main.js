@@ -57,6 +57,14 @@
 	    }
 	    
 	  });
+	  
+	  $("#firsttimer").find('.btn').live('click',function(e){
+	  	e.preventDefault();
+	  	$.getJSON(ajaxurl,{ action : 'clear_firsttimer' },function(data){
+	  		if(data.success)
+			  	$('#firsttimer').delay(800).slideUp(600);
+	  	});
+	  });
 	
 	  $( "#your-collection" ).bind( "removeFont" , function( e ){
 	
@@ -343,7 +351,7 @@
 	  previewText: "The quick brown fox jumps over the lazy dog.",
 	  apiKey: "AIzaSyDJYYVPLT9JaoMPF8G5cFm1YjTZMjknizE",
 	  start: 0,
-	  show: 4
+	  show: 8
 	}
 	
 	FontEasy.baseURL = "http://fonts.googleapis.com/css?text="+FontEasy.previewText+"&family=";
@@ -465,7 +473,7 @@
 	    loadUserData();
 	  });
 	
-	  $( "a.more-fonts" ).click( function( e ){
+	  $( "#more-fonts" ).click( function( e ){
 	    loadFonts();
 	    $( "#available-fonts .font-list#loaded-fonts" ).animate( {scrollTop:$( "#available-fonts .font-list#loaded-fonts" ).prop( "scrollHeight" )});
 	    $( "#your-collection .font" ).each(function(){
