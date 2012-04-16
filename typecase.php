@@ -33,6 +33,17 @@ class Typecase {
 		else:
 			add_action('wp_head',array($this,'display_frontend'));
 		endif;
+
+		add_action('wp_ajax_reloadFontPreview',array($this,'ajax_reload_font_preview'));
+
+		if( isset($_GET['front_end_editor']) ):
+			remove_action('wp_head',array($this,'display_frontend'));
+			add_action('init',array($this,'admin_styles'));
+			add_action('wp_head',array($this,'front_end_ajaxurl'));
+			add_action('init', array($this,'front_end_editor_styles'));
+			add_action('wp_footer',array($this,'ui'));
+		endif;
+		
 	}
 
 	function &init() {
@@ -89,6 +100,20 @@ class Typecase {
 
 	}
 
+	function front_end_ajaxurl() { ?>
+	<script type="text/javascript">
+	var ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>';
+	var frontend = true;
+	</script>
+	<?php
+	}
+
+	function front_end_editor_styles(){
+
+		wp_enqueue_style('front-end-editor', plugins_url( 'styles/front_end_editor.css', __FILE__ ), false, date( 'Ymd' ) );
+
+	}
+
 	function activate() {
 	}
 
@@ -113,7 +138,6 @@ class Typecase {
 	function load_menu() {
 
 		$hook = add_menu_page( $this->name, $this->name, 'manage_options', 'typecase', array( $this, 'ui' ), plugins_url( 'images/ico_typecase.png', __FILE__ ) );
-
 		add_action( 'admin_print_styles-' . $hook, array($this,'admin_styles'));
 
 	}
@@ -132,7 +156,7 @@ class Typecase {
 	}
 
 	function ui(){
-	
+
 		$title 							= __('Typecase','typecase');
 		$tagline 						= __('Beautiful web fonts for WordPress','typecase');
 		$collection 				= __('Your Collection','typecase');
@@ -173,9 +197,18 @@ class Typecase {
 			</div>';
 		endif;
 
+		if( isset($_GET['front_end_editor']) ):
+
+			$classname = ' class="front_end_editor"';
+			$front_end_editor = '<a class="collection typecase-btn" id="your-collection-toggle" data-target="your-collection" href="">' . __("View Your Collection","typecase") . '</a> <a class="available typecase-btn" id="available-fonts-toggle" data-target="available-fonts" href="">' . __("Find New Fonts","typecase") . '</a>';
+		else:
+			$classname = '';
+			$front_end_editor = '';
+		endif;
+
 		echo <<<EOT
-		<div id="typecase">
-			
+		<div id="typecase"$classname>
+
 			<header id="masthead">
 				<h1>
 					<strong>$title</strong>
@@ -185,6 +218,8 @@ class Typecase {
 			</header>
 
 			$firsttimer
+
+			$front_end_editor
 
 		  <div id="your-collection">
 		    <header>
@@ -244,11 +279,11 @@ class Typecase {
 EOT;
 
 	}
-	
+
 	function display_frontend(){
-		
+
 		$fonts = get_option('typecase_fonts');
-		
+
 		if( $fonts[0] ){
 
 			$apiUrl = "http://fonts.googleapis.com/css?family=";
@@ -257,12 +292,12 @@ EOT;
 			$font_weights = '';
 
 			foreach($fonts as $font){
-	
+
 				$family = explode("|",$font[0]);
 				$family = $family[0];
 				$selectors = substr( $font[1], 1);
 				$weights = substr( $font[2], 1);
-				
+
 				$weights = explode("|",$weights);
 
 				foreach( $weights as $i => $weight ){
@@ -287,13 +322,13 @@ EOT;
 						$font_styles .= ",";
 					$font_styles .= $selector;
 				}
-				
+
 				$font_styles .= "{ font-family: \"$family\"; }\n";
 
 			}
 
 			$import_fonts = "@import url($apiUrl$import_url);\n";
-			
+
 			echo "\n\n<!--====== Typecase Font Declarations ======-->";
 			echo "\n<style type=\"text/css\">\n";
 			echo $import_fonts;
@@ -302,17 +337,75 @@ EOT;
 			echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 
 		}
-		
+
+	}
+
+	function ajax_reload_font_preview(){
+
+		$fonts = get_option('typecase_fonts');
+
+		if( $fonts[0] ){
+
+			$apiUrl = "http://fonts.googleapis.com/css?family=";
+			$import_url = '';
+			$font_styles = '';
+			$font_weights = '';
+
+			foreach($fonts as $font){
+
+				$family = explode("|",$font[0]);
+				$family = $family[0];
+				$selectors = substr( $font[1], 1);
+				$weights = substr( $font[2], 1);
+
+				$weights = explode("|",$weights);
+
+				foreach( $weights as $i => $weight ){
+					$pos = strpos($weight, '-');
+					$weight = mb_substr($weight,0,$pos);
+					if($i>0)
+						$font_weights .= ",";
+					else
+						$font_weights .= ":";
+					$font_weights .= $weight;
+				}
+
+				if( $import_url != '' )
+					$import_url .= '|';
+
+				$import_url .= str_replace(" ","+",$family).$font_weights;
+
+				$selectors = explode("|",$selectors);
+
+				foreach( $selectors as $i => $selector){
+					if($i>0)
+						$font_styles .= ",";
+					$font_styles .= $selector;
+				}
+
+				$font_styles .= "{ font-family: \"$family\"; }\n";
+
+			}
+
+			$import_fonts = "@import url($apiUrl$import_url);\n";
+
+			$font_css = "\n\n<!--====== Typecase Font Declarations ======-->";
+			$font_css .= "\n<style type=\"text/css\">\n";
+			$font_css .= $import_fonts;
+			$font_css .= $font_styles;
+			$font_css .= "</style>\n";
+			$font_css .= "<!--==-- End Typecase Font Declarations --==-->\n\n";
+			
+			$response = json_encode( array( 'success' => true, 'css' => $font_css ) );
+	
+			header( "Content-Type: application/json" );
+			echo $response;
+			exit;
+	
+		}
+
 	}
 
 }
 
 $typecase = Typecase::init();
-
-
-
-
-
-
-
-

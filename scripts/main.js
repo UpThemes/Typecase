@@ -2,6 +2,19 @@
 
 	$( document ).ready( function(){
 
+		if( frontend ){
+			
+			if( !$('#font-css').length )
+				$('body').append('<div id="font-css"></div>');
+			
+			$.getJSON( ajaxurl, { action : 'reloadFontPreview' }, function( data ){
+				console.log(data.css);
+			  if( data.css )
+				  $('#font-css').html(data.css);
+			});
+
+		}
+
 	  $( "#your-collection" ).on( "click", "a.delete", $( this ), removeFont );
 	  $( "#available-fonts" ).on( "click", "a.add", $( this ), addFont );
 	  $( "#available-fonts" ).on( "dblclick", ".font", $( this ), addFont );
@@ -58,14 +71,26 @@
 	    
 	  });
 	  
-	  $("#firsttimer").find('.btn').live('click',function(e){
+	  $("#firsttimer").find('.btn').on('click',function(e){
 	  	e.preventDefault();
 	  	$.getJSON(ajaxurl,{ action : 'clear_firsttimer' },function(data){
 	  		if(data.success)
 			  	$('#firsttimer').delay(800).slideUp(600);
 	  	});
 	  });
+	  
+	  $('#available-fonts-toggle').on('click',function(e){
+	  	e.preventDefault();
+	  	$(this).toggleClass('active');
+	  	$('#available-fonts').toggleClass('active');
+	  });
 	
+	  $('#your-collection-toggle').on('click',function(e){
+	  	e.preventDefault();
+			$(this).toggleClass('active');
+			$('#your-collection').toggleClass('active');
+	  });
+
 	  $( "#your-collection" ).bind( "removeFont" , function( e ){
 	
 	    _this = e.target;
@@ -290,14 +315,30 @@
 	    });
 	
 	    $.post(ajaxurl, { 'action' : 'saveFonts', 'json' : fontData});
+
+		  if( frontend )
+				reloadFontPreview();
+
 	  });
 	
 	  $.getJSON( FontEasy.webFontURL, function( data ){
 	    FontEasy.masterFontList = data;
 	  });
-	
+
 	});
-	
+
+	function reloadFontPreview(){
+
+		if( !$('#font-css').length )
+			$('body').append('<div id="font-css"></div>');
+
+		$.getJSON( ajaxurl, { action : 'reloadFontPreview' }, function( data ){
+		  if( data.css )
+			  $('#font-css').html(data.css);
+		});
+
+	}
+
 	function setEqualHeight() {
 	  var highestCol = Math.max($("#your-collection .font-list-wrap").height(),$("#your-collection .sidebar").height());
 	  $("#your-collection .font-list-wrap").height(highestCol);
