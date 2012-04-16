@@ -1122,12 +1122,14 @@ table {
   border: none;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 2px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1) inset;
   border-radius: 2px;
+  -webkit-transition: all 200ms linear;
+  -moz-transition: all 200ms linear;
 }
-/* line 622, ../sass/main.scss */
+/* line 624, ../sass/main.scss */
 #typecase #available-fonts #search input#search-input:focus {
   box-shadow: 0 0 0 1px #179fe5, 0 0 8px #43b3ec, 0 1px 2px rgba(0, 0, 0, 0.1) inset;
 }
-/* line 630, ../sass/main.scss */
+/* line 632, ../sass/main.scss */
 #typecase #available-fonts #search input#search-submit {
   display: none;
   width: 7%;
@@ -1154,11 +1156,11 @@ table {
   -webkit-transition: all 100ms linear;
   -moz-transition: all 100ms linear;
 }
-/* line 653, ../sass/main.scss */
+/* line 655, ../sass/main.scss */
 #typecase #available-fonts #search input#search-submit:hover {
   box-shadow: 0 0 0 1px #1b44ab, 0 2px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2) inset, 0 0 0 28px rgba(255, 255, 255, 0.1) inset;
 }
-/* line 660, ../sass/main.scss */
+/* line 662, ../sass/main.scss */
 #typecase #available-fonts #search input#search-submit:active {
   background: url("../images/icons.png") center -46px, -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #4f7bd1), color-stop(100%, #2f5abb));
   background: url("../images/icons.png") center -46px, -webkit-linear-gradient(bottom, #4f7bd1, #2f5abb);
@@ -1168,7 +1170,7 @@ table {
   background: url("../images/icons.png") center -46px, linear-gradient(bottom, #4f7bd1, #2f5abb);
   box-shadow: 0 0 0 1px #133a9c, 0 2px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.3) inset;
 }
-/* line 670, ../sass/main.scss */
+/* line 672, ../sass/main.scss */
 #typecase #more-fonts {
   display: block;
   border: 1px solid #0b84c2;
@@ -1188,7 +1190,7 @@ table {
   margin-top: -4px;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.6);
 }
-/* line 687, ../sass/main.scss */
+/* line 689, ../sass/main.scss */
 #typecase #more-fonts:hover {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #3ab3f2), color-stop(100%, #0b84c2));
   background-image: -webkit-linear-gradient(#3ab3f2, #0b84c2);
@@ -1197,12 +1199,12 @@ table {
   background-image: -ms-linear-gradient(#3ab3f2, #0b84c2);
   background-image: linear-gradient(#3ab3f2, #0b84c2);
 }
-/* line 690, ../sass/main.scss */
+/* line 692, ../sass/main.scss */
 #typecase #more-fonts:active {
   background: #0b84c2;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1) inset;
 }
-/* line 696, ../sass/main.scss */
+/* line 698, ../sass/main.scss */
 #typecase #firsttimer {
   color: #343434;
   border-radius: 4px;
@@ -1214,7 +1216,7 @@ table {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 706, ../sass/main.scss */
+/* line 708, ../sass/main.scss */
 #typecase #firsttimer h1 {
   font-weight: normal;
   font-size: 40px;
@@ -1223,13 +1225,13 @@ table {
   text-align: center;
   background: url("../images/stripe.png") no-repeat bottom center;
 }
-/* line 715, ../sass/main.scss */
+/* line 717, ../sass/main.scss */
 #typecase #firsttimer .buttons {
   text-align: center;
   padding: 20px 0 0 0;
   clear: both;
 }
-/* line 720, ../sass/main.scss */
+/* line 722, ../sass/main.scss */
 #typecase #firsttimer .buttons a.btn {
   display: inline-block;
   border-radius: 4px;
@@ -1248,7 +1250,7 @@ table {
   font: bold 14px/14px Helvetica, Arial, Tahoma, Verdana, sans-serif;
   text-decoration: none;
 }
-/* line 733, ../sass/main.scss */
+/* line 735, ../sass/main.scss */
 #typecase #firsttimer .buttons a.btn:hover {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #4cc346), color-stop(100%, #017900));
   background-image: -webkit-linear-gradient(#4cc346, #017900);
@@ -1257,26 +1259,26 @@ table {
   background-image: -ms-linear-gradient(#4cc346, #017900);
   background-image: linear-gradient(#4cc346, #017900);
 }
-/* line 737, ../sass/main.scss */
+/* line 739, ../sass/main.scss */
 #typecase #firsttimer .buttons a.btn:active {
   box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.3);
   background-image: none;
   background-color: #027a00;
   color: rgba(255, 255, 255, 0.9);
 }
-/* line 746, ../sass/main.scss */
+/* line 748, ../sass/main.scss */
 #typecase #firsttimer .buttons small {
   display: block;
   margin-top: 5px;
   font: normal 11px/11px Helvetica, Arial, Tahoma, Verdana, sans-serif;
   color: rgba(0, 0, 0, 0.5);
 }
-/* line 755, ../sass/main.scss */
+/* line 757, ../sass/main.scss */
 #typecase #firsttimer ol {
   margin-left: 50px;
   margin-bottom: 40px;
 }
-/* line 759, ../sass/main.scss */
+/* line 761, ../sass/main.scss */
 #typecase #firsttimer ol li {
   font-size: 32px;
   list-style-position: outside;
@@ -1285,7 +1287,7 @@ table {
   float: left;
   line-height: 1em;
 }
-/* line 767, ../sass/main.scss */
+/* line 769, ../sass/main.scss */
 #typecase #firsttimer ol li .list-item {
   background-image: url("../images/circle_background.png");
   width: 57px;
@@ -1295,7 +1297,7 @@ table {
   top: -12px;
   display: block;
 }
-/* line 777, ../sass/main.scss */
+/* line 779, ../sass/main.scss */
 #typecase #firsttimer ol li strong {
   font-weight: normal;
   font-size: 26px;
@@ -1304,23 +1306,23 @@ table {
   display: block;
   line-height: 1em;
 }
-/* line 786, ../sass/main.scss */
+/* line 788, ../sass/main.scss */
 #typecase #firsttimer ol li:first-child {
   width: 36%;
 }
-/* line 790, ../sass/main.scss */
+/* line 792, ../sass/main.scss */
 #typecase #firsttimer ol li:first-child strong {
   padding-left: 10px;
 }
-/* line 794, ../sass/main.scss */
+/* line 796, ../sass/main.scss */
 #typecase #firsttimer ol li:first-child span {
   left: -52px;
 }
-/* line 800, ../sass/main.scss */
+/* line 802, ../sass/main.scss */
 #typecase #firsttimer ol li:nth-child(2n) {
   width: 36%;
 }
-/* line 803, ../sass/main.scss */
+/* line 805, ../sass/main.scss */
 #typecase #firsttimer ol li:nth-child(2n) .list-item {
   -webkit-transform: rotate(75deg);
   -moz-transform: rotate(75deg);
@@ -1328,7 +1330,7 @@ table {
   -o-transform: rotate(75deg);
   transform: rotate(75deg);
 }
-/* line 810, ../sass/main.scss */
+/* line 812, ../sass/main.scss */
 #typecase #firsttimer ol li:nth-child(3n) .list-item {
   -webkit-transform: rotate(155deg);
   -moz-transform: rotate(155deg);
@@ -1336,7 +1338,7 @@ table {
   -o-transform: rotate(155deg);
   transform: rotate(155deg);
 }
-/* line 813, ../sass/main.scss */
+/* line 815, ../sass/main.scss */
 #typecase #firsttimer ol li:nth-child(3n) strong {
   padding-right: 0;
 }
