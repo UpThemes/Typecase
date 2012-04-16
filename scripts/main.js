@@ -189,9 +189,9 @@
   
         var matchedFonts = "";
         var fontResults = new Array();
-  
+
         for( i = 0; i < FontEasy.masterFontList.items.length; ++i ) { //iterate through all fonts
-          if( FontEasy.masterFontList.items[i].family.match($('#search-input').val() ) ) { //if a font matches the search term, add it to an array of matching fonts
+          if( FontEasy.masterFontList.items[i].family.toLowerCase().match($('#search-input').val().toLowerCase() ) ) { //if a font matches the search term, add it to an array of matching fonts
             var family_class = FontEasy.masterFontList.items[i].family.replace( / /g, '_' ).toLowerCase();
             var variants = "";
             $.each(FontEasy.masterFontList.items[i].variants,function(){
