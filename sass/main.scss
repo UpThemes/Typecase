@@ -10,17 +10,13 @@
 }
 
 #typecase {
-	margin:10px 15px 2px;
+		margin:10px 15px 2px;
 
   * {
     -moz-box-sizing: border-box;
     box-sizing: border-box; *behavior: url(boxsizing.htc);
     position: relative;
     vertical-align: middle;
-  }
-  
-  *:not(.font-item){
-  	font-family: Helvetica, Arial, Verdana, sans-serif;
   }
   
   .arrow-down{
@@ -69,7 +65,6 @@
   .clear {clear:both}
 
   .font-list-wrap {
-    overflow:hidden;
     margin-bottom:-1px;
   }
 
@@ -185,7 +180,9 @@
     background:#fbfbfb;
     padding-bottom:2px;
     border-radius:0 0 4px 4px;
-    overflow:hidden;
+    
+    top:-1px;
+    margin-bottom:-1px;
 
     .font {
       height:62px;
@@ -222,18 +219,12 @@
 
         .active-arrow {
           display:none;
-          width:45px;
+          width:12px;
+          background:url("../images/active_arrow.png") right center no-repeat;
           top:0;
-          right:-27px;
+          right:-12px;
           bottom:0;
           position:absolute;
-          font-size:71px;
-          line-height:.90em;
-          color:#fff;
-          text-shadow:3px 0 0 #d6d6d6;
-          -webkit-transform: scaleX(.3);
-          -moz-transform: scaleX(.3);
-          font-family:"Lucida Grande","Lucida Sans";
         }
 
         .font-name {
@@ -372,10 +363,11 @@
 
       &.active {
         border-color:#d6d6d6;
+        background:#fff;
         z-index:10;
         box-shadow:0 0 10px rgba(#000,.15);
 
-        .active-arrow {display:none;}
+        .active-arrow {display:block;}
 
         .font-meta {
           z-index:2;
@@ -613,7 +605,6 @@
   #your-collection {
     overflow:hidden;
     margin:0 0 10px;
-    clear:both;
 
     .font-list-wrap {
       float:left;

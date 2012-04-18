@@ -2,150 +2,170 @@
 @import "compass/css3";
 
 #typecase{
-	z-index:9999;
-	position: fixed;
-	left:0;
-	bottom:0;
-	right:0;
-	height:40px;
-	margin:0;
-	padding: 4px 7px;
-	background:#272727;
+  z-index:9999;
+  position: fixed;
+  left:0;
+  bottom:0;
+  right:0;
+  height:35px;
+  margin:0;
+  padding: 4px 7px;
+  background:#272727;
   @include background-image(linear-gradient(#303030, #141414));
-	border-top:1px solid #000;
+  border-top:1px solid #000;
 
-	#firsttimer{
-		display:none;
-	}
+  #firsttimer{
+    display:none;
+  }
 
-	#masthead{
-		h1{
-			width:auto;
-			background:none;
-			background-color:none;
-			float:right;
-			width:112px;
-			height:35px;
-			border:none;
-			margin:0;
-			padding:0;
-			box-shadow:none;
+  #masthead{
+    h1{
+      width:auto;
+      background:none;
+      background-color:none;
+      float:right;
+      width:112px;
+      height:35px;
+      border:none;
+      margin:0;
+      padding:0;
+      box-shadow:none;
 
-			strong{
-				margin:7px 0 0;
-				border:0;
-				background-image:url("../images/logo_typecase_small.png");
-				background-repeat:no-repeat;
-			}
+      strong{
+        margin:7px 0 0;
+        border:0;
+        background-image:url("../images/logo_typecase_small.png");
+        background-repeat:no-repeat;
+      }
 
-			span,
-			.buttons{
-				display:none;
-			}
-		}
-	}
+      span,
+      .buttons{
+        display:none;
+      }
+    }
+  }
 
-	.no-fonts{
-		padding:20px;
+  .no-fonts{
+    padding:20px;
 
-		h2{
-			font-size:16px;
-			line-height:21px;
-		}
-	}
+    h2{
+      font-size:16px;
+      line-height:21px;
+    }
+  }
 
-	#your-collection,
-	#available-fonts{
-		display:none;
-		left:0;
-		bottom:50px;
-		max-width:100%;
-		margin:0 10px 8px;
-		position:fixed;
-		box-shadow:0 0 30px rgba(0,0,0,0.7);
-		padding:6px;
-		background:#333;
-		border-radius:6px;
-		max-height:70%;
-		overflow:visible;
+  #your-collection,
+  #available-fonts{
+    display:none;
+    left:0;
+    right:0;
+    bottom:50px;
+    margin:0 10px 8px;
+    position:fixed;
+    box-shadow:0 0 30px rgba(0,0,0,0.7);
+    background:#333;
+    border-radius:6px;
+    // max-height:40%;
+    overflow:visible;
+    padding:4px;
 
-		&.active{
-			display:block;
-		}
+    .font {
+      height:62px;
+    }
 
-		header{
-			border-top-width:0;
-			border-left-width:0;
-			border-right-width:0;
-		}
+    .font-name {
+      font-family:Arial,sans-serif;
+    }
 
-		.content-wrap{
-			border-left-width:0;
-			border-right-width:0;
-		}
+    .font-sample {
+      height:61px;
+    }
+    
+    &.active{
+      display:block;
+    }
+    
+    header{
+      border-top-width:0;
+      border-left-width:0;
+      border-right-width:0;
+    }
+    
+    .content-wrap{
+      border:0;
+      border-radius:0 0 4px 4px;
+      overflow:hidden;
+    }
+    
+    .font-list{
+      width:100%;
+      max-height:305px;
+      margin:0;
+      overflow:visible;
+    }
 
-		.no-fonts{
-			min-width:260px;
-		}
+    #more-fonts {
+      margin:0;
+      bottom:0;
+    }
+  
+    .arrow-down{
+      display:block;
+      width:11px;
+      height:6px;
+      position:absolute;
+      bottom:-6px;
+      z-index:9999;
+      left:71px;
+      background-image:url("../images/arrow_down.png");
+    }
 
-		.arrow-down{
-			display:block;
-			width:11px;
-			height:6px;
-			position:absolute;
-			bottom:-6px;
-			z-index:9999;
-			left:71px;
-			background-image:url("../images/arrow_down.png");
-		}
+  }
+  
+  #available-fonts{
 
-	}
+    .arrow-down{
+      left:182px;
+    }
+    
+  }
 
-	#available-fonts{
-		left:20px;
-
-		.arrow-down{
-			left:182px;
-		}
-
-	}
-
-	> .typecase-btn{
-		color:white;
-		display:block;
-		padding:9px 14px;
-		margin-right:7px;
-		float:left;
-		text-align:center;
-		border-radius:4px;
-		background-color:#222;
-		text-shadow:0 -1px 0 #000;
-		border:1px solid #000;
-		box-shadow:0 1px 0 rgba(255,255,255,0.1) inset;
-		text-decoration:none;
+  > .typecase-btn{
+    color:white;
+    display:block;
+    padding:9px 14px;
+    margin-right:7px;
+    float:left;
+    text-align:center;
+    border-radius:4px;
+    background-color:#222;
+    text-shadow:0 -1px 0 #000;
+    border:1px solid #000;
+    box-shadow:0 1px 0 rgba(255,255,255,0.1) inset;
+    text-decoration:none;
     @include background-image(linear-gradient(#303030, #141414));
+    
+    &:hover{
+      @include background-image(linear-gradient(#393939, #141414));   
+    }
 
-		&:hover{
-	    @include background-image(linear-gradient(#393939, #141414));		
-		}
-
-		&:active,
-		&.active{
-			background:#181818;
-			box-shadow:0 3px 7px rgba(0,0,0,0.4) inset;
-		}
-
-		.badge{
-			position:absolute;
-			right:-4px;
-			top:-8px;
-			border-radius: 70px;
-			width:18px;
-			height:18px;
-			color:white;
-			
-		}
-		
-	}
+    &:active,
+    &.active{
+      background:#181818;
+      box-shadow:0 3px 7px rgba(0,0,0,0.4) inset;
+    }
+    
+    .badge{
+      position:absolute;
+      right:-4px;
+      top:-8px;
+      border-radius: 70px;
+      width:18px;
+      height:18px;
+      color:white;
+      
+    }
+    
+  }
 
 }
