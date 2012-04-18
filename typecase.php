@@ -202,7 +202,7 @@ class Typecase {
 		if( $this->version == "pro" && isset($_GET['front_end_editor']) ):
 
 			$classname = ' class="front_end_editor"';
-			$front_end_editor = '<a class="collection typecase-btn" id="your-collection-toggle" data-target="your-collection" href="">' . __("View Your Collection","typecase") . '</a> <a class="available typecase-btn" id="available-fonts-toggle" data-target="available-fonts" href="">' . __("Find New Fonts","typecase") . '</a>';
+			$front_end_editor = '<button class="collection typecase-btn" id="your-collection-toggle" data-target="your-collection">' . __("View Your Collection","typecase") . '</button> <button class="available typecase-btn" id="available-fonts-toggle" data-target="available-fonts">' . __("Find New Fonts","typecase") . '</button>';
 		else:
 			$classname = '';
 			$front_end_editor = '';
