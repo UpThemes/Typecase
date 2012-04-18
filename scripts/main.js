@@ -370,6 +370,9 @@
     $( "#your-collection" ).bind( "saveFonts" , function( e ){
   
       _this = e.target;
+
+      $(".sidebar #save-fonts").addClass("saving").html("Saving...");
+      
       var fontData = new Array();
       var fontName,fontSelectors,fontVariants,fontSubsets,isActive="",i=0;
       
@@ -395,6 +398,10 @@
       
 		  if( typeof(frontend) != 'undefined' )
 				reloadFontPreview();
+
+      $(".sidebar #save-fonts").html("Saved!").animate({border:"none"},500,function(){
+        $(this).removeClass("saving").html("Save Fonts");
+      });
 
     });
   
