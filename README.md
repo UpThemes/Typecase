@@ -4,7 +4,7 @@ Typecase is a web font management plugin for WordPress providing access to over 
 
 ## Using Typecase
 
-1. (Download Typecase)[http://typecasewp.com]
+1. [Download Typecase](http://typecasewp.com)
 2. Install the Typecase plugin by going to Plugins > Add New > Upload and select the typecase.zip file and click the "upload" button.
 3. Activate the plugin.
 4. Locate the Typecase menu item on the left side menu.
