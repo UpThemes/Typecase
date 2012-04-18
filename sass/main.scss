@@ -192,6 +192,7 @@
       margin-top:-1px;
       margin-bottom:-1px;
       top:1px;
+      background:#fbfbfb;
       -moz-user-select:none;
       -webkit-user-select:none;
       user-select:none;
@@ -425,7 +426,7 @@
     }
 
     #selectors {
-      margin:0;
+      margin:0 0 5px 0;
       padding:0;
       width:100%;
       list-style:none;
@@ -555,8 +556,10 @@
       }
     }
 
-    #variants-form {
-      margin-top:10px;
+    #variants-form,
+    #subsets-form {
+      margin:10px 0 20px 0;
+      text-transform:capitalize;
     }
 
     label {

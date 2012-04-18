@@ -142,6 +142,7 @@ class Typecase {
 		$selectors					= __('Selectors','typecase');
 		$newselector				= __('New Selector...','typecase');
 		$includedvariants 	= __('Included Variants','typecase');
+		$charactersets		 	= __('Character Sets','typecase');
 		$availablefonts			= __('Available Fonts','typecase');
 		$noresultstitle			= __('No Results!','typecase');
 		$searchgoogle				= __('Search Google Webfonts','typecase');
@@ -218,8 +219,9 @@ class Typecase {
 		        </ul><!--/#selectors-->
 		        <div class="clear"></div>
 		        <h2>$includedvariants</h2>
-		        <form id="variants-form">
-		        </form>
+		        <form id="variants-form"></form>
+		        <h2>$charactersets</h2>
+		        <form id="subsets-form"></form>
 		      </div><!--/.sidebar-->
 		      <div class="clear"></div>
 		    </div><!--/.content-wrap-->
