@@ -464,12 +464,12 @@ table {
   border-spacing: 0;
 }
 
-/* line 13, ../sass/main.scss */
+/* line 12, ../sass/main.scss */
 #typecase {
   margin-top: 20px;
   padding-right: 20px;
 }
-/* line 17, ../sass/main.scss */
+/* line 16, ../sass/main.scss */
 #typecase * {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -477,16 +477,79 @@ table {
   position: relative;
   vertical-align: middle;
 }
-/* line 24, ../sass/main.scss */
+/* line 23, ../sass/main.scss */
+#typecase .arrow-down {
+  display: none;
+}
+/* line 27, ../sass/main.scss */
+#typecase .typecase-btn {
+  border: 1px solid #060606;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #828282), color-stop(100%, #555555));
+  background-image: -webkit-linear-gradient(#828282, #555555);
+  background-image: -moz-linear-gradient(#828282, #555555);
+  background-image: -o-linear-gradient(#828282, #555555);
+  background-image: -ms-linear-gradient(#828282, #555555);
+  background-image: linear-gradient(#828282, #555555);
+  text-align: center;
+  padding: 7px 11px;
+  font-size: 12px;
+  font-family: Helvetica, Arial, Tahoma, sans-serif;
+  line-height: auto;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.4) inset;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.6);
+}
+/* line 43, ../sass/main.scss */
+#typecase .typecase-btn:hover {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #909090), color-stop(100%, #555555));
+  background-image: -webkit-linear-gradient(#909090, #555555);
+  background-image: -moz-linear-gradient(#909090, #555555);
+  background-image: -o-linear-gradient(#909090, #555555);
+  background-image: -ms-linear-gradient(#909090, #555555);
+  background-image: linear-gradient(#909090, #555555);
+}
+/* line 47, ../sass/main.scss */
+#typecase .typecase-btn.primary {
+  border-color: #0b84c2;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #179fe5), color-stop(100%, #0b84c2));
+  background-image: -webkit-linear-gradient(#179fe5, #0b84c2);
+  background-image: -moz-linear-gradient(#179fe5, #0b84c2);
+  background-image: -o-linear-gradient(#179fe5, #0b84c2);
+  background-image: -ms-linear-gradient(#179fe5, #0b84c2);
+  background-image: linear-gradient(#179fe5, #0b84c2);
+}
+/* line 50, ../sass/main.scss */
+#typecase .typecase-btn.primary:hover {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #3ab3f2), color-stop(100%, #0b84c2));
+  background-image: -webkit-linear-gradient(#3ab3f2, #0b84c2);
+  background-image: -moz-linear-gradient(#3ab3f2, #0b84c2);
+  background-image: -o-linear-gradient(#3ab3f2, #0b84c2);
+  background-image: -ms-linear-gradient(#3ab3f2, #0b84c2);
+  background-image: linear-gradient(#3ab3f2, #0b84c2);
+}
+/* line 55, ../sass/main.scss */
+#typecase .typecase-btn.large {
+  font-size: 14px;
+  padding: 9px 13px;
+}
+/* line 60, ../sass/main.scss */
+#typecase .typecase-btn:active {
+  background: #0b84c2;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1) inset;
+}
+/* line 66, ../sass/main.scss */
 #typecase .clear {
   clear: both;
 }
-/* line 26, ../sass/main.scss */
+/* line 68, ../sass/main.scss */
 #typecase .font-list-wrap {
   overflow: hidden;
   margin-bottom: -1px;
 }
-/* line 32, ../sass/main.scss */
+/* line 73, ../sass/main.scss */
 #typecase span.add {
   cursor: pointer;
   display: inline-block;
@@ -501,22 +564,22 @@ table {
   -webkit-transition: all 200ms linear;
   -moz-transition: all 200ms linear;
 }
-/* line 46, ../sass/main.scss */
+/* line 87, ../sass/main.scss */
 #typecase span.add:hover {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset, 0 0 0 5px rgba(116, 183, 65, 0.25);
 }
-/* line 51, ../sass/main.scss */
+/* line 92, ../sass/main.scss */
 #typecase span.add span {
   display: block;
   width: 16px;
   height: 16px;
   background: url("../images/icons.png") 2px 2px;
 }
-/* line 59, ../sass/main.scss */
+/* line 100, ../sass/main.scss */
 #typecase #masthead {
   border-radius: 4px;
 }
-/* line 62, ../sass/main.scss */
+/* line 103, ../sass/main.scss */
 #typecase #masthead h1 {
   background-color: #555;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.8)));
@@ -531,7 +594,7 @@ table {
   margin-bottom: 10px;
   height: auto;
 }
-/* line 72, ../sass/main.scss */
+/* line 113, ../sass/main.scss */
 #typecase #masthead h1 strong {
   background-image: url("../images/logo_typecase.png");
   height: 35px;
@@ -540,37 +603,52 @@ table {
   display: inline-block;
   margin-right: 5px;
 }
-/* line 81, ../sass/main.scss */
+/* line 122, ../sass/main.scss */
 #typecase #masthead h1 span {
   font-family: "JournalRegular";
   font-size: 20px;
   margin-left: 20px;
   font-weight: normal;
+  color: #ddd;
+  text-shadow: none;
 }
-/* line 90, ../sass/main.scss */
-#typecase #masthead #upthemes {
-  top: 50%;
-  margin-top: -16px;
-  position: absolute;
-  right: 20px;
-  height: 32px;
-  width: 123px;
-  text-indent: -9000px;
-  display: inline-block;
-  background-image: url("../images/logo_upthemes.png");
+/* line 133, ../sass/main.scss */
+#typecase #masthead .buttons {
+  margin-left: 25px;
+  font-family: Helvetica, Arial, Tahoma, sans-serif;
+  float: right;
+  text-shadow: none;
+  font-weight: normal;
+  font-size: 11px;
+  clear: none;
+  line-height: 21px;
+  margin-top: -7px;
+  text-align: right;
 }
-/* line 104, ../sass/main.scss */
+/* line 145, ../sass/main.scss */
+#typecase #masthead .buttons span {
+  display: block;
+  margin-bottom: 3px;
+  color: #ababab;
+  font-size: 11px;
+  font-family: Helvetica, Arial, Tahoma, sans-serif;
+}
+/* line 153, ../sass/main.scss */
+#typecase #masthead .buttons .primary {
+  border: none;
+}
+/* line 159, ../sass/main.scss */
 #typecase .no-fonts, #typecase .no-results {
   text-align: center;
   padding: 40px 0 50px 0;
 }
-/* line 108, ../sass/main.scss */
+/* line 163, ../sass/main.scss */
 #typecase .no-fonts h2, #typecase .no-results h2 {
   color: #666;
   text-shadow: 0 1px 1px #fff;
   margin-bottom: 10px;
 }
-/* line 114, ../sass/main.scss */
+/* line 169, ../sass/main.scss */
 #typecase .no-fonts h4, #typecase .no-results h4 {
   color: #999;
   text-shadow: 0 1px 1px #fff;
@@ -578,11 +656,11 @@ table {
   font-size: 14px;
   margin: 0;
 }
-/* line 124, ../sass/main.scss */
+/* line 179, ../sass/main.scss */
 #typecase .no-results {
   display: none;
 }
-/* line 126, ../sass/main.scss */
+/* line 181, ../sass/main.scss */
 #typecase .font-list {
   background: #fbfbfb;
   padding-bottom: 2px;
@@ -591,7 +669,7 @@ table {
   top: -1px;
   margin-bottom: -1px;
 }
-/* line 134, ../sass/main.scss */
+/* line 189, ../sass/main.scss */
 #typecase .font-list .font {
   height: 62px;
   line-height: 60px;
@@ -605,11 +683,11 @@ table {
   user-select: none;
   -ms-user-select: none;
 }
-/* line 147, ../sass/main.scss */
+/* line 202, ../sass/main.scss */
 #typecase .font-list .font:last-child {
   border-radius: 0 0 4px 4px;
 }
-/* line 151, ../sass/main.scss */
+/* line 206, ../sass/main.scss */
 #typecase .font-list .font .font-sample {
   font-size: 20px;
   float: left;
@@ -619,14 +697,14 @@ table {
   width: 100%;
   overflow: hidden;
 }
-/* line 161, ../sass/main.scss */
+/* line 216, ../sass/main.scss */
 #typecase .font-list .font .font-meta {
   float: right;
   display: inline-block;
   margin-top: -61px;
   padding: 0;
 }
-/* line 167, ../sass/main.scss */
+/* line 222, ../sass/main.scss */
 #typecase .font-list .font .font-meta .active-arrow {
   display: none;
   width: 45px;
@@ -642,7 +720,7 @@ table {
   -moz-transform: scaleX(0.3);
   font-family: "Lucida Grande","Lucida Sans";
 }
-/* line 183, ../sass/main.scss */
+/* line 238, ../sass/main.scss */
 #typecase .font-list .font .font-meta .font-name {
   float: right;
   color: #aaa;
@@ -659,7 +737,7 @@ table {
   background-color: #fbfbfb;
   background-color: rgba(0, 0, 0, 0);
 }
-/* line 195, ../sass/main.scss */
+/* line 250, ../sass/main.scss */
 #typecase .font-list .font .font-meta .font-actions {
   padding: 0;
   list-style: none;
@@ -671,12 +749,12 @@ table {
   -webkit-transition: all 200ms linear;
   -moz-transition: all 200ms linear;
 }
-/* line 206, ../sass/main.scss */
+/* line 261, ../sass/main.scss */
 #typecase .font-list .font .font-meta .font-actions li {
   display: block;
   float: left;
 }
-/* line 211, ../sass/main.scss */
+/* line 266, ../sass/main.scss */
 #typecase .font-list .font .font-meta .font-actions a {
   display: block;
   width: 20px;
@@ -690,79 +768,79 @@ table {
   -webkit-transition: all 200ms linear;
   -moz-transition: all 200ms linear;
 }
-/* line 224, ../sass/main.scss */
+/* line 279, ../sass/main.scss */
 #typecase .font-list .font .font-meta .font-actions a span {
   display: block;
   width: 16px;
   height: 16px;
   font-size: 0;
 }
-/* line 232, ../sass/main.scss */
+/* line 287, ../sass/main.scss */
 #typecase .font-list .font .font-meta .font-actions a.delete {
   background-color: #c93e3e;
 }
-/* line 235, ../sass/main.scss */
+/* line 290, ../sass/main.scss */
 #typecase .font-list .font .font-meta .font-actions a.delete:hover {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset, 0 0 0 5px rgba(201, 62, 62, 0.25);
 }
-/* line 240, ../sass/main.scss */
+/* line 295, ../sass/main.scss */
 #typecase .font-list .font .font-meta .font-actions a.delete span {
   background: url("../images/icons.png") -14px 2px;
 }
-/* line 245, ../sass/main.scss */
+/* line 300, ../sass/main.scss */
 #typecase .font-list .font .font-meta .font-actions a.add {
   background-color: #74b741;
 }
-/* line 248, ../sass/main.scss */
+/* line 303, ../sass/main.scss */
 #typecase .font-list .font .font-meta .font-actions a.add:hover {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset, 0 0 0 5px rgba(116, 183, 65, 0.25);
 }
-/* line 253, ../sass/main.scss */
+/* line 308, ../sass/main.scss */
 #typecase .font-list .font .font-meta .font-actions a.add span {
   background: url("../images/icons.png") 2px 2px;
 }
-/* line 258, ../sass/main.scss */
+/* line 313, ../sass/main.scss */
 #typecase .font-list .font .font-meta .font-actions a.preview {
   display: none;
   background-color: #6f94da;
 }
-/* line 262, ../sass/main.scss */
+/* line 317, ../sass/main.scss */
 #typecase .font-list .font .font-meta .font-actions a.preview:hover {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset, 0 0 0 5px rgba(111, 148, 218, 0.25);
 }
-/* line 267, ../sass/main.scss */
+/* line 322, ../sass/main.scss */
 #typecase .font-list .font .font-meta .font-actions a.preview span {
   background: url("../images/icons.png") -48px 0;
 }
-/* line 272, ../sass/main.scss */
+/* line 327, ../sass/main.scss */
 #typecase .font-list .font .font-meta .font-actions a.edit {
   display: none;
   background-color: #eac526;
 }
-/* line 276, ../sass/main.scss */
+/* line 331, ../sass/main.scss */
 #typecase .font-list .font .font-meta .font-actions a.edit:hover {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset, 0 0 0 5px rgba(234, 197, 38, 0.25);
 }
-/* line 281, ../sass/main.scss */
+/* line 336, ../sass/main.scss */
 #typecase .font-list .font .font-meta .font-actions a.edit span {
   background: url("../images/icons.png") -64px 0;
 }
-/* line 286, ../sass/main.scss */
+/* line 341, ../sass/main.scss */
 #typecase .font-list .font .font-meta .font-actions a.disabled {
   opacity: .5;
   background-color: #eee;
   cursor: default;
 }
-/* line 291, ../sass/main.scss */
+/* line 346, ../sass/main.scss */
 #typecase .font-list .font .font-meta .font-actions a.disabled:hover {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset;
 }
-/* line 298, ../sass/main.scss */
+/* line 353, ../sass/main.scss */
 #typecase .font-list .font:hover {
   cursor: pointer;
   background: #fff;
 }
-/* line 304, ../sass/main.scss */
+/* line 359, ../sass/main.scss */
 #typecase .font-list .font:hover .font-meta .font-name {
   background: transparent;
   background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(20%, #ffffff));
@@ -772,29 +850,29 @@ table {
   background-image: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 20%);
   background-image: linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 20%);
 }
-/* line 310, ../sass/main.scss */
+/* line 365, ../sass/main.scss */
 #typecase .font-list .font:hover .font-actions {
   background: #fff;
 }
-/* line 313, ../sass/main.scss */
+/* line 368, ../sass/main.scss */
 #typecase .font-list .font:hover .font-actions a {
   opacity: 1;
 }
-/* line 317, ../sass/main.scss */
+/* line 372, ../sass/main.scss */
 #typecase .font-list .font.active {
   border-color: #d6d6d6;
   z-index: 10;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
-/* line 322, ../sass/main.scss */
+/* line 377, ../sass/main.scss */
 #typecase .font-list .font.active .active-arrow {
   display: none;
 }
-/* line 324, ../sass/main.scss */
+/* line 379, ../sass/main.scss */
 #typecase .font-list .font.active .font-meta {
   z-index: 2;
 }
-/* line 327, ../sass/main.scss */
+/* line 382, ../sass/main.scss */
 #typecase .font-list .font.active .font-meta .font-name {
   background: transparent;
   background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(20%, #ffffff));
@@ -804,15 +882,15 @@ table {
   background-image: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 20%);
   background-image: linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 20%);
 }
-/* line 332, ../sass/main.scss */
+/* line 387, ../sass/main.scss */
 #typecase .font-list .font.active .font-meta .font-actions {
   background: #fff;
 }
-/* line 335, ../sass/main.scss */
+/* line 390, ../sass/main.scss */
 #typecase .font-list .font.active .font-meta .font-actions a {
   opacity: 1;
 }
-/* line 342, ../sass/main.scss */
+/* line 397, ../sass/main.scss */
 #typecase .content-wrap {
   background: #f6f6f6;
   border: solid 1px #d6d6d6;
@@ -821,7 +899,7 @@ table {
   overflow: hidden;
   width: 100%;
 }
-/* line 351, ../sass/main.scss */
+/* line 406, ../sass/main.scss */
 #typecase .sidebar {
   display: none;
   float: left;
@@ -830,7 +908,7 @@ table {
   padding: 15px;
   border-left: solid 1px #d6d6d6;
 }
-/* line 359, ../sass/main.scss */
+/* line 414, ../sass/main.scss */
 #typecase .sidebar h2 {
   margin: 0;
   font-weight: bold;
@@ -839,7 +917,7 @@ table {
   line-height: 1.5em;
   border-bottom: solid 1px #e2e2e2;
 }
-/* line 367, ../sass/main.scss */
+/* line 422, ../sass/main.scss */
 #typecase .sidebar h2:after {
   content: "";
   display: block;
@@ -850,7 +928,7 @@ table {
   height: 0;
   border-bottom: solid 1px #fbfbfb;
 }
-/* line 379, ../sass/main.scss */
+/* line 434, ../sass/main.scss */
 #typecase .sidebar #selectors {
   margin: 0;
   padding: 0;
@@ -859,7 +937,7 @@ table {
   overflow: hidden;
   padding: 5px 1px;
 }
-/* line 387, ../sass/main.scss */
+/* line 442, ../sass/main.scss */
 #typecase .sidebar #selectors .new-selector-width {
   font-size: 13px;
   display: block;
@@ -869,7 +947,7 @@ table {
   float: left;
   padding-top: 10px;
 }
-/* line 397, ../sass/main.scss */
+/* line 452, ../sass/main.scss */
 #typecase .sidebar #selectors li {
   display: block;
   float: left;
@@ -895,13 +973,15 @@ table {
   border: solid 1px #ddd;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 -1px 1px 1px rgba(0, 0, 0, 0.1) inset, 0 1px 0 1px rgba(255, 255, 255, 0.5) inset, 0 2px 3px -1px rgba(0, 0, 0, 0.2);
 }
-/* line 420, ../sass/main.scss */
+/* line 475, ../sass/main.scss */
 #typecase .sidebar #selectors li .selector-name {
   overflow: hidden;
   display: block;
+  font-size: 12px;
+  line-height: 16px;
   border-right: solid 30px transparent;
 }
-/* line 426, ../sass/main.scss */
+/* line 483, ../sass/main.scss */
 #typecase .sidebar #selectors li.add-new {
   display: block;
   float: left;
@@ -914,7 +994,7 @@ table {
   -moz-transition: all 200ms linear;
   z-index: 2;
 }
-/* line 439, ../sass/main.scss */
+/* line 496, ../sass/main.scss */
 #typecase .sidebar #selectors li input#new-selector {
   border-radius: 22px;
   border: none;
@@ -931,7 +1011,7 @@ table {
   -webkit-transition: all 200ms linear;
   -moz-transition: all 200ms linear;
 }
-/* line 457, ../sass/main.scss */
+/* line 514, ../sass/main.scss */
 #typecase .sidebar #selectors li input#submit-selector {
   float: right;
   margin-top: -22px;
@@ -950,7 +1030,7 @@ table {
   background: url("../images/icons.png") right -24px, linear-gradient(#fefefe, #e5e5e5);
   background-color: #e5e5e5;
 }
-/* line 471, ../sass/main.scss */
+/* line 528, ../sass/main.scss */
 #typecase .sidebar #selectors li input#submit-selector:hover {
   background: url("../images/icons.png") right -24px, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(70%, #fefefe), color-stop(100%, #eeeeee));
   background: url("../images/icons.png") right -24px, -webkit-linear-gradient(#fefefe 70%, #eeeeee);
@@ -959,7 +1039,7 @@ table {
   background: url("../images/icons.png") right -24px, -ms-linear-gradient(#fefefe 70%, #eeeeee);
   background: url("../images/icons.png") right -24px, linear-gradient(#fefefe 70%, #eeeeee);
 }
-/* line 475, ../sass/main.scss */
+/* line 532, ../sass/main.scss */
 #typecase .sidebar #selectors li input#submit-selector:active {
   background: url("../images/icons.png") right -24px, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #efefef), color-stop(30%, #f3f3f3));
   background: url("../images/icons.png") right -24px, -webkit-linear-gradient(#efefef, #f3f3f3 30%);
@@ -968,7 +1048,7 @@ table {
   background: url("../images/icons.png") right -24px, -ms-linear-gradient(#efefef, #f3f3f3 30%);
   background: url("../images/icons.png") right -24px, linear-gradient(#efefef, #f3f3f3 30%);
 }
-/* line 480, ../sass/main.scss */
+/* line 537, ../sass/main.scss */
 #typecase .sidebar #selectors li a.delete {
   cursor: pointer;
   opacity: .5;
@@ -979,7 +1059,7 @@ table {
   -webkit-transition: all 250ms linear;
   -moz-transition: all 250ms linear;
 }
-/* line 490, ../sass/main.scss */
+/* line 547, ../sass/main.scss */
 #typecase .sidebar #selectors li a.delete span {
   background: url("../images/icons.png") -16px 0;
   background-color: #999;
@@ -990,21 +1070,21 @@ table {
   text-decoration: none;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25) inset;
 }
-/* line 501, ../sass/main.scss */
+/* line 558, ../sass/main.scss */
 #typecase .sidebar #selectors li a.delete:hover {
   opacity: .75;
 }
-/* line 508, ../sass/main.scss */
+/* line 565, ../sass/main.scss */
 #typecase .sidebar #variants-form {
   margin-top: 10px;
 }
-/* line 512, ../sass/main.scss */
+/* line 569, ../sass/main.scss */
 #typecase .sidebar label {
   display: block;
   font-size: 12px;
   color: #333;
 }
-/* line 517, ../sass/main.scss */
+/* line 574, ../sass/main.scss */
 #typecase .sidebar label input {
   margin-right: 5px;
   width: 10px;
@@ -1012,19 +1092,19 @@ table {
   display: inline;
   top: 1px;
 }
-/* line 528, ../sass/main.scss */
+/* line 585, ../sass/main.scss */
 #typecase #your-collection header,
 #typecase #available-fonts header {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0) inset, 0 1px 0 rgba(255, 255, 255, 0.6) inset;
   border: 1px solid #ccc;
   background-color: #fff;
 }
-/* line 534, ../sass/main.scss */
+/* line 591, ../sass/main.scss */
 #typecase #your-collection header h1,
 #typecase #available-fonts header h1 {
   color: #333;
 }
-/* line 539, ../sass/main.scss */
+/* line 596, ../sass/main.scss */
 #typecase header {
   border-radius: 4px 4px 0 0;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0.02)), color-stop(100%, rgba(0, 0, 0, 0.07)));
@@ -1034,7 +1114,7 @@ table {
   background-image: -ms-linear-gradient(rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.07));
   background-image: linear-gradient(rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.07));
 }
-/* line 543, ../sass/main.scss */
+/* line 600, ../sass/main.scss */
 #typecase header h1 {
   margin: 0;
   color: #fff;
@@ -1045,57 +1125,57 @@ table {
   text-shadow: 0 1px 0 white;
   text-indent: 15px;
 }
-/* line 555, ../sass/main.scss */
+/* line 612, ../sass/main.scss */
 #typecase #your-collection {
   overflow: hidden;
   margin: 0 0 10px;
 }
-/* line 559, ../sass/main.scss */
+/* line 616, ../sass/main.scss */
 #typecase #your-collection .font-list-wrap {
   float: left;
   width: 70%;
   border-right: solid 1px #ccc;
 }
-/* line 564, ../sass/main.scss */
+/* line 621, ../sass/main.scss */
 #typecase #your-collection .font-list-wrap .font-list {
   display: none;
 }
-/* line 566, ../sass/main.scss */
+/* line 623, ../sass/main.scss */
 #typecase #your-collection .font-list-wrap .font {
   border-radius: 0;
 }
-/* line 569, ../sass/main.scss */
+/* line 626, ../sass/main.scss */
 #typecase #your-collection .font-list-wrap .font:hover:last-child, #typecase #your-collection .font-list-wrap .font.active:last-child {
   border-radius: 0;
 }
-/* line 576, ../sass/main.scss */
+/* line 633, ../sass/main.scss */
 #typecase #available-fonts {
   overflow: hidden;
   margin: 0 0 10px;
 }
-/* line 580, ../sass/main.scss */
+/* line 637, ../sass/main.scss */
 #typecase #available-fonts header {
   border-bottom-width: 0;
 }
-/* line 584, ../sass/main.scss */
+/* line 641, ../sass/main.scss */
 #typecase #available-fonts .font-list {
   border-radius: 0;
   padding-bottom: 0;
   overflow: auto;
 }
-/* line 589, ../sass/main.scss */
+/* line 646, ../sass/main.scss */
 #typecase #available-fonts .font-list#search-results {
   display: none;
 }
-/* line 590, ../sass/main.scss */
+/* line 647, ../sass/main.scss */
 #typecase #available-fonts .font-list#loaded-fonts {
   height: 492px;
 }
-/* line 594, ../sass/main.scss */
+/* line 651, ../sass/main.scss */
 #typecase #available-fonts .font-list .font:last-child {
   border-radius: 0;
 }
-/* line 600, ../sass/main.scss */
+/* line 657, ../sass/main.scss */
 #typecase #available-fonts #search {
   padding: 10px 9px;
   overflow: hidden;
@@ -1111,7 +1191,7 @@ table {
   background-image: -ms-linear-gradient(rgba(0, 0, 0, 0.13), rgba(0, 0, 0, 0.04));
   background-image: linear-gradient(rgba(0, 0, 0, 0.13), rgba(0, 0, 0, 0.04));
 }
-/* line 610, ../sass/main.scss */
+/* line 667, ../sass/main.scss */
 #typecase #available-fonts #search input#search-input {
   width: 100%;
   float: left;
@@ -1125,11 +1205,11 @@ table {
   -webkit-transition: all 200ms linear;
   -moz-transition: all 200ms linear;
 }
-/* line 625, ../sass/main.scss */
+/* line 682, ../sass/main.scss */
 #typecase #available-fonts #search input#search-input:focus {
   box-shadow: 0 0 0 1px #179fe5, 0 0 8px #43b3ec, 0 1px 2px rgba(0, 0, 0, 0.1) inset;
 }
-/* line 633, ../sass/main.scss */
+/* line 690, ../sass/main.scss */
 #typecase #available-fonts #search input#search-submit {
   display: none;
   width: 7%;
@@ -1156,11 +1236,11 @@ table {
   -webkit-transition: all 100ms linear;
   -moz-transition: all 100ms linear;
 }
-/* line 656, ../sass/main.scss */
+/* line 713, ../sass/main.scss */
 #typecase #available-fonts #search input#search-submit:hover {
   box-shadow: 0 0 0 1px #1b44ab, 0 2px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2) inset, 0 0 0 28px rgba(255, 255, 255, 0.1) inset;
 }
-/* line 663, ../sass/main.scss */
+/* line 720, ../sass/main.scss */
 #typecase #available-fonts #search input#search-submit:active {
   background: url("../images/icons.png") center -46px, -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #4f7bd1), color-stop(100%, #2f5abb));
   background: url("../images/icons.png") center -46px, -webkit-linear-gradient(bottom, #4f7bd1, #2f5abb);
@@ -1170,41 +1250,15 @@ table {
   background: url("../images/icons.png") center -46px, linear-gradient(bottom, #4f7bd1, #2f5abb);
   box-shadow: 0 0 0 1px #133a9c, 0 2px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.3) inset;
 }
-/* line 673, ../sass/main.scss */
-#typecase #more-fonts {
+/* line 730, ../sass/main.scss */
+#typecase #more-fonts.typecase-btn {
   display: block;
-  border: 1px solid #0b84c2;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #179fe5), color-stop(100%, #0b84c2));
-  background-image: -webkit-linear-gradient(#179fe5, #0b84c2);
-  background-image: -moz-linear-gradient(#179fe5, #0b84c2);
-  background-image: -o-linear-gradient(#179fe5, #0b84c2);
-  background-image: -ms-linear-gradient(#179fe5, #0b84c2);
-  background-image: linear-gradient(#179fe5, #0b84c2);
-  text-align: center;
+  clear: both;
   padding: 10px;
-  font-size: 12px;
-  color: #fff;
-  font-weight: bold;
-  text-decoration: none;
   border-radius: 0 0 4px 4px;
   margin-top: -4px;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.6);
 }
-/* line 690, ../sass/main.scss */
-#typecase #more-fonts:hover {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #3ab3f2), color-stop(100%, #0b84c2));
-  background-image: -webkit-linear-gradient(#3ab3f2, #0b84c2);
-  background-image: -moz-linear-gradient(#3ab3f2, #0b84c2);
-  background-image: -o-linear-gradient(#3ab3f2, #0b84c2);
-  background-image: -ms-linear-gradient(#3ab3f2, #0b84c2);
-  background-image: linear-gradient(#3ab3f2, #0b84c2);
-}
-/* line 693, ../sass/main.scss */
-#typecase #more-fonts:active {
-  background: #0b84c2;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1) inset;
-}
-/* line 699, ../sass/main.scss */
+/* line 738, ../sass/main.scss */
 #typecase #firsttimer {
   color: #343434;
   border-radius: 4px;
@@ -1212,11 +1266,12 @@ table {
   border: 1px solid #ddce4f;
   padding: 20px;
   margin-bottom: 10px;
+  clear: both;
   font-family: "JournalRegular","Hand of Sean";
   overflow: hidden;
   *zoom: 1;
 }
-/* line 709, ../sass/main.scss */
+/* line 749, ../sass/main.scss */
 #typecase #firsttimer h1 {
   font-weight: normal;
   font-size: 40px;
@@ -1225,60 +1280,25 @@ table {
   text-align: center;
   background: url("../images/stripe.png") no-repeat bottom center;
 }
-/* line 718, ../sass/main.scss */
+/* line 758, ../sass/main.scss */
 #typecase #firsttimer .buttons {
   text-align: center;
   padding: 20px 0 0 0;
   clear: both;
 }
-/* line 723, ../sass/main.scss */
-#typecase #firsttimer .buttons a.btn {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #0d6d08;
-  background-color: #259d1f;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #3db537), color-stop(100%, #017900));
-  background-image: -webkit-linear-gradient(#3db537, #017900);
-  background-image: -moz-linear-gradient(#3db537, #017900);
-  background-image: -o-linear-gradient(#3db537, #017900);
-  background-image: -ms-linear-gradient(#3db537, #017900);
-  background-image: linear-gradient(#3db537, #017900);
-  padding: 10px 24px;
-  color: white;
-  text-shadow: 0 -2px 0 rgba(0, 0, 0, 0.2);
-  font: bold 14px/14px Helvetica, Arial, Tahoma, Verdana, sans-serif;
-  text-decoration: none;
-}
-/* line 736, ../sass/main.scss */
-#typecase #firsttimer .buttons a.btn:hover {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #4cc346), color-stop(100%, #017900));
-  background-image: -webkit-linear-gradient(#4cc346, #017900);
-  background-image: -moz-linear-gradient(#4cc346, #017900);
-  background-image: -o-linear-gradient(#4cc346, #017900);
-  background-image: -ms-linear-gradient(#4cc346, #017900);
-  background-image: linear-gradient(#4cc346, #017900);
-}
-/* line 740, ../sass/main.scss */
-#typecase #firsttimer .buttons a.btn:active {
-  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.3);
-  background-image: none;
-  background-color: #027a00;
-  color: rgba(255, 255, 255, 0.9);
-}
-/* line 749, ../sass/main.scss */
+/* line 763, ../sass/main.scss */
 #typecase #firsttimer .buttons small {
   display: block;
-  margin-top: 5px;
+  margin-top: 15px;
   font: normal 11px/11px Helvetica, Arial, Tahoma, Verdana, sans-serif;
   color: rgba(0, 0, 0, 0.5);
 }
-/* line 758, ../sass/main.scss */
+/* line 772, ../sass/main.scss */
 #typecase #firsttimer ol {
   margin-left: 50px;
   margin-bottom: 40px;
 }
-/* line 762, ../sass/main.scss */
+/* line 776, ../sass/main.scss */
 #typecase #firsttimer ol li {
   font-size: 32px;
   list-style-position: outside;
@@ -1287,7 +1307,7 @@ table {
   float: left;
   line-height: 1em;
 }
-/* line 770, ../sass/main.scss */
+/* line 784, ../sass/main.scss */
 #typecase #firsttimer ol li .list-item {
   background-image: url("../images/circle_background.png");
   width: 57px;
@@ -1297,7 +1317,7 @@ table {
   top: -12px;
   display: block;
 }
-/* line 780, ../sass/main.scss */
+/* line 794, ../sass/main.scss */
 #typecase #firsttimer ol li strong {
   font-weight: normal;
   font-size: 26px;
@@ -1306,23 +1326,23 @@ table {
   display: block;
   line-height: 1em;
 }
-/* line 789, ../sass/main.scss */
+/* line 803, ../sass/main.scss */
 #typecase #firsttimer ol li:first-child {
   width: 36%;
 }
-/* line 793, ../sass/main.scss */
+/* line 807, ../sass/main.scss */
 #typecase #firsttimer ol li:first-child strong {
   padding-left: 10px;
 }
-/* line 797, ../sass/main.scss */
+/* line 811, ../sass/main.scss */
 #typecase #firsttimer ol li:first-child span {
   left: -52px;
 }
-/* line 803, ../sass/main.scss */
+/* line 817, ../sass/main.scss */
 #typecase #firsttimer ol li:nth-child(2n) {
   width: 36%;
 }
-/* line 806, ../sass/main.scss */
+/* line 820, ../sass/main.scss */
 #typecase #firsttimer ol li:nth-child(2n) .list-item {
   -webkit-transform: rotate(75deg);
   -moz-transform: rotate(75deg);
@@ -1330,7 +1350,7 @@ table {
   -o-transform: rotate(75deg);
   transform: rotate(75deg);
 }
-/* line 813, ../sass/main.scss */
+/* line 827, ../sass/main.scss */
 #typecase #firsttimer ol li:nth-child(3n) .list-item {
   -webkit-transform: rotate(155deg);
   -moz-transform: rotate(155deg);
@@ -1338,7 +1358,24 @@ table {
   -o-transform: rotate(155deg);
   transform: rotate(155deg);
 }
-/* line 816, ../sass/main.scss */
+/* line 830, ../sass/main.scss */
 #typecase #firsttimer ol li:nth-child(3n) strong {
   padding-right: 0;
+}
+
+/* line 843, ../sass/main.scss */
+.typecase_copyright {
+  color: #666;
+  margin: 20px 0 40px;
+  display: block;
+}
+/* line 848, ../sass/main.scss */
+.typecase_copyright #upthemes {
+  float: right;
+  height: 24px;
+  margin-right: 20px;
+  width: 106px;
+  text-indent: -9000px;
+  display: inline-block;
+  background-image: url("../images/logo_upthemes.png");
 }

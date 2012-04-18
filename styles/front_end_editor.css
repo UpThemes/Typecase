@@ -474,59 +474,121 @@ table {
   height: 40px;
   margin: 0;
   padding: 4px 7px;
-  background: white;
-  background: rgba(0, 0, 0, 0.8);
-  border-right: 1px solid rgba(0, 0, 0, 0.8);
-  box-orient: vertical;
-  box-pack: start;
-  box-align: stretch;
+  background: #272727;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #303030), color-stop(100%, #141414));
+  background-image: -webkit-linear-gradient(#303030, #141414);
+  background-image: -moz-linear-gradient(#303030, #141414);
+  background-image: -o-linear-gradient(#303030, #141414);
+  background-image: -ms-linear-gradient(#303030, #141414);
+  background-image: linear-gradient(#303030, #141414);
+  border-top: 1px solid #000;
 }
-/* line 21, ../sass/front_end_editor.scss */
-#typecase #firsttimer,
-#typecase #masthead {
+/* line 17, ../sass/front_end_editor.scss */
+#typecase #firsttimer {
   display: none;
 }
-/* line 25, ../sass/front_end_editor.scss */
+/* line 22, ../sass/front_end_editor.scss */
+#typecase #masthead h1 {
+  width: auto;
+  background: none;
+  background-color: none;
+  float: right;
+  width: 112px;
+  height: 35px;
+  border: none;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+}
+/* line 34, ../sass/front_end_editor.scss */
+#typecase #masthead h1 strong {
+  margin: 7px 0 0;
+  border: 0;
+  background-image: url("../images/logo_typecase_small.png");
+  background-repeat: no-repeat;
+}
+/* line 42, ../sass/front_end_editor.scss */
+#typecase #masthead h1 span,
+#typecase #masthead h1 .buttons {
+  display: none;
+}
+/* line 48, ../sass/front_end_editor.scss */
 #typecase .no-fonts {
   padding: 20px;
 }
-/* line 28, ../sass/front_end_editor.scss */
+/* line 51, ../sass/front_end_editor.scss */
 #typecase .no-fonts h2 {
   font-size: 16px;
   line-height: 21px;
 }
-/* line 34, ../sass/front_end_editor.scss */
-#typecase #your-collection {
-  left: 1%;
-}
-/* line 39, ../sass/front_end_editor.scss */
+/* line 58, ../sass/front_end_editor.scss */
 #typecase #your-collection,
 #typecase #available-fonts {
   display: none;
-  width: 48.7%;
-  float: left;
+  left: 0;
   bottom: 50px;
-  right: 1%;
-  position: absolute;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2), 0 0 3px black;
-  border: 4px solid #fff;
-  background: rgba(255, 255, 255, 0.8);
+  max-width: 100%;
+  margin: 0 10px 8px;
+  position: fixed;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+  padding: 6px;
+  background: #333;
   border-radius: 6px;
+  max-height: 70%;
+  overflow: visible;
 }
-/* line 53, ../sass/front_end_editor.scss */
+/* line 72, ../sass/front_end_editor.scss */
 #typecase #your-collection.active,
 #typecase #available-fonts.active {
   display: block;
 }
-/* line 58, ../sass/front_end_editor.scss */
-#typecase .typecase-btn {
+/* line 76, ../sass/front_end_editor.scss */
+#typecase #your-collection header,
+#typecase #available-fonts header {
+  border-top-width: 0;
+  border-left-width: 0;
+  border-right-width: 0;
+}
+/* line 82, ../sass/front_end_editor.scss */
+#typecase #your-collection .content-wrap,
+#typecase #available-fonts .content-wrap {
+  border-left-width: 0;
+  border-right-width: 0;
+}
+/* line 87, ../sass/front_end_editor.scss */
+#typecase #your-collection .font-list#loaded-fonts,
+#typecase #available-fonts .font-list#loaded-fonts {
+  max-height: 280px;
+  max-width: 800px;
+}
+/* line 92, ../sass/front_end_editor.scss */
+#typecase #your-collection .arrow-down,
+#typecase #available-fonts .arrow-down {
+  display: block;
+  width: 11px;
+  height: 6px;
+  position: absolute;
+  bottom: -6px;
+  z-index: 9999;
+  left: 71px;
+  background-image: url("../images/arrow_down.png");
+}
+/* line 105, ../sass/front_end_editor.scss */
+#typecase #available-fonts {
+  left: 20px;
+}
+/* line 108, ../sass/front_end_editor.scss */
+#typecase #available-fonts .arrow-down {
+  left: 182px;
+}
+/* line 114, ../sass/front_end_editor.scss */
+#typecase > .typecase-btn {
   color: white;
   display: block;
-  height: 40px;
-  width: 49.9%;
+  padding: 9px 14px;
+  margin-right: 7px;
   float: left;
   text-align: center;
-  line-height: 40px;
   border-radius: 4px;
   background-color: #222;
   text-shadow: 0 -1px 0 black;
@@ -540,13 +602,27 @@ table {
   background-image: -ms-linear-gradient(#303030, #141414);
   background-image: linear-gradient(#303030, #141414);
 }
-/* line 74, ../sass/front_end_editor.scss */
-#typecase .typecase-btn.available {
-  margin-right: 0;
-  float: right;
+/* line 129, ../sass/front_end_editor.scss */
+#typecase > .typecase-btn:hover {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #393939), color-stop(100%, #141414));
+  background-image: -webkit-linear-gradient(#393939, #141414);
+  background-image: -moz-linear-gradient(#393939, #141414);
+  background-image: -o-linear-gradient(#393939, #141414);
+  background-image: -ms-linear-gradient(#393939, #141414);
+  background-image: linear-gradient(#393939, #141414);
 }
-/* line 79, ../sass/front_end_editor.scss */
-#typecase .typecase-btn.active {
+/* line 134, ../sass/front_end_editor.scss */
+#typecase > .typecase-btn:active, #typecase > .typecase-btn.active {
   background: #181818;
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.4) inset;
+}
+/* line 139, ../sass/front_end_editor.scss */
+#typecase > .typecase-btn .badge {
+  position: absolute;
+  right: -4px;
+  top: -8px;
+  border-radius: 70px;
+  width: 18px;
+  height: 18px;
+  color: white;
 }

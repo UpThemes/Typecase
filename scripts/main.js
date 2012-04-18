@@ -2,11 +2,11 @@
 
   $( document ).ready( function(){
   
-		if( frontend ){
+		if( typeof(frontend) != 'undefined' ){
 			
 			if( !$('#font-css').length )
 				$('body').append('<div id="font-css"></div>');
-			
+
 			$.getJSON( ajaxurl, { action : 'reloadFontPreview' }, function( data ){
 				console.log(data.css);
 			  if( data.css )
@@ -29,12 +29,14 @@
 
 	  $('#available-fonts-toggle').on('click',function(e){
 	  	e.preventDefault();
+	  	$('#your-collection,#your-collection-toggle').removeClass('active');
 	  	$(this).toggleClass('active');
 	  	$('#available-fonts').toggleClass('active');
 	  });
-	
+
 	  $('#your-collection-toggle').on('click',function(e){
 	  	e.preventDefault();
+			$('#available-fonts,#available-fonts-toggle').removeClass('active');
 			$(this).toggleClass('active');
 			$('#your-collection').toggleClass('active');
 	  });
@@ -95,14 +97,14 @@
       
     });
     
-    $("#firsttimer").find('.btn').live('click',function(e){
+    $("#firsttimer").find('#kill').live('click',function(e){
       e.preventDefault();
       $.getJSON(ajaxurl,{ action : 'clear_firsttimer' },function(data){
         if(data.success)
-          $('#firsttimer').delay(800).slideUp(600);
+          $('#firsttimer').delay(800).slideUp(400);
       });
     });
-  
+
     $( "#your-collection" ).bind( "removeFont" , function( e ){
   
       _this = e.target;
@@ -335,7 +337,7 @@
   
       $.post(ajaxurl, { 'action' : 'saveFonts', 'json' : fontData});
       
-		  if( frontend )
+		  if( typeof(frontend) != 'undefined' )
 				reloadFontPreview();
 
     });

@@ -3,7 +3,7 @@
 Plugin Name: Typecase
 Plugin URI: http://upthemes.com
 Description: A plugin that makes it dead simple to add custom webfonts to your website.
-Version: 0.2
+Version: 0.3
 Author: UpThemes
 Author URI: http://upthemes.com
 License: GPL2
@@ -16,6 +16,7 @@ if ( !defined( 'ABSPATH' ) )
 class Typecase {
 
 	var $name = "typecase";
+	var $version = "pro";
 
 	function Typecase(){
 		$this->__construct();
@@ -36,14 +37,14 @@ class Typecase {
 
 		add_action('wp_ajax_reloadFontPreview',array($this,'ajax_reload_font_preview'));
 
-		if( isset($_GET['front_end_editor']) ):
+		if( $this->version == "pro" && isset($_GET['front_end_editor']) ):
 			remove_action('wp_head',array($this,'display_frontend'));
 			add_action('init',array($this,'admin_styles'));
 			add_action('wp_head',array($this,'front_end_ajaxurl'));
 			add_action('init', array($this,'front_end_editor_styles'));
 			add_action('wp_footer',array($this,'ui'));
 		endif;
-		
+
 	}
 
 	function &init() {
@@ -170,6 +171,7 @@ class Typecase {
 		$searchgoogle				= __('Search Google Webfonts','typecase');
 		$noresultsdesc			= __('There are no fonts with that name in the Google Font Library.','typecase');
 		$showmorefonts			= __('Load More Fonts','typecase');
+		$copyright					= sprintf( __("Copyright %s <a href=\"http://upthemes.com\">UpThemes</a>. All Rights Reserved.","typecase"), date('Y') );
 
 		$firsttimer = '';
 
@@ -191,13 +193,13 @@ class Typecase {
 					<li><span class="list-item"></span><strong>' . $step_1 . '</strong></li>
 				</ol>
 				<div class="buttons">
-					<a class="btn" href="#">' . $hidehelp_btn . '</a>
+					<a id="kill" class="typecase-btn primary large" href="#">' . $hidehelp_btn . '</a>
 					<small>' . $hidehelp_text . '</small>
 				</div>
 			</div>';
 		endif;
 
-		if( isset($_GET['front_end_editor']) ):
+		if( $this->version == "pro" && isset($_GET['front_end_editor']) ):
 
 			$classname = ' class="front_end_editor"';
 			$front_end_editor = '<a class="collection typecase-btn" id="your-collection-toggle" data-target="your-collection" href="">' . __("View Your Collection","typecase") . '</a> <a class="available typecase-btn" id="available-fonts-toggle" data-target="available-fonts" href="">' . __("Find New Fonts","typecase") . '</a>';
@@ -206,21 +208,23 @@ class Typecase {
 			$front_end_editor = '';
 		endif;
 
+		if( $this->version == "pro" ):
+			$buttons = '<div class="buttons"><span>Typecase Pro</span> <a class="typecase-btn primary" href="' . get_bloginfo('url') . '/?front_end_editor=1" target="_blank">Live Editor</a> <a class="typecase-btn" href="http://upthemes.com/forum/" target="_blank">Support Forum</a></div>';
+		else:
+			$buttons = '<div class="buttons"><span>live front-end editor &nbsp; lifetime support</span> <a class="typecase-btn primary" href="http://upthemes.com/plugins/typecase/" target="_blank">Upgrade to Pro</a></div>';
+		endif;
+
 		echo <<<EOT
 		<div id="typecase"$classname>
-
 			<header id="masthead">
 				<h1>
 					<strong>$title</strong>
 					<span>$tagline</span>
-					<a id="upthemes" href="http://upthemes.com">UpThemes</a>
+					$buttons
 				</h1>
 			</header>
-
 			$firsttimer
-
 			$front_end_editor
-
 		  <div id="your-collection">
 		    <header>
 		      <h1>$collection</h1>
@@ -252,6 +256,7 @@ class Typecase {
 		      </div><!--/.sidebar-->
 		      <div class="clear"></div>
 		    </div><!--/.content-wrap-->
+			  <span class="arrow-down"></span>
 		  </div><!--/#your-collection-->
 		  <div id="available-fonts">
 		    <header>
@@ -273,9 +278,11 @@ class Typecase {
 		        </div><!--/.font-list#search-results-->
 		      </div><!--/.font-list-wrap-->
 		    </div><!--/.content-wrap-->
-	      <a id="more-fonts" href=""><span>$showmorefonts</span></a>
+	      <a id="more-fonts" class="typecase-btn primary" href=""><span>$showmorefonts</span></a>
+			  <span class="arrow-down"></span>
 		  </div><!--/#available-fonts-->
 		</div><!--/#typecase-->
+		<div class="typecase_copyright">$copyright <a id="upthemes" href="http://upthemes.com">UpThemes</a></div>
 EOT;
 
 	}

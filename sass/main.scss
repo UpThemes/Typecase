@@ -9,7 +9,6 @@
   @include transform($trans, $only3d);
 }
 
-
 #typecase {
 	margin-top:20px;
 	padding-right:20px;
@@ -19,6 +18,49 @@
     box-sizing: border-box; *behavior: url(boxsizing.htc);
     position: relative;
     vertical-align: middle;
+  }
+  
+  .arrow-down{
+  	display:none;
+  }
+
+  .typecase-btn {
+    border: 1px solid #060606;
+    @include background-image(linear-gradient(#828282,#555));
+    text-align:center;
+    padding: 7px 11px;
+    font-size:12px;
+    font-family: Helvetica, Arial, Tahoma, sans-serif;
+    line-height:auto;
+    color:#fff;
+    font-weight:bold;
+    text-decoration:none;
+    border-radius:4px;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.5),
+    						0 1px 0 rgba(255,255,255,0.4) inset;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.6);
+
+		&:hover {
+    	@include background-image(linear-gradient(#909090,#555));
+		}
+
+		&.primary{
+			border-color:#0b84c2;
+    	@include background-image(linear-gradient(#179fe5,#0b84c2));
+			&:hover {
+			  @include background-image(linear-gradient(#3ab3f2,#0b84c2));
+			}
+		}
+		
+		&.large{
+			font-size:14px;
+			padding:9px 13px;
+		}
+
+		&:active {
+			background:#0b84c2;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.1) inset;
+		}
   }
 
   .clear {clear:both}
@@ -78,29 +120,43 @@
 			}
 
 			span{
-				font-family: "JournalRegular";
-				font-size: 20px;
-				margin-left: 20px;
-				font-weight: normal;
+				font-family:"JournalRegular";
+				font-size:20px;
+				margin-left:20px;
+				font-weight:normal;
+				color: #ddd;
+				text-shadow: none;
 			}
 
 		}
 
-		#upthemes{
-			top:50%;
-			margin-top:-16px;
-			position:absolute;
-			right:20px;
-			height:32px;
-			width:123px;
-			text-indent:-9000px;
-			display:inline-block;
-			background-image: url("../images/logo_upthemes.png");
-		}
+		.buttons{
+			margin-left:25px;
+			font-family: Helvetica, Arial, Tahoma, sans-serif;
+			float:right;
+			text-shadow:none;
+			font-weight:normal;
+			font-size: 11px;
+			clear:none;
+			line-height:21px;
+			margin-top:-7px;
+			text-align:right;
 
+			span{
+				display:block;
+				margin-bottom:3px;
+				color: #ababab;
+				font-size: 11px;
+				font-family: Helvetica, Arial, Tahoma, sans-serif;
+			}
+
+			.primary{
+				border:none;
+			}
+		}
 	}
 
-  .no-fonts, .no-results {
+  .no-fonts, .no-results{
     text-align:center;
     padding:40px 0 50px 0;
 
@@ -419,6 +475,8 @@
         .selector-name {
           overflow:hidden;
           display:block;
+          font-size:12px;
+          line-height:16px;
           border-right:solid 30px transparent;
         }
 
@@ -669,30 +727,12 @@
     }
   }
 
-  #more-fonts {
+  #more-fonts.typecase-btn{
     display:block;
-    border: 1px solid #0b84c2;
-    @include background-image(linear-gradient(#179fe5,#0b84c2));
-    text-align:center;
+    clear:both;
     padding: 10px;
-    font-size:12px;
-    color:#fff;
-    font-weight:bold;
-    text-decoration:none;
     border-radius:0 0 4px 4px;
     margin-top:-4px;
-    text-shadow: 0 -1px 0 rgba(0,0,0,0.6);
-
-    span {
-    }
-		
-		&:hover {
-		  @include background-image(linear-gradient(#3ab3f2,#0b84c2));
-		}
-		&:active {
-			background:#0b84c2;
-      box-shadow: 0 1px 0 rgba(0,0,0,0.1) inset;
-		}
   }
 
   #firsttimer{
@@ -702,6 +742,7 @@
 		border:1px solid #ddce4f;
 		padding:20px;
 		margin-bottom:10px;
+		clear:both;
 		font-family:"JournalRegular","Hand of Sean";
 		@include clearfix();
 
@@ -719,35 +760,9 @@
 			padding:20px 0 0 0;
 			clear:both;
 
-			a.btn{
-				display:inline-block;
-				border-radius:4px;
-				border:1px solid #0d6d08;
-				background-color:#259d1f;
-				box-shadow:inset 0 1px 0 rgba(255,255,255,0.3);
-	      @include background-image(linear-gradient(#3db537,#017900));
-				padding:10px 24px;
-				color:white;
-				text-shadow:0 -2px 0 rgba(0,0,0,0.2);
-				font:bold 14px/14px Helvetica, Arial, Tahoma, Verdana, sans-serif;
-				text-decoration:none;
-
-				&:hover{
-		      @include background-image(linear-gradient(#4cc346,#017900));
-				}
-
-				&:active{
-					box-shadow:inset 0 1px 0 rgba(0,0,0,0.3);
-	      	background-image:none;
-	      	background-color:#027a00;
-	      	color:rgba(255,255,255,0.9);
-				}
-
-			}
-
 			small{
 				display:block;
-				margin-top:5px;
+				margin-top:15px;
 				font:normal 11px/11px Helvetica, Arial, Tahoma, Verdana, sans-serif;
 				color:rgba(0,0,0,0.5);
 			}
@@ -822,5 +837,22 @@
 		}
 
   }
+
+}
+
+.typecase_copyright{
+	color: #666;
+	margin: 20px 0 40px;
+	display: block;
+
+	#upthemes{
+		float:right;
+		height:24px;
+		margin-right:20px;
+		width:106px;
+		text-indent:-9000px;
+		display:inline-block;
+		background-image: url("../images/logo_upthemes.png");
+	}
 
 }
