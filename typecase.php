@@ -222,6 +222,7 @@ class Typecase {
 		        <form id="variants-form"></form>
 		        <h2>$charactersets</h2>
 		        <form id="subsets-form"></form>
+		        <button id="save-fonts" class="typecase-btn primary">Save Fonts</button>
 		      </div><!--/.sidebar-->
 		      <div class="clear"></div>
 		    </div><!--/.content-wrap-->

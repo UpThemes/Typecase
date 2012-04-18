@@ -71,6 +71,8 @@
     $( "#selectors" ).on( "keyup", "#new-selector", $( this ), adjustSelectorBox );
     $( "#variants-form" ).on( "click", "input[type='checkbox']", $( this ), toggleVariant );
     $( "#subsets-form" ).on( "click", "input[type='checkbox']", $( this ), toggleSubset );
+
+    $( ".sidebar" ).on( "click", "#save-fonts", $( this ), saveFonts );
     
     $( "#search" ).on( "keyup", "#search-input", $( this ), searchFonts );
   
