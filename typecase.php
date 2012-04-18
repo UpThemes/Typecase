@@ -16,7 +16,6 @@ if ( !defined( 'ABSPATH' ) )
 class Typecase {
 
 	var $name = "Typecase";
-	var $version = "standard";
 
 	function Typecase(){
 		$this->__construct();
