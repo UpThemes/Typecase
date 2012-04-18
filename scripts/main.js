@@ -1,45 +1,65 @@
 ;(function($) {
 
+	function reloadFontPreview(){
+
+		if( !$('#font-css').length )
+			$('body').append('<div id="font-css"></div>');
+
+		$.getJSON( ajaxurl, { action : 'reloadFontPreview' }, function( data ){
+		  if( data.css )
+			  $('#font-css').html(data.css);
+		});
+
+	}
+
+	function setEqualHeight() {
+	  var highestCol = Math.max($("#your-collection .font-list-wrap").height(),$("#your-collection .sidebar").height());
+	  $("#your-collection .font-list-wrap").height(highestCol);
+	  $("#your-collection .sidebar").height(highestCol);
+	}
+	
+	function setDefaultVariant(availableVariants) {
+	  var defaultVariant = "";
+	
+	  if ($.inArray("400",availableVariants) > -1)
+	    defaultVariant = "400";
+	  else if ($.inArray("regular",availableVariants) > -1)
+	    defaultVariant = "regular";
+	  else if ($.inArray("300",availableVariants) > -1)
+	    defaultVariant = "300";
+	  else if ($.inArray("500",availableVariants) > -1)
+	    defaultVariant = "500";
+	  else if ($.inArray("200",availableVariants) > -1)
+	    defaultVariant = "200";
+	  else if ($.inArray("600",availableVariants) > -1)
+	    defaultVariant = "600";
+	  else if ($.inArray("100",availableVariants) > -1)
+	    defaultVariant = "100";
+	  else if ($.inArray("bold",availableVariants) > -1)
+	    defaultVariant = "bold";
+	  else if ($.inArray("700",availableVariants) > -1)
+	    defaultVariant = "700";
+	  else if ($.inArray("800",availableVariants) > -1)
+	    defaultVariant = "800";
+	  else if ($.inArray("900",availableVariants) > -1)
+	    defaultVariant = "900";
+	
+	  return defaultVariant;
+	}
+	
+	function disableSelection(element) {
+	  if (typeof element.onselectstart != 'undefined') {
+	      element.onselectstart = function() { return false; };
+	  }
+	  else if (typeof element.style.MozUserSelect != 'undefined') {
+	    element.style.MozUserSelect = 'none';
+	  } 
+	  else {
+	    element.onmousedown = function() { return false; };
+	  }
+	}
+
   $( document ).ready( function(){
-  
-		if( typeof(frontend) != 'undefined' ){
-			
-			if( !$('#font-css').length )
-				$('body').append('<div id="font-css"></div>');
-
-			$.getJSON( ajaxurl, { action : 'reloadFontPreview' }, function( data ){
-				console.log(data.css);
-			  if( data.css )
-				  $('#font-css').html(data.css);
-			});
-
-		}
-
-		function reloadFontPreview(){
-	
-			if( !$('#font-css').length )
-				$('body').append('<div id="font-css"></div>');
-	
-			$.getJSON( ajaxurl, { action : 'reloadFontPreview' }, function( data ){
-			  if( data.css )
-				  $('#font-css').html(data.css);
-			});
-	
-		}
-
-	  $('#available-fonts-toggle').on('click',function(e){
-	  	e.preventDefault();
-	  	$('#your-collection,#your-collection-toggle').removeClass('active');
-	  	$(this).toggleClass('active');
-	  	$('#available-fonts').toggleClass('active');
-	  });
-
-	  $('#your-collection-toggle').on('click',function(e){
-	  	e.preventDefault();
-			$('#available-fonts,#available-fonts-toggle').removeClass('active');
-			$(this).toggleClass('active');
-			$('#your-collection').toggleClass('active');
-	  });
 
     $( "#your-collection" ).on( "click", "a.delete", $( this ), removeFont );
     $( "#available-fonts" ).on( "click", "a.add", $( this ), addFont );
@@ -240,7 +260,7 @@
             var defaultVariant = setDefaultVariant(FontEasy.masterFontList.items[i].variants);
             
             fontResults.push(FontEasy.masterFontList.items[i].family + ":" + defaultVariant);
-            matchedFonts += "<div class='font "+family_class+"' data-selectors='|."+family_class+"' data-variants='"+variants+"' data-name='"+FontEasy.masterFontList.items[i].family+"'><style type='text/css'> .font-sample span."+family_class+" { font-family: '"+FontEasy.masterFontList.items[i].family+"'; } </style><div class='font-sample'><span class='"+family_class+"'>"+FontEasy.previewText+"</span></div><div class='font-meta'><ul class='font-actions'><li><a class='edit'><span></span></a></li><li><a class='preview'><span></span></a></li><li><a class='add'><span></span></a></li></ul><!--/.font-actions--><div class='font-name'>"+FontEasy.masterFontList.items[i].family+"</div><div class='active-arrow'>&#9654;</div><!--/.active-arrow--></div><!--/.font-meta--><div class='clear'></div></div><!--/.font-->";
+            matchedFonts += "<div class='font "+family_class+"' data-selectors='|."+family_class+"' data-variants='"+variants+"' data-name='"+FontEasy.masterFontList.items[i].family+"'><style type='text/css'> .font-sample span."+family_class+" { font-family: '"+FontEasy.masterFontList.items[i].family+"'; } </style><div class='font-sample'><span class='font-item "+family_class+"'>"+FontEasy.previewText+"</span></div><div class='font-meta'><ul class='font-actions'><li><a class='edit'><span></span></a></li><li><a class='preview'><span></span></a></li><li><a class='add'><span></span></a></li></ul><!--/.font-actions--><div class='font-name'>"+FontEasy.masterFontList.items[i].family+"</div><div class='active-arrow'>&#9654;</div><!--/.active-arrow--></div><!--/.font-meta--><div class='clear'></div></div><!--/.font-->";
           }
         }
   
@@ -348,53 +368,6 @@
   
   });
   
-  function setEqualHeight() {
-    var highestCol = Math.max($("#your-collection .font-list-wrap").height(),$("#your-collection .sidebar").height());
-    $("#your-collection .font-list-wrap").height(highestCol);
-    $("#your-collection .sidebar").height(highestCol);
-  }
-  
-  function setDefaultVariant(availableVariants) {
-    var defaultVariant = "";
-  
-    if ($.inArray("400",availableVariants) > -1)
-      defaultVariant = "400";
-    else if ($.inArray("regular",availableVariants) > -1)
-      defaultVariant = "regular";
-    else if ($.inArray("300",availableVariants) > -1)
-      defaultVariant = "300";
-    else if ($.inArray("500",availableVariants) > -1)
-      defaultVariant = "500";
-    else if ($.inArray("200",availableVariants) > -1)
-      defaultVariant = "200";
-    else if ($.inArray("600",availableVariants) > -1)
-      defaultVariant = "600";
-    else if ($.inArray("100",availableVariants) > -1)
-      defaultVariant = "100";
-    else if ($.inArray("bold",availableVariants) > -1)
-      defaultVariant = "bold";
-    else if ($.inArray("700",availableVariants) > -1)
-      defaultVariant = "700";
-    else if ($.inArray("800",availableVariants) > -1)
-      defaultVariant = "800";
-    else if ($.inArray("900",availableVariants) > -1)
-      defaultVariant = "900";
-  
-    return defaultVariant;
-  }
-  
-  function disableSelection(element) {
-    if (typeof element.onselectstart != 'undefined') {
-        element.onselectstart = function() { return false; };
-    }
-    else if (typeof element.style.MozUserSelect != 'undefined') {
-      element.style.MozUserSelect = 'none';
-    } 
-    else {
-      element.onmousedown = function() { return false; };
-    }
-  }
-  
   var FontEasy = {
     fontList: false,
     masterFontList: false,
@@ -420,7 +393,7 @@
           $.each(this[1],function(){
             variants += "|" + this + "-1";
           });
-          $( '#available-fonts .font-list#loaded-fonts' ).append( "<div class='font "+family_class+"' data-selectors='|."+family_class+"' data-variants='"+variants+"' data-name='"+this[0]+"'><style type='text/css'> .font-sample span."+family_class+" { font-family: '"+this[0]+"'; } </style><div class='font-sample'><span class='"+family_class+"'>"+FontEasy.previewText+"</span></div><div class='font-meta'><ul class='font-actions'><li><a class='edit'><span></span></a></li><li><a class='preview'><span></span></a></li><li><a class='add'><span></span></a></li></ul><!--/.font-actions--><div class='font-name'>"+this[0]+"</div><div class='active-arrow'>&#9654;</div><!--/.active-arrow--></div><!--/.font-meta--><div class='clear'></div></div><!--/.font-->" );
+          $( '#available-fonts .font-list#loaded-fonts' ).append( "<div class='font "+family_class+"' data-selectors='|."+family_class+"' data-variants='"+variants+"' data-name='"+this[0]+"'><style type='text/css'> .font-sample span."+family_class+" { font-family: '"+this[0]+"'; } </style><div class='font-sample'><span class='font-item "+family_class+"'>"+FontEasy.previewText+"</span></div><div class='font-meta'><ul class='font-actions'><li><a class='edit'><span></span></a></li><li><a class='preview'><span></span></a></li><li><a class='add'><span></span></a></li></ul><!--/.font-actions--><div class='font-name'>"+this[0]+"</div><div class='active-arrow'>&#9654;</div><!--/.active-arrow--></div><!--/.font-meta--><div class='clear'></div></div><!--/.font-->" );
         }
       });
       
@@ -489,7 +462,7 @@
               fontFamilyNames.push(fontName + ":" + defaultVariant);
               var family_class = fontName.replace( / /g, '_' ).toLowerCase();
               family_class = family_class.replace("|active","");
-              $( '#your-collection .font-list' ).append( "<div class='font "+family_class+isActive+"' data-selectors='"+this[1]+"' data-variants='"+this[2]+"' data-name='"+fontName+"'><style type='text/css'> .font-sample span."+family_class+" { font-family: '"+fontName+"'; } </style><div class='font-sample'><span class='"+family_class+"'>"+FontEasy.previewText+"</span></div><div class='font-meta'><ul class='font-actions'><li><a class='delete'><span></span></a></li></ul><!--/.font-actions--><div class='font-name'>"+fontName+"</div><div class='active-arrow'>&#9654;</div><!--/.active-arrow--></div><!--/.font-meta--><div class='clear'></div></div><!--/.font-->" );
+              $( '#your-collection .font-list' ).append( "<div class='font "+family_class+isActive+"' data-selectors='"+this[1]+"' data-variants='"+this[2]+"' data-name='"+fontName+"'><style type='text/css'> .font-sample span."+family_class+" { font-family: '"+fontName+"'; } </style><div class='font-sample'><span class='font-item "+family_class+"'>"+FontEasy.previewText+"</span></div><div class='font-meta'><ul class='font-actions'><li><a class='delete'><span></span></a></li></ul><!--/.font-actions--><div class='font-name'>"+fontName+"</div><div class='active-arrow'>&#9654;</div><!--/.active-arrow--></div><!--/.font-meta--><div class='clear'></div></div><!--/.font-->" );
               $( '#your-collection .font.active' ).click();
               
             }

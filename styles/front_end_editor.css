@@ -556,12 +556,11 @@ table {
   border-right-width: 0;
 }
 /* line 87, ../sass/front_end_editor.scss */
-#typecase #your-collection .font-list#loaded-fonts,
-#typecase #available-fonts .font-list#loaded-fonts {
-  max-height: 280px;
-  max-width: 800px;
+#typecase #your-collection .no-fonts,
+#typecase #available-fonts .no-fonts {
+  min-width: 260px;
 }
-/* line 92, ../sass/front_end_editor.scss */
+/* line 91, ../sass/front_end_editor.scss */
 #typecase #your-collection .arrow-down,
 #typecase #available-fonts .arrow-down {
   display: block;
@@ -573,15 +572,15 @@ table {
   left: 71px;
   background-image: url("../images/arrow_down.png");
 }
-/* line 105, ../sass/front_end_editor.scss */
+/* line 104, ../sass/front_end_editor.scss */
 #typecase #available-fonts {
   left: 20px;
 }
-/* line 108, ../sass/front_end_editor.scss */
+/* line 107, ../sass/front_end_editor.scss */
 #typecase #available-fonts .arrow-down {
   left: 182px;
 }
-/* line 114, ../sass/front_end_editor.scss */
+/* line 113, ../sass/front_end_editor.scss */
 #typecase > .typecase-btn {
   color: white;
   display: block;
@@ -602,7 +601,7 @@ table {
   background-image: -ms-linear-gradient(#303030, #141414);
   background-image: linear-gradient(#303030, #141414);
 }
-/* line 129, ../sass/front_end_editor.scss */
+/* line 128, ../sass/front_end_editor.scss */
 #typecase > .typecase-btn:hover {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #393939), color-stop(100%, #141414));
   background-image: -webkit-linear-gradient(#393939, #141414);
@@ -611,12 +610,12 @@ table {
   background-image: -ms-linear-gradient(#393939, #141414);
   background-image: linear-gradient(#393939, #141414);
 }
-/* line 134, ../sass/front_end_editor.scss */
+/* line 133, ../sass/front_end_editor.scss */
 #typecase > .typecase-btn:active, #typecase > .typecase-btn.active {
   background: #181818;
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.4) inset;
 }
-/* line 139, ../sass/front_end_editor.scss */
+/* line 138, ../sass/front_end_editor.scss */
 #typecase > .typecase-btn .badge {
   position: absolute;
   right: -4px;

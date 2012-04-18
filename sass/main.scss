@@ -10,14 +10,17 @@
 }
 
 #typecase {
-	margin-top:20px;
-	padding-right:20px;
+	margin:10px 15px 2px;
 
   * {
     -moz-box-sizing: border-box;
     box-sizing: border-box; *behavior: url(boxsizing.htc);
     position: relative;
     vertical-align: middle;
+  }
+  
+  *:not(.font-item){
+  	font-family: Helvetica, Arial, Verdana, sans-serif;
   }
   
   .arrow-down{
@@ -183,8 +186,6 @@
     padding-bottom:2px;
     border-radius:0 0 4px 4px;
     overflow:hidden;
-    top:-1px;
-    margin-bottom:-1px;
 
     .font {
       height:62px;
@@ -612,6 +613,7 @@
   #your-collection {
     overflow:hidden;
     margin:0 0 10px;
+    clear:both;
 
     .font-list-wrap {
       float:left;
@@ -848,7 +850,7 @@
 	#upthemes{
 		float:right;
 		height:24px;
-		margin-right:20px;
+		margin:10px 15px 2px;
 		width:106px;
 		text-indent:-9000px;
 		display:inline-block;

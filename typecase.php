@@ -15,8 +15,8 @@ if ( !defined( 'ABSPATH' ) )
 
 class Typecase {
 
-	var $name = "typecase";
-	var $version = "pro";
+	var $name = "Typecase";
+	var $version = "standard";
 
 	function Typecase(){
 		$this->__construct();
@@ -26,24 +26,14 @@ class Typecase {
 		register_activation_hook( __FILE__, array( $this, 'activate' ) );
 		register_deactivation_hook( __FILE__, array( $this, 'deactivate' ) );
 
-		if ( is_admin() ):
+		if ( is_admin() ){
 			add_action('admin_menu',array($this,'admin_menu') );
 			add_action('wp_ajax_saveFonts',array($this,'ajax_save_fonts'));
 			add_action('wp_ajax_getFonts',array($this,'ajax_get_fonts'));
 			add_action('wp_ajax_clear_firsttimer',array($this,'ajax_clear_firsttimer'));
-		else:
+		}else{
 			add_action('wp_head',array($this,'display_frontend'));
-		endif;
-
-		add_action('wp_ajax_reloadFontPreview',array($this,'ajax_reload_font_preview'));
-
-		if( $this->version == "pro" && isset($_GET['front_end_editor']) ):
-			remove_action('wp_head',array($this,'display_frontend'));
-			add_action('init',array($this,'admin_styles'));
-			add_action('wp_head',array($this,'front_end_ajaxurl'));
-			add_action('init', array($this,'front_end_editor_styles'));
-			add_action('wp_footer',array($this,'ui'));
-		endif;
+		}
 
 	}
 
@@ -98,20 +88,6 @@ class Typecase {
 		echo $response;
 
 		exit;
-
-	}
-
-	function front_end_ajaxurl() { ?>
-	<script type="text/javascript">
-	var ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>';
-	var frontend = true;
-	</script>
-	<?php
-	}
-
-	function front_end_editor_styles(){
-
-		wp_enqueue_style('front-end-editor', plugins_url( 'styles/front_end_editor.css', __FILE__ ), false, date( 'Ymd' ) );
 
 	}
 
@@ -172,17 +148,15 @@ class Typecase {
 		$noresultsdesc			= __('There are no fonts with that name in the Google Font Library.','typecase');
 		$showmorefonts			= __('Load More Fonts','typecase');
 		$copyright					= sprintf( __("Copyright %s <a href=\"http://upthemes.com\">UpThemes</a>. All Rights Reserved.","typecase"), date('Y') );
+		$welcome						= __("Welcome! Here’s the rundown on using typecase.","typecase");
+		$step_1							= __("Browse or search for fonts in the \"Available Fonts\" box","typecase");
+		$step_2							= sprintf(__("Click the %s icon to add the font to \"Your Collection\"","typecase"),'<span class="add"><span></span></span>');
+		$step_3							= __("Add CSS selectors and font weights in the right column","typecase");
+		$hidehelp_btn				= __("Close &amp; Don't Show Again","typecase");
 
 		$firsttimer = '';
 
-		if( get_option('typecase_firsttimer') != 'disabled' ):
-			echo get_option('typecase_firsttimer');
-			$welcome					= __("Welcome! Here’s the rundown on using typecase.","typecase");
-			$step_1						= __("Browse or search for fonts in the \"Available Fonts\" box","typecase");
-			$step_2						= sprintf(__("Click the %s icon to add the font to \"Your Collection\"","typecase"),'<span class="add"><span></span></span>');
-			$step_3						= __("Add CSS selectors and font weights in the right column","typecase");
-			$hidehelp_btn			= __("Let's Get Fonted!","typecase");
-			$hidehelp_text		= __("(Don't Show This Again)","typecase");
+		if( isset($_GET['front_end_editor']) || get_option('typecase_firsttimer') != 'disabled' ){
 
 			$firsttimer = '
 			<div id="firsttimer">
@@ -190,29 +164,22 @@ class Typecase {
 				<ol>
 					<li><span class="list-item"></span><strong>' . $step_1 . '</strong></li>
 					<li><span class="list-item"></span><strong>' . $step_2 . '</strong></li>
-					<li><span class="list-item"></span><strong>' . $step_1 . '</strong></li>
+					<li><span class="list-item"></span><strong>' . $step_3 . '</strong></li>
 				</ol>
 				<div class="buttons">
-					<a id="kill" class="typecase-btn primary large" href="#">' . $hidehelp_btn . '</a>
-					<small>' . $hidehelp_text . '</small>
+					<a id="kill" class="typecase-btn primary large" href="">' . $hidehelp_btn . '</a>
 				</div>
 			</div>';
-		endif;
 
-		if( $this->version == "pro" && isset($_GET['front_end_editor']) ):
+		}
 
-			$classname = ' class="front_end_editor"';
-			$front_end_editor = '<a class="collection typecase-btn" id="your-collection-toggle" data-target="your-collection" href="">' . __("View Your Collection","typecase") . '</a> <a class="available typecase-btn" id="available-fonts-toggle" data-target="available-fonts" href="">' . __("Find New Fonts","typecase") . '</a>';
-		else:
-			$classname = '';
-			$front_end_editor = '';
-		endif;
+		$classname = '';
+		$front_end_editor_ui = '';
+		$buttons = '<div class="buttons"><span>' . __("live front-end editor &amp; lifetime support","typecase") . '</span> <a class="typecase-btn primary" href="http://upthemes.com/plugins/typecase/" target="_blank">' . __("Upgrade to Pro","typecase") . '</a></div>';
 
-		if( $this->version == "pro" ):
-			$buttons = '<div class="buttons"><span>Typecase Pro</span> <a class="typecase-btn primary" href="' . get_bloginfo('url') . '/?front_end_editor=1" target="_blank">Live Editor</a> <a class="typecase-btn" href="http://upthemes.com/forum/" target="_blank">Support Forum</a></div>';
-		else:
-			$buttons = '<div class="buttons"><span>live front-end editor &nbsp; lifetime support</span> <a class="typecase-btn primary" href="http://upthemes.com/plugins/typecase/" target="_blank">Upgrade to Pro</a></div>';
-		endif;
+		$classname = apply_filters('typecase-classname',$classname);
+		$buttons = apply_filters('typecase-buttons',$buttons);
+		$front_end_editor = apply_filters('typecase-front-end-editor',$front_end_editor_ui);
 
 		echo <<<EOT
 		<div id="typecase"$classname>
@@ -347,72 +314,10 @@ EOT;
 
 	}
 
-	function ajax_reload_font_preview(){
-
-		$fonts = get_option('typecase_fonts');
-
-		if( $fonts[0] ){
-
-			$apiUrl = "http://fonts.googleapis.com/css?family=";
-			$import_url = '';
-			$font_styles = '';
-			$font_weights = '';
-
-			foreach($fonts as $font){
-
-				$family = explode("|",$font[0]);
-				$family = $family[0];
-				$selectors = substr( $font[1], 1);
-				$weights = substr( $font[2], 1);
-
-				$weights = explode("|",$weights);
-
-				foreach( $weights as $i => $weight ){
-					$pos = strpos($weight, '-');
-					$weight = mb_substr($weight,0,$pos);
-					if($i>0)
-						$font_weights .= ",";
-					else
-						$font_weights .= ":";
-					$font_weights .= $weight;
-				}
-
-				if( $import_url != '' )
-					$import_url .= '|';
-
-				$import_url .= str_replace(" ","+",$family).$font_weights;
-
-				$selectors = explode("|",$selectors);
-
-				foreach( $selectors as $i => $selector){
-					if($i>0)
-						$font_styles .= ",";
-					$font_styles .= $selector;
-				}
-
-				$font_styles .= "{ font-family: \"$family\"; }\n";
-
-			}
-
-			$import_fonts = "@import url($apiUrl$import_url);\n";
-
-			$font_css = "\n\n<!--====== Typecase Font Declarations ======-->";
-			$font_css .= "\n<style type=\"text/css\">\n";
-			$font_css .= $import_fonts;
-			$font_css .= $font_styles;
-			$font_css .= "</style>\n";
-			$font_css .= "<!--==-- End Typecase Font Declarations --==-->\n\n";
-			
-			$response = json_encode( array( 'success' => true, 'css' => $font_css ) );
-	
-			header( "Content-Type: application/json" );
-			echo $response;
-			exit;
-	
-		}
-
-	}
-
 }
 
-$typecase = Typecase::init();
+if( file_exists( dirname(__FILE__) . '/pro.php' ) ){
+	require_once(dirname(__FILE__) . '/pro.php');
+}else{
+	$typecase = Typecase::init();
+}
