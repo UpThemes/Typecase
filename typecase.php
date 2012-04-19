@@ -15,8 +15,8 @@ if ( !defined( 'ABSPATH' ) )
 
 class Typecase {
 
-	var $name = "Typecase";
-	var $version = "standard";
+	protected $name = "Typecase";
+	protected $version = "standard";
 	protected $nonce_key = '+Y|*Ec/-\s3';
 
 	function Typecase(){
@@ -36,7 +36,6 @@ class Typecase {
 		}else{
 			add_action('wp_head',array(&$this,'display_frontend'));
 		}
-
 	}
 
 	function &init() {
