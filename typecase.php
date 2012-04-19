@@ -127,7 +127,7 @@ class Typecase {
 
 	function load_menu() {
 
-		$hook = add_menu_page( $this->name, $this->name, 'manage_options', 'typecase', array( $this, 'ui' ), plugins_url( 'images/ico_typecase.png', __FILE__ ) );
+		$hook = add_menu_page( $this->name, $this->name, 'manage_options', 'typecase', array(&$this, 'ui' ), plugins_url( 'images/ico_typecase.png', __FILE__ ) );
 		add_action( 'admin_print_styles-' . $hook, array($this,'admin_styles'));
 
 	}
