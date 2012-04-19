@@ -10,16 +10,16 @@ class Typecase_Pro extends Typecase {
 
 		parent::__construct();
 
-		add_action('wp_ajax_reloadFontPreview',array($this,'ajax_reload_font_preview'));
-		add_action('init',array($this,'set_pro_filters'),1);
+		add_action('wp_ajax_reloadFontPreview',array(&$this,'ajax_reload_font_preview'));
+		add_action('init',array(&$this,'set_pro_filters'),1);
 
 		if( isset($_GET['front_end_editor']) ){
-			remove_action('wp_head',array($this,'display_frontend'));
-			add_action('init',array($this,'set_front_end_filters'),1);
-			add_action('init',array($this,'admin_styles'));
-			add_action('wp_head',array($this,'front_end_ajaxurl'));
-			add_action('init', array($this,'front_end_editor_styles'));
-			add_action('wp_footer',array($this,'ui'));
+			remove_action('wp_head',array(&$this,'display_frontend'));
+			add_action('init',array(&$this,'set_front_end_filters'),1);
+			add_action('init',array(&$this,'admin_styles'));
+			add_action('wp_head',array(&$this,'front_end_ajaxurl'));
+			add_action('init', array(&$this,'front_end_editor_styles'));
+			add_action('wp_footer',array(&$this,'ui'));
 		}
 
 	}
@@ -38,9 +38,9 @@ class Typecase_Pro extends Typecase {
 			add_filter('typecase-buttons',array($this,'buttons_replace'));
 	}
 
-	function set_front_end_filters(){
-		add_filter('typecase-front-end-editor',array($this,'front_end_editor_ui'));
-		add_filter('typecase-classname',array($this,'front_end_classname'));
+	public function set_front_end_filters(){
+		add_filter('typecase-front-end-editor',array(&$this,'front_end_editor_ui'));
+		add_filter('typecase-classname',array(&$this,'front_end_classname'));
 	}
 
 	function front_end_ajaxurl() { ?>

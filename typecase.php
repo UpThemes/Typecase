@@ -23,16 +23,17 @@ class Typecase {
 	}
 
 	function __construct() {
-		register_activation_hook( __FILE__, array( $this, 'activate' ) );
-		register_deactivation_hook( __FILE__, array( $this, 'deactivate' ) );
+		register_activation_hook( __FILE__, array(&$this, 'activate' ) );
+		register_deactivation_hook( __FILE__, array(&$this, 'deactivate' ) );
 
 		if ( is_admin() ){
-			add_action('admin_menu',array($this,'admin_menu') );
-			add_action('wp_ajax_saveFonts',array($this,'ajax_save_fonts'));
-			add_action('wp_ajax_getFonts',array($this,'ajax_get_fonts'));
-			add_action('wp_ajax_clear_firsttimer',array($this,'ajax_clear_firsttimer'));
+			add_action('admin_menu',array(&$this,'admin_menu'));
+			add_action('admin_head', array(&$this, 'admin_head'));
+			add_action('wp_ajax_saveFonts',array(&$this,'ajax_save_fonts'));
+			add_action('wp_ajax_getFonts',array(&$this,'ajax_get_fonts'));
+			add_action('wp_ajax_clear_firsttimer',array(&$this,'ajax_clear_firsttimer'));
 		}else{
-			add_action('wp_head',array($this,'display_frontend'));
+			add_action('wp_head',array(&$this,'display_frontend'));
 		}
 
 	}
