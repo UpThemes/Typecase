@@ -22,16 +22,16 @@
 
 	  $('#available-fonts-toggle').on('click',function(e){
 	  	e.preventDefault();
-	  	$('#your-collection,#your-collection-toggle').removeClass('active');
+	  	$('#your-collection-wrap,#your-collection-toggle').removeClass('active');
 	  	$(this).toggleClass('active');
-	  	$('#available-fonts').toggleClass('active');
+	  	$('#available-fonts-wrap').toggleClass('active');
 	  });
 
 	  $('#your-collection-toggle').on('click',function(e){
 	  	e.preventDefault();
-			$('#available-fonts,#available-fonts-toggle').removeClass('active');
+			$('#available-fonts-wrap,#available-fonts-toggle').removeClass('active');
 			$(this).toggleClass('active');
-			$('#your-collection').toggleClass('active');
+			$('#your-collection-wrap').toggleClass('active');
 	  });
 
 		$("#typecase").find("#your-collection-toggle").click();

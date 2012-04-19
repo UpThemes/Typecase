@@ -325,6 +325,7 @@ class Typecase {
 			</header>
 			$firsttimer
 			$front_end_editor
+			<div id="your-collection-wrap">
 		  <div id="your-collection">
 		    <header>
 		      <h1>$collection</h1>
@@ -358,8 +359,10 @@ class Typecase {
 		      </div><!--/.sidebar-->
 		      <div class="clear"></div>
 		    </div><!--/.content-wrap-->
-			  <span class="arrow-down"></span>
 		  </div><!--/#your-collection-->
+		  <span class="arrow-down"></span>
+		  </div><!--/#your-collection-wrap-->
+		  <div id="available-fonts-wrap">
 		  <div id="available-fonts">
 		    <header>
 		      <h1>$availablefonts</h1>
@@ -381,8 +384,9 @@ class Typecase {
 		      </div><!--/.font-list-wrap-->
 		    </div><!--/.content-wrap-->
 	      <a id="more-fonts" class="typecase-btn primary" href=""><span>$showmorefonts</span></a>
-			  <span class="arrow-down"></span>
 		  </div><!--/#available-fonts-->
+		  <span class="arrow-down"></span>
+		  </div><!--/#available-fonts-wrap-->
 		</div><!--/#typecase-->
 		<div class="typecase_copyright">$copyright <a id="upthemes" href="http://upthemes.com">UpThemes</a></div>
 EOT;

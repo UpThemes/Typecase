@@ -32,6 +32,10 @@
     border:solid 2px #fff;
   }
 
+  #sidebar {
+    overflow:hidden;
+  }
+
   #firsttimer{
     display:none;
   }
@@ -72,8 +76,8 @@
     }
   }
 
-  #your-collection,
-  #available-fonts{
+  #your-collection-wrap,
+  #available-fonts-wrap,{
     display:none;
     left:0;
     right:0;
@@ -83,9 +87,15 @@
     box-shadow:0 0 30px rgba(0,0,0,0.7);
     background:#333;
     border-radius:6px;
-    // max-height:40%;
+    height:50%;
     overflow:visible;
     padding:4px;
+
+    #your-collection,
+    #available-fonts {
+      height:100%;
+      overflow:hidden;
+    }
 
     .font {
       height:62px;
@@ -112,19 +122,23 @@
     .content-wrap{
       border:0;
       border-radius:0 0 4px 4px;
-      overflow:hidden;
+      overflow:auto;
     }
     
-    .font-list{
+    .font-list,
+    .font-list#loaded-fonts,
+    .font-list#search-results{
       width:100%;
-      max-height:305px;
       margin:0;
-      overflow:visible;
+      height:100%;
     }
 
     #more-fonts {
       margin:0;
       bottom:0;
+      position: absolute;
+      right: 0;
+      left: 0;
     }
   
     .arrow-down{
@@ -173,6 +187,25 @@
       box-shadow:0 3px 7px rgba(0,0,0,0.4) inset;
     }
     
+  }
+
+  #your-collection {
+    .content-wrap {
+      position:absolute;
+      top:41px;
+      bottom:0;
+    }
+  }
+
+  #available-fonts {
+    .content-wrap{
+      border:0;
+      border-radius:0;
+      overflow:auto;
+      position: absolute;
+      top: 88px;
+      bottom: 42px;
+    }
   }
 
 }
