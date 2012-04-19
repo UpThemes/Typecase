@@ -2,11 +2,11 @@
 
 class Typecase_Pro extends Typecase {
 
-	function Typecase(){
+	public function Typecase(){
 		$this->__construct();
 	}
 
-	function __construct() {
+	public function __construct() {
 
 		parent::__construct();
 
@@ -24,7 +24,7 @@ class Typecase_Pro extends Typecase {
 
 	}
 
-	function &init() {
+	public function &init() {
 		static $instance = false;
 
 		if ( !$instance ) {
@@ -55,14 +55,14 @@ class Typecase_Pro extends Typecase {
 		echo $output;
 	}
 
-	function front_end_editor_styles(){
+	public function front_end_editor_styles(){
 
 		wp_enqueue_style('front-end-editor', plugins_url( 'styles/front_end_editor.css', __FILE__ ), false, date( 'Ymd' ) );
 		wp_enqueue_script('front-end-editor', plugins_url( 'scripts/pro.js', __FILE__ ), false, date( 'Ymd' ) );
 
 	}
 
-	function ajax_reload_font_preview(){
+	public function ajax_reload_font_preview(){
 
 		$fonts = get_option('typecase_fonts');
 
@@ -128,7 +128,7 @@ class Typecase_Pro extends Typecase {
 
 	}
 
-	function buttons_replace($buttons){
+	public function buttons_replace($buttons){
 	
 		$buttons = '<div class="buttons"><span>Typecase Pro</span> <a class="typecase-btn primary" href="' . get_bloginfo('url') . '/?front_end_editor=1" target="_blank">' . __("Open Live Editor","typecase") . '</a> <a class="typecase-btn" href="http://upthemes.com/forum/" target="_blank">Support Forum</a></div>';
 		
@@ -136,12 +136,12 @@ class Typecase_Pro extends Typecase {
 
 	}
 
-	function front_end_editor_ui($editor_ui){
+	public function front_end_editor_ui($editor_ui){
 			$front_end_editor = '<a class="collection typecase-btn" id="your-collection-toggle" data-target="your-collection" href="">' . __("View Your Collection","typecase") . '</a> <a class="available typecase-btn" id="available-fonts-toggle" data-target="available-fonts" href="">' . __("Find New Fonts","typecase") . '</a>';
 			return $editor_ui.$front_end_editor;
 	}
 	
-	function front_end_classname($classname){
+	public function front_end_classname($classname){
 			$classname = ' class="front_end_editor"';
 			
 			return $classname;

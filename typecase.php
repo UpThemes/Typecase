@@ -20,11 +20,11 @@ class Typecase {
 	protected $api_url = "http://fonts.googleapis.com/css?family=";
 	protected $nonce_key = '+Y|*Ec/-\s3';
 
-	function Typecase(){
+	public function Typecase(){
 		$this->__construct();
 	}
 
-	function __construct() {
+	public function __construct() {
 		register_activation_hook( __FILE__, array(&$this, 'activate' ) );
 		register_deactivation_hook( __FILE__, array(&$this, 'deactivate' ) );
 
@@ -39,7 +39,7 @@ class Typecase {
 		}
 	}
 
-	function &init() {
+	public function &init() {
 		static $instance = false;
 
 		if ( !$instance ) {
@@ -49,7 +49,7 @@ class Typecase {
 		return $instance;
 	}
 	
-	function ajax_save_fonts(){
+	public function ajax_save_fonts(){
 		
 		$this->verify_nonce($_POST['_nonce']);
 
@@ -67,7 +67,7 @@ class Typecase {
 
 	}
 
-	function ajax_get_fonts(){
+	public function ajax_get_fonts(){
 		
 		$this->verify_nonce($_POST['_nonce']);
 
@@ -84,7 +84,7 @@ class Typecase {
 
 	}
 
-	function ajax_clear_firsttimer(){
+	public function ajax_clear_firsttimer(){
 		
 		$this->verify_nonce($_POST['_nonce']);
 
@@ -99,20 +99,20 @@ class Typecase {
 
 	}
 
-	function activate() {
+	public function activate() {
 	}
 
-	function deactivate() {
+	public function deactivate() {
 	}
 
-	function admin_init() {
+	public function admin_init() {
 		if ( !current_user_can( 'manage_options' ) )
 			return;
 
 		load_plugin_textdomain( 'typecase', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 
-	function admin_head() {
+	public function admin_head() {
 		$nonce = wp_create_nonce($this->nonce_key);
 		$output = "
 			<script type='text/javascript'>
@@ -121,18 +121,18 @@ class Typecase {
 		echo $output;
 	}
 
-	function admin_menu() {
+	public function admin_menu() {
 		$this->load_menu();
 	}
 
-	function load_menu() {
+	public function load_menu() {
 
 		$hook = add_menu_page( $this->name, $this->name, 'manage_options', 'typecase', array(&$this, 'ui' ), plugins_url( 'images/ico_typecase.png', __FILE__ ) );
 		add_action( 'admin_print_styles-' . $hook, array($this,'admin_styles'));
 
 	}
 
-	function admin_styles() {
+	public function admin_styles() {
 
 		if ( !current_user_can( 'manage_options' ) )
 			return;
@@ -145,7 +145,7 @@ class Typecase {
 		wp_enqueue_style('journal-font', plugins_url( 'fonts/journal/journal.css', __FILE__ ), false, date( 'Ymd' ) );
 	}
 
-	function ui(){
+	public function ui(){
 
 		$title 							= __('Typecase','typecase');
 		$tagline 						= __('Beautiful web fonts for WordPress','typecase');
@@ -270,7 +270,7 @@ EOT;
 
 	}
 
-	function display_frontend(){
+	public function display_frontend(){
 
 		$fonts = get_option('typecase_fonts');
 
