@@ -610,8 +610,9 @@ table {
   width: 100%;
   margin: 0;
   height: 100%;
+  overflow: hidden;
 }
-/* line 136, ../sass/front_end_editor.scss */
+/* line 137, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap #more-fonts,
 #typecase #available-fonts-wrap #more-fonts {
   margin: 0;
@@ -620,7 +621,7 @@ table {
   right: 0;
   left: 0;
 }
-/* line 144, ../sass/front_end_editor.scss */
+/* line 145, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap .arrow-down,
 #typecase #available-fonts-wrap .arrow-down {
   display: block;
@@ -632,11 +633,11 @@ table {
   left: 71px;
   background-image: url("../images/arrow_down.png");
 }
-/* line 159, ../sass/front_end_editor.scss */
+/* line 160, ../sass/front_end_editor.scss */
 #typecase #available-fonts .arrow-down {
   left: 182px;
 }
-/* line 165, ../sass/front_end_editor.scss */
+/* line 166, ../sass/front_end_editor.scss */
 #typecase > .typecase-btn {
   color: white;
   display: block;
@@ -657,7 +658,7 @@ table {
   background-image: -ms-linear-gradient(#303030, #141414);
   background-image: linear-gradient(#303030, #141414);
 }
-/* line 180, ../sass/front_end_editor.scss */
+/* line 181, ../sass/front_end_editor.scss */
 #typecase > .typecase-btn:hover {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #393939), color-stop(100%, #141414));
   background-image: -webkit-linear-gradient(#393939, #141414);
@@ -666,18 +667,18 @@ table {
   background-image: -ms-linear-gradient(#393939, #141414);
   background-image: linear-gradient(#393939, #141414);
 }
-/* line 185, ../sass/front_end_editor.scss */
+/* line 186, ../sass/front_end_editor.scss */
 #typecase > .typecase-btn:active, #typecase > .typecase-btn.active {
   background: #181818;
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.4) inset;
 }
-/* line 193, ../sass/front_end_editor.scss */
+/* line 194, ../sass/front_end_editor.scss */
 #typecase #your-collection .content-wrap {
   position: absolute;
   top: 41px;
   bottom: 0;
 }
-/* line 201, ../sass/front_end_editor.scss */
+/* line 202, ../sass/front_end_editor.scss */
 #typecase #available-fonts .content-wrap {
   border: 0;
   border-radius: 0;
