@@ -13,7 +13,7 @@ class Typecase_Pro extends Typecase {
 		add_action('wp_ajax_reloadFontPreview',array(&$this,'ajax_reload_font_preview'));
 		add_action('init',array(&$this,'set_pro_filters'),1);
 
-		if( isset($_GET['front_end_editor']) ){
+		if( isset($_GET['front_end_editor']) && !is_admin() ){
 			remove_action('wp_head',array(&$this,'display_frontend'));
 			add_action('init',array(&$this,'set_front_end_filters'),1);
 			add_action('init',array(&$this,'admin_styles'));
