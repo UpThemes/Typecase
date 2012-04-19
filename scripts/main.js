@@ -5,7 +5,7 @@
 		if( !$('#font-css').length )
 			$('body').append('<div id="font-css"></div>');
 
-		$.getJSON( ajaxurl, { action : 'reloadFontPreview', _nonce : typecase_nonce }, function( data ){
+		$.getJSON( ajaxurl, { action : 'reloadFontPreview', _nonce : typecase.nonce }, function( data ){
 		  if( data.css )
 			  $('#font-css').html(data.css);
 		});
@@ -126,11 +126,16 @@
       
     });
     
-    $("#firsttimer").find('#kill').live('click',function(e){
+    $("#firsttimer").find('#kill').on('click',function(e){
       e.preventDefault();
-      $.getJSON(ajaxurl,{ action : 'clear_firsttimer', _nonce : typecase_nonce },function(data){
+      $.getJSON(ajaxurl,{ action : 'clear_firsttimer', _nonce : typecase.nonce },function(data){
+
         if(data.success)
           $('#firsttimer').delay(800).slideUp(400);
+
+        if( data._new_nonce.nonce )
+         	typecase.nonce = data._new_nonce.nonce;
+
       });
     });
 
@@ -398,14 +403,19 @@
         i++;
       });
   
-      $.post(ajaxurl, { 'action' : 'saveFonts', '_nonce' : typecase_nonce, 'json' : fontData}); 
+      $.post(ajaxurl, { 'action' : 'saveFonts', '_nonce' : typecase.nonce, 'json' : fontData},function(data){
       
-		  if( typeof(frontend) != 'undefined' )
-				reloadFontPreview();
-
-      $(".sidebar #save-fonts").html("Saved!").animate({border:"none"},500,function(){
-        $(this).removeClass("saving").html("Save Fonts");
-      });
+      	if( data._new_nonce.nonce )
+      		typecase.nonce = data._new_nonce.nonce;
+    
+			  if( typeof(frontend) != 'undefined' )
+					reloadFontPreview();
+	
+	      $(".sidebar #save-fonts").html("Saved!").animate({border:"none"},500,function(){
+	        $(this).removeClass("saving").html("Save Fonts");
+	      });
+      
+      }); 
 
     });
   
@@ -489,7 +499,7 @@
     }
 
     var loadUserData = function() {
-      $.getJSON(ajaxurl, { action: "getFonts", _nonce : typecase_nonce }, function(fontData) {
+      $.getJSON(ajaxurl, { action: "getFonts", _nonce : typecase.nonce }, function(fontData) {
 
         var fonts = fontData.fonts;
         var isActive = "";
