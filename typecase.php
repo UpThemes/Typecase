@@ -266,6 +266,10 @@ class Typecase {
 	 *
 	 */
 	public function ui(){
+	
+		if( !current_user_can('manage_options') )
+			return;
+	
 		$title 							= __('Typecase','typecase');
 		$tagline 						= __('Beautiful web fonts for WordPress','typecase');
 		$collection 				= __('Your Collection','typecase');
