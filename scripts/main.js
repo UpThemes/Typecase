@@ -5,7 +5,7 @@
 		if( !$('#font-css').length )
 			$('body').append('<div id="font-css"></div>');
 
-		$.getJSON( ajaxurl, { action : 'reloadFontPreview' }, function( data ){
+		$.getJSON( ajaxurl, { action : 'reloadFontPreview', _nonce : typecase_nonce }, function( data ){
 		  if( data.css )
 			  $('#font-css').html(data.css);
 		});
@@ -124,7 +124,7 @@
     
     $("#firsttimer").find('#kill').live('click',function(e){
       e.preventDefault();
-      $.getJSON(ajaxurl,{ action : 'clear_firsttimer' },function(data){
+      $.getJSON(ajaxurl,{ action : 'clear_firsttimer', _nonce : typecase_nonce },function(data){
         if(data.success)
           $('#firsttimer').delay(800).slideUp(400);
       });
@@ -391,7 +391,7 @@
         i++;
       });
   
-      $.post(ajaxurl, { 'action' : 'saveFonts', 'json' : fontData});
+      $.post(ajaxurl, { 'action' : 'saveFonts', '_nonce' : typecase_nonce, 'json' : fontData}); 
       
 		  if( typeof(frontend) != 'undefined' )
 				reloadFontPreview();
@@ -478,7 +478,7 @@
     }
 
     var loadUserData = function() {
-      $.getJSON(ajaxurl, { action: "getFonts" }, function(fontData) {
+      $.getJSON(ajaxurl, { action: "getFonts", _nonce : typecase_nonce }, function(fontData) {
 
         var fonts = fontData.fonts;
         var isActive = "";

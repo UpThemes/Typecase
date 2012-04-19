@@ -34,8 +34,8 @@ class Typecase_Pro extends Typecase {
 		return $instance;
 	}
 
-	function set_pro_filters(){
-			add_filter('typecase-buttons',array($this,'buttons_replace'));
+	public function set_pro_filters(){
+			add_filter('typecase-buttons',array(&$this,'buttons_replace'));
 	}
 
 	public function set_front_end_filters(){
@@ -43,12 +43,16 @@ class Typecase_Pro extends Typecase {
 		add_filter('typecase-classname',array(&$this,'front_end_classname'));
 	}
 
-	function front_end_ajaxurl() { ?>
-		<script type="text/javascript">
-		var ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>';
-		var frontend = true;
-		</script>
-		<?php
+	public function front_end_ajaxurl() {
+		$admin_url = admin_url('admin-ajax.php');
+		$nonce = wp_create_nonce($this->nonce_key);
+		$output = "
+			<script type='text/javascript'>
+				var ajaxurl = '$admin_url';
+				var frontend = true;
+				var typecase_nonce = '$nonce';
+			</script>";
+		echo $output;
 	}
 
 	function front_end_editor_styles(){

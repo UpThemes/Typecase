@@ -17,6 +17,7 @@ class Typecase {
 
 	var $name = "Typecase";
 	var $version = "standard";
+	protected $nonce_key = '+Y|*Ec/-\s3';
 
 	function Typecase(){
 		$this->__construct();
@@ -49,6 +50,8 @@ class Typecase {
 	}
 	
 	function ajax_save_fonts(){
+		
+		$this->verify_nonce($_POST['_nonce']);
 
 		// get the submitted parameters
 		$fonts = $_POST['json'];
@@ -65,6 +68,8 @@ class Typecase {
 	}
 
 	function ajax_get_fonts(){
+		
+		$this->verify_nonce($_POST['_nonce']);
 
 		$fonts = get_option('typecase_fonts');
 
@@ -80,6 +85,8 @@ class Typecase {
 	}
 
 	function ajax_clear_firsttimer(){
+		
+		$this->verify_nonce($_POST['_nonce']);
 
 		$firsttimer_update = update_option('typecase_firsttimer','disabled');
 
@@ -106,7 +113,12 @@ class Typecase {
 	}
 
 	function admin_head() {
-
+		$nonce = wp_create_nonce($this->nonce_key);
+		$output = "
+			<script type='text/javascript'>
+				var typecase_nonce = '$nonce';
+			</script>";
+		echo $output;
 	}
 
 	function admin_menu() {
@@ -316,6 +328,14 @@ EOT;
 
 		}
 
+	}
+	
+	protected function verify_nonce($nonce){
+		$nonce = esc_attr($nonce);
+		if(! wp_verify_nonce($nonce, $this->nonce_key))
+			die('Security check failed.');
+		else
+			return true;
 	}
 
 }

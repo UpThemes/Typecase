@@ -8,7 +8,7 @@
 				$('body').append('<div id="font-css"></div>');
 			}
 
-			$.getJSON( ajaxurl, { action : 'reloadFontPreview' }, function( data ){
+			$.getJSON( ajaxurl, { action : 'reloadFontPreview', _nonce : typecase_nonce }, function( data ){
 			  if( data.css )
 				  $('#font-css').html(data.css);
 			});
