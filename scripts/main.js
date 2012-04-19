@@ -8,6 +8,9 @@
 		$.getJSON( ajaxurl, { action : 'reloadFontPreview', _nonce : typecase.nonce }, function( data ){
 		  if( data.css )
 			  $('#font-css').html(data.css);
+
+      if( typeof(data._new_nonce.nonce) != 'undefined' )
+       	typecase.nonce = data._new_nonce.nonce;
 		});
 
 	}
@@ -133,7 +136,7 @@
         if(data.success)
           $('#firsttimer').delay(800).slideUp(400);
 
-        if( data._new_nonce.nonce )
+        if( typeof(data._new_nonce.nonce) != 'undefined' )
          	typecase.nonce = data._new_nonce.nonce;
 
       });
@@ -405,7 +408,7 @@
   
       $.post(ajaxurl, { 'action' : 'saveFonts', '_nonce' : typecase.nonce, 'json' : fontData},function(data){
       
-      	if( data._new_nonce.nonce )
+        if( typeof(data._new_nonce.nonce) != 'undefined' )
       		typecase.nonce = data._new_nonce.nonce;
     
 			  if( typeof(frontend) != 'undefined' )
@@ -503,6 +506,9 @@
 
         var fonts = fontData.fonts;
         var isActive = "";
+
+        if( typeof(fontData._new_nonce.nonce) != 'undefined' )
+         	typecase.nonce = fontData._new_nonce.nonce;
 
         if (typeof fonts != 'undefined') {
           var fontFamilyNames = new Array();

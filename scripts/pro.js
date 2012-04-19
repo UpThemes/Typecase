@@ -8,9 +8,14 @@
 				$('body').append('<div id="font-css"></div>');
 			}
 
-			$.getJSON( ajaxurl, { action : 'reloadFontPreview', _nonce : typecase_nonce }, function( data ){
+			$.getJSON( ajaxurl, { action : 'reloadFontPreview', _nonce : typecase.nonce }, function( data ){
+
 			  if( data.css )
 				  $('#font-css').html(data.css);
+
+        if( typeof(data._new_nonce.nonce) != 'undefined' )
+         	typecase.nonce = data._new_nonce.nonce;
+
 			});
 
 		}

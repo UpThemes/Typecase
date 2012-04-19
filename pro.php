@@ -179,13 +179,23 @@ class Typecase_Pro extends Typecase {
 			$font_css .= $font_styles;
 			$font_css .= "</style>\n";
 			$font_css .= "<!--==-- End Typecase Font Declarations --==-->\n\n";
-			
-			$response = json_encode( array( 'success' => true, 'css' => $font_css ) );
+
+			$new_nonce = array( 'nonce' => wp_create_nonce($this->nonce_key) );
+
+			$response = json_encode( array( '_new_nonce' => $new_nonce, 'success' => true, 'css' => $font_css ) );
 	
 			header( "Content-Type: application/json" );
 			echo $response;
 			exit;
 	
+		} else {
+
+			$response = json_encode( array( 'success' => false, 'error' => __('There were no fonts defined','typecase') ) );
+	
+			header( "Content-Type: application/json" );
+			echo $response;
+			exit;
+
 		}
 
 	}

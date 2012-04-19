@@ -144,7 +144,9 @@ class Typecase {
 
 		$gotten = $fonts ? true : false;
 
-		$response = json_encode( array( 'success' => $gotten, 'fonts' => $fonts ) );
+		$new_nonce = array( 'nonce' => wp_create_nonce($this->nonce_key) );
+
+		$response = json_encode( array( '_new_nonce' => $new_nonce, 'success' => $gotten, 'fonts' => $fonts ) );
 
 		header( "Content-Type: application/json" );
 		echo $response;
