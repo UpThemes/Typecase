@@ -137,7 +137,7 @@ class Typecase_Pro extends Typecase {
 	}
 
 	public function front_end_editor_ui($editor_ui){
-			$front_end_editor = '<a class="collection typecase-btn" id="your-collection-toggle" data-target="your-collection" href="">' . __("View Your Collection","typecase") . '</a> <a class="available typecase-btn" id="available-fonts-toggle" data-target="available-fonts" href="">' . __("Find New Fonts","typecase") . '</a>';
+			$front_end_editor = '<button class="collection typecase-btn" id="your-collection-toggle" data-target="your-collection"><i class="badge">5</i>' . __("View Your Collection","typecase") . '</button> <button class="available typecase-btn" id="available-fonts-toggle" data-target="available-fonts">' . __("Find New Fonts","typecase") . '</button>';
 			return $editor_ui.$front_end_editor;
 	}
 	
