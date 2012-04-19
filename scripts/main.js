@@ -124,6 +124,13 @@
 
         if( typeof(frontend) != 'undefined' ) {
           $("#your-collection-toggle .badge").html($("#your-collection .font-list .font").length).show();
+          $("#your-collection-toggle .badge").animate({
+            top:"-=4px"
+          },100,function(){
+            $(this).animate({top:"+=7px"},100,function(){
+              $(this).animate({top:"-=3px"},100);
+            });
+          });
         }
       }
       
@@ -178,8 +185,16 @@
             $( "#your-collection" ).find( ".no-fonts" ).fadeIn();
           }
           
-          if( typeof(frontend) != 'undefined' )
+          if( typeof(frontend) != 'undefined' ) {
             $("#your-collection-toggle .badge").html($("#your-collection .font-list .font").length).show();
+            $("#your-collection-toggle .badge").animate({
+              top:"-=4px"
+            },100,function(){
+              $(this).animate({top:"+=7px"},100,function(){
+                $(this).animate({top:"-=3px"},100);
+              });
+            });
+          }
 
           saveFonts();
         });
@@ -539,8 +554,16 @@
 
           });
 
-          if( typeof(frontend) != 'undefined' )
+          if( typeof(frontend) != 'undefined' ) {
             $("#your-collection-toggle .badge").html($("#your-collection .font-list .font").length).show();
+            $("#your-collection-toggle .badge").animate({
+              top:"-=4px"
+            },100,function(){
+              $(this).animate({top:"+=7px"},100,function(){
+                $(this).animate({top:"-=3px"},100);
+              });
+            });
+          }
 
           if( fontFamilyNames.length ){
 
