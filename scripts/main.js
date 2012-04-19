@@ -118,6 +118,10 @@
         }
   
         $( "#your-collection" ).find( ".font" ).filter( ":last-child" ).click();
+
+        if( typeof(frontend) != 'undefined' ) {
+          $("#your-collection-toggle .badge").html($("#your-collection .font-list .font").length).show();
+        }
       }
       
     });
@@ -515,6 +519,9 @@
             }
 
           });
+
+          if( typeof(frontend) != 'undefined' )
+            $("#your-collection-toggle .badge").html($("#your-collection .font-list .font").length).show();
 
           if( fontFamilyNames.length ){
 
