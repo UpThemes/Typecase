@@ -2,29 +2,29 @@
 
 class Typecase_Pro extends Typecase {
 
-	function Typecase(){
+	public function Typecase(){
 		$this->__construct();
 	}
 
-	function __construct() {
+	public function __construct() {
 
 		parent::__construct();
 
-		add_action('wp_ajax_reloadFontPreview',array($this,'ajax_reload_font_preview'));
-		add_action('init',array($this,'set_pro_filters'),1);
+		add_action('wp_ajax_reloadFontPreview',array(&$this,'ajax_reload_font_preview'));
+		add_action('init',array(&$this,'set_pro_filters'),1);
 
-		if( isset($_GET['front_end_editor']) ){
-			remove_action('wp_head',array($this,'display_frontend'));
-			add_action('init',array($this,'set_front_end_filters'),1);
-			add_action('init',array($this,'admin_styles'));
-			add_action('wp_head',array($this,'front_end_ajaxurl'));
-			add_action('init', array($this,'front_end_editor_styles'));
-			add_action('wp_footer',array($this,'ui'));
+		if( isset($_GET['front_end_editor']) && !is_admin() ){
+			remove_action('wp_head',array(&$this,'display_frontend'));
+			add_action('init',array(&$this,'set_front_end_filters'),1);
+			add_action('init',array(&$this,'admin_styles'));
+			add_action('wp_head',array(&$this,'front_end_ajaxurl'));
+			add_action('init', array(&$this,'front_end_editor_styles'));
+			add_action('wp_footer',array(&$this,'ui'));
 		}
 
 	}
 
-	function &init() {
+	public function &init() {
 		static $instance = false;
 
 		if ( !$instance ) {
@@ -34,37 +34,41 @@ class Typecase_Pro extends Typecase {
 		return $instance;
 	}
 
-	function set_pro_filters(){
-			add_filter('typecase-buttons',array($this,'buttons_replace'));
+	public function set_pro_filters(){
+			add_filter('typecase-buttons',array(&$this,'buttons_replace'));
 	}
 
-	function set_front_end_filters(){
-		add_filter('typecase-front-end-editor',array($this,'front_end_editor_ui'));
-		add_filter('typecase-classname',array($this,'front_end_classname'));
+	public function set_front_end_filters(){
+		add_filter('typecase-front-end-editor',array(&$this,'front_end_editor_ui'));
+		add_filter('typecase-classname',array(&$this,'front_end_classname'));
 	}
 
-	function front_end_ajaxurl() { ?>
-		<script type="text/javascript">
-		var ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>';
-		var frontend = true;
-		</script>
-		<?php
+	public function front_end_ajaxurl() {
+		$admin_url = admin_url('admin-ajax.php');
+		$nonce = wp_create_nonce($this->nonce_key);
+		$output = "
+			<script type='text/javascript'>
+				var ajaxurl = '$admin_url';
+				var frontend = true;
+				var typecase_nonce = '$nonce';
+			</script>";
+		echo $output;
 	}
 
-	function front_end_editor_styles(){
+	public function front_end_editor_styles(){
 
 		wp_enqueue_style('front-end-editor', plugins_url( 'styles/front_end_editor.css', __FILE__ ), false, date( 'Ymd' ) );
 		wp_enqueue_script('front-end-editor', plugins_url( 'scripts/pro.js', __FILE__ ), false, date( 'Ymd' ) );
 
 	}
 
-	function ajax_reload_font_preview(){
+	public function ajax_reload_font_preview(){
 
 		$fonts = get_option('typecase_fonts');
 
 		if( $fonts[0] ){
 
-			$apiUrl = "http://fonts.googleapis.com/css?family=";
+			$apiUrl = &$this->api_url;
 			$import_url = '';
 			$font_styles = '';
 			$font_weights = '';
@@ -124,7 +128,7 @@ class Typecase_Pro extends Typecase {
 
 	}
 
-	function buttons_replace($buttons){
+	public function buttons_replace($buttons){
 	
 		$buttons = '<div class="buttons"><span>Typecase Pro</span> <a class="typecase-btn primary" href="' . get_bloginfo('url') . '/?front_end_editor=1" target="_blank">' . __("Open Live Editor","typecase") . '</a> <a class="typecase-btn" href="http://upthemes.com/forum/" target="_blank">Support Forum</a></div>';
 		
@@ -132,12 +136,12 @@ class Typecase_Pro extends Typecase {
 
 	}
 
-	function front_end_editor_ui($editor_ui){
+	public function front_end_editor_ui($editor_ui){
 			$front_end_editor = '<a class="collection typecase-btn" id="your-collection-toggle" data-target="your-collection" href="">' . __("View Your Collection","typecase") . '</a> <a class="available typecase-btn" id="available-fonts-toggle" data-target="available-fonts" href="">' . __("Find New Fonts","typecase") . '</a>';
 			return $editor_ui.$front_end_editor;
 	}
 	
-	function front_end_classname($classname){
+	public function front_end_classname($classname){
 			$classname = ' class="front_end_editor"';
 			
 			return $classname;

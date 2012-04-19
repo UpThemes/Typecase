@@ -15,28 +15,31 @@ if ( !defined( 'ABSPATH' ) )
 
 class Typecase {
 
-	var $name = "Typecase";
+	protected $name = "Typecase";
+	protected $version = "standard";
+	protected $api_url = "http://fonts.googleapis.com/css?family=";
+	protected $nonce_key = '+Y|*Ec/-\s3';
 
-	function Typecase(){
+	public function Typecase(){
 		$this->__construct();
 	}
 
-	function __construct() {
-		register_activation_hook( __FILE__, array( $this, 'activate' ) );
-		register_deactivation_hook( __FILE__, array( $this, 'deactivate' ) );
+	public function __construct() {
+		register_activation_hook( __FILE__, array(&$this, 'activate' ) );
+		register_deactivation_hook( __FILE__, array(&$this, 'deactivate' ) );
 
 		if ( is_admin() ){
-			add_action('admin_menu',array($this,'admin_menu') );
-			add_action('wp_ajax_saveFonts',array($this,'ajax_save_fonts'));
-			add_action('wp_ajax_getFonts',array($this,'ajax_get_fonts'));
-			add_action('wp_ajax_clear_firsttimer',array($this,'ajax_clear_firsttimer'));
+			add_action('admin_menu',array(&$this,'admin_menu'));
+			add_action('admin_head', array(&$this, 'admin_head'));
+			add_action('wp_ajax_saveFonts',array(&$this,'ajax_save_fonts'));
+			add_action('wp_ajax_getFonts',array(&$this,'ajax_get_fonts'));
+			add_action('wp_ajax_clear_firsttimer',array(&$this,'ajax_clear_firsttimer'));
 		}else{
-			add_action('wp_head',array($this,'display_frontend'));
+			add_action('wp_head',array(&$this,'display_frontend'));
 		}
-
 	}
 
-	function &init() {
+	public function &init() {
 		static $instance = false;
 
 		if ( !$instance ) {
@@ -46,10 +49,12 @@ class Typecase {
 		return $instance;
 	}
 	
-	function ajax_save_fonts(){
+	public function ajax_save_fonts(){
+		
+		$this->verify_nonce($_POST['_nonce']);
 
 		// get the submitted parameters
-		$fonts = $_POST['json'];
+		$fonts = esc_html($_POST['json']);
 
 		$response_data = update_option('typecase_fonts',$fonts);
 
@@ -62,7 +67,9 @@ class Typecase {
 
 	}
 
-	function ajax_get_fonts(){
+	public function ajax_get_fonts(){
+		
+		$this->verify_nonce($_POST['_nonce']);
 
 		$fonts = get_option('typecase_fonts');
 
@@ -77,7 +84,9 @@ class Typecase {
 
 	}
 
-	function ajax_clear_firsttimer(){
+	public function ajax_clear_firsttimer(){
+		
+		$this->verify_nonce($_POST['_nonce']);
 
 		$firsttimer_update = update_option('typecase_firsttimer','disabled');
 
@@ -90,35 +99,40 @@ class Typecase {
 
 	}
 
-	function activate() {
+	public function activate() {
 	}
 
-	function deactivate() {
+	public function deactivate() {
 	}
 
-	function admin_init() {
+	public function admin_init() {
 		if ( !current_user_can( 'manage_options' ) )
 			return;
 
 		load_plugin_textdomain( 'typecase', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 
-	function admin_head() {
-
+	public function admin_head() {
+		$nonce = wp_create_nonce($this->nonce_key);
+		$output = "
+			<script type='text/javascript'>
+				var typecase_nonce = '$nonce';
+			</script>";
+		echo $output;
 	}
 
-	function admin_menu() {
+	public function admin_menu() {
 		$this->load_menu();
 	}
 
-	function load_menu() {
+	public function load_menu() {
 
-		$hook = add_menu_page( $this->name, $this->name, 'manage_options', 'typecase', array( $this, 'ui' ), plugins_url( 'images/ico_typecase.png', __FILE__ ) );
+		$hook = add_menu_page( $this->name, $this->name, 'manage_options', 'typecase', array(&$this, 'ui' ), plugins_url( 'images/ico_typecase.png', __FILE__ ) );
 		add_action( 'admin_print_styles-' . $hook, array($this,'admin_styles'));
 
 	}
 
-	function admin_styles() {
+	public function admin_styles() {
 
 		if ( !current_user_can( 'manage_options' ) )
 			return;
@@ -131,7 +145,7 @@ class Typecase {
 		wp_enqueue_style('journal-font', plugins_url( 'fonts/journal/journal.css', __FILE__ ), false, date( 'Ymd' ) );
 	}
 
-	function ui(){
+	public function ui(){
 
 		$title 							= __('Typecase','typecase');
 		$tagline 						= __('Beautiful web fonts for WordPress','typecase');
@@ -256,13 +270,13 @@ EOT;
 
 	}
 
-	function display_frontend(){
+	public function display_frontend(){
 
 		$fonts = get_option('typecase_fonts');
 
 		if( $fonts[0] ){
 
-			$apiUrl = "http://fonts.googleapis.com/css?family=";
+			$apiUrl = &$this->api_url;
 			$import_url = '';
 			$font_styles = '';
 			$font_weights = '';
@@ -315,11 +329,19 @@ EOT;
 		}
 
 	}
+	
+	protected function verify_nonce($nonce){
+		$nonce = esc_attr($nonce);
+		if(! wp_verify_nonce($nonce, $this->nonce_key))
+			die('Security check failed.');
+		else
+			return true;
+	}
 
 }
 
 if( file_exists( dirname(__FILE__) . '/pro.php' ) ){
-	require_once(dirname(__FILE__) . '/pro.php');
+	include_once(dirname(__FILE__) . '/pro.php');
 }else{
 	$typecase = Typecase::init();
 }
