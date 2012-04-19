@@ -17,6 +17,7 @@ class Typecase {
 
 	protected $name = "Typecase";
 	protected $version = "standard";
+	protected $api_url = "http://fonts.googleapis.com/css?family=";
 	protected $nonce_key = '+Y|*Ec/-\s3';
 
 	function Typecase(){
@@ -275,7 +276,7 @@ EOT;
 
 		if( $fonts[0] ){
 
-			$apiUrl = "http://fonts.googleapis.com/css?family=";
+			$apiUrl = &$this->api_url;
 			$import_url = '';
 			$font_styles = '';
 			$font_weights = '';

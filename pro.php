@@ -68,7 +68,7 @@ class Typecase_Pro extends Typecase {
 
 		if( $fonts[0] ){
 
-			$apiUrl = "http://fonts.googleapis.com/css?family=";
+			$apiUrl = &$this->api_url;
 			$import_url = '';
 			$font_styles = '';
 			$font_weights = '';
