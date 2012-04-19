@@ -177,14 +177,14 @@
             $( "#your-collection" ).find( ".sidebar" ).hide();
             $( "#your-collection" ).find( ".no-fonts" ).fadeIn();
           }
-    
+          
+          if( typeof(frontend) != 'undefined' )
+            $("#your-collection-toggle .badge").html($("#your-collection .font-list .font").length).show();
+
           saveFonts();
         });
     
-        $( "#available-fonts .font-list#loaded-fonts .font."+$( _this ).closest( ".font" ).find( ".font-sample span" ).prop( "class" )+" a.add" ).removeClass( "disabled" );
-        
-        if( typeof(frontend) != 'undefined' )
-            $("#your-collection-toggle .badge").html($("#your-collection .font-list .font").length).show();
+        $( "#available-fonts .font-list#loaded-fonts .font."+$( _this ).closest( ".font" ).find( ".font-sample span" ).prop( "class" )+" a.add" ).removeClass( "disabled" );      
         
         e.preventDefault();
       }
