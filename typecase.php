@@ -53,7 +53,7 @@ class Typecase {
 		$this->verify_nonce($_POST['_nonce']);
 
 		// get the submitted parameters
-		$fonts = $_POST['json'];
+		$fonts = esc_html($_POST['json']);
 
 		$response_data = update_option('typecase_fonts',$fonts);
 
