@@ -243,7 +243,7 @@ class Typecase {
 		if ( !current_user_can( 'manage_options' ) )
 			return;
 
-		$nonce = array( 'nonce' => wp_create_nonce($this->nonce_key) );
+		$nonce = array(  );
 
 		wp_enqueue_script('json2');
 		wp_enqueue_script('selectivizr', plugins_url( 'scripts/selectivizr-min.js', __FILE__ ), array('json2'), date( 'Ymd' ) );
@@ -252,7 +252,7 @@ class Typecase {
 		wp_enqueue_style('typecase', plugins_url( 'styles/main.css', __FILE__ ), false, date( 'Ymd' ) );
 		wp_enqueue_style('journal-font', plugins_url( 'fonts/journal/journal.css', __FILE__ ), false, date( 'Ymd' ) );
 
-		wp_localize_script( 'typecase', 'typecase', $nonce );
+		wp_localize_script( 'typecase', 'typecase', array( 'nonce' => wp_create_nonce($this->nonce_key), 'loading_gif' => plugins_url( 'images/loading.gif', __FILE__ ) ) );
 	}
 
 	/**
