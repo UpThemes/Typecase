@@ -7,7 +7,7 @@
 	* of fonts currently added to "Your Collection."
 	*/
 	function updateBadge(){
-		
+
 		if( typeof(frontend) != 'undefined' ) {
 		  $("#your-collection-toggle .badge").html($("#your-collection .font-list .font").length).show();
 		  $("#your-collection-toggle .badge").animate({
@@ -30,11 +30,11 @@
 			* Find all anchors and add the front_end_editor 
 			* variable to the end of each href.
 			*/
-			$("a").each(function(i){
+			$('*:not("#typecase") a:not([href*="wp-admin"])').each(function(i){
 				new_href = $(this).attr("href")+"?front_end_editor=1";
 				$(this).attr("href",new_href);
 			});
-	
+
 			// Badge Updater Event Attachments
 		  $( "#typecase" ).on( "click", "a.delete,a.add", $( this ), updateBadge );		
 			$( "#your-collection" ).bind( "collectionFontsLoaded", updateBadge );
@@ -71,7 +71,6 @@
 	  	$(this).toggleClass('active');
 	  	$('#available-fonts-wrap').toggleClass('active');
 	  });
-
 
 		/**
 		 * Toggle the "Your Collection" button
