@@ -404,7 +404,6 @@
         $("#variants-form").html(variantMarkup);
         $("#subsets-form").html(subsetsMarkup);
   
-        saveFonts();
       }
   
     });
