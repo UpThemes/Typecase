@@ -336,8 +336,10 @@ class Typecase {
 		    </header><!--/header-->
 		    <div class="content-wrap">
 		      <div class="no-fonts">
-		        <h2>$nofonts</h2>
-		        <h4>$addfonts</h4>
+		      	<div class="no-fonts-content">
+			        <h2>$nofonts</h2>
+			        <h4>$addfonts</h4>
+		        </div><!--/.no-fonts-content-->
 		      </div><!--/.no-fonts-->
 		      <div class="font-list-wrap">
 		        <div class="font-list">
@@ -378,8 +380,10 @@ class Typecase {
 		    <div class="content-wrap">
 		      <div class="font-list-wrap">
 		        <div class="no-results">
-		          <h2>$noresultstitle</h2>
-		          <h4>$noresultsdesc</h4>
+		        	<div class="no-results-content">
+			          <h2>$noresultstitle</h2>
+			          <h4>$noresultsdesc</h4>
+		         	</div><!--/.no-results-content-->
 		        </div><!--/.no-results-->
 		        <div class="font-list" id="loaded-fonts">
 		        </div><!--/.font-list#loaded-fonts-->

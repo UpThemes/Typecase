@@ -69,11 +69,27 @@
   }
 
   .no-fonts{
-    padding:20px;
+    padding:0;
+    height:100%;
+
+    .no-fonts-content {
+      top: 50%;
+      margin-top: -27px;
+    }
 
     h2{
       font-size:16px;
       line-height:21px;
+    }
+  }
+
+  .no-results{
+    padding:0;
+    height:100%;
+
+    .no-results-content {
+      top: 50%;
+      margin-top: -27px;
     }
   }
 
@@ -156,10 +172,10 @@
 
   }
   
-  #available-fonts{
+  #available-fonts-wrap{
 
     .arrow-down{
-      left:182px;
+      left:200px;
     }
     
   }
@@ -202,11 +218,17 @@
   #available-fonts {
     .content-wrap{
       border:0;
-      border-radius:0;
+      border-radius: 0 0 4px 4px;
       overflow:auto;
       position: absolute;
       top: 88px;
       bottom: 42px;
+    }
+  }
+
+  #available-fonts.searching {
+    .content-wrap {
+      bottom:0;
     }
   }
 

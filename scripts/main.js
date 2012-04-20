@@ -293,6 +293,7 @@
       $("#available-fonts .font-list#loaded-fonts").hide();
       $("#available-fonts .no-results").hide();
       $("#available-fonts .font-list#search-results").show();
+      $("#available-fonts").addClass("searching");
       
       if ( $(_this).val().length > 2 ) {
   
@@ -338,11 +339,13 @@
         $("#available-fonts .font-list#search-results").hide();
         $("#available-fonts .no-results").hide();
         $("#available-fonts #more-fonts").show();
+        $("#available-fonts").removeClass("searching");
       }
       else {
         $("#available-fonts .font-list#search-results").hide();
         $("#available-fonts .no-results").show();
         $("#available-fonts #more-fonts").hide();
+        $("#available-fonts").addClass("searching");
       }
     });
   
@@ -604,6 +607,7 @@
     $( "#more-fonts" ).click( function( e ){
       loadFonts();
       $( "#available-fonts .font-list#loaded-fonts" ).animate( {scrollTop:$( "#available-fonts .font-list#loaded-fonts" ).prop( "scrollHeight" )});
+      $( "#available-fonts .content-wrap" ).animate( {scrollTop:"+=647px"},1000);
       $( "#your-collection .font" ).each(function(){
         var fontName = $(this).attr("data-name").replace( / /g, '_' ).toLowerCase();
         $( "#available-fonts .font." + fontName ).find("a.add").addClass("disabled");
