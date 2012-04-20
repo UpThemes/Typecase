@@ -299,6 +299,8 @@
         var matchedFonts = "";
         var fontResults = new Array();
 
+        $("#available-fonts #more-fonts").hide();
+
         for( i = 0; i < Typecase.masterFontList.items.length; ++i ) { //iterate through all fonts
           if( Typecase.masterFontList.items[i].family.toLowerCase().match($('#search-input').val().toLowerCase() ) ) { //if a font matches the search term, add it to an array of matching fonts
             var family_class = Typecase.masterFontList.items[i].family.replace( / /g, '_' ).toLowerCase();
@@ -335,10 +337,12 @@
         $("#available-fonts .font-list#loaded-fonts").show();
         $("#available-fonts .font-list#search-results").hide();
         $("#available-fonts .no-results").hide();
+        $("#available-fonts #more-fonts").show();
       }
       else {
         $("#available-fonts .font-list#search-results").hide();
         $("#available-fonts .no-results").show();
+        $("#available-fonts #more-fonts").hide();
       }
     });
   
