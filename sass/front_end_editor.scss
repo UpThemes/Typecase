@@ -14,6 +14,29 @@
   @include background-image(linear-gradient(#303030, #141414));
   border-top:1px solid #000;
 
+  .badge {
+    display:none;
+    font-style:normal;
+    border-radius:1em;
+    background:darken(#ff0000,8%);
+    box-shadow:0 4px 8px rgba(#fff,.4) inset,
+               0 2px 5px black;
+    text-shadow:none;
+    padding:3px;
+    width:23px;
+    height:23px;
+    position:absolute;
+    top:-10px;
+    line-height:13px;
+    right:-6px;
+    border:solid 2px #fff;
+  }
+
+  .sidebar {
+    overflow:hidden;
+    height: 100%;
+  }
+
   #firsttimer{
     display:none;
   }
@@ -46,7 +69,13 @@
   }
 
   .no-fonts{
-    padding:20px;
+    padding:0;
+    height:100%;
+
+    .no-fonts-content {
+      top: 50%;
+      margin-top: -27px;
+    }
 
     h2{
       font-size:16px;
@@ -54,8 +83,18 @@
     }
   }
 
-  #your-collection,
-  #available-fonts{
+  .no-results{
+    padding:0;
+    height:100%;
+
+    .no-results-content {
+      top: 50%;
+      margin-top: -27px;
+    }
+  }
+
+  #your-collection-wrap,
+  #available-fonts-wrap,{
     display:none;
     left:0;
     right:0;
@@ -65,9 +104,15 @@
     box-shadow:0 0 30px rgba(0,0,0,0.7);
     background:#333;
     border-radius:6px;
-    // max-height:40%;
+    height:40%;
     overflow:visible;
     padding:4px;
+
+    #your-collection,
+    #available-fonts {
+      height:100%;
+      overflow:hidden;
+    }
 
     .font {
       height:62px;
@@ -94,19 +139,24 @@
     .content-wrap{
       border:0;
       border-radius:0 0 4px 4px;
-      overflow:hidden;
+      overflow:auto;
     }
     
-    .font-list{
+    .font-list,
+    .font-list#loaded-fonts,
+    .font-list#search-results{
       width:100%;
-      max-height:305px;
       margin:0;
+      height:100%;
       overflow:visible;
     }
 
     #more-fonts {
       margin:0;
       bottom:0;
+      position: absolute;
+      right: 0;
+      left: 0;
     }
   
     .arrow-down{
@@ -122,10 +172,10 @@
 
   }
   
-  #available-fonts{
+  #available-fonts-wrap{
 
     .arrow-down{
-      left:182px;
+      left:200px;
     }
     
   }
@@ -155,17 +205,31 @@
       box-shadow:0 3px 7px rgba(0,0,0,0.4) inset;
     }
     
-    .badge{
+  }
+
+  #your-collection {
+    .content-wrap {
       position:absolute;
-      right:-4px;
-      top:-8px;
-      border-radius: 70px;
-      width:18px;
-      height:18px;
-      color:white;
-      
+      top:41px;
+      bottom:0;
     }
-    
+  }
+
+  #available-fonts {
+    .content-wrap{
+      border:0;
+      border-radius: 0 0 4px 4px;
+      overflow:auto;
+      position: absolute;
+      top: 88px;
+      bottom: 42px;
+    }
+  }
+
+  #available-fonts.searching {
+    .content-wrap {
+      bottom:0;
+    }
   }
 
 }

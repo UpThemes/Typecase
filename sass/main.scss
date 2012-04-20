@@ -18,7 +18,11 @@
     position: relative;
     vertical-align: middle;
   }
-  
+
+	*:not(.font-item){
+		font-family: Helvetica, Arial, Verdana, sans-serif;
+	}
+
   .arrow-down{
   	display:none;
   }
@@ -38,6 +42,7 @@
     box-shadow: 0 1px 0 rgba(0,0,0,0.5),
     						0 1px 0 rgba(255,255,255,0.4) inset;
     text-shadow: 0 -1px 0 rgba(0,0,0,0.6);
+    @include transition(all 200ms ease-in);
 
 		&:hover {
     	@include background-image(linear-gradient(#909090,#555));
@@ -50,6 +55,10 @@
 			  @include background-image(linear-gradient(#3ab3f2,#0b84c2));
 			}
 		}
+
+    &.saving {
+      opacity:.5;
+    }
 		
 		&.large{
 			font-size:14px;
@@ -162,6 +171,8 @@
       color:#666;
       text-shadow:0 1px 1px #fff;
       margin-bottom:10px;
+      font-weight:bold;
+      font-size: 18px;
     }
 
     h4 {

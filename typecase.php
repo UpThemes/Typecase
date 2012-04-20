@@ -13,24 +13,58 @@ License: GPL2
 if ( !defined( 'ABSPATH' ) )
 	return;
 
+/**
+ * Typecase class
+ *
+ * @class Typecase	The class that holds the entire Typecase plugin
+ */
 class Typecase {
 
+	/**
+	 * @var $name				Variable for Typecase used throughout the plugin
+	 */
 	protected $name = "Typecase";
-	protected $version = "standard";
+
+	/**
+	 * @var $api_url		Our google web font URL
+	 */
 	protected $api_url = "http://fonts.googleapis.com/css?family=";
+
+	/**
+	 * @var $nonce_key	A security key used internally by the plugin
+	 */
 	protected $nonce_key = '+Y|*Ec/-\s3';
 
+	/**
+	 * PHP 5.3 and lower compatibility
+	 *
+	 * @uses Typecase::__construct()
+	 *
+	 */
 	public function Typecase(){
 		$this->__construct();
 	}
 
+	/**
+	 * Constructor for the Typecase class
+	 *
+	 * Sets up all the appropriate hooks and actions
+	 * within our plugin.
+	 *
+	 * @uses register_activation_hook()
+	 * @uses register_deactivation_hook()
+	 * @uses is_admin()
+	 * @uses add_action()
+	 *
+	 */
 	public function __construct() {
 		register_activation_hook( __FILE__, array(&$this, 'activate' ) );
 		register_deactivation_hook( __FILE__, array(&$this, 'deactivate' ) );
 
+		add_action('init',array(&$this,'localization_setup'));
+
 		if ( is_admin() ){
 			add_action('admin_menu',array(&$this,'admin_menu'));
-			add_action('admin_head', array(&$this, 'admin_head'));
 			add_action('wp_ajax_saveFonts',array(&$this,'ajax_save_fonts'));
 			add_action('wp_ajax_getFonts',array(&$this,'ajax_get_fonts'));
 			add_action('wp_ajax_clear_firsttimer',array(&$this,'ajax_clear_firsttimer'));
@@ -39,6 +73,15 @@ class Typecase {
 		}
 	}
 
+	/**
+	 * Initializes the Typecase() class
+	 *
+	 * Checks for an existing Typecase() instance 
+	 * and if it doesn't find one, creates it.
+	 *
+	 * @uses Typecase()
+	 *
+	 */
 	public function &init() {
 		static $instance = false;
 
@@ -49,16 +92,31 @@ class Typecase {
 		return $instance;
 	}
 	
+	/**
+	 * AJAX function for saving fonts
+	 *
+	 *
+	 * @uses Typecase::verify_nonce() 
+	 * @uses update_option()
+	 * @uses json_encode()
+	 * @uses header()
+	 * @return JSON object with fonts and font metadata
+	 *
+	 */
 	public function ajax_save_fonts(){
+
+		$nonce_verify = $this->verify_nonce($_REQUEST['_nonce']);
 		
-		$this->verify_nonce($_POST['_nonce']);
-
 		// get the submitted parameters
-		$fonts = esc_html($_POST['json']);
+		$fonts = $_REQUEST['json'];
 
-		$response_data = update_option('typecase_fonts',$fonts);
+		$verified = $nonce_verify ? true : false;
 
-		$response = json_encode( array( 'success' => $response_data ) );
+		$fonts = update_option('typecase_fonts',$fonts);
+		
+		$new_nonce = array( 'nonce' => wp_create_nonce($this->nonce_key) );
+
+		$response = json_encode( array( '_new_nonce' => $new_nonce, 'success' => $verified, 'fonts' => $fonts ) );
 
 		header( "Content-Type: application/json" );
 		echo $response;
@@ -66,16 +124,29 @@ class Typecase {
 		exit;
 
 	}
-
+	
+	/**
+	 * AJAX function for retrieving fonts
+	 *
+	 *
+	 * @uses Typecase::verify_nonce() 
+	 * @uses get_option()
+	 * @uses json_encode()
+	 * @uses header()
+	 * @return JSON object with fonts and font metadata
+	 *
+	 */
 	public function ajax_get_fonts(){
 		
-		$this->verify_nonce($_POST['_nonce']);
+		$this->verify_nonce($_GET['_nonce']);
 
 		$fonts = get_option('typecase_fonts');
 
 		$gotten = $fonts ? true : false;
 
-		$response = json_encode( array( 'success' => $gotten, 'fonts' => $fonts ) );
+		$new_nonce = array( 'nonce' => wp_create_nonce($this->nonce_key) );
+
+		$response = json_encode( array( '_new_nonce' => $new_nonce, 'success' => $gotten, 'fonts' => $fonts ) );
 
 		header( "Content-Type: application/json" );
 		echo $response;
@@ -84,13 +155,25 @@ class Typecase {
 
 	}
 
+	/**
+	 * AJAX function to remove yellow instructional box
+	 *
+	 * @uses Typecase::verify_nonce() 
+	 * @uses update_option()
+	 * @uses json_encode()
+	 * @uses header()
+	 * @return JSON object with fonts and font metadata
+	 *
+	 */
 	public function ajax_clear_firsttimer(){
 		
-		$this->verify_nonce($_POST['_nonce']);
+		$this->verify_nonce($_GET['_nonce']);
 
 		$firsttimer_update = update_option('typecase_firsttimer','disabled');
 
-		$response = json_encode( array( 'success' => $firsttimer_update ) );
+		$new_nonce = array( 'nonce' => wp_create_nonce($this->nonce_key) );
+
+		$response = json_encode( array( '_new_nonce' => $new_nonce, 'success' => $firsttimer_update ) );
 
 		header( "Content-Type: application/json" );
 		echo $response;
@@ -99,43 +182,68 @@ class Typecase {
 
 	}
 
-	public function activate() {
-	}
+	/**
+	 * Placeholder for activation function
+	 *
+	 * Nothing being called here yet.
+	 */
+	public function activate() {}
 
-	public function deactivate() {
-	}
+	/**
+	 * Placeholder for deactivation function
+	 *
+	 * Nothing being called here yet.
+	 */
+	public function deactivate() {}
 
-	public function admin_init() {
-		if ( !current_user_can( 'manage_options' ) )
-			return;
-
+	/**
+	 * Initialize plugin for localization
+	 *
+	 * @uses load_plugin_textdomain()
+	 *
+	 */
+	public function localization_setup() {
 		load_plugin_textdomain( 'typecase', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 
-	public function admin_head() {
-		$nonce = wp_create_nonce($this->nonce_key);
-		$output = "
-			<script type='text/javascript'>
-				var typecase_nonce = '$nonce';
-			</script>";
-		echo $output;
-	}
-
+	/**
+	 * Initialize admin menu
+	 *
+	 * @uses Typecase::load_menu()
+	 *
+	 */
 	public function admin_menu() {
 		$this->load_menu();
 	}
 
+	/**
+	 * Initialize admin menu
+	 *
+	 * @uses Typecase::load_menu()
+	 *
+	 */
 	public function load_menu() {
-
 		$hook = add_menu_page( $this->name, $this->name, 'manage_options', 'typecase', array(&$this, 'ui' ), plugins_url( 'images/ico_typecase.png', __FILE__ ) );
 		add_action( 'admin_print_styles-' . $hook, array($this,'admin_styles'));
-
 	}
 
+	/**
+	 * Enqueue admin styles and scripts
+	 *
+	 * Also creates a nonce for saving font data.
+	 *
+	 * @uses current_user_can()
+	 * @uses wp_create_nonce()
+	 * @uses wp_enqueue_script()
+	 * @uses wp_enqueue_style()
+	 * @uses wp_localize_script()
+	 *
+	 */
 	public function admin_styles() {
-
 		if ( !current_user_can( 'manage_options' ) )
 			return;
+
+		$nonce = array(  );
 
 		wp_enqueue_script('json2');
 		wp_enqueue_script('selectivizr', plugins_url( 'scripts/selectivizr-min.js', __FILE__ ), array('json2'), date( 'Ymd' ) );
@@ -143,10 +251,25 @@ class Typecase {
 		wp_enqueue_script('typecase', plugins_url( 'scripts/main.js', __FILE__ ), array('jquery','google-api'), date( 'Ymd' ) );
 		wp_enqueue_style('typecase', plugins_url( 'styles/main.css', __FILE__ ), false, date( 'Ymd' ) );
 		wp_enqueue_style('journal-font', plugins_url( 'fonts/journal/journal.css', __FILE__ ), false, date( 'Ymd' ) );
+
+		wp_localize_script( 'typecase', 'typecase', array( 'nonce' => wp_create_nonce($this->nonce_key), 'loading_gif' => plugins_url( 'images/loading.gif', __FILE__ ) ) );
 	}
 
+	/**
+	 * Creates the user interface markup
+	 *
+	 * Also contains strings that are being localized.
+	 *
+	 * @uses __()
+	 * @uses get_option()
+	 * @uses apply_filters()
+	 *
+	 */
 	public function ui(){
-
+	
+		if( !current_user_can('manage_options') )
+			return;
+	
 		$title 							= __('Typecase','typecase');
 		$tagline 						= __('Beautiful web fonts for WordPress','typecase');
 		$collection 				= __('Your Collection','typecase');
@@ -206,14 +329,17 @@ class Typecase {
 			</header>
 			$firsttimer
 			$front_end_editor
+			<div id="your-collection-wrap">
 		  <div id="your-collection">
 		    <header>
 		      <h1>$collection</h1>
 		    </header><!--/header-->
 		    <div class="content-wrap">
 		      <div class="no-fonts">
-		        <h2>$nofonts</h2>
-		        <h4>$addfonts</h4>
+		      	<div class="no-fonts-content">
+			        <h2>$nofonts</h2>
+			        <h4>$addfonts</h4>
+		        </div><!--/.no-fonts-content-->
 		      </div><!--/.no-fonts-->
 		      <div class="font-list-wrap">
 		        <div class="font-list">
@@ -239,8 +365,10 @@ class Typecase {
 		      </div><!--/.sidebar-->
 		      <div class="clear"></div>
 		    </div><!--/.content-wrap-->
-			  <span class="arrow-down"></span>
 		  </div><!--/#your-collection-->
+		  <span class="arrow-down"></span>
+		  </div><!--/#your-collection-wrap-->
+		  <div id="available-fonts-wrap">
 		  <div id="available-fonts">
 		    <header>
 		      <h1>$availablefonts</h1>
@@ -252,8 +380,10 @@ class Typecase {
 		    <div class="content-wrap">
 		      <div class="font-list-wrap">
 		        <div class="no-results">
-		          <h2>$noresultstitle</h2>
-		          <h4>$noresultsdesc</h4>
+		        	<div class="no-results-content">
+			          <h2>$noresultstitle</h2>
+			          <h4>$noresultsdesc</h4>
+		         	</div><!--/.no-results-content-->
 		        </div><!--/.no-results-->
 		        <div class="font-list" id="loaded-fonts">
 		        </div><!--/.font-list#loaded-fonts-->
@@ -262,16 +392,29 @@ class Typecase {
 		      </div><!--/.font-list-wrap-->
 		    </div><!--/.content-wrap-->
 	      <a id="more-fonts" class="typecase-btn primary" href=""><span>$showmorefonts</span></a>
-			  <span class="arrow-down"></span>
 		  </div><!--/#available-fonts-->
+		  <span class="arrow-down"></span>
+		  </div><!--/#available-fonts-wrap-->
 		</div><!--/#typecase-->
 		<div class="typecase_copyright">$copyright <a id="upthemes" href="http://upthemes.com">UpThemes</a></div>
 EOT;
-
 	}
 
+	/**
+	 * Displays CSS on the front-end for web fonts
+	 *
+	 * The font data array is parsed and we load in the required
+	 * weights, variants, and characters sets.
+	 *
+	 * @uses get_option()
+	 * @uses get_option()
+	 * @uses apply_filters()
+	 *
+	 * @todo Parse and load variants properly.
+	 * @todo Parse and load charsets at all.
+	 *
+	 */
 	public function display_frontend(){
-
 		$fonts = get_option('typecase_fonts');
 
 		if( $fonts[0] ){
@@ -327,9 +470,15 @@ EOT;
 			echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 
 		}
-
 	}
-	
+
+	/**
+	 * Verify nonces against our $nonce_key var
+	 *
+	 * @uses esc_attr()
+	 * @uses wp_verify_nonce()
+	 *
+	 */
 	protected function verify_nonce($nonce){
 		$nonce = esc_attr($nonce);
 		if(! wp_verify_nonce($nonce, $this->nonce_key))
@@ -340,6 +489,14 @@ EOT;
 
 }
 
+/**
+ * Bootstrap Typecase Pro, if it exists.
+ *
+ * @uses file_exists()
+ * @uses dirname()
+ * @uses Typecase::init()
+ *
+ */
 if( file_exists( dirname(__FILE__) . '/pro.php' ) ){
 	include_once(dirname(__FILE__) . '/pro.php');
 }else{
