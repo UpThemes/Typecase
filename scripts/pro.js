@@ -1,6 +1,24 @@
 ;(function($) {
 
+	function updateBadge(){
+		
+		if( typeof(frontend) != 'undefined' ) {
+		  $("#your-collection-toggle .badge").html($("#your-collection .font-list .font").length).show();
+		  $("#your-collection-toggle .badge").animate({
+		    top:"-=4px"
+		  },100,function(){
+		    $(this).animate({top:"+=7px"},100,function(){
+		      $(this).animate({top:"-=3px"},100);
+		    });
+		  });
+		}
+
+	}
+
   $( document ).ready( function(){
+
+	  $( "#typecase" ).on( "click", "a.delete,a.add", $( this ), updateBadge );		
+		$( "#your-collection" ).bind( "collectionFontsLoaded", updateBadge );
 
 		if( typeof(frontend) != 'undefined' ){
 			

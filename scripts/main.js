@@ -61,7 +61,7 @@
 	    element.onmousedown = function() { return false; };
 	  }
 	}
-
+	
   $( document ).ready( function(){
 
     $( "#your-collection" ).on( "click", "a.delete", $( this ), removeFont );
@@ -76,7 +76,7 @@
     $( "#subsets-form" ).on( "click", "input[type='checkbox']", $( this ), toggleSubset );
 
     $( ".sidebar" ).on( "click", "#save-fonts", $( this ), saveFonts );
-    
+
     $( "#search" ).on( "keyup", "#search-input", $( this ), searchFonts );
   
     $( "#your-collection" ).on( "click", ".font", $( this ), activateFont );
@@ -566,18 +566,9 @@
 
           });
 
-          if( typeof(frontend) != 'undefined' ) {
-            $("#your-collection-toggle .badge").html($("#your-collection .font-list .font").length).show();
-            $("#your-collection-toggle .badge").animate({
-              top:"-=4px"
-            },100,function(){
-              $(this).animate({top:"+=7px"},100,function(){
-                $(this).animate({top:"-=3px"},100);
-              });
-            });
-          }
-
           if( fontFamilyNames.length ){
+
+						$("#your-collection").trigger('collectionFontsLoading');
 
             $( "#your-collection" ).find( ".no-fonts" ).hide();
             $( "#your-collection" ).find( ".font-list" ).show();
@@ -587,11 +578,13 @@
               var fontName = $(this).attr("data-name").replace( / /g, '_' ).toLowerCase();
               $( "#available-fonts .font." + fontName ).find("a.add").addClass("disabled");
             });
-    
+
             WebFont.load( {
               google: {
                 families: fontFamilyNames
             }});
+
+						$("#your-collection").trigger('collectionFontsLoaded');
 
           }
         }
@@ -604,7 +597,8 @@
       loadUserData();
     });
   
-    $( "#more-fonts" ).click( function( e ){
+    $( "#more-fonts" ).on("click", function( e ){
+      $(this).trigger('moreFontsLoading');
       loadFonts();
       $( "#available-fonts .font-list#loaded-fonts" ).animate( {scrollTop:$( "#available-fonts .font-list#loaded-fonts" ).prop( "scrollHeight" )});
       $( "#available-fonts .content-wrap" ).animate( {scrollTop:"+=647px"},1000);
@@ -612,6 +606,7 @@
         var fontName = $(this).attr("data-name").replace( / /g, '_' ).toLowerCase();
         $( "#available-fonts .font." + fontName ).find("a.add").addClass("disabled");
       });
+      $(this).trigger('moreFontsLoaded');
       e.preventDefault();
     });
   });
