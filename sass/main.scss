@@ -19,10 +19,6 @@
     vertical-align: middle;
   }
 
-	*:not(.font-item){
-		font-family: Helvetica, Arial, Verdana, sans-serif;
-	}
-
   .arrow-down{
   	display:none;
   }
@@ -853,7 +849,7 @@
 
 .typecase_copyright{
 	color: #666;
-	margin: 20px 0 40px;
+	margin: 20px 0 40px 16px;
 	display: block;
 
 	#upthemes{
