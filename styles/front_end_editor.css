@@ -484,6 +484,10 @@ table {
   border-top: 1px solid #000;
 }
 /* line 17, ../sass/front_end_editor.scss */
+#typecase *:not(.font-item) {
+  font-family: Helvetica, Arial, Verdana, sans-serif;
+}
+/* line 21, ../sass/front_end_editor.scss */
 #typecase .badge {
   display: none;
   font-style: normal;
@@ -500,16 +504,16 @@ table {
   right: -6px;
   border: solid 2px #fff;
 }
-/* line 35, ../sass/front_end_editor.scss */
+/* line 39, ../sass/front_end_editor.scss */
 #typecase .sidebar {
   overflow: hidden;
   height: 100%;
 }
-/* line 40, ../sass/front_end_editor.scss */
+/* line 44, ../sass/front_end_editor.scss */
 #typecase #firsttimer {
   display: none;
 }
-/* line 45, ../sass/front_end_editor.scss */
+/* line 49, ../sass/front_end_editor.scss */
 #typecase #masthead h1 {
   width: auto;
   background: none;
@@ -522,44 +526,44 @@ table {
   padding: 0;
   box-shadow: none;
 }
-/* line 57, ../sass/front_end_editor.scss */
+/* line 61, ../sass/front_end_editor.scss */
 #typecase #masthead h1 strong {
   margin: 7px 0 0;
   border: 0;
   background-image: url("../images/logo_typecase_small.png");
   background-repeat: no-repeat;
 }
-/* line 65, ../sass/front_end_editor.scss */
+/* line 69, ../sass/front_end_editor.scss */
 #typecase #masthead h1 span,
 #typecase #masthead h1 .buttons {
   display: none;
 }
-/* line 71, ../sass/front_end_editor.scss */
+/* line 75, ../sass/front_end_editor.scss */
 #typecase .no-fonts {
   padding: 0;
   height: 100%;
 }
-/* line 75, ../sass/front_end_editor.scss */
+/* line 79, ../sass/front_end_editor.scss */
 #typecase .no-fonts .no-fonts-content {
   top: 50%;
   margin-top: -27px;
 }
-/* line 80, ../sass/front_end_editor.scss */
+/* line 84, ../sass/front_end_editor.scss */
 #typecase .no-fonts h2 {
   font-size: 16px;
   line-height: 21px;
 }
-/* line 86, ../sass/front_end_editor.scss */
+/* line 90, ../sass/front_end_editor.scss */
 #typecase .no-results {
   padding: 0;
   height: 100%;
 }
-/* line 90, ../sass/front_end_editor.scss */
+/* line 94, ../sass/front_end_editor.scss */
 #typecase .no-results .no-results-content {
   top: 50%;
   margin-top: -27px;
 }
-/* line 97, ../sass/front_end_editor.scss */
+/* line 101, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap,
 #typecase #available-fonts-wrap {
   display: none;
@@ -575,7 +579,7 @@ table {
   overflow: visible;
   padding: 4px;
 }
-/* line 112, ../sass/front_end_editor.scss */
+/* line 116, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap #your-collection,
 #typecase #your-collection-wrap #available-fonts,
 #typecase #available-fonts-wrap #your-collection,
@@ -583,41 +587,41 @@ table {
   height: 100%;
   overflow: hidden;
 }
-/* line 117, ../sass/front_end_editor.scss */
+/* line 121, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap .font,
 #typecase #available-fonts-wrap .font {
   height: 62px;
 }
-/* line 121, ../sass/front_end_editor.scss */
+/* line 125, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap .font-name,
 #typecase #available-fonts-wrap .font-name {
   font-family: Arial,sans-serif;
 }
-/* line 125, ../sass/front_end_editor.scss */
+/* line 129, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap .font-sample,
 #typecase #available-fonts-wrap .font-sample {
   height: 61px;
 }
-/* line 129, ../sass/front_end_editor.scss */
+/* line 133, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap.active,
 #typecase #available-fonts-wrap.active {
   display: block;
 }
-/* line 133, ../sass/front_end_editor.scss */
+/* line 137, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap header,
 #typecase #available-fonts-wrap header {
   border-top-width: 0;
   border-left-width: 0;
   border-right-width: 0;
 }
-/* line 139, ../sass/front_end_editor.scss */
+/* line 143, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap .content-wrap,
 #typecase #available-fonts-wrap .content-wrap {
   border: 0;
   border-radius: 0 0 4px 4px;
   overflow: auto;
 }
-/* line 147, ../sass/front_end_editor.scss */
+/* line 151, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap .font-list,
 #typecase #your-collection-wrap .font-list#loaded-fonts,
 #typecase #your-collection-wrap .font-list#search-results,
@@ -629,7 +633,7 @@ table {
   height: 100%;
   overflow: visible;
 }
-/* line 154, ../sass/front_end_editor.scss */
+/* line 158, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap #more-fonts,
 #typecase #available-fonts-wrap #more-fonts {
   margin: 0;
@@ -638,7 +642,7 @@ table {
   right: 0;
   left: 0;
 }
-/* line 162, ../sass/front_end_editor.scss */
+/* line 166, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap .arrow-down,
 #typecase #available-fonts-wrap .arrow-down {
   display: block;
@@ -650,11 +654,11 @@ table {
   left: 71px;
   background-image: url("../images/arrow_down.png");
 }
-/* line 177, ../sass/front_end_editor.scss */
+/* line 181, ../sass/front_end_editor.scss */
 #typecase #available-fonts-wrap .arrow-down {
   left: 200px;
 }
-/* line 183, ../sass/front_end_editor.scss */
+/* line 187, ../sass/front_end_editor.scss */
 #typecase > .typecase-btn {
   color: white;
   display: block;
@@ -675,7 +679,7 @@ table {
   background-image: -ms-linear-gradient(#303030, #141414);
   background-image: linear-gradient(#303030, #141414);
 }
-/* line 198, ../sass/front_end_editor.scss */
+/* line 202, ../sass/front_end_editor.scss */
 #typecase > .typecase-btn:hover {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #393939), color-stop(100%, #141414));
   background-image: -webkit-linear-gradient(#393939, #141414);
@@ -684,18 +688,18 @@ table {
   background-image: -ms-linear-gradient(#393939, #141414);
   background-image: linear-gradient(#393939, #141414);
 }
-/* line 203, ../sass/front_end_editor.scss */
+/* line 207, ../sass/front_end_editor.scss */
 #typecase > .typecase-btn:active, #typecase > .typecase-btn.active {
   background: #181818;
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.4) inset;
 }
-/* line 211, ../sass/front_end_editor.scss */
+/* line 215, ../sass/front_end_editor.scss */
 #typecase #your-collection .content-wrap {
   position: absolute;
   top: 41px;
   bottom: 0;
 }
-/* line 219, ../sass/front_end_editor.scss */
+/* line 223, ../sass/front_end_editor.scss */
 #typecase #available-fonts .content-wrap {
   border: 0;
   border-radius: 0 0 4px 4px;
@@ -704,7 +708,7 @@ table {
   top: 88px;
   bottom: 42px;
 }
-/* line 230, ../sass/front_end_editor.scss */
+/* line 234, ../sass/front_end_editor.scss */
 #typecase #available-fonts.searching .content-wrap {
   bottom: 0;
 }
