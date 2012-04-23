@@ -64,7 +64,7 @@
 	
   $( document ).ready( function(){
 
-    $( "#your-collection" ).on( "click", "a.delete", $( this ), removeFont );
+    $( "#your-collection .font-list" ).on( "click", "a.delete", $( this ), removeFont );
     $( "#available-fonts" ).on( "click", "a.add", $( this ), addFont );
     $( "#available-fonts" ).on( "dblclick", ".font", $( this ), addFont );
   
