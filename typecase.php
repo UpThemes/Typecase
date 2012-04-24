@@ -330,6 +330,7 @@ class Typecase {
 			$firsttimer
 			$front_end_editor
 			<div id="your-collection-wrap">
+			<iframe></iframe>
 		  <div id="your-collection">
 		    <header>
 		      <h1>$collection</h1>
@@ -369,6 +370,7 @@ class Typecase {
 		  <span class="arrow-down"></span>
 		  </div><!--/#your-collection-wrap-->
 		  <div id="available-fonts-wrap">
+		  <iframe></iframe>
 		  <div id="available-fonts">
 		    <header>
 		      <h1>$availablefonts</h1>
