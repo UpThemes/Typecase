@@ -112,6 +112,7 @@
 			padding:20px;
 			margin-bottom:10px;
 			height:auto;
+      position:static;
 
 			strong{
 				background-image: url("../images/logo_typecase.png");
@@ -131,10 +132,21 @@
 				text-shadow: none;
 			}
 
+      .pro-badge {
+        display:block;
+        float:right;
+        position:absolute;
+        top:-1px;
+        right:-1px;
+        width:32px;
+        height:32px;
+        background-image:url("../images/pro_badge.png");
+      }
 		}
 
 		.buttons{
 			margin-left:25px;
+      position:static;
 			font-family: Helvetica, Arial, Tahoma, sans-serif;
 			float:right;
 			text-shadow:none;
@@ -142,8 +154,10 @@
 			font-size: 11px;
 			clear:none;
 			line-height:21px;
-			margin-top:-7px;
+			margin-top:7px;
 			text-align:right;
+
+      a.primary {margin-right:10px}
 
 			span{
 				display:block;
