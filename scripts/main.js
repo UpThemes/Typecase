@@ -520,6 +520,7 @@
   
         $( Typecase.fontList.items.splice( Typecase.start,Typecase.show ) ).each( function( e ){
           fontFamilies.push( [this.family,this.variants,this.subsets] );
+          console.log("wf-" this.family + "-n4-inactive");
         });
   
         getGoogleFonts( fontFamilies );
