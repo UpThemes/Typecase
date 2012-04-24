@@ -392,8 +392,8 @@ class Typecase {
 		        <div class="font-list" id="search-results">
 		        </div><!--/.font-list#search-results-->
 		      </div><!--/.font-list-wrap-->
+					<a id="more-fonts" class="typecase-btn primary" href=""><span>$showmorefonts</span></a>
 		    </div><!--/.content-wrap-->
-	      <a id="more-fonts" class="typecase-btn primary" href=""><span>$showmorefonts</span></a>
 		  </div><!--/#available-fonts-->
 		  <span class="arrow-down"></span>
 		  </div><!--/#available-fonts-wrap-->

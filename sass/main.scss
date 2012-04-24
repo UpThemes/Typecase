@@ -10,7 +10,7 @@
 }
 
 #typecase {
-		margin:10px 15px 2px;
+	margin:10px 15px 2px;
 
   * {
     -moz-box-sizing: border-box;
@@ -21,6 +21,10 @@
 
   .arrow-down{
   	display:none;
+  }
+
+  iframe {
+    display:none;
   }
 
   .typecase-btn {

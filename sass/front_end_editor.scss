@@ -19,6 +19,7 @@
 	}
 
   iframe {
+    display:block;
     position:absolute;
     left:0;
     top:0;
@@ -47,7 +48,7 @@
   }
 
   .sidebar {
-    overflow:hidden;
+    overflow:auto;
     height: 100%;
   }
 
@@ -125,7 +126,6 @@
     #your-collection,
     #available-fonts {
       height:100%;
-      overflow:hidden;
     }
 
     .font {
@@ -150,27 +150,58 @@
       border-right-width:0;
     }
     
-    .content-wrap{
+    #available-fonts .content-wrap{
       border:0;
       border-radius:0 0 4px 4px;
-      overflow:auto;
+      position:absolute;
+      bottom:0;
+      top:88px;
     }
     
     .font-list,
     .font-list#loaded-fonts,
     .font-list#search-results{
-      width:100%;
       margin:0;
-      height:100%;
-      overflow:visible;
     }
 
-    #more-fonts {
-      margin:0;
+    #available-fonts .font-list-wrap {
+      position:absolute;
+      bottom:39px;
+      left:0;
+      right:0;
+      top:0;
+      overflow:auto;
+    }
+
+    #your-collection .content-wrap {
+      height:100%;
+    }
+
+    #your-collection .font-list-wrap {
+      width:100%;
+      height:100%;
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
       bottom:0;
-      position: absolute;
-      right: 0;
-      left: 0;
+      overflow:auto;
+    }
+
+    #your-collection .sidebar {
+      position:absolute;
+      top:0;
+      right:0;
+      background:#f6f6f6;
+      border:0;
+      padding-bottom:55px;
+      border-left:solid 1px #ccc;
+    }
+
+    #your-collection .font-list {
+      width:70%;
+      height:100%;
+      overflow:visible;
     }
   
     .arrow-down{
@@ -182,6 +213,13 @@
       z-index:9999;
       left:71px;
       background-image:url("../images/arrow_down.png");
+    }
+
+    #more-fonts {
+      position:absolute;
+      bottom:0;
+      right:0;
+      left:0;
     }
 
   }
@@ -223,26 +261,19 @@
 
   #your-collection {
     .content-wrap {
-      position:absolute;
-      top:41px;
-      bottom:0;
+
     }
   }
 
   #available-fonts {
     .content-wrap{
-      border:0;
-      border-radius: 0 0 4px 4px;
-      overflow:auto;
-      position: absolute;
-      top: 88px;
-      bottom: 42px;
+      
     }
   }
 
   #available-fonts.searching {
     .content-wrap {
-      bottom:0;
+      
     }
   }
 
