@@ -471,7 +471,7 @@ table {
   left: 0;
   bottom: 0;
   right: 0;
-  height: 35px;
+  height: 45px;
   margin: 0;
   padding: 4px 7px;
   background: #272727;
@@ -569,13 +569,14 @@ table {
 #typecase .no-results {
   padding: 0;
   height: 100%;
+  border: 0;
 }
-/* line 106, ../sass/front_end_editor.scss */
+/* line 107, ../sass/front_end_editor.scss */
 #typecase .no-results .no-results-content {
   top: 50%;
   margin-top: -27px;
 }
-/* line 113, ../sass/front_end_editor.scss */
+/* line 114, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap,
 #typecase #available-fonts-wrap {
   display: none;
@@ -591,41 +592,41 @@ table {
   overflow: visible;
   padding: 4px;
 }
-/* line 128, ../sass/front_end_editor.scss */
+/* line 129, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap #your-collection,
 #typecase #your-collection-wrap #available-fonts,
 #typecase #available-fonts-wrap #your-collection,
 #typecase #available-fonts-wrap #available-fonts {
   height: 100%;
 }
-/* line 132, ../sass/front_end_editor.scss */
+/* line 133, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap .font,
 #typecase #available-fonts-wrap .font {
   height: 62px;
 }
-/* line 136, ../sass/front_end_editor.scss */
+/* line 137, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap .font-name,
 #typecase #available-fonts-wrap .font-name {
   font-family: Arial,sans-serif;
 }
-/* line 140, ../sass/front_end_editor.scss */
+/* line 141, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap .font-sample,
 #typecase #available-fonts-wrap .font-sample {
   height: 61px;
 }
-/* line 144, ../sass/front_end_editor.scss */
+/* line 145, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap.active,
 #typecase #available-fonts-wrap.active {
   display: block;
 }
-/* line 148, ../sass/front_end_editor.scss */
+/* line 149, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap header,
 #typecase #available-fonts-wrap header {
   border-top-width: 0;
   border-left-width: 0;
   border-right-width: 0;
 }
-/* line 154, ../sass/front_end_editor.scss */
+/* line 155, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap #available-fonts .content-wrap,
 #typecase #available-fonts-wrap #available-fonts .content-wrap {
   border: 0;
@@ -633,8 +634,14 @@ table {
   position: absolute;
   bottom: 0;
   top: 88px;
+  overflow: hidden;
 }
 /* line 164, ../sass/front_end_editor.scss */
+#typecase #your-collection-wrap #available-fonts .font-list,
+#typecase #available-fonts-wrap #available-fonts .font-list {
+  overflow: hidden;
+}
+/* line 170, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap .font-list,
 #typecase #your-collection-wrap .font-list#loaded-fonts,
 #typecase #your-collection-wrap .font-list#search-results,
@@ -643,7 +650,7 @@ table {
 #typecase #available-fonts-wrap .font-list#search-results {
   margin: 0;
 }
-/* line 168, ../sass/front_end_editor.scss */
+/* line 174, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap #available-fonts .font-list-wrap,
 #typecase #available-fonts-wrap #available-fonts .font-list-wrap {
   position: absolute;
@@ -653,12 +660,17 @@ table {
   top: 0;
   overflow: auto;
 }
-/* line 177, ../sass/front_end_editor.scss */
+/* line 183, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap #your-collection .content-wrap,
 #typecase #available-fonts-wrap #your-collection .content-wrap {
-  height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 41px;
+  border: 0;
 }
-/* line 181, ../sass/front_end_editor.scss */
+/* line 192, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap #your-collection .font-list-wrap,
 #typecase #available-fonts-wrap #your-collection .font-list-wrap {
   width: 100%;
@@ -669,26 +681,36 @@ table {
   right: 0;
   bottom: 0;
   overflow: auto;
+  border: 0;
 }
-/* line 192, ../sass/front_end_editor.scss */
+/* line 204, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap #your-collection .sidebar,
 #typecase #available-fonts-wrap #your-collection .sidebar {
   position: absolute;
   top: 0;
-  right: 0;
+  left: 70%;
   background: #f6f6f6;
   border: 0;
   padding-bottom: 55px;
   border-left: solid 1px #ccc;
 }
-/* line 202, ../sass/front_end_editor.scss */
+/* line 214, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap #your-collection .font-list,
 #typecase #available-fonts-wrap #your-collection .font-list {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
   width: 70%;
-  height: 100%;
+  margin-right: -1px;
   overflow: visible;
 }
-/* line 208, ../sass/front_end_editor.scss */
+/* line 224, ../sass/front_end_editor.scss */
+#typecase #your-collection-wrap #your-collection .font,
+#typecase #available-fonts-wrap #your-collection .font {
+  -moz-box-sizing: content-box;
+}
+/* line 228, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap .arrow-down,
 #typecase #available-fonts-wrap .arrow-down {
   display: block;
@@ -700,7 +722,7 @@ table {
   left: 71px;
   background-image: url("../images/arrow_down.png");
 }
-/* line 219, ../sass/front_end_editor.scss */
+/* line 239, ../sass/front_end_editor.scss */
 #typecase #your-collection-wrap #more-fonts,
 #typecase #available-fonts-wrap #more-fonts {
   position: absolute;
@@ -708,11 +730,11 @@ table {
   right: 0;
   left: 0;
 }
-/* line 230, ../sass/front_end_editor.scss */
+/* line 250, ../sass/front_end_editor.scss */
 #typecase #available-fonts-wrap .arrow-down {
   left: 200px;
 }
-/* line 236, ../sass/front_end_editor.scss */
+/* line 256, ../sass/front_end_editor.scss */
 #typecase > .typecase-btn {
   color: white;
   display: block;
@@ -733,7 +755,7 @@ table {
   background-image: -ms-linear-gradient(#303030, #141414);
   background-image: linear-gradient(#303030, #141414);
 }
-/* line 251, ../sass/front_end_editor.scss */
+/* line 271, ../sass/front_end_editor.scss */
 #typecase > .typecase-btn:hover {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #393939), color-stop(100%, #141414));
   background-image: -webkit-linear-gradient(#393939, #141414);
@@ -742,7 +764,7 @@ table {
   background-image: -ms-linear-gradient(#393939, #141414);
   background-image: linear-gradient(#393939, #141414);
 }
-/* line 256, ../sass/front_end_editor.scss */
+/* line 276, ../sass/front_end_editor.scss */
 #typecase > .typecase-btn:active, #typecase > .typecase-btn.active {
   background: #181818;
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.4) inset;

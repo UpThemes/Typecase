@@ -7,7 +7,7 @@
   left:0;
   bottom:0;
   right:0;
-  height:35px;
+  height:45px;
   margin:0;
   padding: 4px 7px;
   background:#272727;
@@ -102,6 +102,7 @@
   .no-results{
     padding:0;
     height:100%;
+    border:0;
 
     .no-results-content {
       top: 50%;
@@ -157,6 +158,11 @@
       position:absolute;
       bottom:0;
       top:88px;
+      overflow:hidden;
+    }
+
+    #available-fonts .font-list {
+      overflow:hidden;
     }
     
     .font-list,
@@ -175,7 +181,12 @@
     }
 
     #your-collection .content-wrap {
-      height:100%;
+      position:absolute;
+      bottom:0;
+      left:0;
+      right:0;
+      top:41px;
+      border:0;
     }
 
     #your-collection .font-list-wrap {
@@ -187,12 +198,13 @@
       right:0;
       bottom:0;
       overflow:auto;
+      border:0;
     }
 
     #your-collection .sidebar {
       position:absolute;
       top:0;
-      right:0;
+      left:70%;
       background:#f6f6f6;
       border:0;
       padding-bottom:55px;
@@ -200,9 +212,17 @@
     }
 
     #your-collection .font-list {
+      position:absolute;
+      top:0;
+      left:0;
+      bottom:0;
       width:70%;
-      height:100%;
+      margin-right:-1px;
       overflow:visible;
+    }
+
+    #your-collection .font {
+      -moz-box-sizing:content-box;
     }
   
     .arrow-down{

@@ -39,8 +39,7 @@
     font-weight:bold;
     text-decoration:none;
     border-radius:4px;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.5),
-    						0 1px 0 rgba(255,255,255,0.4) inset;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset;
     text-shadow: 0 -1px 0 rgba(0,0,0,0.6);
     @include transition(all 200ms ease-in);
 
@@ -54,6 +53,10 @@
 			&:hover {
 			  @include background-image(linear-gradient(#3ab3f2,#0b84c2));
 			}
+      &:active {
+        box-shadow:none;
+        @include background-image(linear-gradient(bottom,#0b84c2,darken(#0b84c2,3%)));
+      }
 		}
 
     &.saving {
@@ -66,8 +69,8 @@
 		}
 
 		&:active {
-			background:#0b84c2;
-      box-shadow: 0 1px 0 rgba(0,0,0,0.1) inset;
+			box-shadow:none;
+      @include background-image(linear-gradient(bottom,#0b84c2,darken(#0b84c2,3%)));
 		}
   }
 
@@ -199,33 +202,25 @@
 
   }
 
-  .no-results {display:none}
+  .no-results {
+    display:none;
+    border-bottom:solid 1px #d6d6d6;
+    margin-bottom:1px;
+  }
 
   .font-list {
     background:#fbfbfb;
-    padding-bottom:2px;
-    border-radius:0 0 4px 4px;
     
     top:-1px;
     margin-bottom:-1px;
 
     .font {
-      height:62px;
-      line-height:60px;
-      border-top:solid 1px #eee;
       border-bottom:solid 1px #eee;
-      margin-top:-1px;
-      margin-bottom:-1px;
-      top:1px;
       background:#fbfbfb;
       -moz-user-select:none;
       -webkit-user-select:none;
       user-select:none;
       -ms-user-select:none;
-
-      &:last-child {
-        border-radius:0 0 4px 4px;
-      }
 
       .font-sample {
         font-size:20px;
@@ -235,13 +230,15 @@
         white-space:nowrap;
         width:100%;
         overflow:hidden;
+        margin-top:-60px;
+        line-height:60px;
       }
 
       .font-meta {
         float:right;
         display:inline-block;
-        margin-top:-61px;
         padding:0;
+        z-index:2;
 
         .active-arrow {
           display:none;
@@ -257,8 +254,8 @@
           float:right;
           color:#aaa;
           font-size:12px;
-          line-height:60px;
           height:60px;
+          line-height:60px;
           padding-left:50px;
           @include background-image(linear-gradient(left, rgba(#fbfbfb,0) 0%, #fbfbfb 20%));
           background-color:#fbfbfb;
@@ -270,7 +267,7 @@
           list-style:none;
           float:right;
           line-height:60px;
-          height:60px;
+          height:59px;
           background-color:#fbfbfb;
           padding:0 15px 0 10px;
           -webkit-transition: all 200ms linear;
@@ -417,7 +414,7 @@
     background:#f6f6f6;
     border:solid 1px #d6d6d6;
     border-top:none;
-    border-radius:0 0 4px 4px;
+    border-radius:0;
     overflow:hidden;
     width:100%;
   }
@@ -620,6 +617,8 @@
 
   header {
     border-radius:4px 4px 0 0;
+    margin:0;
+    padding:0;
     @include background-image(linear-gradient(rgba(#000,.02),rgba(#000,.07)));
 
     h1 {
@@ -656,12 +655,15 @@
   }
 
   #available-fonts {
-    overflow:hidden;
-    margin:0 0 10px;
+    margin:0;
 
 		header{
 			border-bottom-width:0;
 		}
+
+    .content-wrap {
+      border-bottom:none;
+    }
 
     .font-list {
       border-radius:0;
@@ -669,7 +671,7 @@
       overflow:auto;
 
       &#search-results {display:none}
-      &#loaded-fonts {height:492px}
+      &#loaded-fonts {height:489px}
 
       .font {
         
@@ -757,7 +759,6 @@
     clear:both;
     padding: 10px;
     border-radius:0 0 4px 4px;
-    margin-top:-4px;
   }
 
   #firsttimer{
