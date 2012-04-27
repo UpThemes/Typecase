@@ -3,7 +3,7 @@
 Plugin Name: Typecase
 Plugin URI: http://upthemes.com
 Description: A plugin that makes it dead simple to add custom webfonts to your website.
-Version: 0.3.3
+Version: 0.3.4
 Author: UpThemes
 Author URI: http://upthemes.com
 License: GPL2
@@ -312,7 +312,7 @@ class Typecase {
 
 		$classname = '';
 		$front_end_editor_ui = '';
-		$buttons = '<div class="buttons"><span>' . __("live front-end editor &amp; lifetime support","typecase") . '</span> <a class="typecase-btn primary" href="http://upthemes.com/plugins/typecase/" target="_blank">' . __("Upgrade to Pro","typecase") . '</a></div>';
+		$buttons = '<div class="buttons" style="margin-top:-7px;"><span>' . __("live front-end editor &amp; lifetime support","typecase") . '</span> <a class="typecase-btn primary" style="margin-right:0;" href="http://upthemes.com/plugins/typecase/" target="_blank">' . __("Upgrade to Pro","typecase") . '</a></div>';
 
 		$classname = apply_filters('typecase-classname',$classname);
 		$buttons = apply_filters('typecase-buttons',$buttons);
@@ -330,6 +330,7 @@ class Typecase {
 			$firsttimer
 			$front_end_editor
 			<div id="your-collection-wrap">
+			<iframe></iframe>
 		  <div id="your-collection">
 		    <header>
 		      <h1>$collection</h1>
@@ -369,6 +370,7 @@ class Typecase {
 		  <span class="arrow-down"></span>
 		  </div><!--/#your-collection-wrap-->
 		  <div id="available-fonts-wrap">
+		  <iframe></iframe>
 		  <div id="available-fonts">
 		    <header>
 		      <h1>$availablefonts</h1>
@@ -391,7 +393,7 @@ class Typecase {
 		        </div><!--/.font-list#search-results-->
 		      </div><!--/.font-list-wrap-->
 		    </div><!--/.content-wrap-->
-	      <a id="more-fonts" class="typecase-btn primary" href=""><span>$showmorefonts</span></a>
+		    <a id="more-fonts" class="typecase-btn primary" href=""><span>$showmorefonts</span></a>
 		  </div><!--/#available-fonts-->
 		  <span class="arrow-down"></span>
 		  </div><!--/#available-fonts-wrap-->
