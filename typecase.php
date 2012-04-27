@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: Typecase
+Plugin Name: Typecase Pro
 Plugin URI: http://upthemes.com
 Description: A plugin that makes it dead simple to add custom webfonts to your website.
-Version: 0.3.3
+Version: 0.3.4
 Author: UpThemes
 Author URI: http://upthemes.com
 License: GPL2
@@ -330,6 +330,7 @@ class Typecase {
 			$firsttimer
 			$front_end_editor
 			<div id="your-collection-wrap">
+			<iframe></iframe>
 		  <div id="your-collection">
 		    <header>
 		      <h1>$collection</h1>
@@ -369,6 +370,7 @@ class Typecase {
 		  <span class="arrow-down"></span>
 		  </div><!--/#your-collection-wrap-->
 		  <div id="available-fonts-wrap">
+		  <iframe></iframe>
 		  <div id="available-fonts">
 		    <header>
 		      <h1>$availablefonts</h1>
@@ -391,7 +393,7 @@ class Typecase {
 		        </div><!--/.font-list#search-results-->
 		      </div><!--/.font-list-wrap-->
 		    </div><!--/.content-wrap-->
-	      <a id="more-fonts" class="typecase-btn primary" href=""><span>$showmorefonts</span></a>
+		    <a id="more-fonts" class="typecase-btn primary" href=""><span>$showmorefonts</span></a>
 		  </div><!--/#available-fonts-->
 		  <span class="arrow-down"></span>
 		  </div><!--/#available-fonts-wrap-->
