@@ -669,6 +669,7 @@
       border-radius:0;
       padding-bottom:0;
       overflow:auto;
+      border-bottom:solid 1px #ccc;
 
       &#search-results {display:none}
       &#loaded-fonts {height:489px}
@@ -759,6 +760,7 @@
     clear:both;
     padding: 10px;
     border-radius:0 0 4px 4px;
+    margin-top:-1px;
   }
 
   #firsttimer{

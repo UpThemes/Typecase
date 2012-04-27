@@ -1205,20 +1205,21 @@ table {
   border-radius: 0;
   padding-bottom: 0;
   overflow: auto;
+  border-bottom: solid 1px #ccc;
 }
-/* line 673, ../sass/main.scss */
+/* line 674, ../sass/main.scss */
 #typecase #available-fonts .font-list#search-results {
   display: none;
 }
-/* line 674, ../sass/main.scss */
+/* line 675, ../sass/main.scss */
 #typecase #available-fonts .font-list#loaded-fonts {
   height: 489px;
 }
-/* line 678, ../sass/main.scss */
+/* line 679, ../sass/main.scss */
 #typecase #available-fonts .font-list .font:last-child {
   border-radius: 0;
 }
-/* line 684, ../sass/main.scss */
+/* line 685, ../sass/main.scss */
 #typecase #available-fonts #search {
   padding: 10px 9px;
   overflow: hidden;
@@ -1234,7 +1235,7 @@ table {
   background-image: -ms-linear-gradient(rgba(0, 0, 0, 0.13), rgba(0, 0, 0, 0.04));
   background-image: linear-gradient(rgba(0, 0, 0, 0.13), rgba(0, 0, 0, 0.04));
 }
-/* line 694, ../sass/main.scss */
+/* line 695, ../sass/main.scss */
 #typecase #available-fonts #search input#search-input {
   width: 100%;
   float: left;
@@ -1248,11 +1249,11 @@ table {
   -webkit-transition: all 200ms linear;
   -moz-transition: all 200ms linear;
 }
-/* line 709, ../sass/main.scss */
+/* line 710, ../sass/main.scss */
 #typecase #available-fonts #search input#search-input:focus {
   box-shadow: 0 0 0 1px #179fe5, 0 0 8px #43b3ec, 0 1px 2px rgba(0, 0, 0, 0.1) inset;
 }
-/* line 717, ../sass/main.scss */
+/* line 718, ../sass/main.scss */
 #typecase #available-fonts #search input#search-submit {
   display: none;
   width: 7%;
@@ -1279,11 +1280,11 @@ table {
   -webkit-transition: all 100ms linear;
   -moz-transition: all 100ms linear;
 }
-/* line 740, ../sass/main.scss */
+/* line 741, ../sass/main.scss */
 #typecase #available-fonts #search input#search-submit:hover {
   box-shadow: 0 0 0 1px #1b44ab, 0 2px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2) inset, 0 0 0 28px rgba(255, 255, 255, 0.1) inset;
 }
-/* line 747, ../sass/main.scss */
+/* line 748, ../sass/main.scss */
 #typecase #available-fonts #search input#search-submit:active {
   background: url("../images/icons.png") center -46px, -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #4f7bd1), color-stop(100%, #2f5abb));
   background: url("../images/icons.png") center -46px, -webkit-linear-gradient(bottom, #4f7bd1, #2f5abb);
@@ -1293,14 +1294,15 @@ table {
   background: url("../images/icons.png") center -46px, linear-gradient(bottom, #4f7bd1, #2f5abb);
   box-shadow: 0 0 0 1px #133a9c, 0 2px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.3) inset;
 }
-/* line 757, ../sass/main.scss */
+/* line 758, ../sass/main.scss */
 #typecase #more-fonts.typecase-btn {
   display: block;
   clear: both;
   padding: 10px;
   border-radius: 0 0 4px 4px;
+  margin-top: -1px;
 }
-/* line 764, ../sass/main.scss */
+/* line 766, ../sass/main.scss */
 #typecase #firsttimer {
   color: #343434;
   border-radius: 4px;
@@ -1313,7 +1315,7 @@ table {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 775, ../sass/main.scss */
+/* line 777, ../sass/main.scss */
 #typecase #firsttimer h1 {
   font-weight: normal;
   font-size: 40px;
@@ -1322,25 +1324,25 @@ table {
   text-align: center;
   background: url("../images/stripe.png") no-repeat bottom center;
 }
-/* line 784, ../sass/main.scss */
+/* line 786, ../sass/main.scss */
 #typecase #firsttimer .buttons {
   text-align: center;
   padding: 20px 0 0 0;
   clear: both;
 }
-/* line 789, ../sass/main.scss */
+/* line 791, ../sass/main.scss */
 #typecase #firsttimer .buttons small {
   display: block;
   margin-top: 15px;
   font: normal 11px/11px Helvetica, Arial, Tahoma, Verdana, sans-serif;
   color: rgba(0, 0, 0, 0.5);
 }
-/* line 798, ../sass/main.scss */
+/* line 800, ../sass/main.scss */
 #typecase #firsttimer ol {
   margin-left: 50px;
   margin-bottom: 40px;
 }
-/* line 802, ../sass/main.scss */
+/* line 804, ../sass/main.scss */
 #typecase #firsttimer ol li {
   font-size: 32px;
   list-style-position: outside;
@@ -1349,7 +1351,7 @@ table {
   float: left;
   line-height: 1em;
 }
-/* line 810, ../sass/main.scss */
+/* line 812, ../sass/main.scss */
 #typecase #firsttimer ol li .list-item {
   background-image: url("../images/circle_background.png");
   width: 57px;
@@ -1359,7 +1361,7 @@ table {
   top: -12px;
   display: block;
 }
-/* line 820, ../sass/main.scss */
+/* line 822, ../sass/main.scss */
 #typecase #firsttimer ol li strong {
   font-weight: normal;
   font-size: 26px;
@@ -1368,23 +1370,23 @@ table {
   display: block;
   line-height: 1em;
 }
-/* line 829, ../sass/main.scss */
+/* line 831, ../sass/main.scss */
 #typecase #firsttimer ol li:first-child {
   width: 36%;
 }
-/* line 833, ../sass/main.scss */
+/* line 835, ../sass/main.scss */
 #typecase #firsttimer ol li:first-child strong {
   padding-left: 10px;
 }
-/* line 837, ../sass/main.scss */
+/* line 839, ../sass/main.scss */
 #typecase #firsttimer ol li:first-child span {
   left: -52px;
 }
-/* line 843, ../sass/main.scss */
+/* line 845, ../sass/main.scss */
 #typecase #firsttimer ol li:nth-child(2n) {
   width: 36%;
 }
-/* line 846, ../sass/main.scss */
+/* line 848, ../sass/main.scss */
 #typecase #firsttimer ol li:nth-child(2n) .list-item {
   -webkit-transform: rotate(75deg);
   -moz-transform: rotate(75deg);
@@ -1392,7 +1394,7 @@ table {
   -o-transform: rotate(75deg);
   transform: rotate(75deg);
 }
-/* line 853, ../sass/main.scss */
+/* line 855, ../sass/main.scss */
 #typecase #firsttimer ol li:nth-child(3n) .list-item {
   -webkit-transform: rotate(155deg);
   -moz-transform: rotate(155deg);
@@ -1400,18 +1402,18 @@ table {
   -o-transform: rotate(155deg);
   transform: rotate(155deg);
 }
-/* line 856, ../sass/main.scss */
+/* line 858, ../sass/main.scss */
 #typecase #firsttimer ol li:nth-child(3n) strong {
   padding-right: 0;
 }
 
-/* line 869, ../sass/main.scss */
+/* line 871, ../sass/main.scss */
 .typecase_copyright {
   color: #666;
   margin: 20px 0 40px 16px;
   display: block;
 }
-/* line 874, ../sass/main.scss */
+/* line 876, ../sass/main.scss */
 .typecase_copyright #upthemes {
   float: right;
   height: 24px;
