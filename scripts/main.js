@@ -264,7 +264,7 @@
       var variants = "";
   
       $(_this).closest("#variants-form").find("input[type='checkbox']").each(function(){
-        variants += "|" + $(this).closest("label").find(".variant-name").text() + "-";
+        variants += "|" + $(this).closest("label").find(".variant-name").text() + "&";
         if ($(this).is(":checked")) variants += "1";
         else variants += "0";
       });
@@ -279,7 +279,7 @@
       var subsets = "";
   
       $(_this).closest("#subsets-form").find("input[type='checkbox']").each(function(){
-        subsets += "|" + $(this).closest("label").find(".subset-name").text() + "-";
+        subsets += "|" + $(this).closest("label").find(".subset-name").text() + "&";
         if ($(this).is(":checked")) subsets += "1";
         else subsets += "0";
       });
@@ -311,11 +311,11 @@
             var subsets = "";
 
             $.each(Typecase.masterFontList.items[i].variants,function(){
-              variants += "|" + this + "-1";
+              variants += "|" + this + "&1";
             });
 
             $.each(Typecase.masterFontList.items[i].subsets,function(){
-              subsets += "|" + this + "-1";
+              subsets += "|" + this + "&1";
             });
   
             var defaultVariant = setDefaultVariant(Typecase.masterFontList.items[i].variants);
@@ -393,7 +393,7 @@
         $.each(variants,function(){
           if (this.length !== 0) {
             var checkedMarkup = "";
-            if (this.indexOf("-1") >= 0) checkedMarkup = "checked='checked'";
+            if (this.indexOf("&1") >= 0) checkedMarkup = "checked='checked'";
             variantMarkup += "<label for='variant-" + i + "'><input type='checkbox' " + checkedMarkup + " name='variant' id='variant-" + i + "'/><span class='variant-name'>"+this.slice(0,-2)+"</span></label>";
             i++;
           }
@@ -402,7 +402,7 @@
         $.each(subsets,function(){
           if (this.length !== 0) {
             var checkedMarkup = "";
-            if (this.indexOf("-1") >= 0) checkedMarkup = "checked='checked'";
+            if (this.indexOf("&1") >= 0) checkedMarkup = "checked='checked'";
             subsetsMarkup += "<label for='subset-" + i + "'><input type='checkbox' " + checkedMarkup + " name='subset' id='subset-" + i + "'/><span class='subset-name'>"+this.slice(0,-2)+"</span></label>";
             i++;
           }
@@ -489,10 +489,10 @@
   
         if( !$( "body" ).hasClass( "wf-"+family_class+"-n4-active" ) ){
           $.each(this[1],function(){
-            variants += "|" + this + "-1";
+            variants += "|" + this + "&1";
           });
           $.each(this[2],function(){
-            subsets += "|" + this + "-1";
+            subsets += "|" + this + "&1";
           });
           $( '#available-fonts .font-list#loaded-fonts' ).append( "<div class='font "+family_class+"' data-selectors='|."+family_class+"' data-variants='"+variants+"' data-subsets='"+subsets+"' data-name='"+this[0]+"'><div class='font-meta'><ul class='font-actions'><li><a class='edit'><span></span></a></li><li><a class='preview'><span></span></a></li><li><a class='add'><span></span></a></li></ul><!--/.font-actions--><div class='font-name'>"+this[0]+"</div><div class='active-arrow'></div><!--/.active-arrow--></div><!--/.font-meta--><style type='text/css'> .font-sample span."+family_class+" { font-family: '"+this[0]+"'; } \n .wf-"+family_class+"-n4-loading .font-sample span."+family_class+" { background-image:url('"+typecase.loading_gif+"'); text-indent: -9000; display:block; overflow:hidden; background-repeat: no-repeat; background-position: center left; color: #f9f9f9; padding-left:23px; } \n .wf-"+family_class+"-n4-loading .font-sample span."+family_class+":before{ content:'loading'; color: #aaa; font-size:12px; font-family: Helvetica, Arial, Tahoma, sans-serif; text-transform:uppercase; } </style><div class='font-sample'><span class='font-item "+family_class+"'>"+Typecase.previewText+"</span></div><div class='clear'></div></div><!--/.font-->" );
         }
