@@ -106,8 +106,8 @@ class Typecase_Pro extends Typecase {
 	 *
 	 */
 	public function frontend_scripts(){
-		wp_enqueue_style('front-end-editor', plugins_url( 'styles/front_end_editor.css', __FILE__ ), false, date( 'Ymd' ) );
-		wp_enqueue_script('front-end-editor', plugins_url( 'scripts/pro.js', __FILE__ ), false, date( 'Ymd' ) );
+		wp_enqueue_style('front-end-editor', plugins_url( 'styles/front_end_editor.css', TYPECASE_FILE ), false, date( 'Ymd' ) );
+		wp_enqueue_script('front-end-editor', plugins_url( 'scripts/pro.js', TYPECASE_FILE ), false, date( 'Ymd' ) );
 	}
 
 	/**
