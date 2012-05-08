@@ -133,7 +133,6 @@ class Typecase_Pro extends Typecase {
 			$apiUrl = &$this->api_url;
 			$import_url = '';
 			$font_styles = '';
-			$font_weights = '';
 
 			foreach($fonts as $font){
 
@@ -142,22 +141,7 @@ class Typecase_Pro extends Typecase {
 				$selectors = substr( $font[1], 1);
 				$weights = substr( $font[2], 1);
 
-				$weights = explode("|",$weights);
-
-				foreach( $weights as $i => $weight ){
-					$pos = strpos($weight, '-');
-					$weight = mb_substr($weight,0,$pos);
-					if($i>0)
-						$font_weights .= ",";
-					else
-						$font_weights .= ":";
-					$font_weights .= $weight;
-				}
-
-				if( $import_url != '' )
-					$import_url .= '|';
-
-				$import_url .= str_replace(" ","+",$family).$font_weights;
+				$import_url .= str_replace(" ","+",$family).$this->stringify_font_part($weights).$this->stringify_font_part($charsets);
 
 				$selectors = explode("|",$selectors);
 
