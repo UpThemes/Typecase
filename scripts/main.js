@@ -64,22 +64,22 @@
   
   $( document ).ready( function(){
 
-    $( "#your-collection .font-list" ).on( "click", "a.delete", $( this ), removeFont );
-    $( "#available-fonts" ).on( "click", "a.add", $( this ), addFont );
-    $( "#available-fonts" ).on( "dblclick", ".font", $( this ), addFont );
+    $( "#your-collection .font-list a.delete" ).live( "click", $( this ), removeFont );
+    $( "#available-fonts a.add" ).live( "click", $( this ), addFont );
+    $( "#available-fonts .font" ).live( "dblclick", $( this ), addFont );
   
-    $( "#selectors" ).on( "click", "a.delete", $( this ), removeSelector );
-    $( "#selectors" ).on( "submit", "#new-selector-form", $( this ), addSelector );
+    $( "#selectors a.delete" ).live( "click", $( this ), removeSelector );
+    $( "#selectors #new-selector-form" ).live( "submit", $( this ), addSelector );
   
-    $( "#selectors" ).on( "keyup", "#new-selector", $( this ), adjustSelectorBox );
-    $( "#variants-form" ).on( "click", "input[type='checkbox']", $( this ), toggleVariant );
-    $( "#subsets-form" ).on( "click", "input[type='checkbox']", $( this ), toggleSubset );
+    $( "#selectors #new-selector" ).live( "keyup", $( this ), adjustSelectorBox );
+    $( "#variants-form input[type='checkbox']" ).live( "click", $( this ), toggleVariant );
+    $( "#subsets-form input[type='checkbox']" ).live( "click", $( this ), toggleSubset );
 
-    $( ".sidebar" ).on( "click", "#save-fonts", $( this ), saveFonts );
+    $( ".sidebar #save-fonts" ).live( "click", $( this ), saveFonts );
 
-    $( "#search" ).on( "keyup", "#search-input", $( this ), searchFonts );
+    $( "#search #search-input" ).live( "keyup", $( this ), searchFonts );
   
-    $( "#your-collection" ).on( "click", ".font", $( this ), activateFont );
+    $( "#your-collection .font" ).live( "click", $( this ), activateFont );
   
     function addFont( e ) { $( e.target ).trigger( "addFont" );saveFonts();e.preventDefault(); }
     function removeFont( e ) { $( e.target ).trigger( "removeFont" );e.preventDefault(); }
@@ -136,7 +136,7 @@
       
     });
     
-    $("#firsttimer").find('#kill').on('click',function(e){
+    $("#firsttimer").find('#kill').live('click',function(e){
       e.preventDefault();
       $.getJSON(ajaxurl,{ action : 'clear_firsttimer', _nonce : typecase.nonce },function(data){
 
@@ -604,7 +604,7 @@
       loadUserData();
     });
   
-    $( "#more-fonts" ).on("click", function( e ){
+    $( "#more-fonts" ).live("click", function( e ){
       $(this).trigger('moreFontsLoading');
       loadFonts();
       $( "#available-fonts .font-list#loaded-fonts" ).animate( {scrollTop:$( "#available-fonts .font-list#loaded-fonts" ).prop( "scrollHeight" )});
