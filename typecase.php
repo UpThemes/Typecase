@@ -3,7 +3,7 @@
 Plugin Name: Typecase Pro
 Plugin URI: http://upthemes.com
 Description: A plugin that makes it dead simple to add custom webfonts to your website.
-Version: 0.3.4
+Version: 0.3.5
 Author: UpThemes
 Author URI: http://upthemes.com
 License: GPL2
@@ -12,6 +12,21 @@ License: GPL2
 // don't call the file directly
 if ( !defined( 'ABSPATH' ) )
 	return;
+
+$typecase_file = __FILE__;
+
+if (isset($plugin)) {
+	$typecase_file = $plugin;
+}
+else if (isset($mu_plugin)) {
+	$typecase_file = $mu_plugin;
+}
+else if (isset($network_plugin)) {
+	$typecase_file = $network_plugin;
+}
+
+define('TYPECASE_FILE', $typecase_file);
+define('TYPECASE_PATH', WP_PLUGIN_DIR.'/'.basename(dirname($typecase_file)));
 
 /**
  * Typecase class
@@ -58,8 +73,8 @@ class Typecase {
 	 *
 	 */
 	public function __construct() {
-		register_activation_hook( __FILE__, array(&$this, 'activate' ) );
-		register_deactivation_hook( __FILE__, array(&$this, 'deactivate' ) );
+		register_activation_hook( TYPECASE_FILE, array(&$this, 'activate' ) );
+		register_deactivation_hook( TYPECASE_FILE, array(&$this, 'deactivate' ) );
 
 		add_action('init',array(&$this,'localization_setup'));
 
@@ -203,7 +218,7 @@ class Typecase {
 	 *
 	 */
 	public function localization_setup() {
-		load_plugin_textdomain( 'typecase', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+		load_plugin_textdomain( 'typecase', false, dirname( plugin_basename( TYPECASE_FILE ) ) . '/languages/' );
 	}
 
 	/**
@@ -223,7 +238,7 @@ class Typecase {
 	 *
 	 */
 	public function load_menu() {
-		$hook = add_menu_page( $this->name, $this->name, 'manage_options', 'typecase', array(&$this, 'ui' ), plugins_url( 'images/ico_typecase.png', __FILE__ ) );
+		$hook = add_menu_page( $this->name, $this->name, 'manage_options', 'typecase', array(&$this, 'ui' ), plugins_url( 'images/ico_typecase.png', TYPECASE_FILE ) );
 		add_action( 'admin_print_styles-' . $hook, array($this,'admin_styles'));
 	}
 
@@ -246,13 +261,13 @@ class Typecase {
 		$nonce = array(  );
 
 		wp_enqueue_script('json2');
-		wp_enqueue_script('selectivizr', plugins_url( 'scripts/selectivizr-min.js', __FILE__ ), array('json2'), date( 'Ymd' ) );
+		wp_enqueue_script('selectivizr', plugins_url( 'scripts/selectivizr-min.js', TYPECASE_FILE ), array('json2'), date( 'Ymd' ) );
 		wp_enqueue_script('google-api', 'https://www.google.com/jsapi', array('selectivizr'), date( 'Ymd' ) );
-		wp_enqueue_script('typecase', plugins_url( 'scripts/main.js', __FILE__ ), array('jquery','google-api'), date( 'Ymd' ) );
-		wp_enqueue_style('typecase', plugins_url( 'styles/main.css', __FILE__ ), false, date( 'Ymd' ) );
-		wp_enqueue_style('journal-font', plugins_url( 'fonts/journal/journal.css', __FILE__ ), false, date( 'Ymd' ) );
+		wp_enqueue_script('typecase', plugins_url( 'scripts/main.js', TYPECASE_FILE ), array('jquery','google-api'), date( 'Ymd' ) );
+		wp_enqueue_style('typecase', plugins_url( 'styles/main.css', TYPECASE_FILE ), false, date( 'Ymd' ) );
+		wp_enqueue_style('journal-font', plugins_url( 'fonts/journal/journal.css', TYPECASE_FILE ), false, date( 'Ymd' ) );
 
-		wp_localize_script( 'typecase', 'typecase', array( 'nonce' => wp_create_nonce($this->nonce_key), 'loading_gif' => plugins_url( 'images/loading.gif', __FILE__ ) ) );
+		wp_localize_script( 'typecase', 'typecase', array( 'nonce' => wp_create_nonce($this->nonce_key), 'loading_gif' => plugins_url( 'images/loading.gif', TYPECASE_FILE ) ) );
 	}
 
 	/**
@@ -499,8 +514,8 @@ EOT;
  * @uses Typecase::init()
  *
  */
-if( file_exists( dirname(__FILE__) . '/pro.php' ) ){
-	include_once(dirname(__FILE__) . '/pro.php');
+if( file_exists( dirname(TYPECASE_FILE) . '/pro.php' ) ){
+	include_once(dirname(TYPECASE_FILE) . '/pro.php');
 }else{
 	$typecase = Typecase::init();
 }
