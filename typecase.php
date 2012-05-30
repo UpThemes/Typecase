@@ -3,7 +3,7 @@
 Plugin Name: Typecase
 Plugin URI: http://upthemes.com
 Description: A plugin that makes it dead simple to add custom webfonts to your website.
-Version: 0.3.7
+Version: 0.3.8
 Author: UpThemes
 Author URI: http://upthemes.com
 License: GPL2
@@ -12,6 +12,8 @@ License: GPL2
 // don't call the file directly
 if ( !defined( 'ABSPATH' ) )
 	return;
+
+if( !class_exists('Typecase') ):
 
 $typecase_file = __FILE__;
 
@@ -85,6 +87,10 @@ class Typecase {
 			add_action('wp_ajax_clear_firsttimer',array(&$this,'ajax_clear_firsttimer'));
 		}else{
 			add_action('wp_head',array(&$this,'display_frontend'));
+
+			if( !file_exists( dirname(TYPECASE_FILE) . '/pro.php' ) )
+			  add_action('wp_footer',array(&$this,'set_typecase_badge'));
+
 		}
 	}
 
@@ -526,6 +532,17 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 			return true;
 	}
 
+	/**
+	 * Adds a pretty Typecase badge to the front-end of the website
+	 *
+	 * @uses plugins_url()
+	 *
+	 */
+	public function set_typecase_badge(){
+	  $image = plugins_url( 'images/typecase_banner.png', TYPECASE_FILE );
+		echo "<a href=\"http://upthemes.com/plugins/typecase/\"><img src=\"$image\" style=\"display:inline !important;position:fixed !important;right:0 !important;bottom:0 !important;z-index:9999 !important;\"></a>";
+	}
+
 }
 
 /**
@@ -541,3 +558,5 @@ if( file_exists( dirname(TYPECASE_FILE) . '/pro.php' ) ){
 }else{
 	$typecase = Typecase::init();
 }
+
+endif;
