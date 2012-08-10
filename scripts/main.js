@@ -180,6 +180,8 @@
           }
     
           if ( $( "#your-collection .font-list .font" ).length === 0 ) {
+            $( "#your-collection" ).find( ".no-fonts h2" ).html('You have no fonts in your collection!');
+          $( "#your-collection" ).find( ".no-fonts h4" ).html('Browse the "Available Fonts" below and click <span class="add"><span></span></span> to add fonts here.');
             $( "#your-collection" ).find( ".font-list" ).hide();
             $( "#your-collection" ).find( ".sidebar" ).hide();
             $( "#your-collection" ).find( ".no-fonts" ).fadeIn();
@@ -511,6 +513,8 @@
     var loadFonts = function( fontFamilies ){
       
       position = $( ".font-list#loaded-fonts" ).scrollTop();
+
+
   
       if( !fontFamilies )
         fontFamilies = Typecase.fontList;
@@ -539,10 +543,18 @@
     }
 
     var loadUserData = function() {
+      $( "#your-collection" ).find( ".no-fonts h2" ).html('Loading...');
+      $( "#your-collection" ).find( ".no-fonts h4" ).html('');
+
       $.getJSON(ajaxurl, { action: "getFonts", _nonce : typecase.nonce }, function(fontData) {
 
         var fonts = fontData.fonts;
         var isActive = "";
+
+        if (!fonts) {
+          $( "#your-collection" ).find( ".no-fonts h2" ).html('You have no fonts in your collection!');
+          $( "#your-collection" ).find( ".no-fonts h4" ).html('Browse the "Available Fonts" below and click <span class="add"><span></span></span> to add fonts here.');
+        }
 
         if( typeof(fontData._new_nonce.nonce) != 'undefined' )
          	typecase.nonce = fontData._new_nonce.nonce;

@@ -471,7 +471,7 @@ table {
   left: 0;
   bottom: 0;
   right: 0;
-  height: 45px;
+  height: 35px;
   margin: 0;
   padding: 4px 7px;
   background: #272727;
@@ -729,12 +729,13 @@ table {
   bottom: 0;
   right: 0;
   left: 0;
+  z-index: 1000;
 }
-/* line 250, ../sass/front_end_editor.scss */
+/* line 251, ../sass/front_end_editor.scss */
 #typecase #available-fonts-wrap .arrow-down {
   left: 200px;
 }
-/* line 256, ../sass/front_end_editor.scss */
+/* line 257, ../sass/front_end_editor.scss */
 #typecase > .typecase-btn {
   color: white;
   display: block;
@@ -755,7 +756,7 @@ table {
   background-image: -ms-linear-gradient(#303030, #141414);
   background-image: linear-gradient(#303030, #141414);
 }
-/* line 271, ../sass/front_end_editor.scss */
+/* line 272, ../sass/front_end_editor.scss */
 #typecase > .typecase-btn:hover {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #393939), color-stop(100%, #141414));
   background-image: -webkit-linear-gradient(#393939, #141414);
@@ -764,7 +765,7 @@ table {
   background-image: -ms-linear-gradient(#393939, #141414);
   background-image: linear-gradient(#393939, #141414);
 }
-/* line 276, ../sass/front_end_editor.scss */
+/* line 277, ../sass/front_end_editor.scss */
 #typecase > .typecase-btn:active, #typecase > .typecase-btn.active {
   background: #181818;
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.4) inset;
