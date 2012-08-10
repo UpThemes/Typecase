@@ -288,8 +288,8 @@ class Typecase {
 		$title 							= __('Typecase','typecase');
 		$tagline 						= __('Beautiful web fonts for WordPress','typecase');
 		$collection 				= __('Your Collection','typecase');
-		$nofonts 						= __('You have no fonts in your collection!','typecase');
-		$addfonts 					= sprintf( __('Browse the "Available Fonts" below and click %s to add fonts here.','typecase'), '<span class="add"><span></span></span>' );
+		$nofonts 						= __('Loading...','typecase');
+		$addfonts 					= __('','typecase');
 		$selectors					= __('Selectors','typecase');
 		$newselector				= __('New Selector...','typecase');
 		$includedvariants 	= __('Included Variants','typecase');
