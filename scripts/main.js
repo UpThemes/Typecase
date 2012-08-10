@@ -181,7 +181,7 @@
     
           if ( $( "#your-collection .font-list .font" ).length === 0 ) {
             $( "#your-collection" ).find( ".no-fonts h2" ).html('You have no fonts in your collection!');
-          $( "#your-collection" ).find( ".no-fonts h4" ).html('Browse the "Available Fonts" below and click <span class="add"><span></span></span> to add fonts here.');
+            $( "#your-collection" ).find( ".no-fonts h4" ).html('Browse the "Available Fonts" below and click <span class="add"><span></span></span> to add fonts here.');
             $( "#your-collection" ).find( ".font-list" ).hide();
             $( "#your-collection" ).find( ".sidebar" ).hide();
             $( "#your-collection" ).find( ".no-fonts" ).fadeIn();
