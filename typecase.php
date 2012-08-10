@@ -3,7 +3,7 @@
 Plugin Name: Typecase Pro
 Plugin URI: http://upthemes.com
 Description: A plugin that makes it dead simple to add custom webfonts to your website.
-Version: 0.3.7
+Version: 0.3.8
 Author: UpThemes
 Author URI: http://upthemes.com
 License: GPL2
