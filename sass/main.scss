@@ -183,6 +183,7 @@
   .no-fonts, .no-results{
     text-align:center;
     padding:40px 0 50px 0;
+    #spinner {opacity:0;}
 
     h2 {
       color:#666;
@@ -200,6 +201,16 @@
       margin:0;
     }
 
+  }
+
+  .no-fonts.loading {
+    #spinner {
+      display:block;
+      opacity:1;
+      margin-top:20px;
+      top:20px;
+      height:40px;
+    }
   }
 
   .no-results {

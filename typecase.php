@@ -264,6 +264,7 @@ class Typecase {
 		wp_enqueue_script('selectivizr', plugins_url( 'scripts/selectivizr-min.js', TYPECASE_FILE ), array('json2'), date( 'Ymd' ) );
 		wp_enqueue_script('google-api', 'https://www.google.com/jsapi', array('selectivizr'), date( 'Ymd' ) );
 		wp_enqueue_script('typecase', plugins_url( 'scripts/main.js', TYPECASE_FILE ), array('jquery','google-api'), date( 'Ymd' ) );
+		wp_enqueue_script('spin', plugins_url( 'scripts/spin.min.js', TYPECASE_FILE ), date( 'Ymd' ) );
 		wp_enqueue_style('typecase', plugins_url( 'styles/main.css', TYPECASE_FILE ), false, date( 'Ymd' ) );
 		wp_enqueue_style('journal-font', plugins_url( 'fonts/journal/journal.css', TYPECASE_FILE ), false, date( 'Ymd' ) );
 
@@ -353,6 +354,7 @@ class Typecase {
 		    <div class="content-wrap">
 		      <div class="no-fonts">
 		      	<div class="no-fonts-content">
+		      		<div id="spinner"></div>
 			        <h2>$nofonts</h2>
 			        <h4>$addfonts</h4>
 		        </div><!--/.no-fonts-content-->
