@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class Typecase_Pro extends Typecase {
 
@@ -38,7 +38,7 @@ class Typecase_Pro extends Typecase {
 	/**
 	 * Initializes the Typecase_Pro() class
 	 *
-	 * Checks for an existing Typecase_Pro() instance 
+	 * Checks for an existing Typecase_Pro() instance
 	 * and if it doesn't find one, creates it.
 	 *
 	 * @uses Typecase_Pro()
@@ -167,15 +167,15 @@ class Typecase_Pro extends Typecase {
 			$new_nonce = array( 'nonce' => wp_create_nonce($this->nonce_key) );
 
 			$response = json_encode( array( '_new_nonce' => $new_nonce, 'success' => true, 'css' => $font_css ) );
-	
+
 			header( "Content-Type: application/json" );
 			echo $response;
 			exit;
-	
+
 		} else {
 
 			$response = json_encode( array( 'success' => false, 'error' => __('There were no fonts defined','typecase') ) );
-	
+
 			header( "Content-Type: application/json" );
 			echo $response;
 			exit;
@@ -191,10 +191,10 @@ class Typecase_Pro extends Typecase {
 	 *
 	 */
 	public function buttons_replace($buttons){
-	
-		$buttons = '<div class="buttons"><span class="pro-badge"></span> <a class="typecase-btn primary" href="' . get_bloginfo('url') . '/?front_end_editor=1" target="_blank">' . __("Open Live Editor","typecase") . '</a> <a class="typecase-btn" href="http://upthemes.com/forum/" target="_blank">Support Forum</a></div>';
-		
-		return $buttons;	
+
+		$buttons = '<div class="buttons"><span class="pro-badge"></span> <a class="typecase-btn primary" href="' . get_bloginfo('url') . '/?front_end_editor=1" target="_blank">' . __("Open Live Editor","typecase") . '</a> <a class="typecase-btn" href="http://upthemes.com/" target="_blank">WordPress Themes by UpThemes</a></div>';
+
+		return $buttons;
 
 	}
 
@@ -218,7 +218,7 @@ class Typecase_Pro extends Typecase {
 	 */
 	public function front_end_classname($classname){
 			$classname = ' class="front_end_editor"';
-			
+
 			return $classname;
 	}
 

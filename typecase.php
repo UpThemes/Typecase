@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: Typecase Pro
+Plugin Name: Typecase
 Plugin URI: http://upthemes.com
 Description: A plugin that makes it dead simple to add custom webfonts to your website.
-Version: 0.3.7
+Version: 1.0
 Author: UpThemes
 Author URI: http://upthemes.com
 License: GPL2
@@ -43,7 +43,7 @@ class Typecase {
 	/**
 	 * @var $api_url		Our google web font URL
 	 */
-	protected $api_url = "http://fonts.googleapis.com/css?family=";
+	protected $api_url = "//fonts.googleapis.com/css?family=";
 
 	/**
 	 * @var $nonce_key	A security key used internally by the plugin
@@ -91,7 +91,7 @@ class Typecase {
 	/**
 	 * Initializes the Typecase() class
 	 *
-	 * Checks for an existing Typecase() instance 
+	 * Checks for an existing Typecase() instance
 	 * and if it doesn't find one, creates it.
 	 *
 	 * @uses Typecase()
@@ -106,12 +106,12 @@ class Typecase {
 
 		return $instance;
 	}
-	
+
 	/**
 	 * AJAX function for saving fonts
 	 *
 	 *
-	 * @uses Typecase::verify_nonce() 
+	 * @uses Typecase::verify_nonce()
 	 * @uses update_option()
 	 * @uses json_encode()
 	 * @uses header()
@@ -121,14 +121,14 @@ class Typecase {
 	public function ajax_save_fonts(){
 
 		$nonce_verify = $this->verify_nonce($_REQUEST['_nonce']);
-		
+
 		// get the submitted parameters
 		$fonts = $_REQUEST['json'];
 
 		$verified = $nonce_verify ? true : false;
 
 		$fonts = update_option('typecase_fonts',$fonts);
-		
+
 		$new_nonce = array( 'nonce' => wp_create_nonce($this->nonce_key) );
 
 		$response = json_encode( array( '_new_nonce' => $new_nonce, 'success' => $verified, 'fonts' => $fonts ) );
@@ -139,12 +139,12 @@ class Typecase {
 		exit;
 
 	}
-	
+
 	/**
 	 * AJAX function for retrieving fonts
 	 *
 	 *
-	 * @uses Typecase::verify_nonce() 
+	 * @uses Typecase::verify_nonce()
 	 * @uses get_option()
 	 * @uses json_encode()
 	 * @uses header()
@@ -152,7 +152,7 @@ class Typecase {
 	 *
 	 */
 	public function ajax_get_fonts(){
-		
+
 		$this->verify_nonce($_GET['_nonce']);
 
 		$fonts = get_option('typecase_fonts');
@@ -173,7 +173,7 @@ class Typecase {
 	/**
 	 * AJAX function to remove yellow instructional box
 	 *
-	 * @uses Typecase::verify_nonce() 
+	 * @uses Typecase::verify_nonce()
 	 * @uses update_option()
 	 * @uses json_encode()
 	 * @uses header()
@@ -181,7 +181,7 @@ class Typecase {
 	 *
 	 */
 	public function ajax_clear_firsttimer(){
-		
+
 		$this->verify_nonce($_GET['_nonce']);
 
 		$firsttimer_update = update_option('typecase_firsttimer','disabled');
@@ -281,30 +281,30 @@ class Typecase {
 	 *
 	 */
 	public function ui(){
-	
+
 		if( !current_user_can('manage_options') )
 			return;
-	
-		$title 							= __('Typecase','typecase');
-		$tagline 						= __('Beautiful web fonts for WordPress','typecase');
-		$collection 				= __('Your Collection','typecase');
-		$nofonts 						= __('You have no fonts in your collection!','typecase');
-		$addfonts 					= sprintf( __('Browse the "Available Fonts" below and click %s to add fonts here.','typecase'), '<span class="add"><span></span></span>' );
-		$selectors					= __('Selectors','typecase');
-		$newselector				= __('New Selector...','typecase');
-		$includedvariants 	= __('Included Variants','typecase');
+
+		$title 					= __('Typecase','typecase');
+		$tagline 				= __('Beautiful web fonts for WordPress','typecase');
+		$collection 			= __('Your Collection','typecase');
+		$nofonts 				= __('You have no fonts in your collection!','typecase');
+		$addfonts 				= sprintf( __('Browse the "Available Fonts" below and click %s to add fonts here.','typecase'), '<span class="add"><span></span></span>' );
+		$selectors				= __('Selectors','typecase');
+		$newselector			= __('New Selector...','typecase');
+		$includedvariants 		= __('Included Variants','typecase');
 		$charactersets		 	= __('Character Sets','typecase');
 		$availablefonts			= __('Available Fonts','typecase');
 		$noresultstitle			= __('No Results!','typecase');
-		$searchgoogle				= __('Search Google Webfonts','typecase');
+		$searchgoogle			= __('Search Google Webfonts','typecase');
 		$noresultsdesc			= __('There are no fonts with that name in the Google Font Library.','typecase');
 		$showmorefonts			= __('Load More Fonts','typecase');
-		$copyright					= sprintf( __("Copyright %s <a href=\"http://upthemes.com\">UpThemes</a>. All Rights Reserved.","typecase"), date('Y') );
-		$welcome						= __("Welcome! Here’s the rundown on using typecase.","typecase");
-		$step_1							= __("Browse or search for fonts in the \"Available Fonts\" box","typecase");
-		$step_2							= sprintf(__("Click the %s icon to add the font to \"Your Collection\"","typecase"),'<span class="add"><span></span></span>');
-		$step_3							= __("Add CSS selectors and font weights in the right column","typecase");
-		$hidehelp_btn				= __("Close &amp; Don't Show Again","typecase");
+		$copyright				= sprintf( __("Copyright %s <a href=\"http://upthemes.com\">UpThemes</a>. All Rights Reserved.","typecase"), date('Y') );
+		$welcome				= __("Welcome! Here’s the rundown on using typecase.","typecase");
+		$step_1					= __("Browse or search for fonts in the \"Available Fonts\" box","typecase");
+		$step_2					= sprintf(__("Click the %s icon to add the font to \"Your Collection\"","typecase"),'<span class="add"><span></span></span>');
+		$step_3					= __("Add CSS selectors and font weights in the right column","typecase");
+		$hidehelp_btn			= __("Close &amp; Don't Show Again","typecase");
 
 		$firsttimer = '';
 
@@ -413,7 +413,6 @@ class Typecase {
 		  <span class="arrow-down"></span>
 		  </div><!--/#available-fonts-wrap-->
 		</div><!--/#typecase-->
-		<div class="typecase_copyright">$copyright <a id="upthemes" href="http://upthemes.com">UpThemes</a></div>
 EOT;
 	}
 
@@ -475,7 +474,7 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 
 		}
 	}
-	
+
 	protected function stringify_font_part($parts){
 
 		$parts = explode("|",$parts);
@@ -486,8 +485,8 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 			if( $i == 0 ){
 				$count = 0;
 			}
-			
-			// split font weight into pairs					
+
+			// split font weight into pairs
 			$part = explode('&',$part);
 
 			// assign

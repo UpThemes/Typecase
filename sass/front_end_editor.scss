@@ -141,17 +141,17 @@
     .font-sample {
       height:61px;
     }
-    
+
     &.active{
       display:block;
     }
-    
+
     header{
       border-top-width:0;
       border-left-width:0;
       border-right-width:0;
     }
-    
+
     #available-fonts .content-wrap{
       border:0;
       border-radius:0 0 4px 4px;
@@ -164,7 +164,7 @@
     #available-fonts .font-list {
       overflow:hidden;
     }
-    
+
     .font-list,
     .font-list#loaded-fonts,
     .font-list#search-results{
@@ -224,7 +224,7 @@
     #your-collection .font {
       -moz-box-sizing:content-box;
     }
-  
+
     .arrow-down{
       display:block;
       width:11px;
@@ -241,16 +241,17 @@
       bottom:0;
       right:0;
       left:0;
+      z-index:9999;
     }
 
   }
-  
+
   #available-fonts-wrap{
 
     .arrow-down{
       left:200px;
     }
-    
+
   }
 
   > .typecase-btn{
@@ -266,18 +267,20 @@
     border:1px solid #000;
     box-shadow:0 1px 0 rgba(255,255,255,0.1) inset;
     text-decoration:none;
-    @include background-image(linear-gradient(#303030, #141414));
-    
+    @include background-image(linear-gradient(#666, #444));
+
     &:hover{
-      @include background-image(linear-gradient(#393939, #141414));   
+      @include background-image(linear-gradient(#777, #555));
     }
 
     &:active,
+    &:focus,
     &.active{
       background:#181818;
       box-shadow:0 3px 7px rgba(0,0,0,0.4) inset;
+      outline: none;
     }
-    
+
   }
 
   #your-collection {
@@ -288,13 +291,13 @@
 
   #available-fonts {
     .content-wrap{
-      
+
     }
   }
 
   #available-fonts.searching {
     .content-wrap {
-      
+
     }
   }
 
