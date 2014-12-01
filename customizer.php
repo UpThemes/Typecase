@@ -142,9 +142,12 @@ class Typecase_Customizer extends Typecase {
 	function theme_font_customizer( $wp_customize ) {
 		// get theme font locations
 		$theme_font_locations = $this->get_theme_font_locations();
+		
+		// get typecase fonts
+		$fonts = get_option('typecase_fonts');
 
-		// bail if no theme font locations
-		if( $theme_font_locations === false ){
+		// bail if no theme font locations or typecase fonts
+		if( $theme_font_locations === false || $fonts === false ){
 			return;
 		}
 
@@ -160,9 +163,6 @@ class Typecase_Customizer extends Typecase {
 
 		// placeholder array for typecase font options
 		$font_options = array();
-
-		// get typecase fonts
-		$fonts = get_option('typecase_fonts');
 
 		// loop through typecase font collection
 		foreach($fonts as $font){
