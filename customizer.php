@@ -4,6 +4,28 @@ if ( !defined( 'ABSPATH' ) ){
 	return;
 }
 
+/*
+ * Theme support should be declared for 'typecase'
+ * with a $font_locations array passed as a parameter
+ *
+ * $font_locations should be a multi-dimensional array
+ * and contain 'label', 'selector' and 'default' for each font location
+ *
+ * Example:
+	$font_locations = array(
+		array(
+			'label' => 'Main Title',
+			'selector' => 'h1.entry-title',
+			'default' => 'Lato, sans-serif',
+		),
+		array(
+			'label' => 'Main Content',
+			'selector' => '.entry-content',
+			'default' => 'Lato, sans-serif',
+		),
+	);
+ *
+ */
 class Typecase_Customizer extends Typecase {
 
 	protected $typecase_url = '';
