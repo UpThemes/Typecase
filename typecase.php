@@ -86,6 +86,9 @@ class Typecase {
 		}else{
 			add_action('wp_head',array(&$this,'display_frontend'));
 		}
+
+		add_action('after_setup_theme', array($this, 'customizer_init') );
+
 	}
 
 	/**
@@ -523,6 +526,15 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 			die('Security check failed.');
 		else
 			return true;
+	}
+
+	public function customizer_init(){
+		$customizer_file = dirname(TYPECASE_FILE) . '/customizer.php';
+
+		if( file_exists($customizer_file) ){
+			require_if_theme_supports( 'typecase', dirname(TYPECASE_FILE) . '/customizer.php' );
+		}
+
 	}
 
 }
