@@ -4,6 +4,17 @@ if ( !defined( 'ABSPATH' ) ){
 	return;
 }
 
+function testing(){
+			// get typecase fonts
+		$fonts = get_option( 'typecase_fonts' );
+
+		if( $fonts )
+			echo "AWESEDSDSDASDASDASDASDASDSADA<br>AADWDASDASDASDASDSASADA";
+
+}
+
+add_action( 'wp_head', 'testing' );
+
 /*
  * Theme support should be declared for 'typecase'
  * with a $font_locations array passed as a parameter
@@ -56,7 +67,7 @@ class Typecase_Customizer extends Typecase {
 		// load customizer actions
 		add_action( 'admin_menu', array(&$this, 'theme_font_customizer_menu') );
 		add_action( 'customize_register', array(&$this, 'theme_font_customizer') );
-		add_action('wp_head',array(&$this,'add_selectors'));
+		add_action( 'wp_head',array(&$this,'add_selectors') );
 
 	}
 
@@ -142,12 +153,42 @@ class Typecase_Customizer extends Typecase {
 	function theme_font_customizer( $wp_customize ) {
 		// get theme font locations
 		$theme_font_locations = $this->get_theme_font_locations();
-		
+
 		// get typecase fonts
-		$fonts = get_option('typecase_fonts');
+		$fonts = get_option( 'typecase_fonts' );
 
 		// bail if no theme font locations or typecase fonts
-		if( $theme_font_locations === false || $fonts === false ){
+		if( $theme_font_locations == false || $fonts == false){
+
+			// add theme fonts section to customizer
+			$wp_customize->add_section(
+				'theme_fonts',
+				array(
+					'title' => 'Theme Fonts',
+					'description' => 'Your theme supports Typecase for custom fonts. Before you can add custom fonts, you need to first <a href="' . get_admin_url() . 'admin.php?page=typecase">select font families</a>.',
+					'priority' => 35,
+				)
+			);
+
+			// add the default setting
+			$wp_customize->add_setting(
+				'awesome',
+				array(
+					'default' => Test,
+				)
+			);
+
+			// add select option for font location to theme fonts customzer section
+			$wp_customize->add_control(
+				'awesome',
+				array(
+					'type' => 'select',
+					'label' => 'Test',
+					'section' => 'theme_fonts',
+					// select options are default and what is available in typecase collection
+				)
+			);
+
 			return;
 		}
 
@@ -156,7 +197,7 @@ class Typecase_Customizer extends Typecase {
 			'theme_fonts',
 			array(
 				'title' => 'Theme Fonts',
-				'description' => 'Manage your font collection with <a href="' . get_admin_url() . 'admin.php?page=typecase" target="_blank">Typecase</a>',
+				'description' => 'Make sure to <a href="' . get_admin_url() . 'admin.php?page=typecase" target="_blank">edit available font families</a>.',
 				'priority' => 35,
 			)
 		);
@@ -165,7 +206,7 @@ class Typecase_Customizer extends Typecase {
 		$font_options = array();
 
 		// loop through typecase font collection
-		foreach($fonts as $font){
+		foreach( $fonts as $font ){
 
 			$family = explode("|",$font[0]);
 			$family = $family[0];
