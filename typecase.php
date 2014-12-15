@@ -540,7 +540,7 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 		$customizer_file = dirname( TYPECASE_FILE ) . '/customizer.php';
 
 		if( file_exists( $customizer_file ) ){
-			require_if_theme_supports( 'typecase', dirname( TYPECASE_FILE ) . '/customizer.php' );
+			require_if_theme_supports( 'typecase', $customizer_file );
 		}
 
 	}
@@ -582,31 +582,35 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 
 			case 'twentyten':
 
-				$font_locations = array(
-					array(
-						'label' => 'Main Title',
-						'selector' => 'h2.entry-title',
-						'default' => '"Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif',
-					),
-					array(
-						'label' => 'Content',
-						'selector' => '.entry-content',
+				$font_locations = array(array(
+						'label' => 'Body Copy',
+						'selector' => 'body',
 						'default' => 'Georgia, "Bitstream Charter", serif',
+						'advanced' => false,
 					),
 					array(
 						'label' => 'Headings (H1-H6)',
-						'selector' => '.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6',
+						'selector' => 'h1, h2, h3, h4, h5, h6',
 						'default' => 'Georgia, "Bitstream Charter", serif',
+						'advanced' => false,
+					),
+					array(
+						'label' => 'Article Title',
+						'selector' => 'h1.entry-title',
+						'default' => '"Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif',
+						'advanced' => true,
 					),
 					array(
 						'label' => 'Block Quote',
-						'selector' => '.entry-content blockquote',
+						'selector' => 'blockquote',
 						'default' => 'Georgia, "Bitstream Charter", serif',
+						'advanced' => true,
 					),
 					array(
 						'label' => 'List Items (Bulleted and Numbered)',
-						'selector' => '.entry-content ul, .entry-content ol',
+						'selector' => 'ul, ol',
 						'default' => 'Georgia, "Bitstream Charter", serif',
+						'advanced' => true,
 					),
 				);
 
@@ -616,29 +620,34 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 
 				$font_locations = array(
 					array(
-						'label' => 'Main Title',
-						'selector' => 'h1.entry-title',
+						'label' => 'Body Copy',
+						'selector' => 'body',
 						'default' => '"Helvetica Neue", Helvetica, Arial, sans-serif',
-					),
-					array(
-						'label' => 'Content',
-						'selector' => '.entry-content',
-						'default' => '"Helvetica Neue", Helvetica, Arial, sans-serif',
+						'advanced' => false,
 					),
 					array(
 						'label' => 'Headings (H1-H6)',
-						'selector' => '.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6',
+						'selector' => 'h1, h2, h3, h4, h5, h6',
 						'default' => '"Helvetica Neue", Helvetica, Arial, sans-serif',
+						'advanced' => false,
+					),
+					array(
+						'label' => 'Article Title',
+						'selector' => 'h1.entry-title',
+						'default' => '"Helvetica Neue", Helvetica, Arial, sans-serif',
+						'advanced' => true,
 					),
 					array(
 						'label' => 'Block Quote',
-						'selector' => '.entry-content blockquote',
+						'selector' => 'blockquote',
 						'default' => '"Helvetica Neue", Helvetica, Arial, sans-serif',
+						'advanced' => true,
 					),
 					array(
 						'label' => 'List Items (Bulleted and Numbered)',
-						'selector' => '.entry-content ul, .entry-content ol',
+						'selector' => 'ul, ol',
 						'default' => '"Helvetica Neue", Helvetica, Arial, sans-serif',
+						'advanced' => true,
 					),
 				);
 
@@ -648,29 +657,34 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 
 				$font_locations = array(
 					array(
-						'label' => 'Main Title',
-						'selector' => 'h1.entry-title',
+						'label' => 'Body Copy',
+						'selector' => 'body',
 						'default' => '"Open Sans", Helvetica, Arial, sans-serif',
-					),
-					array(
-						'label' => 'Content',
-						'selector' => '.entry-content',
-						'default' => '"Open Sans", Helvetica, Arial, sans-serif',
+						'advanced' => false,
 					),
 					array(
 						'label' => 'Headings (H1-H6)',
-						'selector' => '.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6',
+						'selector' => 'h1, h2, h3, h4, h5, h6',
 						'default' => '"Open Sans", Helvetica, Arial, sans-serif',
+						'advanced' => false,
+					),
+					array(
+						'label' => 'Article Title',
+						'selector' => 'h1.entry-title',
+						'default' => '"Open Sans", Helvetica, Arial, sans-serif',
+						'advanced' => true,
 					),
 					array(
 						'label' => 'Block Quote',
-						'selector' => '.entry-content blockquote',
+						'selector' => 'blockquote',
 						'default' => '"Open Sans", Helvetica, Arial, sans-serif',
+						'advanced' => true,
 					),
 					array(
 						'label' => 'List Items (Bulleted and Numbered)',
-						'selector' => '.entry-content ul, .entry-content ol',
+						'selector' => 'ul, ol',
 						'default' => '"Open Sans", Helvetica, Arial, sans-serif',
+						'advanced' => true,
 					),
 				);
 
@@ -680,29 +694,34 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 
 				$font_locations = array(
 					array(
-						'label' => 'Main Title',
-						'selector' => 'h1.entry-title',
-						'default' => 'Bitter, Georgia, serif',
-					),
-					array(
-						'label' => 'Content',
-						'selector' => '.entry-content',
+						'label' => 'Body Copy',
+						'selector' => 'body',
 						'default' => '"Source Sans Pro", Helvetica, sans-serif',
+						'advanced' => false,
 					),
 					array(
 						'label' => 'Headings (H1-H6)',
-						'selector' => '.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6',
+						'selector' => 'h1, h2, h3, h4, h5, h6',
 						'default' => 'Bitter, Georgia, serif',
+						'advanced' => false,
+					),
+					array(
+						'label' => 'Article Title',
+						'selector' => 'h1.entry-title',
+						'default' => 'Bitter, Georgia, serif',
+						'advanced' => true,
 					),
 					array(
 						'label' => 'Block Quote',
-						'selector' => '.entry-content blockquote',
+						'selector' => 'blockquote',
 						'default' => '"Source Sans Pro", Helvetica, sans-serif',
+						'advanced' => true,
 					),
 					array(
 						'label' => 'List Items (Bulleted and Numbered)',
-						'selector' => '.entry-content ul, .entry-content ol',
+						'selector' => 'ul, ol',
 						'default' => '"Source Sans Pro", Helvetica, sans-serif',
+						'advanced' => true,
 					),
 				);
 
@@ -712,29 +731,34 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 
 				$font_locations = array(
 					array(
-						'label' => 'Main Title',
-						'selector' => 'h1.entry-title',
+						'label' => 'Body Copy',
+						'selector' => 'body',
 						'default' => 'Lato, sans-serif',
-					),
-					array(
-						'label' => 'Content',
-						'selector' => '.entry-content',
-						'default' => 'Lato, sans-serif',
+						'advanced' => false,
 					),
 					array(
 						'label' => 'Headings (H1-H6)',
-						'selector' => '.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6',
+						'selector' => 'h1, h2, h3, h4, h5, h6',
 						'default' => 'Lato, sans-serif',
+						'advanced' => false,
+					),
+					array(
+						'label' => 'Article Title',
+						'selector' => 'h1.entry-title',
+						'default' => 'Lato, sans-serif',
+						'advanced' => true,
 					),
 					array(
 						'label' => 'Block Quote',
-						'selector' => '.entry-content blockquote',
+						'selector' => 'blockquote',
 						'default' => 'Lato, sans-serif',
+						'advanced' => true,
 					),
 					array(
 						'label' => 'List Items (Bulleted and Numbered)',
-						'selector' => '.entry-content ul, .entry-content ol',
+						'selector' => 'ul, ol',
 						'default' => 'Lato, sans-serif',
+						'advanced' => true,
 					),
 				);
 
@@ -745,29 +769,34 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 
 				$font_locations = array(
 					array(
-						'label' => 'Main Title',
-						'selector' => 'h1.entry-title',
+						'label' => 'Body Copy',
+						'selector' => 'body',
 						'default' => '"Noto Serif", serif',
-					),
-					array(
-						'label' => 'Content',
-						'selector' => '.site-content',
-						'default' => '"Noto Serif", serif',
+						'advanced' => false,
 					),
 					array(
 						'label' => 'Headings (H1-H6)',
-						'selector' => '.site-content h1, .site-content h2, .site-content h3, .site-content h4, .site-content h5, .site-content h6',
+						'selector' => 'h1, h2, h3, h4, h5, h6',
 						'default' => '"Noto Serif", serif',
+						'advanced' => false,
+					),
+					array(
+						'label' => 'Article Title',
+						'selector' => 'h1.entry-title',
+						'default' => '"Noto Serif", serif',
+						'advanced' => true,
 					),
 					array(
 						'label' => 'Block Quote',
-						'selector' => '.site-content blockquote',
+						'selector' => 'blockquote',
 						'default' => '"Noto Serif", serif',
+						'advanced' => true,
 					),
 					array(
 						'label' => 'List Items (Bulleted and Numbered)',
-						'selector' => '.site-content ul, .site-content ol',
+						'selector' => 'ul, ol',
 						'default' => '"Noto Serif", serif',
+						'advanced' => true,
 					),
 				);
 
