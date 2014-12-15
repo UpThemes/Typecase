@@ -740,7 +740,6 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 
 				break;
 
-			/*
 			case 'twentyfifteen':
 
 
@@ -748,32 +747,31 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 					array(
 						'label' => 'Main Title',
 						'selector' => 'h1.entry-title',
-						'default' => 'Lato, sans-serif',
+						'default' => '"Noto Serif", serif',
 					),
 					array(
 						'label' => 'Content',
-						'selector' => '.entry-content',
-						'default' => 'Lato, sans-serif',
+						'selector' => '.site-content',
+						'default' => '"Noto Serif", serif',
 					),
 					array(
 						'label' => 'Headings (H1-H6)',
-						'selector' => '.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6',
-						'default' => 'Lato, sans-serif',
+						'selector' => '.site-content h1, .site-content h2, .site-content h3, .site-content h4, .site-content h5, .site-content h6',
+						'default' => '"Noto Serif", serif',
 					),
 					array(
 						'label' => 'Block Quote',
-						'selector' => '.entry-content blockquote',
-						'default' => 'Lato, sans-serif',
+						'selector' => '.site-content blockquote',
+						'default' => '"Noto Serif", serif',
 					),
 					array(
 						'label' => 'List Items (Bulleted and Numbered)',
-						'selector' => '.entry-content ul, .entry-content ol',
-						'default' => 'Lato, sans-serif',
+						'selector' => '.site-content ul, .site-content ol',
+						'default' => '"Noto Serif", serif',
 					),
 				);
 
 				break;
-			*/
 
 		endswitch;
 
