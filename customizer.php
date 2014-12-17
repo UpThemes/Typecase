@@ -439,9 +439,14 @@ class Typecase_Customizer extends Typecase {
 
 			// stash customizer font
 			$customizer_font = get_theme_mod( $slug, $theme_font_location['default'] );
-
-			// if customizer font is different than the default font AND in the typecase collection
-			if( $customizer_font != $theme_font_location['default'] && in_array( $customizer_font, $font_collection ) ){
+			
+			// skip font if empty (none selected)
+			if( empty( $customizer_font ) ){
+				continue;
+			}
+			
+			// if customizer font is in the typecase collection OR is the default
+			if( in_array( $customizer_font, $font_collection ) || $customizer_font == $theme_font_location['default'] ){
 
 				// add the styles
 				$styles[] = $theme_font_location['selector'] . '{ font-family: "' . $customizer_font . '"; }';
