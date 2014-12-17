@@ -706,34 +706,74 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 				);
 
 				break;
-
+			
 			case 'twentyfourteen':
 
+
 				$font_locations = array(
-					array(
-						'label' => 'Body Copy',
-						'selector' => 'body',
-						'default' => 'Lato, sans-serif',
+					'simple' => array(
+						array(
+							'label' => 'Body Copy',
+							'selector' => 'body',
+							'default' => 'Lato, sans-serif',
+							'description' => 'Applies site-wide to content and sidebar',
+						),
+						array(
+							'label' => 'Headings (H1-H6)',
+							'selector' => 'h1, h2, h3, h4, h5, h6',
+							'default' => 'Lato, sans-serif',
+							'description' => 'Applies site-wide to content and sidebar',
+						),
+						array(
+							'label' => 'Article Title',
+							'selector' => 'h1.entry-title',
+							'default' => 'Lato, sans-serif',
+							'description' => 'Large heading at the top of pages and posts',
+						),
 					),
-					array(
-						'label' => 'Headings (H1-H6)',
-						'selector' => 'h1, h2, h3, h4, h5, h6',
-						'default' => 'Lato, sans-serif',
-					),
-					array(
-						'label' => 'Article Title',
-						'selector' => 'h1.entry-title',
-						'default' => 'Lato, sans-serif',
-					),
-					array(
-						'label' => 'Block Quote',
-						'selector' => 'blockquote',
-						'default' => 'Lato, sans-serif',
-					),
-					array(
-						'label' => 'List Items (Bulleted and Numbered)',
-						'selector' => 'ul, ol',
-						'default' => 'Lato, sans-serif',
+					'advanced' => array(
+						'general' => array(
+							array(
+								'label' => 'Site Title',
+								'selector' => 'h1.site-title',
+								'default' => 'Lato, sans-serif',
+							),
+							array(
+								'label' => 'Site Description',
+								'selector' => 'h2.site-description',
+								'default' => 'Lato, sans-serif',
+							),
+						),
+						'content' => array(
+							array(
+								'label' => 'Article Title',
+								'selector' => 'h1.entry-title',
+								'default' => 'Lato, sans-serif',
+								'description' => 'Large heading at the top of pages and posts',
+							),
+							array(
+								'label' => 'Block Quote',
+								'selector' => 'blockquote',
+								'default' => 'Lato, sans-serif',
+							),
+							array(
+								'label' => 'List Items (Bulleted and Numbered)',
+								'selector' => 'ul, ol',
+								'default' => 'Lato, sans-serif',
+							),
+						),
+						'sidebar' => array(
+							array(
+								'label' => 'Widget Content',
+								'selector' => '.widget',
+								'default' => 'Lato, sans-serif',
+							),
+							array(
+								'label' => 'Widget Titles',
+								'selector' => '.widget-title',
+								'default' => 'Lato, sans-serif',
+							),
+						),
 					),
 				);
 

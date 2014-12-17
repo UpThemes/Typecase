@@ -396,7 +396,7 @@ class Typecase_Customizer extends Typecase {
 			
 			foreach( $theme_font_locations['advanced'] as $section => $theme_font_section_locations ){
 				
-				$all_theme_font_locations = array_merge( $all_theme_font_locations, $theme_font_locations );
+				$all_theme_font_locations = array_merge( $all_theme_font_locations, $theme_font_section_locations );
 				
 			}
 			
@@ -430,7 +430,7 @@ class Typecase_Customizer extends Typecase {
 
 		// stash show advanced
 		$show_advanced = get_theme_mod( 'show_advanced_fonts', false );
-
+		
 		// loop through each theme font location
 		foreach( $all_theme_font_locations as $theme_font_location ){
 
@@ -463,9 +463,7 @@ class Typecase_Customizer extends Typecase {
 	* This outputs the javascript needed to automate the live settings preview.
 	*/
 	public function customizer_live_preview(){
-		wp_enqueue_script( 
-			  'typcase-customizer',  plugins_url( 'scripts/customizer.js', __FILE__ ), array( 'jquery','customize-preview' ), false, true
-		);
+		wp_enqueue_script( 'typcase-customizer',  plugins_url( 'scripts/customizer.js', __FILE__ ), array( 'jquery','customize-preview' ), false, true );
 	}
 
 }
