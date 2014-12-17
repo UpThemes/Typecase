@@ -3,7 +3,7 @@ Contributors: chriswallace,garand
 Donate link: http://upthemes.com/
 Tags: web fonts, typography, font manager
 Requires at least: 3.1
-Tested up to: 3.3.2
+Tested up to: 4.1
 Stable tag: 0.3.4
 License: GPLv2
 
