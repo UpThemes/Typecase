@@ -768,35 +768,75 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 
 
 				$font_locations = array(
-					array(
-						'label' => 'Body Copy',
-						'selector' => 'body',
-						'default' => '"Noto Serif", serif',
-						'advanced' => false,
+					'simple' => array(
+						array(
+							'label' => 'Body Copy',
+							'selector' => 'body',
+							'default' => '"Noto Serif", serif',
+							'description' => 'Applies site-wide to content and sidebar',
+						),
+						array(
+							'label' => 'Headings (H1-H6)',
+							'selector' => 'h1, h2, h3, h4, h5, h6',
+							'default' => '"Noto Serif", serif',
+							'description' => 'Applies site-wide to content and sidebar',
+						),
+						array(
+							'label' => 'Article Title',
+							'selector' => 'h1.entry-title',
+							'default' => '"Noto Serif", serif',
+							'description' => 'Large heading at the top of pages and posts',
+						),
 					),
-					array(
-						'label' => 'Headings (H1-H6)',
-						'selector' => 'h1, h2, h3, h4, h5, h6',
-						'default' => '"Noto Serif", serif',
-						'advanced' => false,
-					),
-					array(
-						'label' => 'Article Title',
-						'selector' => 'h1.entry-title',
-						'default' => '"Noto Serif", serif',
-						'advanced' => true,
-					),
-					array(
-						'label' => 'Block Quote',
-						'selector' => 'blockquote',
-						'default' => '"Noto Serif", serif',
-						'advanced' => true,
-					),
-					array(
-						'label' => 'List Items (Bulleted and Numbered)',
-						'selector' => 'ul, ol',
-						'default' => '"Noto Serif", serif',
-						'advanced' => true,
+					'advanced' => array(
+						'general' => array(
+							array(
+								'label' => 'Site Title',
+								'selector' => '.site-title',
+								'default' => '"Noto Serif", serif',
+								'advanced' => true,
+							),
+							array(
+								'label' => 'Site Description',
+								'selector' => '.site-description',
+								'default' => '"Noto Serif", serif',
+								'advanced' => true,
+							),
+						),
+						'content' => array(
+							array(
+								'label' => 'Article Title',
+								'selector' => 'h1.entry-title',
+								'default' => '"Noto Serif", serif',
+								'description' => 'Large heading at the top of pages and posts',
+							),
+							array(
+								'label' => 'Block Quote',
+								'selector' => 'blockquote',
+								'default' => '"Noto Serif", serif',
+								'advanced' => true,
+							),
+							array(
+								'label' => 'List Items (Bulleted and Numbered)',
+								'selector' => 'ul, ol',
+								'default' => '"Noto Serif", serif',
+								'advanced' => true,
+							),
+						),
+						'sidebar' => array(
+							array(
+								'label' => 'Widget Content',
+								'selector' => '.widget',
+								'default' => '"Noto Serif", serif',
+								'advanced' => true,
+							),
+							array(
+								'label' => 'Widget Titles',
+								'selector' => 'h2.widget-title',
+								'default' => '"Noto Serif", serif',
+								'advanced' => true,
+							),
+						),
 					),
 				);
 
