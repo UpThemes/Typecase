@@ -469,6 +469,7 @@ class Typecase_Customizer extends Typecase {
 	*/
 	public function customizer_live_preview(){
 		wp_enqueue_script( 'typcase-customizer',  plugins_url( 'scripts/customizer.js', __FILE__ ), array( 'jquery','customize-preview' ), false, true );
+		wp_localize_script( 'typcase-customizer',  'WPversion', array( (int) get_bloginfo('version') ) );
 	}
 
 }

@@ -2,6 +2,9 @@
 
 // wait for window load - no iframe ready event (yet)
 jQuery(window).load(function () {
+	
+	// convert WordPress version to int
+	WPversion = parseInt( WPversion.toString() );
 
 	//	stash the wp.customize object
     var api = wp.customize;
@@ -59,14 +62,28 @@ jQuery(window).load(function () {
 
 	// when the theme fonts panel link is clicked
     jQuery('#accordion-panel-theme_fonts').click(function () {
-
-		// open the main subsection
-        api.section('theme_fonts_main').expand({
-
-			// allow multiple sections to be open at a time
-            allowMultiple: true
-
-        });
+		
+		// check if at least version 4.1 wp.customize.section added in 4.1
+		if ( WPversion >= 4.1 ) {
+			
+			// open the main subsection
+			api.section('theme_fonts_main').expand({
+	
+				// allow multiple sections to be open at a time
+				allowMultiple: true
+	
+			});
+			
+		// otherwise if WordPress version is less than 4.1
+		} else{
+			
+			// open main subsection manually
+			jQuery('#accordion-section-theme_fonts_main ul.accordion-section-content').slideDown(function(){
+				// and add CSS open class
+				jQuery('#accordion-section-theme_fonts_main').addClass('open');
+			});
+			
+		}
 
 		// get the show advanced options value
 		var showAdvanced = api.value('show_advanced_fonts')();
