@@ -5,7 +5,7 @@ jQuery(window).load(function () {
 
 	//	stash the wp.customize object
     var api = wp.customize;
-	
+
 	// advanced sections are all subsections except the main section
 	var advancedInputs = jQuery('#accordion-panel-theme_fonts li.control-subsection').not('#accordion-section-theme_fonts_main');
 
@@ -14,18 +14,18 @@ jQuery(window).load(function () {
 	*/
 	function toggleAdvancedFonts( showAdvanced ){
 		if ( showAdvanced ) {
-			
+
 			// remove the hidden class on advanced sections to make them visible
 			advancedInputs.removeClass('hidden');
-			
+
 		} else{
-			
+
 			// add the hidden class on advanced sections to hide them
 			advancedInputs.addClass('hidden');
-			
+
 		}
 	}
-		
+
 	/*
 	* Function to reset advanced font options
 	*/
@@ -33,30 +33,30 @@ jQuery(window).load(function () {
 
 		// if show advanced options is false
 		if ( !showAdvanced ) {
-			
+
 			jQuery('select', advancedInputs).each(function () {
-	
+
 				// get the unique setting slug
 				var slug = jQuery(this).attr('data-customize-setting-link');
-				
+
 				// reset the value in customizer 
 				api.instance(slug).set('');
-				
+
 			});
-			
+
 		}
-		
+
 		// refresh the preview
 		api.previewer.refresh();
 
 	}
-	
+
 	// get the show advanced options value
 	var showAdvanced = api.value('show_advanced_fonts')();
 
 	// reset advanced fonts
 	resetAdvancedFonts( showAdvanced );
-	
+
 	// when the theme fonts panel link is clicked
     jQuery('#accordion-panel-theme_fonts').click(function () {
 
@@ -67,13 +67,13 @@ jQuery(window).load(function () {
             allowMultiple: true
 
         });
-		
+
 		// get the show advanced options value
 		var showAdvanced = api.value('show_advanced_fonts')();
-		
+
 		// show/hide advanced fonts based on preference
 		toggleAdvancedFonts( showAdvanced );
-		
+
     });
 
 	// when show advanced fonts option is changed
@@ -84,7 +84,7 @@ jQuery(window).load(function () {
 
 			// show/hide advanced fonts based on preference
 			toggleAdvancedFonts( showAdvanced );
-			
+
 			// reset advanced fonts
 			resetAdvancedFonts( showAdvanced );
 
