@@ -586,31 +586,26 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 						'label' => 'Body Copy',
 						'selector' => 'body',
 						'default' => 'Georgia, "Bitstream Charter", serif',
-						'advanced' => false,
 					),
 					array(
 						'label' => 'Headings (H1-H6)',
 						'selector' => 'h1, h2, h3, h4, h5, h6',
 						'default' => 'Georgia, "Bitstream Charter", serif',
-						'advanced' => false,
 					),
 					array(
 						'label' => 'Article Title',
 						'selector' => 'h1.entry-title',
 						'default' => '"Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif',
-						'advanced' => true,
 					),
 					array(
 						'label' => 'Block Quote',
 						'selector' => 'blockquote',
 						'default' => 'Georgia, "Bitstream Charter", serif',
-						'advanced' => true,
 					),
 					array(
 						'label' => 'List Items (Bulleted and Numbered)',
 						'selector' => 'ul, ol',
 						'default' => 'Georgia, "Bitstream Charter", serif',
-						'advanced' => true,
 					),
 				);
 
@@ -623,31 +618,26 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 						'label' => 'Body Copy',
 						'selector' => 'body',
 						'default' => '"Helvetica Neue", Helvetica, Arial, sans-serif',
-						'advanced' => false,
 					),
 					array(
 						'label' => 'Headings (H1-H6)',
 						'selector' => 'h1, h2, h3, h4, h5, h6',
 						'default' => '"Helvetica Neue", Helvetica, Arial, sans-serif',
-						'advanced' => false,
 					),
 					array(
 						'label' => 'Article Title',
 						'selector' => 'h1.entry-title',
 						'default' => '"Helvetica Neue", Helvetica, Arial, sans-serif',
-						'advanced' => true,
 					),
 					array(
 						'label' => 'Block Quote',
 						'selector' => 'blockquote',
 						'default' => '"Helvetica Neue", Helvetica, Arial, sans-serif',
-						'advanced' => true,
 					),
 					array(
 						'label' => 'List Items (Bulleted and Numbered)',
 						'selector' => 'ul, ol',
 						'default' => '"Helvetica Neue", Helvetica, Arial, sans-serif',
-						'advanced' => true,
 					),
 				);
 
@@ -660,31 +650,26 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 						'label' => 'Body Copy',
 						'selector' => 'body',
 						'default' => '"Open Sans", Helvetica, Arial, sans-serif',
-						'advanced' => false,
 					),
 					array(
 						'label' => 'Headings (H1-H6)',
 						'selector' => 'h1, h2, h3, h4, h5, h6',
 						'default' => '"Open Sans", Helvetica, Arial, sans-serif',
-						'advanced' => false,
 					),
 					array(
 						'label' => 'Article Title',
 						'selector' => 'h1.entry-title',
 						'default' => '"Open Sans", Helvetica, Arial, sans-serif',
-						'advanced' => true,
 					),
 					array(
 						'label' => 'Block Quote',
 						'selector' => 'blockquote',
 						'default' => '"Open Sans", Helvetica, Arial, sans-serif',
-						'advanced' => true,
 					),
 					array(
 						'label' => 'List Items (Bulleted and Numbered)',
 						'selector' => 'ul, ol',
 						'default' => '"Open Sans", Helvetica, Arial, sans-serif',
-						'advanced' => true,
 					),
 				);
 
@@ -697,31 +682,26 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 						'label' => 'Body Copy',
 						'selector' => 'body',
 						'default' => '"Source Sans Pro", Helvetica, sans-serif',
-						'advanced' => false,
 					),
 					array(
 						'label' => 'Headings (H1-H6)',
 						'selector' => 'h1, h2, h3, h4, h5, h6',
 						'default' => 'Bitter, Georgia, serif',
-						'advanced' => false,
 					),
 					array(
 						'label' => 'Article Title',
 						'selector' => 'h1.entry-title',
 						'default' => 'Bitter, Georgia, serif',
-						'advanced' => true,
 					),
 					array(
 						'label' => 'Block Quote',
 						'selector' => 'blockquote',
 						'default' => '"Source Sans Pro", Helvetica, sans-serif',
-						'advanced' => true,
 					),
 					array(
 						'label' => 'List Items (Bulleted and Numbered)',
 						'selector' => 'ul, ol',
 						'default' => '"Source Sans Pro", Helvetica, sans-serif',
-						'advanced' => true,
 					),
 				);
 
@@ -734,31 +714,26 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 						'label' => 'Body Copy',
 						'selector' => 'body',
 						'default' => 'Lato, sans-serif',
-						'advanced' => false,
 					),
 					array(
 						'label' => 'Headings (H1-H6)',
 						'selector' => 'h1, h2, h3, h4, h5, h6',
 						'default' => 'Lato, sans-serif',
-						'advanced' => false,
 					),
 					array(
 						'label' => 'Article Title',
 						'selector' => 'h1.entry-title',
 						'default' => 'Lato, sans-serif',
-						'advanced' => true,
 					),
 					array(
 						'label' => 'Block Quote',
 						'selector' => 'blockquote',
 						'default' => 'Lato, sans-serif',
-						'advanced' => true,
 					),
 					array(
 						'label' => 'List Items (Bulleted and Numbered)',
 						'selector' => 'ul, ol',
 						'default' => 'Lato, sans-serif',
-						'advanced' => true,
 					),
 				);
 
@@ -794,13 +769,11 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 								'label' => 'Site Title',
 								'selector' => '.site-title',
 								'default' => '"Noto Serif", serif',
-								'advanced' => true,
 							),
 							array(
 								'label' => 'Site Description',
 								'selector' => '.site-description',
 								'default' => '"Noto Serif", serif',
-								'advanced' => true,
 							),
 						),
 						'content' => array(
@@ -814,13 +787,11 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 								'label' => 'Block Quote',
 								'selector' => 'blockquote',
 								'default' => '"Noto Serif", serif',
-								'advanced' => true,
 							),
 							array(
 								'label' => 'List Items (Bulleted and Numbered)',
 								'selector' => 'ul, ol',
 								'default' => '"Noto Serif", serif',
-								'advanced' => true,
 							),
 						),
 						'sidebar' => array(
@@ -828,13 +799,11 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 								'label' => 'Widget Content',
 								'selector' => '.widget',
 								'default' => '"Noto Serif", serif',
-								'advanced' => true,
 							),
 							array(
 								'label' => 'Widget Titles',
 								'selector' => 'h2.widget-title',
 								'default' => '"Noto Serif", serif',
-								'advanced' => true,
 							),
 						),
 					),
