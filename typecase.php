@@ -783,31 +783,41 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 
 
 				$font_locations = array(
+					// array of simple options
 					'simple' => array(
+						// each array is an option
+						// these options are displayed in the main theme fonts panel section
 						array(
+							// the label displayed in customizer
 							'label' => 'Body Copy',
+							// the CSS selector to apply the font to
 							'selector' => 'body',
+							// the default font for the selector
 							'default' => '"Noto Serif", serif',
-							'description' => 'Applies site-wide to content and sidebar',
 						),
 						array(
 							'label' => 'Headings (H1-H6)',
 							'selector' => 'h1, h2, h3, h4, h5, h6',
 							'default' => '"Noto Serif", serif',
-							'description' => 'Applies site-wide to content and sidebar',
 						),
 						array(
 							'label' => 'Article Title',
 							'selector' => 'h1.entry-title',
 							'default' => '"Noto Serif", serif',
-							'description' => 'Large heading at the top of pages and posts',
 						),
 					),
+					// array of advanced options
+					// hidden by default, can be enabled by the user
 					'advanced' => array(
+						// each array is a customizer section in the theme fonts panel
 						'general' => array(
+							// each array is an option within the customizer section
 							array(
+								// the label displayed in customizer
 								'label' => 'Site Title',
+								// the CSS selector to apply the font to
 								'selector' => '.site-title',
+								// the default font for the selector
 								'default' => '"Noto Serif", serif',
 							),
 							array(
