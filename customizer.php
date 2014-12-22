@@ -52,7 +52,7 @@ class Typecase_Customizer extends Typecase {
  	public function __construct() {
 
 		// get theme font locations
-		$this->theme_font_locations = $this->get_theme_font_locations();
+		$theme_font_locations = $this->get_theme_font_locations();
 
 		// bail if no theme font locations
 		if( $theme_font_locations === false ){
