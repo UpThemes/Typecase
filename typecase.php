@@ -51,16 +51,6 @@ class Typecase {
 	protected $nonce_key = '+Y|*Ec/-\s3';
 
 	/**
-	 * PHP 5.3 and lower compatibility
-	 *
-	 * @uses Typecase::__construct()
-	 *
-	 */
-	public function Typecase(){
-		$this->__construct();
-	}
-
-	/**
 	 * Constructor for the Typecase class
 	 *
 	 * Sets up all the appropriate hooks and actions
@@ -92,6 +82,16 @@ class Typecase {
 		add_action('after_setup_theme', array($this, 'customizer_init') );
 
 	}
+	
+	/**
+	 * PHP 5.3 and lower compatibility
+	 *
+	 * @uses Typecase::__construct()
+	 *
+	 */
+	public function Typecase(){
+		$this->__construct();
+	}
 
 	/**
 	 * Initializes the Typecase() class
@@ -102,7 +102,7 @@ class Typecase {
 	 * @uses Typecase()
 	 *
 	 */
-	public function &init() {
+	public static function &init() {
 		static $instance = false;
 
 		if ( !$instance ) {
@@ -567,10 +567,10 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 
 		// get the active theme
 		$active_theme = wp_get_theme();
-
+		
 		// only need the slug
-		$active_theme = $active_theme->template;
-
+		$active_theme = $active_theme->get( 'TextDomain' );
+		
 		// bail if the active theme is not a default theme
 		if( !in_array( $active_theme, $default_themes ) ){
 			return;

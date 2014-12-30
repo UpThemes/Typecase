@@ -2,10 +2,6 @@
 
 class Typecase_Pro extends Typecase {
 
-	public function Typecase(){
-		$this->__construct();
-	}
-
 	/**
 	 * Constructor for the Typecase class
 	 *
@@ -34,6 +30,10 @@ class Typecase_Pro extends Typecase {
 		}
 
 	}
+	
+	public function Typecase(){
+		$this->__construct();
+	}
 
 	/**
 	 * Initializes the Typecase_Pro() class
@@ -44,7 +44,7 @@ class Typecase_Pro extends Typecase {
 	 * @uses Typecase_Pro()
 	 *
 	 */
-	public function &init() {
+	public static function &init() {
 		static $instance = false;
 
 		if ( !$instance ) {

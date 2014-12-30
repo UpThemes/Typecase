@@ -33,12 +33,6 @@ class Typecase_Customizer extends Typecase {
 	protected $font_collection;
 	protected $all_theme_font_locations = array();
 
-	public function Typecase(){
-
-		$this->__construct();
-
-	}
-
 	/**
 	* Constructor for the Typecase class
 	*
@@ -60,10 +54,12 @@ class Typecase_Customizer extends Typecase {
 			return;
 
 		}
+		
+		$this->theme_font_locations = $theme_font_locations;
 
 		// get typecase fonts
 		$fonts = get_option( 'typecase_fonts' );
-
+		
 		// if no fonts in typcase collection
 		if( empty( $fonts ) ){
 
@@ -94,6 +90,12 @@ class Typecase_Customizer extends Typecase {
 		add_action( 'customize_controls_enqueue_scripts', array( &$this, 'customizer_live_preview' ) );
 
 	}
+	
+	public function Typecase(){
+
+		$this->__construct();
+
+	}
 
 	/**
 	* Initializes the Typecase_Customizer() class
@@ -104,7 +106,7 @@ class Typecase_Customizer extends Typecase {
 	* @uses Typecase_Customizer()
 	*
 	*/
-	public function &init() {
+	public static function &init() {
 
 		static $instance = false;
 
@@ -194,7 +196,7 @@ class Typecase_Customizer extends Typecase {
 
 		// get typecase font collection
 		$font_collection = $this->font_collection;
-
+		
 		// bail if no theme font locations or typecase fonts
 		if( $theme_font_locations == false || $font_collection == false ){
 
@@ -212,7 +214,7 @@ class Typecase_Customizer extends Typecase {
 			$wp_customize->add_setting( 
 				'awesome',
 				array( 
-					'default' => Test,
+					'default' => 'Test',
 				)
 			);
 
@@ -381,6 +383,7 @@ class Typecase_Customizer extends Typecase {
 
 		// get theme font locations
 		$theme_font_locations = $this->theme_font_locations;
+		
 		$all_theme_font_locations = array();
 		$has_panel = false;
 		
@@ -422,7 +425,7 @@ class Typecase_Customizer extends Typecase {
 		$font_collection = $this->font_collection;
 
 		// bail if no fonts in collection
-		if( $font_collection == false ){
+		if( $font_collection == false || empty( $all_theme_font_locations ) ){
 			
 			return;
 		
@@ -474,4 +477,4 @@ class Typecase_Customizer extends Typecase {
 
 }
 
-$typecase_get_theme_font_locations = Typecase_Customizer::init();
+$typecase_customizer = Typecase_Customizer::init();
