@@ -12,13 +12,13 @@ if ( ! defined( 'ABSPATH' ) ){
  * and contain 'label', 'selector' and 'default' for each font location
  *
  * Example:
-	$font_locations = array( 
-		array( 
+	$font_locations = array(
+		array(
 			'label' => 'Main Title',
 			'selector' => 'h1.entry-title',
 			'default' => 'Lato, sans-serif',
 		),
-		array( 
+		array(
 			'label' => 'Main Content',
 			'selector' => '.entry-content',
 			'default' => 'Lato, sans-serif',
@@ -54,12 +54,12 @@ class Typecase_Customizer extends Typecase {
 			return;
 
 		}
-		
+
 		$this->theme_font_locations = $theme_font_locations;
 
 		// get typecase fonts
 		$fonts = get_option( 'typecase_fonts' );
-		
+
 		// if no fonts in typcase collection
 		if( empty( $fonts ) ){
 
@@ -90,7 +90,7 @@ class Typecase_Customizer extends Typecase {
 		add_action( 'customize_controls_enqueue_scripts', array( &$this, 'customizer_live_preview' ) );
 
 	}
-	
+
 	public function Typecase(){
 
 		$this->__construct();
@@ -120,7 +120,7 @@ class Typecase_Customizer extends Typecase {
 	}
 
 	/**
-	* Check for theme font location( s ) declarations from
+	* Check for theme font location(s) declarations from
 	* add_theme_support( 'typecase', $font_locations );
 	*
 	* Returns false if no typecase theme support or theme font locations array is not passed
@@ -196,14 +196,14 @@ class Typecase_Customizer extends Typecase {
 
 		// get typecase font collection
 		$font_collection = $this->font_collection;
-		
+
 		// bail if no theme font locations or typecase fonts
 		if( $theme_font_locations == false || $font_collection == false ){
 
 			// add theme fonts section to customizer
-			$wp_customize->add_section( 
+			$wp_customize->add_section(
 				'theme_fonts',
-				array( 
+				array(
 					'title' => 'Theme Fonts',
 					'description' => 'Your theme supports Typecase for custom fonts. Before you can add custom fonts, you need to first <a href="' . get_admin_url() . 'admin.php?page=typecase">select font families</a>.',
 					'priority' => 35,
@@ -211,17 +211,17 @@ class Typecase_Customizer extends Typecase {
 			);
 
 			// add the default setting
-			$wp_customize->add_setting( 
+			$wp_customize->add_setting(
 				'awesome',
-				array( 
+				array(
 					'default' => 'Test',
 				)
 			);
 
 			// add select option for font location to theme fonts customizer section
-			$wp_customize->add_control( 
+			$wp_customize->add_control(
 				'awesome',
-				array( 
+				array(
 					'type' => 'select',
 					'label' => 'Test',
 					'section' => 'theme_fonts',
@@ -242,11 +242,11 @@ class Typecase_Customizer extends Typecase {
 			'title' => 'Theme Fonts',
 			'description' => 'Make sure to <a href="' . get_admin_url() . 'admin.php?page=typecase" target="_blank">edit available font families</a>.',
 		) );
-		
+
 		// add theme fonts section to customizer
-		$wp_customize->add_section( 
+		$wp_customize->add_section(
 			'theme_fonts_main',
-			array( 
+			array(
 				'title' => 'Options',
 				'description' => 'Make sure to <br /><a href="' . get_admin_url() . 'admin.php?page=typecase" target="_blank">edit available font families</a>.',
 				'priority' => 1,
@@ -255,36 +255,36 @@ class Typecase_Customizer extends Typecase {
 		);
 
 		$has_panel = false;
-		
+
 		if( isset( $theme_font_locations['simple'] ) ){
-			
+
 			$this->display_inputs( $theme_font_locations['simple'], $wp_customize );
 			$has_panel = true;
-			
+
 		}
-		
+
 		if( isset( $theme_font_locations['advanced'] ) ){
-			
+
 			foreach( $theme_font_locations['advanced'] as $section => $theme_font_section_locations ){
-				
+
 				// add theme fonts section to customizer
-				$wp_customize->add_section( 
+				$wp_customize->add_section(
 					'theme_fonts_' . $section,
-					array( 
+					array(
 						'title' => ucwords( $section ),
 						'description' => '',
 						'priority' => 10,
 						'panel' => 'theme_fonts',
 					)
 				);
-				
+
 				$this->display_inputs( $theme_font_section_locations, $wp_customize, $section );
 				$has_panel = true;
-				
+
 			}
-			
+
 		}
-			
+
 		if( !$has_panel ){
 			$this->display_inputs( $theme_font_locations, $wp_customize );
 		} else{
@@ -292,7 +292,7 @@ class Typecase_Customizer extends Typecase {
 				'show_advanced_fonts',
 				array( 'transport' => 'postMessage' )
 			);
-	
+
 			$wp_customize->add_control(
 				'show_advanced_fonts',
 				array(
@@ -309,16 +309,16 @@ class Typecase_Customizer extends Typecase {
 	 */
 	public function display_inputs( $font_locations, $wp_customize, $section = 'main', $is_advanced = false ){
 		$i = 1;
-		
+
 		// get typecase font collection
 		$font_collection = $this->font_collection;
-		
+
 		// get show advanced setting
 		$show_advanced = get_theme_mod( 'show_advanced_fonts', false );
-		
+
 		// loop through each theme font location
 		foreach( $font_locations as $i => $font_location ){
-			
+
 			// create a unique slug
 			$slug = sanitize_title( $font_location['label'] );
 
@@ -340,11 +340,11 @@ class Typecase_Customizer extends Typecase {
 				set_theme_mod( $slug, $font_location['default'] );
 
 			}
-			
+
 			// add the default setting
-			$wp_customize->add_setting( 
+			$wp_customize->add_setting(
 				$slug,
-				array( 
+				array(
 					'default' => $font_location['default'],
 				)
 			);
@@ -353,10 +353,10 @@ class Typecase_Customizer extends Typecase {
 				'' => 'Select a Font',
 				$font_location['default'] => $font_location['default'] . ' (default)',
 			);
-			
+
 			$wp_customize->add_control(
 				$slug,
-				array( 
+				array(
 					'label' => $font_location['label'],
 					'type' => 'select',
 					'section' => 'theme_fonts_' . $section,
@@ -383,34 +383,34 @@ class Typecase_Customizer extends Typecase {
 
 		// get theme font locations
 		$theme_font_locations = $this->theme_font_locations;
-		
+
 		$all_theme_font_locations = array();
 		$has_panel = false;
-		
+
 		if( isset( $theme_font_locations['simple'] ) ){
-			
+
 			$all_theme_font_locations = array_merge( $all_theme_font_locations, $theme_font_locations['simple'] );
-			
+
 			$has_panel = true;
-			
+
 		}
-		
+
 		if( isset( $theme_font_locations['advanced'] ) ){
-			
+
 			foreach( $theme_font_locations['advanced'] as $section => $theme_font_section_locations ){
-				
+
 				$all_theme_font_locations = array_merge( $all_theme_font_locations, $theme_font_section_locations );
-				
+
 			}
-			
+
 			$has_panel = true;
-			
+
 		}
-			
+
 		if( !$has_panel ){
 			$all_theme_font_locations = $theme_font_locations;
 		}
-		
+
 		// bail if no theme font locations
 		if( $theme_font_locations === false ){
 
@@ -426,14 +426,14 @@ class Typecase_Customizer extends Typecase {
 
 		// bail if no fonts in collection
 		if( $font_collection == false || empty( $all_theme_font_locations ) ){
-			
+
 			return;
-		
+
 		}
 
 		// stash show advanced
 		$show_advanced = get_theme_mod( 'show_advanced_fonts', false );
-		
+
 		// loop through each theme font location
 		foreach( $all_theme_font_locations as $theme_font_location ){
 
@@ -442,12 +442,12 @@ class Typecase_Customizer extends Typecase {
 
 			// stash customizer font
 			$customizer_font = get_theme_mod( $slug, $theme_font_location['default'] );
-			
+
 			// skip font if empty (none selected)
 			if( empty( $customizer_font ) ){
 				continue;
 			}
-			
+
 			// if customizer font is in the typecase collection OR is the default
 			if( in_array( $customizer_font, $font_collection ) || $customizer_font == $theme_font_location['default'] ){
 
@@ -466,7 +466,7 @@ class Typecase_Customizer extends Typecase {
 
 		}
 	}
-	
+
 	/**
 	* This outputs the javascript needed to automate the live settings preview.
 	*/

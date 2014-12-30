@@ -30,7 +30,7 @@ class Typecase_Pro extends Typecase {
 		}
 
 	}
-	
+
 	public function Typecase(){
 		$this->__construct();
 	}

@@ -82,7 +82,7 @@ class Typecase {
 		add_action('after_setup_theme', array($this, 'customizer_init') );
 
 	}
-	
+
 	/**
 	 * PHP 5.3 and lower compatibility
 	 *
@@ -567,10 +567,10 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 
 		// get the active theme
 		$active_theme = wp_get_theme();
-		
+
 		// only need the slug
 		$active_theme = $active_theme->get( 'TextDomain' );
-		
+
 		// bail if the active theme is not a default theme
 		if( !in_array( $active_theme, $default_themes ) ){
 			return;
@@ -706,9 +706,8 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 				);
 
 				break;
-			
-			case 'twentyfourteen':
 
+			case 'twentyfourteen':
 
 				$font_locations = array(
 					'simple' => array(
@@ -780,7 +779,6 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 				break;
 
 			case 'twentyfifteen':
-
 
 				$font_locations = array(
 					// array of simple options
