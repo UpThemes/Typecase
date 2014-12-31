@@ -79,7 +79,7 @@ class Typecase {
 
 		add_action('after_setup_theme', array($this, 'default_theme_support'), -1 );
 
-		add_action('after_setup_theme', array($this, 'customizer_init') );
+		add_action('after_setup_theme', array($this, 'customizer_init'), 99 );
 
 	}
 
