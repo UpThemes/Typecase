@@ -109,4 +109,8 @@ jQuery(window).load(function () {
 
     });
 
+	jQuery('a.customize-controls-close').click(function(e){
+		window.location.href = jQuery(this).attr('href');
+	});
+
 });
