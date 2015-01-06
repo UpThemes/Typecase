@@ -4,7 +4,7 @@ Contributors: chriswallace,garand,upthemes
 Donate link: http://upthemes.com/
 Tags: web fonts, typography, font manager, type, Google Web Fonts
 Requires at least: 3.1
-Tested up to: 4.0
+Tested up to: 4.1
 Stable tag: 1.0
 License: GPLv2
 
