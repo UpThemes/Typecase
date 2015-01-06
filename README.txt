@@ -1,6 +1,6 @@
 === Typecase Web Fonts ===
 
-Contributors: chriswallace,garand,upthemes
+Contributors: chriswallace,garand,upthemes,andrew.taylor
 Donate link: http://upthemes.com/
 Tags: web fonts, typography, font manager, type, Google Web Fonts
 Requires at least: 3.1
