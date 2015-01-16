@@ -792,6 +792,7 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 							'selector' => 'body',
 							// the default font for the selector
 							'default' => '"Noto Serif", serif',
+							'font-size' => '19',
 						),
 						array(
 							'label' => 'Headings (H1-H6)',
@@ -802,6 +803,7 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 							'label' => 'Article Title',
 							'selector' => 'h1.entry-title',
 							'default' => '"Noto Serif", serif',
+							'font-size' => '39',
 						),
 					),
 					// array of advanced options
@@ -835,11 +837,13 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 								'label' => 'Block Quote',
 								'selector' => 'blockquote',
 								'default' => '"Noto Serif", serif',
+								'font-size' => '22',
 							),
 							array(
 								'label' => 'List Items (Bulleted and Numbered)',
 								'selector' => 'ul, ol',
 								'default' => '"Noto Serif", serif',
+								'font-size' => '19',
 							),
 						),
 						'sidebar' => array(

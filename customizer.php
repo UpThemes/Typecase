@@ -17,11 +17,14 @@ if ( ! defined( 'ABSPATH' ) ){
 			'label' => 'Main Title',
 			'selector' => 'h1.entry-title',
 			'default' => 'Lato, sans-serif',
+			'font-size' => '33',
 		),
 		array(
 			'label' => 'Main Content',
 			'selector' => '.entry-content',
 			'default' => 'Lato, sans-serif',
+			'font-size' => '100',
+			'font-size-unit' => '%',
 		),
 	);
  *
@@ -366,6 +369,31 @@ class Typecase_Customizer extends Typecase {
 				)
 			);
 
+			if( isset( $font_location['font-size'] ) ){
+
+				$wp_customize->add_setting(
+					$slug . '_size',
+					array(
+						'default' => $font_location['font-size'],
+					)
+				);
+
+				$wp_customize->add_control( $slug . '_size', array(
+					'type' => 'range',
+					'priority' => 10,
+					'section' => 'theme_fonts_' . $section,
+					'label' => $font_location['label'] . ' Font Size',
+					'description' => '',
+					'input_attrs' => array(
+						'min' => ( $font_location['font-size'] / 2 ),
+						'max' => ( $font_location['font-size'] * 2 ),
+						'step' => 2,
+					),
+				) );
+
+
+			}
+
 			$i++;
 
 		}
@@ -453,6 +481,22 @@ class Typecase_Customizer extends Typecase {
 
 				// add the styles
 				$styles[] = $theme_font_location['selector'] . '{ font-family: "' . $customizer_font . '"; }';
+
+			}
+
+			if( isset( $theme_font_location['font-size'] ) ){
+
+				$font_size_unit = isset( $theme_font_location['font-size-unit'] ) ? $theme_font_location['font-size-unit'] : 'px';
+
+				// stash customizer font size
+				$customizer_font_size = get_theme_mod( $slug . '_size', $theme_font_location['font-size'] );
+
+				// if the font size isn't the default
+				if( $theme_font_location['font-size'] != $customizer_font_size ){
+
+					$styles[] = $theme_font_location['selector'] . '{ font-size: ' . $customizer_font_size . $font_size_unit . '; }';
+
+				}
 
 			}
 
