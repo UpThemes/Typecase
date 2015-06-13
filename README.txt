@@ -30,7 +30,7 @@ One thing to be aware of is that you must have a working knowledge of CSS and CS
 
 = What If I Don't Understand CSS selectors? =
 
-I would encourage you to learn some CSS. If you don't want to learn CSS, I would encourage you to install [Firebug](http://getfirebug.com/) (for Firefox) or enable the webkit developer tools for [Safari](http://inspectelement.com/didyouknow/enable-safaris-awesome-built-in-development-tools/) or Chrome.
+I would encourage you to learn some CSS. If you don't want to learn CSS, I would encourage you to install [Firebug](http://getfirebug.com) (for Firefox) or enable the webkit developer tools for [Safari](http://inspectelement.com/didyouknow/enable-safaris-awesome-built-in-development-tools) or [Chrome](https://developer.chrome.com/devtools).
 
 Once you install one of these plugins, use the inspector tool to be able to hover over and click on different page elements like h1 (a top-level heading element) or p (a paragraph element).
 
