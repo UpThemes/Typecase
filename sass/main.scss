@@ -1,6 +1,7 @@
 @import "normalize";
 @import "compass/css3";
 @import "compass/utilities/general/clearfix";
+
 @mixin rotate($rotate: $default-rotate, $perspective: false, $only3d: false) {
   $trans: rotate($rotate);
   @if $perspective {
@@ -14,7 +15,8 @@
 
   * {
     -moz-box-sizing: border-box;
-    box-sizing: border-box; *behavior: url(boxsizing.htc);
+    box-sizing: border-box;
+    *behavior: url(boxsizing.htc);
     position: relative;
     vertical-align: middle;
   }
@@ -50,9 +52,11 @@
 		&.primary{
 			border-color:#0b84c2;
     	@include background-image(linear-gradient(#179fe5,#0b84c2));
+
 			&:hover {
 			  @include background-image(linear-gradient(#3ab3f2,#0b84c2));
 			}
+
       &:active {
         box-shadow:none;
         @include background-image(linear-gradient(bottom,#0b84c2,darken(#0b84c2,3%)));
@@ -62,7 +66,7 @@
     &.saving {
       opacity:.5;
     }
-		
+
 		&.large{
 			font-size:14px;
 			padding:9px 13px;
@@ -127,7 +131,7 @@
 				width:136px;
 				text-indent:-9000px;
 				display:inline-block;
-				margin-right:5px;			
+				margin-right:5px;
 			}
 
 			span{
@@ -210,7 +214,7 @@
 
   .font-list {
     background:#fbfbfb;
-    
+
     top:-1px;
     margin-bottom:-1px;
 
@@ -301,7 +305,7 @@
 
           a.delete {
             background-color:#c93e3e;
-            
+
             &:hover {
               box-shadow:0 0 0 1px rgba(#000,.3) inset,
                          0 0 0 5px rgba(#c93e3e,.25);
@@ -370,7 +374,7 @@
         background:#fff;
 
         .font-meta {
-          
+
           .font-name {
             background:transparent;
             @include background-image(linear-gradient(left, rgba(#fff,0) 0%, #fff 20%));
@@ -394,7 +398,7 @@
 
         .font-meta {
           z-index:2;
-          
+
           .font-name {
             background:transparent;
             @include background-image(linear-gradient(left, rgba(#fff,0) 0%, #fff 20%));
@@ -512,7 +516,7 @@
           -moz-transition: all 200ms linear;
           z-index:2;
         }
-        
+
         input#new-selector {
           border-radius:22px;
           border:none;
@@ -595,10 +599,7 @@
 
       input {
         margin-right:5px;
-        width:10px;
-        position:relative;
-        display:inline;
-        top:1px;
+        vertical-align:middle;
       }
     }
   }
@@ -675,7 +676,7 @@
       &#loaded-fonts {height:489px}
 
       .font {
-        
+
         &:last-child {
           border-radius:0;
         }
@@ -872,15 +873,4 @@
 	color: #666;
 	margin: 20px 0 40px 16px;
 	display: block;
-
-	#upthemes{
-		float:right;
-		height:24px;
-		margin:10px 15px 2px;
-		width:106px;
-		text-indent:-9000px;
-		display:inline-block;
-		background-image: url("../images/logo_upthemes.png");
-	}
-
 }
