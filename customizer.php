@@ -351,7 +351,7 @@ class Typecase_Customizer extends Typecase {
 
 			$default = array(
 				'' => 'Select a Font',
-				$font_location['default'] => $font_location['default'] . ' (default)',
+				$font_location['default'] => !empty( $font_location['default_title'] ) ? $font_location['default_title'] : sprintf( esc_html__( '%s (default)', 'typecase' ), $font_location['default'] ),
 			);
 
 			$wp_customize->add_control(
