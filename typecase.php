@@ -456,6 +456,11 @@ EOT;
 					$import_url .= '|';
 
 				$import_url .= str_replace(" ","+",$family).$this->stringify_font_part($weights).$this->stringify_font_part($charsets);
+				
+				// Skip font styles if no selectors are defined
+				if ( empty( $selectors ) ) {
+					continue;
+				}
 
 				$selectors = explode("|",$selectors);
 
