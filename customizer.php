@@ -283,11 +283,6 @@ class Typecase_Customizer extends Typecase {
 
 			}
 
-		}
-
-		if( !$has_panel ){
-			$this->display_inputs( $theme_font_locations, $wp_customize );
-		} else{
 			$wp_customize->add_setting(
 				'show_advanced_fonts',
 				array( 'transport' => 'postMessage' )
@@ -301,6 +296,11 @@ class Typecase_Customizer extends Typecase {
 					'section' => 'theme_fonts_main',
 				)
 			);
+
+		}
+
+		if( !$has_panel ){
+			$this->display_inputs( $theme_font_locations, $wp_customize );
 		}
 
 	}
@@ -351,7 +351,7 @@ class Typecase_Customizer extends Typecase {
 
 			$default = array(
 				'' => 'Select a Font',
-				$font_location['default'] => $font_location['default'] . ' (default)',
+				$font_location['default'] => !empty( $font_location['default_title'] ) ? $font_location['default_title'] : sprintf( esc_html__( '%s (default)', 'typecase' ), $font_location['default'] ),
 			);
 
 			$wp_customize->add_control(
