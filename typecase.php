@@ -438,6 +438,10 @@ EOT;
 	public function display_frontend(){
 		$fonts = get_option('typecase_fonts');
 
+		if ( empty( $fonts ) || !is_array( $fonts ) || !isset( $fonts[0] ) ) {
+			return;
+		}
+
 		if( $fonts[0] ){
 
 			$apiUrl = &$this->api_url;
